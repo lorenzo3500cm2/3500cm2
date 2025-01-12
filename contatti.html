@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contatti</title>
+    <style>
+        body {
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #fff;
+            color: #000;
+        }
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+        }
+        .menu-icon {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            width: 25px;
+            height: 15px;
+            cursor: pointer;
+        }
+        .menu-icon div {
+            background-color: #000;
+            height: 2px;
+            width: 100%;
+            border-radius: 1px;
+        }
+        .menu {
+            display: none; /* Nasconde il menu di default */
+            position: absolute;
+            top: 60px;
+            right: 20px;
+            padding: 0;
+        }
+        .menu a {
+            display: block;
+            padding: 10px 0;
+            text-decoration: none;
+            color: #000; /* Scritte nere */
+            font-size: 1rem;
+        }
+        .menu a:hover {
+            text-decoration: underline; /* Sottolinea al passaggio del mouse */
+        }
+        .content {
+            text-align: center;
+            margin-top: 100px;
+        }
+        .email {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #0077cc;
+        }
+        .email:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div></div> <!-- Spazio vuoto per bilanciare il layout -->
+        <div class="menu-icon" onclick="toggleMenu()">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+
+    <!-- Menu nascosto -->
+    <div class="menu" id="menu">
+        <a href="index.html">Home</a>
+        <a href="pagina.html">Lista Artisti</a>
+        <a href="luoghi.html">Luoghi</a>
+        <a href="contatti.html">Contatti</a>
+    </div>
+
+    <!-- Contenuto della pagina -->
+    <div class="content">
+        <p>Per contattarci, scrivi a:</p>
+        <a href="mailto:3500cm2@gmail.com" class="email">3500cm2@gmail.com</a>
+    </div>
+
+    <script>
+        function toggleMenu() {
+            const menu = document.getElementById('menu');
+            menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
+        }
+    </script>
+</body>
+</html>
