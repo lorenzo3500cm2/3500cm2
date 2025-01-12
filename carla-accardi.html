@@ -78,3 +78,99 @@
     <a href="nicoletta-agostini.html" class="next-artist">&#8594;</a>
 </body>
 </html>
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carla Accardi</title>
+    <style>
+        body {
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #fff;
+            color: #000;
+        }
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            border-bottom: 1px solid #ddd;
+        }
+        .artist-name {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #333;
+        }
+        .menu-icon {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            width: 25px;
+            height: 20px;
+            cursor: pointer;
+        }
+        .menu-icon div {
+            background-color: #000;
+            height: 3px;
+            width: 100%;
+            border-radius: 2px;
+        }
+        .menu {
+            display: none;
+            position: absolute;
+            top: 60px;
+            right: 20px;
+            background: #f4f4f4;
+            border: 1px solid #ddd;
+            padding: 10px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+        .menu a {
+            display: block;
+            margin-bottom: 10px;
+            text-decoration: none;
+            color: #0077cc;
+            font-size: 1rem;
+        }
+        .menu a:hover {
+            color: #005499;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="artist-name">Carla Accardi</div>
+        <div class="menu-icon" onclick="toggleMenu()">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+
+    <div class="menu" id="menu">
+        <a href="pagina.html">Lista Artisti</a>
+        <a href="carla-accardi.html">Luoghi</a>
+        <a href="nicoletta-agostini.html">Contatti</a>
+        <!-- Aggiungi altri link qui -->
+    </div>
+
+    <img src="carla-accardi.jpg" alt="Carla Accardi">
+
+    <div class="description">
+        realizzato nel 2004, distribuito a Rialto Sant'Ambrogio in occasione di Blueroom a Roma
+    </div>
+
+    <a href="nicoletta-agostini.html" class="next-artist">&#8594;</a>
+
+    <script>
+        function toggleMenu() {
+            const menu = document.getElementById('menu');
+            menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
+        }
+    </script>
+</body>
+</html>
