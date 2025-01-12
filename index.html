@@ -11,84 +11,40 @@
             padding: 0;
             background-color: #fff;
             color: #000;
-        }
-        .header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px;
-        }
-        .menu-icon {
             display: flex;
             flex-direction: column;
-            justify-content: space-around;
-            width: 25px;
-            height: 15px;
-            cursor: pointer;
-        }
-        .menu-icon div {
-            background-color: #000;
-            height: 2px;
-            width: 100%;
-            border-radius: 1px;
-        }
-        .menu {
-            display: none; /* Nasconde il menu di default */
-            position: absolute;
-            top: 60px; /* Posiziona il menu sotto le tre strisce */
-            right: 20px;
-            padding: 0;
-        }
-        .menu a {
-            display: block;
-            padding: 10px 0;
-            text-decoration: none;
-            color: #000; /* Scritte nere */
-            font-size: 1rem;
-        }
-        .menu a:hover {
-            text-decoration: underline; /* Sottolinea al passaggio del mouse */
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
         }
         .title {
-            text-align: center;
-            margin: 50px 0 10px 0;
-            font-size: 5rem; /* Titolo molto grande */
+            font-size: 10rem; /* Scritta molto grande */
             font-weight: bold;
+            margin: 0;
         }
         .subtitle {
-            text-align: center;
-            font-size: 1rem; /* Sottotitolo piccolo */
+            font-size: 1.2rem;
             color: #555;
-            margin-bottom: 50px;
+            margin: 10px 0 30px;
+        }
+        .link {
+            font-size: 1.5rem;
+            color: #0077cc;
+            text-decoration: none;
+            margin-top: 20px;
+        }
+        .link:hover {
+            color: #005499;
+            text-decoration: underline;
         }
     </style>
 </head>
 <body>
-    <div class="header">
-        <div></div> <!-- Spazio vuoto per bilanciare il layout -->
-        <div class="menu-icon" onclick="toggleMenu()">
-            <div></div>
-            <div></div>
-            <div></div>
-        </div>
+    <div class="content">
+        <div class="title">3500 cm²</div>
+        <div class="subtitle">a poster project</div>
+        <a href="pagina.html" class="link">Lista Artisti</a>
     </div>
-
-    <!-- Menu nascosto -->
-    <div class="menu" id="menu">
-        <a href="pagina.html">Lista Artisti</a>
-        <a href="luoghi.html">Luoghi</a>
-        <a href="contatti.html">Contatti</a>
-    </div>
-
-    <!-- Titolo e sottotitolo -->
-    <div class="title">3500 cm²</div>
-    <div class="subtitle">a poster project</div>
-
-    <script>
-        function toggleMenu() {
-            const menu = document.getElementById('menu');
-            menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
-        }
-    </script>
 </body>
 </html>
