@@ -3,91 +3,119 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>3500 cm²</title>
-    <link href="https://fonts.googleapis.com/css2?family=Garamond:wght@400&display=swap" rel="stylesheet">
+    <title>Artisti - 3500 cm²</title>
     <style>
         body {
             margin: 0;
-            padding: 0;
-            font-family: 'Garamond', serif;
+            padding: 20px;
+            font-family: Helvetica, Arial, sans-serif;
             background-color: #ffffff;
+            color: #000;
+            line-height: 1.5;
+        }
+
+        .menu-icon {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            cursor: pointer;
             display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 20px;
+            width: 30px;
+            z-index: 1001;
+        }
+
+        .bar {
+            width: 100%;
+            height: 3px;
+            background-color: #000;
+            border-radius: 2px;
+        }
+
+        .menu {
+            display: none;
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 100vh;
+            background-color: rgba(0, 0, 0, 0.9);
+            flex-direction: column;
             justify-content: center;
             align-items: center;
-            height: 100vh;
-            position: relative;
+            z-index: 1000;
         }
 
-        .title {
-            font-size: 8rem;
-            font-weight: 400;
-            color: #000000;
+        .menu.active {
+            display: flex;
+        }
+
+        .menu a {
+            color: #ffffff;
             text-decoration: none;
+            font-size: 1.5rem;
+            margin: 15px 0;
         }
 
-        .title:hover {
-            cursor: pointer;
+        .menu a:hover {
             text-decoration: underline;
         }
 
-  }
-        .menu-icon {
-            display: flex;
-            flex-direction: column;
-            justify-content: space-around;
-            width: 25px;
-            height: 15px;
-            cursor: pointer;
-        }
-        .menu-icon div {
-            background-color: #000;
-            height: 2px;
-            width: 100%;
-            border-radius: 1px;
-        }
-        .menu {
-            display: none; /* Nasconde il menu di default */
-            position: absolute;
-            top: 60px;
-            right: 20px;
-            padding: 0;
-        }
-        .menu a {
-            display: block;
-            padding: 10px 0;
-            text-decoration: none;
-            color: #000; /* Scritte nere */
+        .artists-list {
             font-size: 1rem;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
         }
-        .menu a:hover {
-            text-decoration: underline; /* Sottolinea al passaggio del mouse */
+
+        .artists-list a {
+            text-decoration: none;
+            color: #000;
+        }
+
+        .artists-list a:hover {
+            color: #555;
+        }
+
+        .artists-list span {
+            font-size: 0.9rem;
+            color: #555;
         }
     </style>
 </head>
 <body>
-    <div class="header">
-        <div class="email">
-            <a href="mailto:3500cm2@gmail.com">3500cm2@gmail.com</a>
-        </div>
-        <div class="menu-icon" onclick="toggleMenu()">
-            <div></div>
-            <div></div>
-            <div></div>
-        </div>
+    <div class="menu-icon" onclick="toggleMenu()">
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
     </div>
-
-    <!-- Menu nascosto -->
     <div class="menu" id="menu">
         <a href="index.html">Home</a>
         <a href="pagina.html">Lista Artisti</a>
         <a href="luoghi.html">Luoghi</a>
         <a href="contatti.html">Contatti</a>
     </div>
+    <div class="artists-list">
+        <a href="carla-accardi.html">Carla Accardi</a><span>,</span>
+        <a href="nicoletta-agostini.html">Nicoletta Agostini</a><span>,</span>
+        <a href="maria-thereza-alves.html">Maria Thereza Alves</a><span>,</span>
+        <a href="john-armleder.html">John Armleder</a><span>,</span>
+        <a href="francesco-arena.html">Francesco Arena</a><span>,</span>
+        <a href="mark-bain.html">Mark Bain</a><span>,</span>
+        <a href="kuba-bakowski.html">Kuba Bakowski</a><span>,</span>
+        <a href="massimo-bartolini.html">Massimo Bartolini</a><span>,</span>
+        <a href="nina-beier-marie-lund.html">Nina Beier & Marie Lund</a><span>,</span>
+        <a href="elisabetta-benassi.html">Elisabetta Benassi</a><span>,</span>
+        <!-- Aggiungi altri artisti -->
+        <a href="italo-zuffi.html">Italo Zuffi</a><span>.</span>
+    </div>
 
     <script>
         function toggleMenu() {
             const menu = document.getElementById('menu');
-            menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
+            menu.classList.toggle('active');
         }
     </script>
 </body>
