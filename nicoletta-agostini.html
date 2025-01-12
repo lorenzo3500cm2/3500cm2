@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nicoletta Agostini</title>
+    <style>
+        body {
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #fff;
+            color: #000;
+        }
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            border-bottom: 1px solid #ddd;
+        }
+        .artist-name {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #333;
+        }
+        .back-link {
+            font-size: 1.2rem;
+            font-weight: bold;
+            text-decoration: none;
+            color: #0077cc;
+        }
+        .back-link:hover {
+            color: #005499;
+        }
+        .next-artist {
+            position: absolute;
+            top: 50%;
+            right: 20px;
+            font-size: 2rem;
+            color: #bbb;
+            text-decoration: none;
+            transform: translateY(-50%);
+        }
+        .next-artist:hover {
+            color: #0077cc;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+            margin: 20px auto;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="artist-name">Carla Accardi</div>
+        <a href="pagina.html" class="back-link">3500 cm²</a>
+    </div>
+
+    <img src="carla-accardi.jpg" alt="Carla Accardi">
+
+    <!-- Freccia per passare all'artista successivo -->
+    <a href="nicoletta-agostini.html" class="next-artist">&#8594;</a>
+</body>
+</html>
