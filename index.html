@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home - 3500 cm²</title>
+    <title>3500 cm²</title>
     <style>
         body {
             font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
@@ -17,14 +17,6 @@
             justify-content: space-between;
             align-items: center;
             padding: 20px;
-            border-bottom: 1px solid #ddd;
-            position: relative;
-        }
-        .site-title {
-            font-size: 1.8rem;
-            font-weight: bold;
-            color: #333;
-            text-decoration: none;
         }
         .menu-icon {
             display: flex;
@@ -57,11 +49,23 @@
         .menu a:hover {
             text-decoration: underline; /* Sottolinea al passaggio del mouse */
         }
+        .title {
+            text-align: center;
+            margin: 50px 0 10px 0;
+            font-size: 5rem; /* Titolo molto grande */
+            font-weight: bold;
+        }
+        .subtitle {
+            text-align: center;
+            font-size: 1rem; /* Sottotitolo piccolo */
+            color: #555;
+            margin-bottom: 50px;
+        }
     </style>
 </head>
 <body>
     <div class="header">
-        <a href="index.html" class="site-title">3500 cm²</a>
+        <div></div> <!-- Spazio vuoto per bilanciare il layout -->
         <div class="menu-icon" onclick="toggleMenu()">
             <div></div>
             <div></div>
@@ -76,8 +80,9 @@
         <a href="contatti.html">Contatti</a>
     </div>
 
-    <h1>Benvenuti su 3500 cm²</h1>
-    <p>Questo è il progetto di poster che promuove l'arte contemporanea in diversi luoghi.</p>
+    <!-- Titolo e sottotitolo -->
+    <div class="title">3500 cm²</div>
+    <div class="subtitle">a poster project</div>
 
     <script>
         function toggleMenu() {
