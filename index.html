@@ -8,35 +8,38 @@
         @import url('https://fonts.googleapis.com/css2?family=Bembo&display=swap');
 
         body {
-            font-family: 'Bembo', serif;
             margin: 0;
             padding: 0;
-            background-color: #f9f9f9;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            text-align: center;
+            background-color: #fff;
+            font-family: 'Bembo', serif;
         }
-        h1 a {
-            text-decoration: none;
+
+        header {
+            position: absolute;
+            top: 20px;
+            left: 20px;
             color: #000;
-            font-size: 4rem;
         }
-        h1 a:hover {
-            color: #555; /* Cambia colore al passaggio del mouse */
-        }
-        h2 {
-            font-size: 1rem;
+
+        header h1 {
+            font-size: 6rem;
             margin: 0;
-            color: #666;
+            line-height: 1;
+        }
+
+        header h2 {
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 1.2rem;
+            margin: 0;
+            margin-top: 10px;
+            color: #555;
         }
     </style>
 </head>
 <body>
-    <div>
-        <h1><a href="pagina.html">3500 cm²</a></h1>
+    <header>
+        <h1>3500 cm²</h1>
         <h2>Poster Project</h2>
-    </div>
+    </header>
 </body>
 </html>
