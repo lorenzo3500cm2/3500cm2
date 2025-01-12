@@ -4,12 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>3500 cm²</title>
-    <link href="https://fonts.googleapis.com/css2?family=Garamond:wght@400&display=swap" rel="stylesheet"> <!-- Garamond come alternativa a Bembo -->
+    <link href="https://fonts.googleapis.com/css2?family=Garamond:wght@400&display=swap" rel="stylesheet">
     <style>
         body {
             margin: 0;
             padding: 0;
-            font-family: 'Garamond', serif; /* Usa Bembo se disponibile, altrimenti Garamond */
+            font-family: 'Garamond', serif;
             background-color: #ffffff;
             display: flex;
             justify-content: center;
@@ -19,15 +19,15 @@
         }
 
         .title {
-            font-size: 8rem; /* Dimensione del titolo */
+            font-size: 8rem;
             font-weight: 400;
-            color: #000000; /* Colore nero */
-            text-decoration: none; /* Rimuove la sottolineatura del link */
+            color: #000000;
+            text-decoration: none;
         }
 
         .title:hover {
             cursor: pointer;
-            text-decoration: underline; /* Sottolineatura al passaggio del mouse */
+            text-decoration: underline;
         }
 
         .menu-icon {
@@ -49,15 +49,55 @@
             background-color: #000;
             border-radius: 2px;
         }
+
+        .menu {
+            display: none;
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 100vh;
+            background-color: rgba(0, 0, 0, 0.9);
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .menu.active {
+            display: flex;
+        }
+
+        .menu a {
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 2rem;
+            margin: 15px 0;
+        }
+
+        .menu a:hover {
+            text-decoration: underline;
+        }
     </style>
 </head>
 <body>
-       <!-- Menu nascosto -->
+    <div class="menu-icon" onclick="toggleMenu()">
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+    </div>
     <div class="menu" id="menu">
         <a href="pagina.html">Lista Artisti</a>
         <a href="luoghi.html">Luoghi</a>
-        <a href="contatti.html.html">Contatti</a>
+        <a href="contatti.html">Contatti</a>
     </div>
     <a href="index.html" class="title">3500 cm²</a>
+
+    <script>
+        function toggleMenu() {
+            const menu = document.getElementById('menu');
+            menu.classList.toggle('active');
+        }
+    </script>
 </body>
 </html>
