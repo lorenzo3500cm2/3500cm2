@@ -18,6 +18,11 @@
             align-items: center;
             padding: 20px;
         }
+        .title {
+            font-size: 1.5rem; /* Dimensione leggermente ridotta */
+            color: #000; /* Colore nero */
+            margin: 0;
+        }
         .menu-icon {
             display: flex;
             flex-direction: column;
@@ -44,16 +49,10 @@
             padding: 10px 0;
             text-decoration: none;
             color: #000; /* Scritte nere */
-            font-size: 1rem;
+            font-size: 0.9rem; /* Dimensione leggermente ridotta */
         }
         .menu a:hover {
             text-decoration: underline; /* Sottolinea al passaggio del mouse */
-        }
-        h1 {
-            text-align: left; /* Allinea il titolo a sinistra */
-            margin: 20px;
-            font-size: 2rem;
-            color: #333;
         }
         ul {
             list-style-type: none;
@@ -61,9 +60,9 @@
             margin: 0;
         }
         li {
-            margin-bottom: 15px;
-            font-size: 1.2rem;
-            text-align: left; /* Allinea il testo a sinistra */
+            margin-bottom: 10px;
+            font-size: 1rem; /* Dimensione leggermente ridotta */
+            color: #000; /* Colore nero */
         }
         a {
             text-decoration: none;
@@ -76,7 +75,7 @@
 </head>
 <body>
     <div class="header">
-        <div></div> <!-- Spazio vuoto per bilanciare il layout -->
+        <div class="title">Luoghi</div>
         <div class="menu-icon" onclick="toggleMenu()">
             <div></div>
             <div></div>
@@ -92,13 +91,11 @@
         <a href="contatti.html">Contatti</a>
     </div>
 
-    <h1>Luoghi</h1>
-
     <ul>
         <li>Rialto Sant'Ambrogio, Roma</li>
-        <li>Volume, Roma</li>
+        <li><a href="https://fondazionevolume.com" target="_blank">Fondazione VOLUME!, Roma</a></li>
         <li><a href="https://www.assab-one.org/" target="_blank">Assab One, Milano</a></li>
-        <li>Uqbar, Berlino</li>
+        <li><a href="https://www.projectspace.uqbar-ev.de/" target="_blank">uqbar, Berlino</a></li>
         <li>De Vleeshal, Middelburg</li>
         <li><a href="https://villaada.org/" target="_blank">Villa Ada - Roma Incontra il Mondo</a></li>
         <li><a href="https://www.palazzoesposizioni.it/" target="_blank">Palazzo delle Esposizioni, Roma</a></li>
