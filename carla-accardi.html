@@ -46,11 +46,18 @@
             color: #0077cc;
         }
         img {
-            width: 100%; /* Adatta l'immagine alla larghezza dello schermo */
-            max-height: 90vh; /* Limita l'altezza al 90% dell'altezza dello schermo */
-            object-fit: contain; /* Mantiene le proporzioni dell'immagine */
+            width: 100%;
+            max-height: 90vh;
+            object-fit: contain;
             display: block;
             margin: 20px auto;
+        }
+        .description {
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 1rem;
+            text-align: center;
+            margin: 20px;
+            color: #333;
         }
     </style>
 </head>
@@ -61,6 +68,11 @@
     </div>
 
     <img src="carla-accardi.jpg" alt="Carla Accardi">
+
+    <!-- Testo descrittivo sotto l'immagine -->
+    <div class="description">
+        realizzato nel 2004, distribuito a Rialto Sant'Ambrogio in occasione di Blueroom a Roma
+    </div>
 
     <!-- Freccia per passare all'artista successivo -->
     <a href="nicoletta-agostini.html" class="next-artist">&#8594;</a>
