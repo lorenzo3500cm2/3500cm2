@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>3500 cm²</title>
+    <title>Artisti - 3500 cm²</title>
     <link href="https://fonts.googleapis.com/css2?family=Larish+Neue:wght@400&display=swap" rel="stylesheet">
     <style>
         body {
@@ -11,18 +11,6 @@
             padding: 0;
             font-family: 'Larish Neue', serif;
             background-color: #ffffff;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            position: relative;
-        }
-
-        .title {
-            font-size: 8rem; /* Dimensione del titolo */
-            font-weight: 400;
-            color: #000000; /* Colore nero */
-            text-align: center;
         }
 
         .menu-icon {
@@ -35,6 +23,7 @@
             justify-content: space-between;
             height: 25px;
             width: 30px;
+            z-index: 1001;
         }
 
         .bar {
@@ -43,16 +32,67 @@
             background-color: #000;
             border-radius: 2px;
         }
+
+        .menu {
+            display: none;
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 100vh;
+            background-color: rgba(0, 0, 0, 0.9);
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .menu.active {
+            display: flex;
+        }
+
+        .menu a {
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 2rem;
+            margin: 15px 0;
+        }
+
+        .content {
+            margin-top: 60px;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .title {
+            font-size: 4rem;
+            color: #000000;
+            margin-bottom: 20px;
+        }
     </style>
 </head>
 <body>
-    <div class="menu-icon">
+    <div class="menu-icon" onclick="toggleMenu()">
         <div class="bar"></div>
         <div class="bar"></div>
         <div class="bar"></div>
     </div>
-    <div class="title">
-        3500 cm²
+    <div class="menu" id="menu">
+        <a href="index.html">Home</a>
+        <a href="progetti.html">Progetti</a>
+        <a href="artisti.html">Artisti</a>
+        <a href="contatti.html">Contatti</a>
     </div>
+    <div class="content">
+        <div class="title">Artisti</div>
+        <p>Qui puoi trovare informazioni sui nostri artisti.</p>
+    </div>
+
+    <script>
+        function toggleMenu() {
+            const menu = document.getElementById('menu');
+            menu.classList.toggle('active');
+        }
+    </script>
 </body>
 </html>
