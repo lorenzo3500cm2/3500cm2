@@ -36,36 +36,27 @@
         }
         .menu-icon div {
             background-color: #000;
-            height: 2px; /* Barre sottili */
+            height: 2px;
             width: 100%;
             border-radius: 1px;
         }
         .menu {
-            display: none; /* Menu nascosto di default */
+            display: none; /* Nasconde il menu di default */
             position: absolute;
-            top: 60px; /* Posiziona il menu sotto le tre strisce */
+            top: 60px;
             right: 20px;
-            background-color: #fff;
-            padding: 10px 0;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-            border: 1px solid #ddd;
-            z-index: 10;
+            padding: 0;
         }
         .menu a {
             display: block;
-            padding: 10px 20px;
+            padding: 10px 0;
             text-decoration: none;
-            color: #000;
+            color: #000; /* Scritte nere */
             font-size: 1rem;
         }
         .menu a:hover {
-            background-color: #f4f4f4;
-        }
-        h1 {
-            font-size: 2rem;
-            margin: 20px;
-            color: #000; /* Titolo in nero */
-            text-align: left;
+            background-color: transparent; /* Nessun colore di sfondo al hover */
+            text-decoration: underline; /* Sottolinea al passaggio del mouse */
         }
         img {
             width: 100%;
@@ -98,10 +89,7 @@
         <a href="pagina.html">Lista Artisti</a>
         <a href="luoghi.html">Luoghi</a>
         <a href="nicoletta-agostini.html">Contatti</a>
-        <!-- Aggiungi altri link qui -->
     </div>
-
-    <h1>Carla Accardi</h1>
 
     <img src="carla-accardi.jpg" alt="Carla Accardi">
 
