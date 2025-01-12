@@ -19,90 +19,14 @@
             padding: 20px;
             border-bottom: 1px solid #ddd;
         }
-        .artist-name {
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: #333;
-        }
         .back-link {
-            font-size: 1.2rem;
+            font-size: 1.5rem;
             font-weight: bold;
             text-decoration: none;
             color: #0077cc;
         }
         .back-link:hover {
             color: #005499;
-        }
-        .next-artist {
-            position: absolute;
-            top: 50%;
-            right: 20px;
-            font-size: 2rem;
-            color: #bbb;
-            text-decoration: none;
-            transform: translateY(-50%);
-        }
-        .next-artist:hover {
-            color: #0077cc;
-        }
-        img {
-            width: 100%;
-            max-height: 90vh;
-            object-fit: contain;
-            display: block;
-            margin: 20px auto;
-        }
-        .description {
-            font-family: 'Courier New', Courier, monospace;
-            font-size: 1rem;
-            text-align: left; /* Allinea il testo a sinistra */
-            margin: 20px;
-            color: #333;
-        }
-    </style>
-</head>
-<body>
-    <div class="header">
-        <div class="artist-name">Carla Accardi</div>
-        <a href="pagina.html" class="back-link">3500 cm²</a>
-    </div>
-
-    <img src="carla-accardi.jpg" alt="Carla Accardi">
-
-    <!-- Testo descrittivo allineato a sinistra -->
-    <div class="description">
-        realizzato nel 2004, distribuito a Rialto Sant'Ambrogio in occasione di Blueroom a Roma
-    </div>
-
-    <!-- Freccia per passare all'artista successivo -->
-    <a href="nicoletta-agostini.html" class="next-artist">&#8594;</a>
-</body>
-</html>
-<!DOCTYPE html>
-<html lang="it">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Carla Accardi</title>
-    <style>
-        body {
-            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #fff;
-            color: #000;
-        }
-        .header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px;
-            border-bottom: 1px solid #ddd;
-        }
-        .artist-name {
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: #333;
         }
         .menu-icon {
             display: flex;
@@ -139,11 +63,25 @@
         .menu a:hover {
             color: #005499;
         }
+        img {
+            width: 100%;
+            max-height: 90vh;
+            object-fit: contain;
+            display: block;
+            margin: 20px auto;
+        }
+        .description {
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 1rem;
+            text-align: left;
+            margin: 20px;
+            color: #333;
+        }
     </style>
 </head>
 <body>
     <div class="header">
-        <div class="artist-name">Carla Accardi</div>
+        <a href="pagina.html" class="back-link">3500 cm²</a>
         <div class="menu-icon" onclick="toggleMenu()">
             <div></div>
             <div></div>
