@@ -63,11 +63,18 @@
             text-decoration: underline;
         }
 
+        .artists-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px; /* Spazio tra i link */
+            padding: 20px;
+        }
+
         .artists-list a {
             text-decoration: none;
             color: #000;
             font-size: 1.1rem;
-            line-height: 2;
+            white-space: nowrap; /* Mantiene ogni nome su una sola linea */
         }
 
         .artists-list a:hover {
