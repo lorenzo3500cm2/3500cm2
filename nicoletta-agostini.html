@@ -46,10 +46,11 @@
             color: #0077cc;
         }
         img {
-            max-width: 100%;
-            height: auto;
-            margin: 20px auto;
+            width: 100%; /* Adatta l'immagine alla larghezza dello schermo */
+            max-height: 90vh; /* Limita l'altezza al 90% dell'altezza dello schermo */
+            object-fit: contain; /* Mantiene le proporzioni dell'immagine */
             display: block;
+            margin: 20px auto;
         }
     </style>
 </head>
