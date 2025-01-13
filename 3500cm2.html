@@ -21,15 +21,7 @@
             font-size: 1rem;
             width: calc(100% - 40px); /* Lascia margini laterali */
         }
-    </style>
-</head>
-<body>
-    <div class="text">
-        3500 cm² è un progetto di diffusione di opere d’arte contemporanea a cura di Lorenzo Benedetti. 3500 cm² sono i centimetri quadrati a disposizione di un artista per realizzare un manifesto 50×70cm, a cui è affidato il compito di diffondere il linguaggio dell’arte contemporanea a un pubblico più vasto e più eterogeneo di quello che abitualmente visita le mostre. I poster sono stati offerti in distribuzione gratuita, in diverse centinaia di copie vengono diffusi nel territorio in modo aperto e democratico.<br><br>
-        3500 cm² è una mostra senza confini spaziali e temporali che si sviluppa nel tempo e si diffonde senza controllo, un modo inedito di costruire una piattaforma culturale che amplifica le possibilità comunicative dell’arte, una forma possibile di interazione tra artista e pubblico. Il percorso si sviluppa su due coordinate: l’unicità (l’opera originale creata dall’artista che aderisce al progetto) e la ripetizione (la moltiplicazione dell’opera per tutte le persone che visitano il luogo).<br><br>
-        3500 cm² è un progetto modulare e internazionale che si adatta e si delinea in diverse situazioni: per avviare un dialogo con un pubblico vasto conservando un’alta qualità artistica e creando costantemente nuovi “spettatori/collezionisti” sensibili al linguaggio dell’arte.
-    </div>
-     }
+
         .menu-icon {
             display: flex;
             flex-direction: column;
@@ -37,13 +29,18 @@
             width: 25px;
             height: 15px;
             cursor: pointer;
+            position: absolute;
+            top: 20px;
+            right: 20px;
         }
+
         .menu-icon div {
             background-color: #000;
             height: 2px;
             width: 100%;
             border-radius: 1px;
         }
+
         .menu {
             display: none; /* Nasconde il menu di default */
             position: absolute;
@@ -51,6 +48,7 @@
             right: 20px;
             padding: 0;
         }
+
         .menu a {
             display: block;
             padding: 10px 0;
@@ -58,6 +56,7 @@
             color: #000; /* Scritte nere */
             font-size: 1rem;
         }
+
         .menu a:hover {
             text-decoration: underline; /* Sottolinea al passaggio del mouse */
         }
@@ -78,10 +77,16 @@
     <!-- Menu nascosto -->
     <div class="menu" id="menu">
         <a href="index.html">Home</a>
- 	    <a href="3500cm2.html">3500cm2</a>
+        <a href="3500cm2.html">3500cm2</a>
         <a href="pagina.html">Lista Artisti</a>
         <a href="luoghi.html">Luoghi</a>
         <a href="contatti.html">Contatti</a>
+    </div>
+
+    <div class="text">
+        3500 cm² è un progetto di diffusione di opere d’arte contemporanea a cura di Lorenzo Benedetti. 3500 cm² sono i centimetri quadrati a disposizione di un artista per realizzare un manifesto 50×70cm, a cui è affidato il compito di diffondere il linguaggio dell’arte contemporanea a un pubblico più vasto e più eterogeneo di quello che abitualmente visita le mostre. I poster sono stati offerti in distribuzione gratuita, in diverse centinaia di copie vengono diffusi nel territorio in modo aperto e democratico.<br><br>
+        3500 cm² è una mostra senza confini spaziali e temporali che si sviluppa nel tempo e si diffonde senza controllo, un modo inedito di costruire una piattaforma culturale che amplifica le possibilità comunicative dell’arte, una forma possibile di interazione tra artista e pubblico. Il percorso si sviluppa su due coordinate: l’unicità (l’opera originale creata dall’artista che aderisce al progetto) e la ripetizione (la moltiplicazione dell’opera per tutte le persone che visitano il luogo).<br><br>
+        3500 cm² è un progetto modulare e internazionale che si adatta e si delinea in diverse situazioni: per avviare un dialogo con un pubblico vasto conservando un’alta qualità artistica e creando costantemente nuovi “spettatori/collezionisti” sensibili al linguaggio dell’arte.
     </div>
 
     <script>
@@ -90,6 +95,5 @@
             menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
         }
     </script>
-
 </body>
 </html>
