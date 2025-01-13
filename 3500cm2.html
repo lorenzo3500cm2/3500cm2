@@ -14,20 +14,25 @@
             line-height: 1.6;
         }
 
+        .title {
+            font-size: 3rem; /* Titolo più grande */
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 40px; /* Spazio sotto il titolo */
+        }
+
         .text {
-            position: absolute;
-            top: 20px;
-            left: 20px;
+            margin-top: 100px; /* Sposta il testo più in basso */
             font-size: 1rem;
-            width: calc(100% - 40px); /* Lascia margini laterali */
+            width: calc(100% - 40px); /* Margini laterali */
         }
 
         .menu-icon {
             display: flex;
             flex-direction: column;
             justify-content: space-around;
-            width: 25px;
-            height: 15px;
+            width: 30px;
+            height: 20px;
             cursor: pointer;
             position: absolute;
             top: 20px;
@@ -36,7 +41,7 @@
 
         .menu-icon div {
             background-color: #000;
-            height: 2px;
+            height: 3px;
             width: 100%;
             border-radius: 1px;
         }
@@ -46,12 +51,14 @@
             position: absolute;
             top: 60px;
             right: 20px;
-            padding: 0;
+            background-color: #ffffff;
+            border: 1px solid #ddd;
+            padding: 10px;
         }
 
         .menu a {
             display: block;
-            padding: 10px 0;
+            padding: 5px 0;
             text-decoration: none;
             color: #000; /* Scritte nere */
             font-size: 1rem;
@@ -63,18 +70,17 @@
     </style>
 </head>
 <body>
-    <div class="header">
-        <div class="email">
-            <a href="mailto:3500cm2@gmail.com">3500cm2@gmail.com</a>
-        </div>
-        <div class="menu-icon" onclick="toggleMenu()">
-            <div></div>
-            <div></div>
-            <div></div>
-        </div>
+    <!-- Titolo -->
+    <div class="title">3500 cm²</div>
+
+    <!-- Menu hamburger -->
+    <div class="menu-icon" onclick="toggleMenu()">
+        <div></div>
+        <div></div>
+        <div></div>
     </div>
 
-    <!-- Menu nascosto -->
+    <!-- Menu opzioni -->
     <div class="menu" id="menu">
         <a href="index.html">Home</a>
         <a href="3500cm2.html">3500cm2</a>
@@ -83,6 +89,7 @@
         <a href="contatti.html">Contatti</a>
     </div>
 
+    <!-- Testo -->
     <div class="text">
         3500 cm² è un progetto di diffusione di opere d’arte contemporanea a cura di Lorenzo Benedetti. 3500 cm² sono i centimetri quadrati a disposizione di un artista per realizzare un manifesto 50×70cm, a cui è affidato il compito di diffondere il linguaggio dell’arte contemporanea a un pubblico più vasto e più eterogeneo di quello che abitualmente visita le mostre. I poster sono stati offerti in distribuzione gratuita, in diverse centinaia di copie vengono diffusi nel territorio in modo aperto e democratico.<br><br>
         3500 cm² è una mostra senza confini spaziali e temporali che si sviluppa nel tempo e si diffonde senza controllo, un modo inedito di costruire una piattaforma culturale che amplifica le possibilità comunicative dell’arte, una forma possibile di interazione tra artista e pubblico. Il percorso si sviluppa su due coordinate: l’unicità (l’opera originale creata dall’artista che aderisce al progetto) e la ripetizione (la moltiplicazione dell’opera per tutte le persone che visitano il luogo).<br><br>
