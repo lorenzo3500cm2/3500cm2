@@ -1,1 +1,117 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mostre</title>
+    <style>
+        body {
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #fff;
+            color: #000;
+        }
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            border-bottom: 1px solid #ddd;
+        }
+        .title {
+            font-size: 1.5rem;
+            color: #000; /* Colore nero */
+            margin: 0;
+        }
+        .menu-icon {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            width: 25px;
+            height: 15px;
+            cursor: pointer;
+        }
+        .menu-icon div {
+            background-color: #000;
+            height: 2px;
+            width: 100%;
+            border-radius: 1px;
+        }
+        .menu {
+            display: none; /* Nasconde il menu di default */
+            position: absolute;
+            top: 60px;
+            right: 20px;
+            padding: 0;
+        }
+        .menu a {
+            display: block;
+            padding: 10px 0;
+            text-decoration: none;
+            color: #000; /* Scritte nere */
+            font-size: 1rem;
+        }
+        .menu a:hover {
+            text-decoration: underline; /* Sottolinea al passaggio del mouse */
+        }
+        .content {
+            padding: 20px;
+        }
+        h2 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+        .exhibition {
+            margin-bottom: 20px;
+            font-size: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="title">Mostre</div>
+        <div class="menu-icon" onclick="toggleMenu()">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
 
+    <!-- Menu nascosto -->
+    <div class="menu" id="menu">
+        <a href="index.html">Home</a>
+        <a href="3500cm2.html">3500cm2</a>
+        <a href="pagina.html">Lista Artisti</a>
+        <a href="luoghi.html">Luoghi</a>
+        <a href="mostre.html">Mostre</a>
+        <a href="contatti.html">Contatti</a>
+    </div>
+
+    <div class="content">
+        <div class="exhibition">
+            <h2>American Academy, Roma</h2>
+            <p>Dal 20 ottobre al 02 novembre 2006</p>
+        </div>
+        <div class="exhibition">
+            <h2>Assab One, Milano</h2>
+            <p>Ottobre - Novembre 2006</p>
+        </div>
+        <div class="exhibition">
+            <h2>Palazzo Lantieri, Gorizia</h2>
+            <p></p>
+        </div>
+        <div class="exhibition">
+            <h2>Uqbar, Berlino</h2>
+            <p></p>
+        </div>
+    </div>
+
+    <script>
+        function toggleMenu() {
+            const menu = document.getElementById('menu');
+            menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
+        }
+    </script>
+</body>
+</html>
