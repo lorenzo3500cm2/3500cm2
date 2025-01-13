@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Francesco Arena</title>
+    <title>Laura Palmieri</title>
     <style>
         body {
             font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
@@ -19,7 +19,6 @@
             align-items: center;
             padding: 20px;
             border-bottom: 1px solid #ddd;
-            position: relative;
         }
         .back-link {
             font-size: 1.5rem;
@@ -56,8 +55,7 @@
             font-size: 1rem;
         }
         .menu a:hover {
-            background-color: transparent; /* Nessun colore di sfondo al hover */
-            text-decoration: underline; /* Sottolinea al passaggio del mouse */
+            text-decoration: underline;
         }
         img {
             width: 100%;
@@ -77,16 +75,16 @@
             position: absolute;
             top: 50%;
             transform: translateY(-50%);
-            font-size: 2rem;
+            font-size: 2.5rem;
             color: gray;
             text-decoration: none;
             z-index: 1000;
         }
         .prev-artist {
-            left: 20px;
+            left: 10px;
         }
         .next-artist {
-            right: 20px;
+            right: 10px;
         }
         .prev-artist:hover, .next-artist:hover {
             color: black;
@@ -95,7 +93,7 @@
 </head>
 <body>
     <div class="header">
-        <a href="pagina.html" class="back-link">Francesco Arena</a>
+        <a href="pagina.html" class="back-link">Laura Palmieri</a>
         <div class="menu-icon" onclick="toggleMenu()">
             <div></div>
             <div></div>
@@ -111,15 +109,15 @@
         <a href="contatti.html">Contatti</a>
     </div>
 
-    <img src="francesco-arena.jpg" alt="Francesco Arena">
+    <img src="laura-palmieri.jpg" alt="Laura Palmieri">
 
     <div class="description">
-        2016 Volume! Roma
+        Progetto presentato presso Rialto Sant'Ambrogio, Roma.
     </div>
 
     <!-- Frecce per navigare tra le pagine -->
-    <a href="john-armleder.html" class="prev-artist">&#8592;</a>
-    <a href="mark-bain.html" class="next-artist">&#8594;</a>
+    <a href="giulio-paolini.html" class="prev-artist">&#8592;</a>
+    <a href="federico-pietrella.html" class="next-artist">&#8594;</a>
 
     <script>
         function toggleMenu() {
