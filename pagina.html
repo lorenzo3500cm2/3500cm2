@@ -4,73 +4,84 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Artisti - 3500 cm²</title>
-    <link href="https://fonts.googleapis.com/css2?family=Larish+Neue:wght@400&display=swap" rel="stylesheet">
     <style>
         body {
             margin: 0;
             padding: 20px;
-            font-family: 'Larish Neue', serif;
+            font-family: Helvetica, Arial, sans-serif; /* Font Helvetica */
             background-color: #ffffff;
             color: #000;
-      }
+        }
+
         .menu-icon {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            cursor: pointer;
             display: flex;
             flex-direction: column;
-            justify-content: space-around;
-            width: 25px;
-            height: 15px;
-            cursor: pointer;
+            justify-content: space-between;
+            width: 30px;
+            height: 20px;
+            z-index: 1001;
         }
-        .menu-icon div {
-            background-color: #000;
-            height: 2px;
+
+        .bar {
             width: 100%;
-            border-radius: 1px;
+            height: 3px;
+            background-color: #000;
+            border-radius: 2px;
         }
+
         .menu {
-            display: none; /* Nasconde il menu di default */
+            display: none;
             position: absolute;
             top: 60px;
             right: 20px;
-            padding: 0;
+            flex-direction: column;
+            gap: 10px;
         }
+
+        .menu.active {
+            display: flex;
+        }
+
         .menu a {
-            display: block;
-            padding: 10px 0;
             text-decoration: none;
-            color: #000; /* Scritte nere */
-            font-size: 0.9rem;
+            color: #000;
+            font-size: 1rem;
         }
+
         .menu a:hover {
-            text-decoration: underline; /* Sottolinea al passaggio del mouse */
+            text-decoration: underline;
         }
-        ul {
-            list-style-type: none;
-            padding: 20px;
-            margin: 0;
+
+        .artists-list {
+            font-size: 0.9rem; /* Dimensione compatta */
+            line-height: 1.4; /* Interlinea compatta */
+            margin-top: 60px; /* Spazio sotto il menu */
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
         }
-        li {
-            margin-bottom: 10px;
-            font-size: 1rem; /* Dimensione leggermente ridotta */
-            color: #000; /* Colore nero */
-        }
-        a {
+
+        .artists-list a {
             text-decoration: none;
-            color: #0077cc;
+            color: #000;
         }
-        a:hover {
-            color: #005499;
+
+        .artists-list span {
+            font-size: 0.8rem;
+            color: #555;
         }
     </style>
 </head>
 <body>
-    <div class="header">
-        <div class="title">Luoghi</div>
-        <div class="menu-icon" onclick="toggleMenu()">
-            <div></div>
-            <div></div>
-            <div></div>
-        </div>
+    <!-- Menu hamburger -->
+    <div class="menu-icon" onclick="toggleMenu()">
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
     </div>
 
     <!-- Menu nascosto -->
