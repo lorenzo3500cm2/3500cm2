@@ -21,12 +21,12 @@
         .title {
             font-size: 8rem; /* Dimensione grandissima */
             font-weight: bold;
-            color: #000;
             text-decoration: none;
             position: absolute;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
+            transition: color 0.5s ease, font-family 0.5s ease; /* Transizione fluida */
         }
 
         .menu-icon {
@@ -99,13 +99,26 @@
             menu.classList.toggle('active');
         }
 
-        const fonts = ['Garamond', 'Bembo', 'Helvetica', 'Bodoni', 'Times'];
+        const fontsAndColors = [
+            { font: 'Garamond', color: '#1f77b4' },
+            { font: 'Bembo', color: '#ff7f0e' },
+            { font: 'Helvetica', color: '#2ca02c' },
+            { font: 'Bodoni', color: '#d62728' },
+            { font: 'Times', color: '#9467bd' },
+            { font: 'Courier', color: '#8c564b' },
+            { font: 'Verdana', color: '#e377c2' },
+            { font: 'Georgia', color: '#7f7f7f' },
+            { font: 'Comic Sans MS', color: '#bcbd22' }
+        ];
+
         const title = document.getElementById('title');
-        let currentFontIndex = 0;
+        let currentIndex = 0;
 
         setInterval(() => {
-            title.style.fontFamily = fonts[currentFontIndex];
-            currentFontIndex = (currentFontIndex + 1) % fonts.length;
+            const current = fontsAndColors[currentIndex];
+            title.style.fontFamily = current.font;
+            title.style.color = current.color;
+            currentIndex = (currentIndex + 1) % fontsAndColors.length;
         }, 3000);
     </script>
 </body>
