@@ -15,70 +15,51 @@
         }
 
         .title {
-            font-size: 3rem; /* Titolo più grande */
+            font-size: 8rem; /* Titolo grande */
             font-weight: bold;
             text-align: center;
-            margin-bottom: 40px; /* Spazio sotto il titolo */
+            margin-bottom: 40px;
+            animation: changeFont 3s infinite;
+        }
+
+        @keyframes changeFont {
+            0% { font-family: 'Garamond', serif; color: #000; }
+            20% { font-family: 'Bembo', serif; color: #0077cc; }
+            40% { font-family: 'Helvetica', sans-serif; color: #ff6600; }
+            60% { font-family: 'Bodoni', serif; color: #228b22; }
+            80% { font-family: 'Times New Roman', serif; color: #ff1493; }
+            100% { font-family: 'Courier New', monospace; color: #8b0000; }
         }
 
         .text {
-            margin-top: 100px; /* Sposta il testo più in basso */
+            margin-top: 100px;
             font-size: 1rem;
             width: calc(100% - 40px); /* Margini laterali */
         }
 
-        .menu-icon {
-            display: flex;
-            flex-direction: column;
-            justify-content: space-around;
-            width: 30px;
-            height: 20px;
-            cursor: pointer;
+        .menu {
             position: absolute;
             top: 20px;
             right: 20px;
-        }
-
-        .menu-icon div {
-            background-color: #000;
-            height: 3px;
-            width: 100%;
-            border-radius: 1px;
-        }
-
-        .menu {
-            display: none; /* Nasconde il menu di default */
-            position: absolute;
-            top: 60px;
-            right: 20px;
-            background-color: #ffffff;
-            border: 1px solid #ddd;
-            padding: 10px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
         }
 
         .menu a {
-            display: block;
-            padding: 5px 0;
             text-decoration: none;
             color: #000; /* Scritte nere */
             font-size: 1rem;
         }
 
         .menu a:hover {
-            text-decoration: underline; /* Sottolinea al passaggio del mouse */
+            text-decoration: underline;
         }
     </style>
 </head>
 <body>
     <!-- Titolo -->
     <div class="title">3500 cm²</div>
-
-    <!-- Menu hamburger -->
-    <div class="menu-icon" onclick="toggleMenu()">
-        <div></div>
-        <div></div>
-        <div></div>
-    </div>
 
     <!-- Menu opzioni -->
     <div class="menu" id="menu">
@@ -97,12 +78,5 @@
         3500 cm² è una mostra senza confini spaziali e temporali che si sviluppa nel tempo e si diffonde senza controllo, un modo inedito di costruire una piattaforma culturale che amplifica le possibilità comunicative dell’arte, una forma possibile di interazione tra artista e pubblico. Il percorso si sviluppa su due coordinate: l’unicità (l’opera originale creata dall’artista che aderisce al progetto) e la ripetizione (la moltiplicazione dell’opera per tutte le persone che visitano il luogo).<br><br>
         3500 cm² è un progetto modulare e internazionale che si adatta e si delinea in diverse situazioni: per avviare un dialogo con un pubblico vasto conservando un’alta qualità artistica e creando costantemente nuovi “spettatori/collezionisti” sensibili al linguaggio dell’arte.
     </div>
-
-    <script>
-        function toggleMenu() {
-            const menu = document.getElementById('menu');
-            menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
-        }
-    </script>
 </body>
 </html>
