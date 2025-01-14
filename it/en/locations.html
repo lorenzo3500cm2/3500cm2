@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luoghi</title>
+    <style>
+        body {
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #fff;
+            color: #000;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .title {
+            font-size: 1.5rem;
+            color: #000; /* Colore nero */
+            margin: 0;
+        }
+
+        .language-switch {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-size: 1rem;
+            font-weight: lighter;
+        }
+
+        .language-switch a {
+            margin: 0 10px;
+            text-decoration: none;
+            color: #000;
+        }
+
+        .language-switch a:hover {
+            text-decoration: underline;
+        }
+
+        .menu-icon {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            width: 25px;
+            height: 15px;
+            cursor: pointer;
+        }
+
+        .menu-icon div {
+            background-color: #000;
+            height: 2px;
+            width: 100%;
+            border-radius: 1px;
+        }
+
+        .menu {
+            display: none; /* Nasconde il menu di default */
+            position: absolute;
+            top: 60px;
+            right: 20px;
+        }
+
+        .menu a {
+            display: block;
+            padding: 10px 0;
+            text-decoration: none;
+            color: #000; /* Scritte nere */
+            font-size: 0.9rem;
+        }
+
+        .menu a:hover {
+            text-decoration: underline; /* Sottolinea al passaggio del mouse */
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 20px;
+            margin: 0;
+        }
+
+        li {
+            margin-bottom: 10px;
+            font-size: 1rem; /* Dimensione leggermente ridotta */
+            color: #000; /* Colore nero */
+        }
+
+        a {
+            text-decoration: none;
+            color: #000; /* Nero per i link */
+        }
+
+        a:hover {
+            color: #555; /* Grigio al passaggio del mouse */
+        }
+    </style>
+</head>
+<body>
+    <!-- Switch Lingua -->
+    <div class="language-switch">
+        <a href="it/luoghi.html">IT</a> | <a href="en/luoghi.html">EN</a>
+    </div>
+
+    <div class="header">
+        <div class="title">Luoghi</div>
+        <div class="menu-icon" onclick="toggleMenu()">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+
+    <!-- Menu nascosto -->
+    <div class="menu" id="menu">
+        <a href="index.html">Home</a>
+        <a href="3500cm2.html">3500cm2</a>
+        <a href="pagina.html">Lista Artisti</a>
+        <a href="luoghi.html">Luoghi</a>
+        <a href="mostre.html">Mostre</a>
+        <a href="contatti.html">Contatti</a>
+    </div>
+
+    <ul>
+        <li>Rialto Sant'Ambrogio, Roma</li>
+        <li><a href="https://fondazionevolume.com" target="_blank">Fondazione VOLUME!, Roma</a></li>
+        <li><a href="https://www.radioartemobile.it/evento/camere-5-3500cm2/" target="_blank">RadioArteMobile, Roma</a></li>
+        <!-- Aggiungi altri luoghi qui -->
+    </ul>
+
+    <script>
+        function toggleMenu() {
+            const menu = document.getElementById('menu');
+            menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
+        }
+    </script>
+</body>
+</html>
