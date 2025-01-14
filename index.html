@@ -35,6 +35,25 @@
             100% { font-family: 'Times New Roman', serif; color: #8b0000; }
         }
 
+        .language-switch {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-size: 1rem;
+            font-weight: lighter;
+            font-family: Helvetica, Arial, sans-serif;
+        }
+
+        .language-switch a {
+            margin: 0 10px;
+            text-decoration: none;
+            color: #000;
+        }
+
+        .language-switch a:hover {
+            text-decoration: underline;
+        }
+
         .menu-icon {
             position: absolute;
             top: 20px;
@@ -53,25 +72,6 @@
             height: 3px;
             background-color: #000;
             border-radius: 2px;
-        }
-
-        .language-switch {
-            position: absolute;
-            top: 20px;
-            left: 20px;
-            font-size: 1rem;
-            font-weight: bold;
-            font-family: Helvetica, Arial, sans-serif;
-        }
-
-        .language-switch a {
-            margin: 0 10px;
-            text-decoration: none;
-            color: #000;
-        }
-
-        .language-switch a:hover {
-            text-decoration: underline;
         }
 
         .menu {
@@ -101,51 +101,11 @@
 <body>
     <!-- Lingua -->
     <div class="language-switch">
-        <a href="index_it.html">IT</a> | <a href="index_en.html">EN</a>
+        <a href="it/index.html">IT</a> | <a href="en/index.html">EN</a>
     </div>
 
     <!-- Titolo -->
     <div class="title">3500 cm²</div>
-
-    <!DOCTYPE html>
-<html lang="it">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>3500 cm² - Seleziona Lingua</title>
-    <style>
-        body {
-            font-family: Helvetica, Arial, sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            background-color: #ffffff;
-            color: #000;
-        }
-
-        .language-selector {
-            font-size: 1.5rem;
-        }
-
-        .language-selector a {
-            text-decoration: none;
-            color: #000;
-            margin: 0 10px;
-        }
-
-        .language-selector a:hover {
-            text-decoration: underline;
-        }
-    </style>
-</head>
-<body>
-    <div class="language-selector">
-        <a href="it/index.html">IT</a> | <a href="en/index.html">EN</a>
-    </div>
-</body>
-</html>
 
     <!-- Icona menu -->
     <div class="menu-icon" onclick="toggleMenu()">
