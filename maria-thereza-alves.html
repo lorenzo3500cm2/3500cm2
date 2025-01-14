@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Maria Theresa Alves</title>
+    <title>Maria Thereza Alves</title>
     <style>
         body {
             font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
@@ -11,6 +11,7 @@
             padding: 0;
             background-color: #fff;
             color: #000;
+            position: relative;
         }
         .header {
             display: flex;
@@ -18,50 +19,113 @@
             align-items: center;
             padding: 20px;
             border-bottom: 1px solid #ddd;
-        }
-        .artist-name {
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: #333;
+            position: relative;
         }
         .back-link {
-            font-size: 1.2rem;
+            font-size: 1.5rem;
             font-weight: bold;
             text-decoration: none;
-            color: #0077cc;
+            color: #333;
         }
-        .back-link:hover {
-            color: #005499;
+        .menu-icon {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            width: 25px;
+            height: 15px;
+            cursor: pointer;
         }
-        .next-artist {
+        .menu-icon div {
+            background-color: #000;
+            height: 2px;
+            width: 100%;
+            border-radius: 1px;
+        }
+        .menu {
+            display: none; /* Nasconde il menu di default */
             position: absolute;
-            top: 50%;
+            top: 60px;
             right: 20px;
-            font-size: 2rem;
-            color: #bbb;
-            text-decoration: none;
-            transform: translateY(-50%);
+            padding: 0;
         }
-        .next-artist:hover {
-            color: #0077cc;
+        .menu a {
+            display: block;
+            padding: 10px 0;
+            text-decoration: none;
+            color: #000;
+            font-size: 1rem;
+        }
+        .menu a:hover {
+            background-color: transparent;
+            text-decoration: underline;
         }
         img {
-            max-width: 100%;
-            height: auto;
-            margin: 20px auto;
+            width: 100%;
+            max-height: 90vh;
+            object-fit: contain;
             display: block;
+            margin: 20px auto;
+        }
+        .description {
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 1rem;
+            text-align: left;
+            margin: 20px;
+            color: #333;
+        }
+        .prev-artist, .next-artist {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 2rem;
+            color: gray;
+            text-decoration: none;
+            z-index: 1000;
+        }
+        .prev-artist {
+            left: 20px;
+        }
+        .next-artist {
+            right: 20px;
+        }
+        .prev-artist:hover, .next-artist:hover {
+            color: black;
         }
     </style>
 </head>
 <body>
     <div class="header">
-        <div class="artist-name">Maria Thereza Alvez</div>
-        <a href="pagina.html" class="back-link">3500 cm²</a>
+        <a href="pagina.html" class="back-link">#2 Maria Thereza Alves</a>
+        <div class="menu-icon" onclick="toggleMenu()">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
     </div>
 
-    <img src="maria-thereza-alves.jpg" alt="#29 #65 Maria Thereza Alvez">
+    <!-- Menu nascosto -->
+    <div class="menu" id="menu">
+        <a href="pagina.html">Artisti</a>
+        <a href="3500cm2.html">3500cm2</a>
+        <a href="luoghi.html">Luoghi</a>
+        <a href="contatti.html">Contatti</a>
+    </div>
 
-    <!-- Freccia per passare all'artista successivo -->
+    <img src="maria-thereza-alves.jpg" alt="Maria Thereza Alves">
+
+    <div class="description">
+        Maria Thereza Alves è un'artista contemporanea che esplora temi legati all'ecologia, alla storia coloniale e ai diritti delle comunità indigene.
+    </div>
+
+    <!-- Frecce per navigare tra le pagine -->
+    <a href="stanislao-di-giugno.html" class="prev-artist">&#8592;</a>
     <a href="john-armleder.html" class="next-artist">&#8594;</a>
+
+    <script>
+        function toggleMenu() {
+            const menu = document.getElementById('menu');
+            menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
+        }
+    </script>
 </body>
 </html>
