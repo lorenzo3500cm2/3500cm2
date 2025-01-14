@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="it">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,80 +9,91 @@
             font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #fff;
-            color: #000;
+            background-color: #000; /* Sfondo nero */
+            color: #fff; /* Testo bianco */
+            overflow-x: hidden;
         }
-        .header {
+        .container {
             padding: 20px;
-            border-bottom: 1px solid #ddd;
-        }
-        .header h1 {
-            font-size: 2rem;
-            margin: 0;
+            max-width: 1200px;
+            margin: auto;
         }
         .news-item {
-            margin: 20px;
+            margin-bottom: 40px;
             padding: 20px;
-            border-bottom: 1px solid #ddd;
+            border: 1px solid #444; /* Bordo leggero */
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
-        .news-item h2 {
+        .news-item:hover {
+            transform: scale(1.02); /* Leggera espansione al passaggio del mouse */
+            box-shadow: 0 4px 15px rgba(255, 255, 255, 0.1);
+        }
+        .news-title {
             font-size: 1.5rem;
+            font-weight: bold;
             margin-bottom: 10px;
         }
-        .news-item p {
+        .news-date {
+            font-size: 0.9rem;
+            color: #ccc;
+            margin-bottom: 15px;
+        }
+        .news-description {
             font-size: 1rem;
             line-height: 1.6;
+            color: #ddd;
         }
-        .news-item a {
-            text-decoration: none;
-            color: #0077cc;
-            font-weight: bold;
+        .news-image {
+            width: 100%;
+            max-height: 300px;
+            object-fit: cover;
+            margin-bottom: 15px;
+            border-radius: 5px;
         }
-        .news-item a:hover {
-            text-decoration: underline;
+        .footer {
+            text-align: center;
+            padding: 20px;
+            font-size: 0.8rem;
+            color: #888;
+            border-top: 1px solid #444;
         }
     </style>
 </head>
 <body>
-    <div class="header">
-        <h1>News</h1>
+    <div class="container">
+        <!-- News item 1 -->
+        <div class="news-item">
+            <div class="news-title">Expodemic at Palazzo delle Esposizioni</div>
+            <div class="news-date">7 May - 25 August 2024</div>
+            <img src="expodemic.jpg" alt="Expodemic" class="news-image">
+            <div class="news-description">
+                The Expodemic project explores the transformative power of art during crises, showcasing works from international academies and cultural institutes in Rome. The exhibition will be held at Palazzo delle Esposizioni.
+            </div>
+        </div>
+
+        <!-- News item 2 -->
+        <div class="news-item">
+            <div class="news-title">Exhibition at the Italian Consulate in Paris</div>
+            <div class="news-date">12 March - 15 May 2024</div>
+            <img src="paris-consulate.jpg" alt="Italian Consulate in Paris" class="news-image">
+            <div class="news-description">
+                A unique exhibition highlighting the connection between Italian and French cultures through contemporary art. The event will take place at the Italian Consulate in Paris.
+            </div>
+        </div>
+
+        <!-- News item 3 -->
+        <div class="news-item">
+            <div class="news-title">Roma Expodemic</div>
+            <div class="news-date">Ongoing</div>
+            <img src="roma-expodemic.jpg" alt="Roma Expodemic" class="news-image">
+            <div class="news-description">
+                A series of exhibitions and workshops across Rome, featuring local and international artists, addressing the social impact of epidemics through art and dialogue.
+            </div>
+        </div>
     </div>
 
-    <div class="news-item">
-        <h2>3500cm² Expodemic at Palazzo delle Esposizioni</h2>
-        <p>
-            The <strong>3500cm² Expodemic</strong> project is currently featured at the prestigious Palazzo delle Esposizioni in Rome. This initiative highlights the transformative power of art in times of crisis, presenting a collection of works that examine the effects of epidemics on society, culture, and human connection.
-        </p>
-        <a href="https://www.palazzoesposizioniroma.it/pagina/3500cm2-expodemic" target="_blank">Read more on Palazzo delle Esposizioni &rarr;</a>
-    </div>
-
-    <div class="news-item">
-        <h2>EXPODEMIC – Festival of Foreign Academies and Cultural Institutes</h2>
-        <p><strong>07 May – 25 August 2024</strong></p>
-        <p>Curated by Lorenzo Benedetti in collaboration with Francesca Campana.</p>
-        <p>
-            The exhibition is promoted by Rome's Cultural Affairs Department and the Azienda Speciale Palaexpo. It is organized in conjunction with major institutions, including the <strong>Accademia di Belle Arti di Roma, Villa Medici, British School at Rome, American Academy in Rome, and many others</strong>.
-        </p>
-        <p>
-            <strong>Artists</strong>: Kamrooz Aram, Ane Rodriguez Armendariz, Séverine Ballon, Jacopo Belloni, Alix Boillot, Susanne Brorson, Fatma Bucak, Pedro Luis Cembranos, Zachary Fabri, Hamedine Kane, Kapwani Kiwanga, Bjørn Melhus, Marko Nikodijevic, Tura Oliveira, Estefania Puerta Grisales, Chloé Quenum, Marie Robert, Sarina Scheidegger.
-        </p>
-        <p>For more details, visit the official page of the <a href="https://www.palazzoesposizioniroma.it/pagina/3500cm2-expodemic" target="_blank">EXPODEMIC Festival &rarr;</a>.</p>
-    </div>
-
-    <div class="news-item">
-        <h2>Roma Expodemic</h2>
-        <p>
-            The <strong>Roma Expodemic</strong> project explores the intersection of art, public health, and community engagement. Through a series of exhibitions, workshops, and site-specific installations across Rome, the initiative sheds light on the impact of epidemics on urban spaces and human relationships. It brings together local and international artists to spark dialogue and promote a collective reflection on resilience and recovery.
-        </p>
-        <a href="roma-expodemic.html">Read more &rarr;</a>
-    </div>
-
-    <div class="news-item">
-        <h2>Presentation at Italian Consulate in Paris</h2>
-        <p>
-            The Italian Consulate in Paris hosted the 3500cm2 project by Marinella Senatore and Diego Cibelli. The event was realized during the Giornata del contamporaneo
-        </p>
-        <a href="paris-consulate-exhibition.html">Read more &rarr;</a>
+    <div class="footer">
+        &copy; 2025 3500cm². All rights reserved.
     </div>
 </body>
 </html>
