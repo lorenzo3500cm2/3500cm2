@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luoghi</title>
+    <style>
+        body {
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #fff;
+            color: #000;
+        }
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+        }
+        .title {
+            font-size: 1.5rem;
+            color: #000; /* Colore nero */
+            margin: 0;
+        }
+        .menu-icon {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            width: 25px;
+            height: 15px;
+            cursor: pointer;
+        }
+        .menu-icon div {
+            background-color: #000;
+            height: 2px;
+            width: 100%;
+            border-radius: 1px;
+        }
+        .menu {
+            display: none; /* Nasconde il menu di default */
+            position: absolute;
+            top: 60px;
+            right: 20px;
+            padding: 0;
+        }
+        .menu a {
+            display: block;
+            padding: 10px 0;
+            text-decoration: none;
+            color: #000; /* Scritte nere */
+            font-size: 0.9rem;
+        }
+        .menu a:hover {
+            text-decoration: underline; /* Sottolinea al passaggio del mouse */
+        }
+        ul {
+            list-style-type: none;
+            padding: 20px;
+            margin: 0;
+        }
+        li {
+            margin-bottom: 10px;
+            font-size: 1rem; /* Dimensione leggermente ridotta */
+            color: #000; /* Colore nero */
+        }
+        a {
+            text-decoration: none;
+            color: #000; /* Nero per i link */
+        }
+        a:hover {
+            color: #555; /* Grigio al passaggio del mouse */
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="title">Luoghi</div>
+        <div class="menu-icon" onclick="toggleMenu()">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+
+    <!-- Menu nascosto -->
+    <div class="menu" id="menu">
+        <a href="index.html">Home</a>
+        <a href="3500cm2.html">3500cm2</a>
+        <a href="pagina.html">Lista Artisti</a>
+        <a href="luoghi.html">Luoghi</a>
+        <a href="mostre.html">Mostre</a>
+        <a href="contatti.html">Contatti</a>
+    </div>
+
+    <ul>
+    <li>Rialto Sant'Ambrogio, Roma</li>
+    <li><a href="https://fondazionevolume.com" target="_blank">Fondazione VOLUME!, Roma</a></li>
+    <li><a href="https://www.radioartemobile.it/evento/camere-5-3500cm2/" target="_blank">RadioArteMobile, Roma</a></li>
+    <li><a href="https://www.assab-one.org/" target="_blank">Assab One, Milano</a></li>
+    <li><a href="http://projectspace.uqbar-ev.de/index.php?mact=News,cntnt01,detail,0&cntnt01articleid=22&cntnt01returnid=56" target="_blank">uqbar, Berlino</a></li>
+    <li><a href="https://vleeshal.nl/en" target="_blank">De Vleeshal, Middelburg</a></li>
+    <li>Villa Ada - Roma Incontra il Mondo</li>
+    <li><a href="https://www.palazzoesposizioni.it/" target="_blank">Palazzo delle Esposizioni, Roma</a></li>
+    <li><a href="https://www.aarome.org/" target="_blank">Accademia Americana, Roma</a></li>
+    <li><a href="https://alkatrazgallery.org/" target="_blank">Alkatraz Gallery</a></li>
+    <li><a href="https://www.mglc-lj.si/" target="_blank">27th Bienniale of Graphic Arts, Ljubljana</a></li>
+    <li><a href="https://palazzolantieri.com/" target="_blank">Palazzo Lantieri, Gorizia</a></li>
+    <li><a href="https://www.palazzoesposizioni.it/" target="_blank">Palazzo Esposizioni, Roma</a></li>
+    <li><a href="https://www.aarome.org/" target="_blank">Accademia Americana, Roma</a></li>
+    <li><a href="https://www.villamassimo.de/" target="_blank">Accademia Tedesca Villa Massimo, Roma</a></li>
+    <li><a href="https://www.accademiaspagna.org/" target="_blank">Accademia Reale Spagnola, Roma</a></li>
+    <li><a href="https://www.britishschoolatrome.org.uk/" target="_blank">Accademia Britannica, Roma</a></li>
+    <li><a href="https://instytutpolski.pl/roma/" target="_blank">Istituto Polacco, Roma</a></li>
+    <li><a href="https://www.austriacult.roma.it/" target="_blank">Istituto Austriaco di Cultura, Roma</a></li>
+    <li><a href="http://radioartemobile.it/" target="_blank">Ram RadioArteMobile, Roma</a></li>
+    <li><a href="https://www.villamedici.it/" target="_blank">Accademia di Francia Villa Medici, Roma</a></li>
+    <li><a href="https://www.istitutosvizzero.it/" target="_blank">Istituto Svizzero, Roma</a></li>
+    <li><a href="https://www.danishacademyrome.com/" target="_blank">Accademia di Danimarca, Roma</a></li>
+    <li><a href="https://www.knir.it/" target="_blank">Accademia Olandese, Roma</a></li>
+    <li><a href="https://www.mattatoioroma.it/" target="_blank">Mattatoio, Roma</a></li>
+    <li><a href="https://www.museomacro.it/" target="_blank">Macro, Roma</a></li>
+    <li><a href="https://www.accademiabelleartiroma.it/" target="_blank">Accademia di Belle Arti, Roma</a></li>
+    <li><a href="https://www.sansalvatore.org/" target="_blank">San Salvatore in Lauro, Roma</a></li>
+    <li><a href="https://consparigi.esteri.it/" target="_blank">Consolato d’Italia, Parigi</a></li>
+    </ul>
+
+    <script>
+        function toggleMenu() {
+            const menu = document.getElementById('menu');
+            menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
+        }
+    </script>
+</body>
+</html>
