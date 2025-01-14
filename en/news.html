@@ -3,97 +3,124 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>News - 3500cm²</title>
+    <title>Marinella Senatore</title>
     <style>
         body {
             font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #000; /* Sfondo nero */
-            color: #fff; /* Testo bianco */
-            overflow-x: hidden;
+            background-color: #fff; /* Sfondo bianco */
+            color: #000; /* Testo nero */
+            position: relative;
         }
-        .container {
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
             padding: 20px;
-            max-width: 1200px;
-            margin: auto;
+            border-bottom: 1px solid #ddd;
         }
-        .news-item {
-            margin-bottom: 40px;
-            padding: 20px;
-            border: 1px solid #444; /* Bordo leggero */
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-        .news-item:hover {
-            transform: scale(1.02); /* Leggera espansione al passaggio del mouse */
-            box-shadow: 0 4px 15px rgba(255, 255, 255, 0.1);
-        }
-        .news-title {
+        .back-link {
             font-size: 1.5rem;
             font-weight: bold;
-            margin-bottom: 10px;
+            text-decoration: none;
+            color: #000; /* Link nero */
         }
-        .news-date {
-            font-size: 0.9rem;
-            color: #ccc;
-            margin-bottom: 15px;
+        .menu-icon {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            width: 25px;
+            height: 15px;
+            cursor: pointer;
         }
-        .news-description {
-            font-size: 1rem;
-            line-height: 1.6;
-            color: #ddd;
-        }
-        .news-image {
+        .menu-icon div {
+            background-color: #000;
+            height: 2px;
             width: 100%;
-            max-height: 300px;
-            object-fit: cover;
-            margin-bottom: 15px;
+            border-radius: 1px;
+        }
+        .menu {
+            display: none; /* Nasconde il menu di default */
+            position: absolute;
+            top: 60px;
+            right: 20px;
+            padding: 0;
+        }
+        .menu a {
+            display: block;
+            padding: 10px 0;
+            text-decoration: none;
+            color: #000; /* Link neri */
+            font-size: 1rem;
+        }
+        .menu a:hover {
+            text-decoration: underline;
+        }
+        .content {
+            padding: 20px;
+        }
+        .image-container {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin: 20px 0;
+        }
+        .image-container img {
+            width: 100%;
+            max-width: 300px;
+            height: auto;
+            border: 1px solid #ddd;
             border-radius: 5px;
         }
-        .footer {
-            text-align: center;
-            padding: 20px;
-            font-size: 0.8rem;
-            color: #888;
-            border-top: 1px solid #444;
+        .description {
+            font-size: 1rem;
+            line-height: 1.6;
+            text-align: left;
+            margin: 20px 0;
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <!-- News item 1 -->
-        <div class="news-item">
-            <div class="news-title">Expodemic at Palazzo delle Esposizioni</div>
-            <div class="news-date">7 May - 25 August 2024</div>
-            <img src="expodemic.jpg" alt="Expodemic" class="news-image">
-            <div class="news-description">
-                The Expodemic project explores the transformative power of art during crises, showcasing works from international academies and cultural institutes in Rome. The exhibition will be held at Palazzo delle Esposizioni.
-            </div>
-        </div>
-
-        <!-- News item 2 -->
-        <div class="news-item">
-            <div class="news-title">Exhibition at the Italian Consulate in Paris</div>
-            <div class="news-date">12 March - 15 May 2024</div>
-            <img src="paris-consulate.jpg" alt="Italian Consulate in Paris" class="news-image">
-            <div class="news-description">
-                A unique exhibition highlighting the connection between Italian and French cultures through contemporary art. The event will take place at the Italian Consulate in Paris.
-            </div>
-        </div>
-
-        <!-- News item 3 -->
-        <div class="news-item">
-            <div class="news-title">Roma Expodemic</div>
-            <div class="news-date">Ongoing</div>
-            <img src="roma-expodemic.jpg" alt="Roma Expodemic" class="news-image">
-            <div class="news-description">
-                A series of exhibitions and workshops across Rome, featuring local and international artists, addressing the social impact of epidemics through art and dialogue.
-            </div>
+    <div class="header">
+        <a href="pagina.html" class="back-link">Marinella Senatore</a>
+        <div class="menu-icon" onclick="toggleMenu()">
+            <div></div>
+            <div></div>
+            <div></div>
         </div>
     </div>
 
-    <div class="footer">
-        &copy; 2025 3500cm². All rights reserved.
+    <!-- Menu nascosto -->
+    <div class="menu" id="menu">
+        <a href="pagina.html">Artisti</a>
+        <a href="3500cm2.html">3500cm2</a>
+        <a href="luoghi.html">Luoghi</a>
+        <a href="contatti.html">Contatti</a>
     </div>
+
+    <div class="content">
+        <div class="description">
+            Progetto presentato presso il Consolato Italiano, Parigi, nel 2015.
+        </div>
+
+        <div class="image-container">
+            <!-- Immagini per Parigi -->
+            <img src="cibelli-poster.jpg" alt="Poster di Diego Cibelli">
+            <img src="senatore-poster.jpg" alt="Poster di Marinella Senatore">
+            
+            <!-- Immagini per Roma -->
+            <img src="mullican-poster.jpg" alt="Poster di Matt Mullican">
+            <img src="paolini-poster.jpg" alt="Poster di Giulio Paolini">
+        </div>
+    </div>
+
+    <script>
+        function toggleMenu() {
+            const menu = document.getElementById('menu');
+            menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
+        }
+    </script>
 </body>
 </html>
