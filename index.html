@@ -29,11 +29,6 @@
             transform: translate(-50%, -50%);
         }
 
-        .title:hover {
-            text-decoration: underline;
-            cursor: pointer;
-        }
-
         .menu-icon {
             position: absolute;
             top: 20px;
@@ -96,13 +91,22 @@
     </div>
 
     <!-- Scritta centrale 3500 cm² -->
-    <a href="index.html" class="title">3500 cm²</a>
+    <div class="title" id="title">3500 cm²</div>
 
     <script>
         function toggleMenu() {
             const menu = document.getElementById('menu');
             menu.classList.toggle('active');
         }
+
+        const fonts = ['Garamond', 'Bembo', 'Helvetica', 'Bodoni', 'Times'];
+        const title = document.getElementById('title');
+        let currentFontIndex = 0;
+
+        setInterval(() => {
+            title.style.fontFamily = fonts[currentFontIndex];
+            currentFontIndex = (currentFontIndex + 1) % fonts.length;
+        }, 3000);
     </script>
 </body>
 </html>
