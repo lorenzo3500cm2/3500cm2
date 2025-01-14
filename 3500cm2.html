@@ -14,6 +14,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
+            flex-direction: column;
             height: 100vh;
             overflow: hidden;
         }
@@ -23,6 +24,7 @@
             font-weight: bold;
             text-align: center;
             animation: changeFont 20s infinite;
+            margin-bottom: 20px; /* Spazio sotto il titolo */
         }
 
         @keyframes changeFont {
@@ -49,6 +51,12 @@
             100% { font-family: 'Trebuchet MS', sans-serif; color: #000; }
         }
 
+        .text {
+            font-size: 1rem;
+            max-width: 800px;
+            text-align: center;
+        }
+
         .menu {
             position: absolute;
             top: 20px;
@@ -72,6 +80,15 @@
 <body>
     <!-- Titolo -->
     <div class="title">3500 cm²</div>
+
+    <!-- Testo introduttivo -->
+    <div class="text">
+        3500 cm² è un progetto di diffusione di opere d’arte contemporanea a cura di Lorenzo Benedetti. 
+        3500 cm² sono i centimetri quadrati a disposizione di un artista per realizzare un manifesto 50×70cm, 
+        con l’obiettivo di portare l’arte contemporanea a un pubblico più vasto e variegato rispetto a quello 
+        che frequenta le mostre. I poster vengono distribuiti gratuitamente e diffusi sul territorio in 
+        modo aperto e democratico.
+    </div>
 
     <!-- Menu opzioni -->
     <div class="menu" id="menu">
