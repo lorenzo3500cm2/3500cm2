@@ -11,19 +11,19 @@
             background-color: #ffffff;
             color: #000;
             line-height: 1.6;
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
             display: flex;
-            justify-content: center;
-            align-items: center;
             flex-direction: column;
+            align-items: center;
             height: 100vh;
-            overflow: hidden;
+            overflow-y: auto; /* Permette lo scroll verticale */
         }
 
         .title {
             font-size: 8rem;
             font-weight: bold;
             text-align: center;
-            animation: changeFont 20s infinite;
+            animation: changeFont 10s infinite; /* Animazione più veloce */
             margin-bottom: 20px; /* Spazio sotto il titolo */
         }
 
@@ -55,18 +55,44 @@
             font-size: 1rem;
             max-width: 800px;
             text-align: center;
+            margin-bottom: 40px; /* Spazio sotto il testo */
+        }
+
+        .menu-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            width: 30px;
+            height: 20px;
+            z-index: 1001;
+        }
+
+        .menu-toggle div {
+            width: 100%;
+            height: 3px;
+            background-color: #000;
+            border-radius: 2px;
         }
 
         .menu {
-            position: absolute;
-            top: 20px;
+            display: none;
+            position: fixed;
+            top: 60px;
             right: 20px;
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
+            background: #fff;
+            border: 1px solid #ddd;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 10px;
+            z-index: 1000;
         }
 
         .menu a {
+            display: block;
+            padding: 10px 0;
             text-decoration: none;
             color: #000;
             font-size: 1rem;
@@ -74,6 +100,10 @@
 
         .menu a:hover {
             text-decoration: underline;
+        }
+
+        .menu.active {
+            display: block; /* Mostra il menu quando attivo */
         }
     </style>
 </head>
@@ -90,6 +120,13 @@
         modo aperto e democratico.
     </div>
 
+    <!-- Menu Toggle -->
+    <div class="menu-toggle" onclick="toggleMenu()">
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+
     <!-- Menu opzioni -->
     <div class="menu" id="menu">
         <a href="index.html">home</a>
@@ -100,5 +137,12 @@
         <a href="mostre.html">mostre</a>
         <a href="contatti.html">contatti</a>
     </div>
+
+    <script>
+        function toggleMenu() {
+            const menu = document.getElementById('menu');
+            menu.classList.toggle('active');
+        }
+    </script>
 </body>
 </html>
