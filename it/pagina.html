@@ -5,10 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Artisti - 3500 cm²</title>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400&display=swap'); /* Font simile a Bembo */
+
         body {
             margin: 0;
             padding: 20px;
-            font-family: Helvetica, Arial, sans-serif; /* Font Helvetica */
+            font-family: 'Libre Baskerville', serif; /* Font Bembo-like */
             background-color: #ffffff;
             color: #000;
         }
@@ -57,19 +59,19 @@
         }
 
         .artists-list {
-            font-size: 0.9rem; /* Dimensione compatta */
-            line-height: 1.2; /* Interlinea ridotta */
+            font-size: 1.5rem; /* Testo più grande */
+            line-height: 2; /* Spaziatura maggiore */
             margin-top: 60px; /* Spazio sotto il menu */
-            padding-right: 50px; /* Riserva spazio per il menu */
         }
 
         .artists-list a {
             text-decoration: none;
             color: #000;
+            display: block; /* Ogni nome su una nuova riga */
         }
 
-        .artists-list span {
-            font-size: 0.9rem;
+        .artists-list a:hover {
+            text-decoration: underline;
         }
     </style>
 </head>
@@ -191,7 +193,7 @@
         <a href="italo-zuffi.html">Italo Zuffi</a>.
     </div>
 
-    <script>
+ <script>
         function toggleMenu() {
             const menu = document.getElementById('menu');
             menu.classList.toggle('active');
