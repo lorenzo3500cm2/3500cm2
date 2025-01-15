@@ -20,10 +20,10 @@
         }
 
         .title {
-            font-size: 10rem; /* Aumentata la dimensione del testo */
+            font-size: 10rem;
             font-weight: bold;
             text-align: center;
-            animation: changeFont 10s infinite; /* Animazione più veloce */
+            animation: changeFont 10s infinite; /* Mantiene l'animazione del font */
         }
 
         @keyframes changeFont {
@@ -67,6 +67,30 @@
     </div>
 
     <!-- Titolo -->
-    <div class="title">3500 cm²</div>
+    <div class="title" id="changing-text">3500 cm²</div>
+
+    <script>
+        const texts = [
+            "3500 cm²",
+            "३५०० वर्ग सेंटीमीटर",
+            "٣٥٠٠ سم²",
+            "3500 சதுர செ.மீ.",
+            "3500 చదరపు సెం.మీ",
+            "৩৫০০ বর্গ সেন্টিমিটার",
+            "3500 ಚದರ ಸೆ.ಮೀ",
+            "3500 平方厘米",
+            "3500 ตารางเซนติเมตร"
+        ];
+
+        let index = 0;
+
+        function changeText() {
+            const title = document.getElementById('changing-text');
+            title.textContent = texts[index];
+            index = (index + 1) % texts.length;
+        }
+
+        setInterval(changeText, 2000); // Cambia il testo ogni 2 secondi
+    </script>
 </body>
 </html>
