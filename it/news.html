@@ -3,14 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>News - 3500 cm²</title>
+    <title>News</title>
     <style>
         body {
             font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #fff;
-            color: #000;
+            background-color: #fff; /* Sfondo bianco */
+            color: #000; /* Testo nero */
+            position: relative;
         }
         .header {
             display: flex;
@@ -19,9 +20,11 @@
             padding: 20px;
             border-bottom: 1px solid #ddd;
         }
-        .title {
-            font-size: 2rem;
+        .back-link {
+            font-size: 1.5rem;
             font-weight: bold;
+            text-decoration: none;
+            color: #000; /* Link nero */
         }
         .menu-icon {
             display: flex;
@@ -48,7 +51,7 @@
             display: block;
             padding: 10px 0;
             text-decoration: none;
-            color: #000; /* Scritte nere */
+            color: #000; /* Link neri */
             font-size: 1rem;
         }
         .menu a:hover {
@@ -57,31 +60,30 @@
         .content {
             padding: 20px;
         }
-        .news-item {
-            margin-bottom: 30px;
+        .image-container {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            margin: 20px 0;
         }
-        .news-item h2 {
-            font-size: 1.5rem;
-            color: #333;
-            margin-bottom: 10px;
+        .image-container img {
+            width: 100%;
+            max-width: 300px;
+            height: auto;
+            border: 1px solid #ddd;
+            border-radius: 5px;
         }
-        .news-item p {
+        .text {
             font-size: 1rem;
             line-height: 1.6;
-            color: #555;
-        }
-        .news-item a {
-            color: #1a0dab;
-            text-decoration: none;
-        }
-        .news-item a:hover {
-            text-decoration: underline;
+            margin: 20px 0;
+            text-align: left; /* Testo allineato a sinistra */
         }
     </style>
 </head>
 <body>
     <div class="header">
-        <div class="title">News</div>
+        <a href="pagina.html" class="back-link">News</a>
         <div class="menu-icon" onclick="toggleMenu()">
             <div></div>
             <div></div>
@@ -91,23 +93,48 @@
 
     <!-- Menu nascosto -->
     <div class="menu" id="menu">
-        <a href="index.html">Home</a>
-        <a href="3500cm2.html">3500cm²</a>
-        <a href="pagina.html">Lista Artisti</a>
-        <a href="luoghi.html">Luoghi</a>
-        <a href="news.html">News</a>
-        <a href="contatti.html">Contatti</a>
+        <a href="pagina.html">artists</a>
+        <a href="3500cm2.html">3500cm2</a>
+        <a href="luoghi.html">venues</a>
+        <a href="contatti.html">contact</a>
     </div>
 
     <div class="content">
-        <div class="news-item">
-            <h2>3500 cm² al Consolato Italiano di Parigi - Ottobre</h2>
-            <p>Nel mese di ottobre, il progetto <strong>3500 cm²</strong> è stato presentato al Consolato Italiano di Parigi. L'evento ha visto la partecipazione degli artisti <strong>Marinella Senatore</strong> e <strong>Diego Cibelli</strong>, con l'obiettivo di diffondere il linguaggio dell'arte contemporanea a un pubblico internazionale, creando un dialogo aperto e inclusivo.</p>
+        <!-- Testo Parigi -->
+        <div class="text">
+            <strong>3500 cm²</strong><br>
+            XX Giornata del Contemporaneo<br><br>
+            CONTEMPORALIS partecipa alla Giornata del Contemporaneo, la giornata italiana dedicata all’arte contemporanea.
+            <br><br>
+            In occasione della ventesima edizione della GDC, CONTEMPORALIS presenta 3500 cm², un progetto che quest’anno festeggia il suo ventesimo anniversario. 3500 cm² è un progetto di diffusione di opere d’arte contemporanea curato da Lorenzo Benedetti. 3500 cm² sono i centimetri quadrati messi a disposizione di un artista per realizzare un poster di 50×70 cm, la cui missione è diffondere il linguaggio dell’arte contemporanea a un pubblico più ampio ed eterogeneo.
+            <br><br>
+            Martedì 15 ottobre, CONTEMPORALIS ha inoltre organizzato una conferenza sull’arte contemporanea presso il Consolato d’Italia a Parigi, moderata da Maddalena Labricciosa, giornalista RAI, esperta d’arte – TG1, con la partecipazione di Lorenzo Benedetti, condirettore della Fondazione Ratti Art-Lab e ideatore e curatore del progetto 3500 cm², Marinella Senatore, artista, e Diego Cibelli, artista in diretta streaming da Napoli. Per l’occasione sono stati distribuiti gratuitamente i manifesti degli artisti italiani Marinella Senatore e Diego Cibelli.
         </div>
 
-        <div class="news-item">
-            <h2>Expodemic al Palazzo delle Esposizioni - Maggio</h2>
-            <p>Lo scorso maggio, il progetto <strong>Expodemic</strong> ha ospitato una serie di poster unici realizzati per <strong>3500 cm²</strong> al <strong>Palazzo delle Esposizioni</strong> di Roma. L'iniziativa ha trasformato gli spazi espositivi in un luogo di incontro tra artisti e pubblico, offrendo un'esperienza artistica senza confini.</p>
+        <!-- Immagini Parigi -->
+        <div class="image-container">
+            <a href="marinella-senatore.html">
+                <img src="marinella-senatore.jpg" alt="Marinella Senatore">
+            </a>
+            <a href="diego-cibelli.html">
+                <img src="diego-cibelli.jpg" alt="Diego Cibelli">
+            </a>
+        </div>
+
+        <!-- Testo Roma -->
+        <div class="text">
+            <strong>Rome 2024</strong><br>
+            Presentazione dei poster di Matt Mullican e Giulio Paolini.
+        </div>
+
+        <!-- Immagini Roma -->
+        <div class="image-container">
+            <a href="matt-mullican.html">
+                <img src="matt-mullican.jpg" alt="Matt Mullican">
+            </a>
+            <a href="giulio-paolini.html">
+                <img src="giulio-paolini.jpg" alt="Giulio Paolini">
+            </a>
         </div>
     </div>
 
