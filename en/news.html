@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>news</title>
+    <title>News</title>
     <style>
         body {
             font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
@@ -63,7 +63,6 @@
         .image-container {
             display: flex;
             gap: 20px;
-            flex-wrap: wrap;
             justify-content: center;
             margin: 20px 0;
         }
@@ -75,10 +74,10 @@
             border-radius: 5px;
         }
         .description {
-            font-size: 1rem;
-            line-height: 1.6;
-            text-align: left;
-            margin: 20px 0;
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin: 20px 0 10px;
+            text-align: center;
         }
     </style>
 </head>
@@ -101,24 +100,18 @@
     </div>
 
     <div class="content">
-        <div class="description">
-            Paris 2024
-        </div>
-
+        <!-- Sezione Parigi -->
+        <div class="description">Paris 2024</div>
         <div class="image-container">
-            <!-- Immagini per Parigi -->
             <img src="diego-cibelli.jpg" alt="Diego Cibelli">
             <img src="marinella-senatore.jpg" alt="Marinella Senatore">
-
-        <div class="content">
-        <div class="description">
-            Rome 2024
         </div>
 
-            
-            <!-- Immagini per Roma -->
-            <img src="matt-mullican.jpg" alt="Poster di Matt Mullican">
-            <img src="giulio-paolini.jpg" alt="Poster di Giulio Paolini">
+        <!-- Sezione Roma -->
+        <div class="description">Rome 2024</div>
+        <div class="image-container">
+            <img src="matt-mullican.jpg" alt="Matt Mullican">
+            <img src="giulio-paolini.jpg" alt="Giulio Paolini">
         </div>
     </div>
 
