@@ -9,87 +9,72 @@
             font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #fff; /* Sfondo bianco */
-            color: #000; /* Testo nero */
-            position: relative;
+            background-color: #fff;
+            color: #000;
         }
+
         .header {
             display: flex;
-            justify-content: space-between;
+            justify-content: center;
             align-items: center;
             padding: 20px;
             border-bottom: 1px solid #ddd;
         }
-        .back-link {
-            font-size: 1.5rem;
-            font-weight: bold;
-            text-decoration: none;
-            color: #000; /* Link nero */
-        }
-        .menu-icon {
-            display: flex;
-            flex-direction: column;
-            justify-content: space-around;
-            width: 25px;
-            height: 15px;
-            cursor: pointer;
-        }
-        .menu-icon div {
-            background-color: #000;
-            height: 2px;
-            width: 100%;
-            border-radius: 1px;
-        }
-        .menu {
-            display: none; /* Nasconde il menu di default */
-            position: absolute;
-            top: 60px;
-            right: 20px;
-            padding: 0;
-        }
-        .menu a {
-            display: block;
-            padding: 10px 0;
-            text-decoration: none;
-            color: #000; /* Link neri */
-            font-size: 1rem;
-        }
-        .menu a:hover {
-            text-decoration: underline;
-        }
+
         .content {
             padding: 20px;
+            display: flex;
+            gap: 20px;
         }
+
+        .text-columns {
+            flex: 1;
+            column-count: 2; /* Numero di colonne */
+            column-gap: 20px; /* Spazio tra le colonne */
+            text-align: justify;
+        }
+
         .image-container {
             display: flex;
             gap: 20px;
             justify-content: center;
             margin: 20px 0;
         }
+
         .image-container img {
-            width: 100%;
-            max-width: 300px;
-            height: auto;
+            width: 100%; /* Adatta alla larghezza */
+            max-width: 300px; /* Uniforma la larghezza massima */
+            height: auto; /* Mantiene proporzioni */
+            aspect-ratio: 1 / 1; /* Forza proporzioni quadrate */
+            object-fit: cover; /* Uniforma il contenuto */
             border: 1px solid #ddd;
             border-radius: 5px;
-        }
-        .text {
-            font-size: 1rem;
-            line-height: 1.6;
-            margin: 20px 0;
-            text-align: left; /* Testo allineato a sinistra */
         }
     </style>
 </head>
 <body>
     <div class="header">
-        <a href="pagina.html" class="back-link">News</a>
-        <div class="menu-icon" onclick="toggleMenu()">
-            <div></div>
-            <div></div>
-            <div></div>
+        <h1>3500 cm² #104 Marinella Senatore #105 Diego Cibelli</h1>
+    </div>
+    
+    <div class="content">
+        <div class="text-columns">
+            <p>Consolato d’Italia a Parigi</p>
+            <p>CONTEMPORALIS partecipa alla Giornata del Contemporaneo, la giornata italiana dedicata all’arte contemporanea.</p>
+            <p>In occasione della ventesima edizione della GDC, CONTEMPORALIS presenta 3500 cm², un progetto che quest’anno festeggia il suo ventesimo anniversario. 3500 cm² è un progetto di diffusione di opere d’arte contemporanea curato da Lorenzo Benedetti.</p>
+            <p>3500 cm² sono i centimetri quadrati messi a disposizione di un artista per realizzare un poster di 50×70 cm, la cui missione è diffondere il linguaggio dell’arte contemporanea a un pubblico più ampio ed eterogeneo.</p>
+        </div>
+
+        <div class="image-container">
+            <a href="marinella-senatore.html">
+                <img src="marinella-senatore.jpg" alt="Marinella Senatore">
+            </a>
+            <a href="diego-cibelli.html">
+                <img src="diego-cibelli.jpg" alt="Diego Cibelli">
+            </a>
         </div>
     </div>
+
 
     <!-- Menu nascosto -->
     <div class="menu" id="menu">
