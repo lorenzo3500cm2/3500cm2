@@ -133,6 +133,55 @@
             font-size: 1.2rem;
             font-weight: bold;
         }
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News</title>
+    <style>
+        body {
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #fff;
+            color: #000;
+        }
+
+        .header {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .content {
+            padding: 20px;
+        }
+
+        .image-container {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            margin: 20px 0;
+        }
+
+        .image-container img {
+            width: 100%;
+            max-width: 300px;
+            height: auto;
+            aspect-ratio: 3 / 4; /* Mantiene proporzioni uniformi */
+            object-fit: cover; /* Adatta l'immagine senza deformarla */
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        .text {
+            font-size: 1rem;
+            line-height: 1.6;
+            margin: 20px 0;
+        }
     </style>
 </head>
 <body>
@@ -140,11 +189,27 @@
         <h1>3500 cm² #104 Marinella Senatore #105 Diego Cibelli</h1>
     </div>
     
-    <div class="sub-header">
-        Contemporalis per XX Giornata del Contemporaneo
-    </div>
-    
     <div class="content">
+        <div class="text">
+            Consolato d’Italia a Parigi<br><br>
+            CONTEMPORALIS partecipa alla Giornata del Contemporaneo. la giornata italiana dedicata all’arte contemporanea.
+        </div>
+
+         <br><br>
+        In occasione della ventesima edizione della GDC, CONTEMPORALIS presenta 3500 cm²...
+    </div>
+
+        <div class="image-container">
+            <a href="marinella-senatore.html">
+                <img src="marinella-senatore.jpg" alt="Marinella Senatore">
+            </a>
+            <a href="diego-cibelli.html">
+                <img src="diego-cibelli.jpg" alt="Diego Cibelli">
+            </a>
+        </div>
+    </div>
+</body>
+</html>
         Consolato d’Italia a Parigi<br><br>
         CONTEMPORALIS partecipa alla Giornata del Contemporaneo, la giornata italiana dedicata all’arte contemporanea.
         <br><br>
