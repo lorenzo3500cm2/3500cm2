@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+
 <html lang="it">
 <head>
     <meta charset="UTF-8">
@@ -64,16 +64,11 @@
             margin-top: 40px; /* Spazio sotto il menu */
         }
 
-        .artists-list div {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 10px;
-        }
-
         .artists-list a {
             text-decoration: none;
             color: #000;
+            display: block; /* Ogni artista su una nuova riga */
+            position: relative;
         }
 
         .artists-list a:hover {
@@ -81,11 +76,10 @@
         }
 
         .poster-number {
+            position: absolute;
+            right: 0;
             font-size: 1.2rem;
             color: #555;
-            text-align: right;
-            flex-shrink: 0;
-            width: 50px; /* Spazio per i numeri */
         }
     </style>
 </head>
