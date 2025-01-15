@@ -60,18 +60,32 @@
 
         .artists-list {
             font-size: 1.5rem; /* Testo più grande */
-            line-height: 1.6; /* Spaziatura ridotta */
-            margin-top: 40px; /* Meno spazio sotto il menu */
+            line-height: 1.8;
+            margin-top: 40px; /* Spazio sotto il menu */
+        }
+
+        .artists-list div {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
         }
 
         .artists-list a {
             text-decoration: none;
             color: #000;
-            display: block; /* Ogni nome su una nuova riga */
         }
 
         .artists-list a:hover {
             text-decoration: underline;
+        }
+
+        .poster-number {
+            font-size: 1.2rem;
+            color: #555;
+            text-align: right;
+            flex-shrink: 0;
+            width: 50px; /* Spazio per i numeri */
         }
     </style>
 </head>
@@ -92,8 +106,29 @@
         <a href="mostre.html">mostre</a>
         <a href="contatti.html">Contatti</a>
     </div>
-
-
+ <!-- Lista Artisti -->
+    <div class="artists-list">
+        <div>
+            <a href="carla-accardi.html">Carla Accardi</a>
+            <span class="poster-number">#1</span>
+        </div>
+        <div>
+            <a href="nicoletta-agostini.html">Nicoletta Agostini</a>
+            <span class="poster-number">#2</span>
+        </div>
+        <div>
+            <a href="maria-thereza-alves.html">Maria Thereza Alves</a>
+            <span class="poster-number">#3</span>
+        </div>
+        <div>
+            <a href="john-armleder.html">John Armleder</a>
+            <span class="poster-number">#4</span>
+        </div>
+        <div>
+            <a href="francesco-arena.html">Francesco Arena</a>
+            <span class="poster-number">#5</span>
+        </div>
+        <div>
     <div class="artists-list">
         <a href="carla-accardi.html">Carla Accardi</a>
         <a href="nicoletta-agostini.html">Nicoletta Agostini</a>
