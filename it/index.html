@@ -132,5 +132,20 @@
             menu.classList.toggle('active');
         }
     </script>
+        <audio id="flipSound" src="flip-page.mp3" preload="auto"></audio>
+
+    <script>
+        // Riproduci il suono ogni 3 secondi
+        const flipSound = document.getElementById('flipSound');
+
+        function playSound() {
+            flipSound.currentTime = 0; // Riavvia il suono
+            flipSound.play();
+        }
+
+        setInterval(playSound, 3000); // Riproduci ogni 3 secondi
+    </script>
+</body>
+</html>
 </body>
 </html>
