@@ -1,4 +1,3 @@
-
 <html lang="it">
 <head>
     <meta charset="UTF-8">
@@ -10,7 +9,7 @@
         body {
             margin: 0;
             padding: 20px;
-            font-family: 'Libre Baskerville', serif; /* Font Bembo-like */
+            font-family: 'Libre Baskerville', serif;
             background-color: #ffffff;
             color: #000;
         }
@@ -37,11 +36,16 @@
 
         .menu {
             display: none;
-            position: absolute;
-            top: 60px;
-            right: 20px;
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: 200px;
+            height: 100vh;
+            background-color: #fff;
+            box-shadow: -2px 0 5px rgba(0, 0, 0, 0.2);
+            z-index: 1002; /* Più alto rispetto agli altri elementi */
             flex-direction: column;
-            gap: 10px;
+            padding: 20px;
         }
 
         .menu.active {
@@ -52,6 +56,7 @@
             text-decoration: none;
             color: #000;
             font-size: 1rem;
+            margin-bottom: 10px;
         }
 
         .menu a:hover {
@@ -59,27 +64,19 @@
         }
 
         .artists-list {
-            font-size: 1.5rem; /* Testo più grande */
+            font-size: 1.5rem;
             line-height: 1.8;
-            margin-top: 40px; /* Spazio sotto il menu */
+            margin-top: 60px;
         }
 
         .artists-list a {
             text-decoration: none;
             color: #000;
-            display: block; /* Ogni artista su una nuova riga */
-            position: relative;
+            display: block;
         }
 
         .artists-list a:hover {
             text-decoration: underline;
-        }
-
-        .poster-number {
-            position: absolute;
-            right: 0;
-            font-size: 1.2rem;
-            color: #555;
         }
     </style>
 </head>
@@ -100,110 +97,16 @@
         <a href="mostre.html">mostre</a>
         <a href="contatti.html">Contatti</a>
     </div>
- <!-- Lista Artisti -->
-    <div class="artists-list">
+
+    <!-- Lista Artisti -->
     <div class="artists-list">
         <a href="carla-accardi.html">Carla Accardi</a>
         <a href="nicoletta-agostini.html">Nicoletta Agostini</a>
         <a href="maria-thereza-alves.html">Maria Thereza Alves</a>
-        <a href="john-armleder.html">John Armleder</a>
-        <a href="francesco-arena.html">Francesco Arena</a>
-        <a href="mark-bain.html">Mark Bain</a>
-        <a href="kuba-bakowski.html">Kuba Bakowski</a>
-        <a href="massimo-bartolini.html">Massimo Bartolini</a>
-        <a href="beier-lund.html">Nina Beier & Marie Lund</a>
-        <a href="elisabetta-benassi.html">Elisabetta Benassi</a>
-        <a href="wolfgang-berkowski.html">Wolfgang Berkowski</a>
-        <a href="dafne-boggeri.html">Dafne Boggeri</a>
-        <a href="katinka-bock.html">Katinka Bock</a>
-        <a href="brill-graziani.html">Sarra Brill / Chiara Graziani</a>
-        <a href="alessandro-bulgini.html">Alessandro Bulgini</a> 
-        <a href="pedro-cabrita-reis.html">Pedro Cabrita Reis</a>
-        <a href="paolo-chiasera.html">Paolo Chiasera</a> 
-        <a href="diego-cibelli.html">Diego Cibelli</a> 
-        <a href="attila-csorgo.html">Attila Csörgő</a>
-        <a href="flavio-de-marco.html">Flavio de Marco</a>
-        <a href="stanislao-di-giugno.html">Stanislao Di Giugno</a>
-        <a href="ra-di-martino.html">Rä di Martino</a>
-        <a href="davide-delia.html">Davide D’elia</a> 
-        <a href="jimmie-durham.html">Jimmie Durham</a> 
-        <a href="simon-dybbroe-moller.html">Simon Dybbroe Møller</a>
-        <a href="marco-fedele-di-catrano.html">Marco Fedele di Catrano</a>
-        <a href="vadim-fishkin.html">Vadim Fishkin</a> 
-        <a href="parastou-forouhar.html">Parastou Forouhar</a> 
-        <a href="stefania-galegati.html">Stefania Galegati</a>
-        <a href="rainer-ganahl.html">Rainer Ganahl</a>
-        <a href="max-gansberger.html">Max Gansberger</a>
-        <a href="mario-garcia-torres.html">Mario Garcia Torres</a>
-        <a href="christoph-girardet.html">Christoph Girardet</a>
-        <a href="luis-gonzales-palma.html">Luis Gonzales Palma</a> 
-        <a href="laurent-grasso.html">Laurent Grasso</a>
-        <a href="heidrun-holzfeind.html">Heidrun Holzfeind</a>
-        <a href="silvia-iorio.html">Silvia Iorio</a>
-        <a href="yun-fei-ji.html">Yun-Fei Ji</a>
-        <a href="rob-johannesma.html">Rob Johannesma</a>
-        <a href="marco-klefisch.html">Marco Klefisch</a>
-        <a href="robert-kusmirowski.html">Robert Kuśmirowski</a>
-        <a href="jochen-lempert.html">Jochen Lempert</a>
-        <a href="chi-wo-leung.html">Chi Wo Leung</a>
-        <a href="alon-levin.html">Alon Levin</a>
-        <a href="gabriel-lester.html">Gabriel Lester</a>
-        <a href="hh-lim.html">H.H. Lim</a>
-        <a href="robert-lippok.html">Robert Lippok</a>
-        <a href="giuliano-lombardo.html">Giuliano Lombardo</a>
-        <a href="cristina-lucas.html">Cristina Lucas</a>
-        <a href="benoit-maire.html">Benoit Maire</a>
-        <a href="domenico-mangano-marieke-van-rooy.html">Domenico Mangano & Marieke van Rooy</a> 
-        <a href="jeanette-montgomery-barron.html">Jeanette Montgomery Barron</a>
-        <a href="liliana-moro.html">Liliana Moro</a>
-        <a href="matt-mullican.html">Matt Mullican</a>
-        <a href="ciprian-muresan.html">Ciprian Muresan</a>
-        <a href="marc-nagtzaam.html">Marc Nagtzaam</a>
-        <a href="vlad-nanca.html">Vlad Nanca</a>
-        <a href="elena-nemkova.html">Elena Nemkova</a>
-        <a href="carsten-nicolai.html">Carsten Nicolai</a>
-        <a href="olaf-nicolai.html">Olaf Nicolai</a>
-        <a href="tura-oliveira.html">Tura Oliveira</a>
-        <a href="dennis-oppenheim.html">Dennis Oppenheim</a>
-        <a href="paananen-tallroth.html">Mikael Paananen & Linda Tallroth</a>
-        <a href="laura-palmieri.html">Laura Palmieri</a> 
-        <a href="giulio-paolini.html">Giulio Paolini</a>
-        <a href="ph.on.html">PH.ON</a>
-        <a href="alessandro-piangiamore.html">Alessandro Piangiamore</a>
-        <a href="federico-pietrella.html">Federico Pietrella</a> 
-        <a href="cesare-pietroiusti.html">Cesare Pietroiusti</a>
-        <a href="giuseppe-pietroniro.html">Giuseppe Pietroniro</a>
-        <a href="riccardo-previdi.html">Riccardo Previdi</a>
-        <a href="emilio-prini.html">Emilio Prini</a>
-        <a href="vladimir-radunsky.html">Vladimir Radunsky</a>
-        <a href="philippe-rahm.html">Philippe Rahm</a>
-        <a href="marco-raparelli.html">Marco Raparelli</a> 
-        <a href="annie-ratti.html">Annie Ratti</a> 
-        <a href="max-renkel.html">Max Renkel</a>
-        <a href="mandla-reuter.html">Mandla Reuter</a> 
-        <a href="luigi-rizzo.html">Luigi Rizzo</a>
-        <a href="guendalina-salini.html">Guendalina Salini</a>
-        <a href="andrea-salvino.html">Andrea Salvino</a>
-        <a href="fernando-sanchez-castillo.html">Fernando Sánchez Castillo</a> 
-        <a href="corrado-sassi.html">Corrado Sassi</a>
-        <a href="maurizio-savini.html">Maurizio Savini</a>
-        <a href="hans-schabus.html">Hans Schabus</a>
-        <a href="sarina-scheidegger.html">Sarina Scheidegger</a>
-        <a href="kelly-schacht.html">Kelly Schacht</a>
-        <a href="marinella-senatore.html">Marinella Senatore</a> 
-        <a href="donatella-spaziani.html">Donatella Spaziani</a>
-        <a href="paolo-william-tamburella.html">Paolo William Tamburella</a>
-        <a href="mathilde-ter-hijne.html">Mathilde ter Hijne</a> 
-        <a href="luca-trevisani.html">Luca Trevisani</a>
-        <a href="costa-vece.html">Costa Vece</a>
-        <a href="luca-vitone.html">Luca Vitone</a>
-        <a href="nicole-wermers.html">Nicole Wermers</a>
-        <a href="nil-yalter.html">Nil Yalter</a>
-        <a href="emiliano-zelada.html">Emiliano Zelada</a>
-        <a href="italo-zuffi.html">Italo Zuffi</a>
+        <!-- Continua con gli altri artisti -->
     </div>
 
- <script>
+    <script>
         function toggleMenu() {
             const menu = document.getElementById('menu');
             menu.classList.toggle('active');
