@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>News</title>
+    <title>Mostre</title>
     <style>
         body {
             font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
@@ -12,76 +12,80 @@
             background-color: #fff;
             color: #000;
         }
-
         .header {
             display: flex;
             justify-content: space-between;
             align-items: center;
             padding: 20px;
             border-bottom: 1px solid #ddd;
-            background-color: #f9f9f9;
         }
-
-        .header h1 {
+        .title {
             font-size: 1.5rem;
+            color: #000; /* Colore nero */
             margin: 0;
         }
-
-        .menu {
-            display: flex;
-            gap: 15px;
-        }
-
-        .menu a {
-            text-decoration: none;
-            color: #000;
-            font-size: 1rem;
-        }
-
-        .menu a:hover {
-            text-decoration: underline;
-        }
-
-        .content {
-            padding: 20px;
+        .menu-icon {
             display: flex;
             flex-direction: column;
-            gap: 20px;
+            justify-content: space-around;
+            width: 25px;
+            height: 15px;
+            cursor: pointer;
         }
-
-        .image-container {
-            display: flex;
-            gap: 20px;
-            justify-content: center;
-            margin: 20px 0;
+        .menu-icon div {
+            background-color: #000;
+            height: 2px;
+            width: 100%;
+            border-radius: 1px;
         }
-
-        .image-container img {
-            max-width: 300px;
-            height: auto;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            object-fit: cover;
-            aspect-ratio: 1 / 1; /* Proporzioni uniformi */
+        .menu {
+            display: none; /* Nasconde il menu di default */
+            position: absolute;
+            top: 60px;
+            right: 20px;
+            padding: 0;
         }
-
-        .text {
+        .menu a {
+            display: block;
+            padding: 10px 0;
+            text-decoration: none;
+            color: #000; /* Scritte nere */
             font-size: 1rem;
-            line-height: 1.6;
+        }
+        .menu a:hover {
+            text-decoration: underline; /* Sottolinea al passaggio del mouse */
+        }
+        .content {
+            padding: 20px;
+        }
+        h2 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+        .exhibition {
+            margin-bottom: 20px;
+            font-size: 1rem;
         }
     </style>
 </head>
 <body>
-    <!-- Intestazione -->
     <div class="header">
-        <h1>News</h1>
-        <div class="menu">
-            <a href="pagina.html">Artisti</a>
-            <a href="news.html">News</a>
-            <a href="3500cm2.html">3500cm²</a>
-            <a href="luoghi.html">Luoghi</a>
-            <a href="contatti.html">Contatti</a>
+        <div class="title">Mostre</div>
+        <div class="menu-icon" onclick="toggleMenu()">
+            <div></div>
+            <div></div>
+            <div></div>
         </div>
+    </div>
+
+    <!-- Menu nascosto -->
+    <div class="menu" id="menu">
+        <a href="index.html">Home</a>
+        <a href="3500cm2.html">3500cm2</a>
+        <a href="pagina.html">Lista Artisti</a>
+        <a href="luoghi.html">Luoghi</a>
+        <a href="mostre.html">Mostre</a>
+        <a href="contatti.html">Contatti</a>
     </div>
 
     <!-- Contenuto principale -->
