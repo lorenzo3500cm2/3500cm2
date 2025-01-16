@@ -1,19 +1,14 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-    <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>3500cm²</title>
+    <title>3500 cm²</title>
     <link rel="icon" type="image/png" sizes="96x96" href="/my-favicon/favicon-96x96.png">
     <link rel="icon" type="image/svg+xml" href="/my-favicon/favicon.svg">
     <link rel="shortcut icon" href="/my-favicon/favicon.ico">
     <link rel="apple-touch-icon" sizes="180x180" href="/my-favicon/apple-touch-icon.png">
     <link rel="manifest" href="/my-favicon/site.webmanifest">
-</head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>3500 cm²</title>
     <style>
         body {
             margin: 0;
@@ -29,11 +24,17 @@
             overflow: hidden;
         }
 
-        .title {
+        .title a {
             font-size: 8rem;
             font-weight: bold;
             text-align: center;
+            text-decoration: none;
+            color: #000;
             animation: changeFont 20s infinite;
+        }
+
+        .title a:hover {
+            text-decoration: underline;
         }
 
         @keyframes changeFont {
@@ -114,8 +115,10 @@
         <a href="../it/index.html">IT</a>
     </div>
 
-    <!-- Titolo -->
-    <div class="title">3500 cm²</div>
+    <!-- Titolo come link -->
+    <div class="title">
+        <a href="3500cm2.html">3500 cm²</a>
+    </div>
 
     <!-- Icona menu -->
     <div class="menu-icon" onclick="toggleMenu()">
