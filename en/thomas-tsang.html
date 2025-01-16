@@ -19,6 +19,7 @@
             align-items: center;
             padding: 20px;
             border-bottom: 1px solid #ddd;
+            position: relative;
         }
         .back-link {
             font-size: 1.5rem;
@@ -52,7 +53,7 @@
         }
         .menu a {
             display: block;
-            padding: 10px;
+            padding: 10px 0;
             text-decoration: none;
             color: #000;
             font-size: 1rem;
@@ -96,7 +97,7 @@
 </head>
 <body>
     <div class="header">
-        <a href="pagina.html" class="back-link">#61 Thomas Tsang</a>
+        <a href="pagina.html" class="back-link">#62 Thomas Tsang</a>
         <div class="menu-icon" onclick="toggleMenu()">
             <div></div>
             <div></div>
@@ -106,5 +107,28 @@
 
     <!-- Menu nascosto -->
     <div class="menu" id="menu">
-        <a href="pagina.html">Artisti</a>
-        <a href="3500cm2
+        <a href="pagina.html">artists</a>
+        <a href="news.html">news</a>
+        <a href="3500cm2.html">3500cm2</a>
+        <a href="luoghi.html">Venues</a>
+        <a href="contatti.html">Contatacts</a>
+    </div>
+
+    <img src="thomas-tsang.jpg" alt="Thomas Tsang">
+
+    <div class="description">
+       Senza titolo, 2018, Site-Specific Installation, Hong Kong Arts Centre, Hong Kong.
+    </div>
+
+    <!-- Frecce per navigare tra le pagine -->
+    <a href="luca-trevisani.html" class="prev-artist">&#8592;</a>
+    <a href="costa-vece.html" class="next-artist">&#8594;</a>
+
+    <script>
+        function toggleMenu() {
+            const menu = document.getElementById('menu');
+            menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
+        }
+    </script>
+</body>
+</html>
