@@ -24,6 +24,11 @@
             color: #000; /* Colore nero */
             margin: 0;
         }
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu Responsive</title>
+    <style>
         .menu-icon {
             display: flex;
             flex-direction: column;
@@ -44,6 +49,8 @@
             top: 60px;
             right: 20px;
             padding: 0;
+            background-color: #fff;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
         }
         .menu a {
             display: block;
@@ -51,6 +58,7 @@
             text-decoration: none;
             color: #000; /* Scritte nere */
             font-size: 1rem;
+            margin-bottom: 10px;
         }
         .menu a:hover {
             text-decoration: underline; /* Sottolinea al passaggio del mouse */
@@ -58,26 +66,18 @@
         .content {
             padding: 20px;
         }
-        h2 {
-            font-size: 1.2rem;
-            margin-bottom: 10px;
-        }
-        .exhibition {
-            margin-bottom: 20px;
-            font-size: 1rem;
-        }
     </style>
+</head>
 <body>
     <div class="header">
         <div class="title">News</div>
-        <div class="menu-icon" onclick="toggleMenu()">
+        <div class="menu-icon" onclick="toggleMenu()" aria-label="Apri menu" role="button" tabindex="0">
             <div></div>
             <div></div>
             <div></div>
         </div>
     </div>
 
-    <!-- Menu nascosto -->
     <div class="menu" id="menu">
         <a href="index.html">Home</a>
         <a href="3500cm2.html">3500cm2</a>
@@ -86,6 +86,18 @@
         <a href="mostre.html">Mostre</a>
         <a href="contatti.html">Contatti</a>
     </div>
+
+    <script>
+        function toggleMenu() {
+            const menu = document.getElementById('menu');
+            if (menu.style.display === 'none' || menu.style.display === '') {
+                menu.style.display = 'block';
+            } else {
+                menu.style.display = 'none';
+            }
+        }
+    </script>
+</body>
 
 
 
