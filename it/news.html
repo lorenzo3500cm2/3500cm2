@@ -15,15 +15,37 @@
 
         .header {
             display: flex;
-            justify-content: center;
+            justify-content: space-between;
             align-items: center;
             padding: 20px;
             border-bottom: 1px solid #ddd;
+            background-color: #f9f9f9;
+        }
+
+        .header h1 {
+            font-size: 1.5rem;
+            margin: 0;
+        }
+
+        .menu {
+            display: flex;
+            gap: 15px;
+        }
+
+        .menu a {
+            text-decoration: none;
+            color: #000;
+            font-size: 1rem;
+        }
+
+        .menu a:hover {
+            text-decoration: underline;
         }
 
         .content {
             padding: 20px;
             display: flex;
+            flex-direction: column;
             gap: 20px;
         }
 
@@ -35,27 +57,40 @@
         }
 
         .image-container img {
-            width: 100%;
             max-width: 300px;
             height: auto;
-            aspect-ratio: 1 / 1;
-            object-fit: cover;
             border: 1px solid #ddd;
             border-radius: 5px;
+            object-fit: cover;
+            aspect-ratio: 1 / 1; /* Proporzioni uniformi */
+        }
+
+        .text {
+            font-size: 1rem;
+            line-height: 1.6;
         }
     </style>
 </head>
 <body>
+    <!-- Intestazione -->
     <div class="header">
-        <h1>3500 cm² #104 Marinella Senatore #105 Diego Cibelli</h1>
+        <h1>News</h1>
+        <div class="menu">
+            <a href="pagina.html">Artisti</a>
+            <a href="news.html">News</a>
+            <a href="3500cm2.html">3500cm²</a>
+            <a href="luoghi.html">Luoghi</a>
+            <a href="contatti.html">Contatti</a>
+        </div>
     </div>
-    
+
+    <!-- Contenuto principale -->
     <div class="content">
-        <div class="text-columns">
+        <div class="text">
             <p>Consolato d’Italia a Parigi</p>
             <p>CONTEMPORALIS partecipa alla Giornata del Contemporaneo, la giornata italiana dedicata all’arte contemporanea.</p>
-            <p>In occasione della ventesima edizione della GDC, CONTEMPORALIS presenta 3500 cm², un progetto che quest’anno festeggia il suo ventesimo anniversario. 3500 cm² è un progetto di diff[...]
-            <p>3500 cm² sono i centimetri quadrati messi a disposizione di un artista per realizzare un poster di 50×70 cm, la cui missione è diffondere il linguaggio dell’arte contemporanea a un[...]
+            <p>In occasione della ventesima edizione della GDC, CONTEMPORALIS presenta 3500 cm², un progetto che quest’anno festeggia il suo ventesimo anniversario.</p>
+            <p>3500 cm² sono i centimetri quadrati messi a disposizione di un artista per realizzare un poster di 50×70 cm, la cui missione è diffondere il linguaggio dell’arte contemporanea a un pubblico più vasto.</p>
         </div>
 
         <div class="image-container">
@@ -67,8 +102,7 @@
             </a>
         </div>
     </div>
-</body>
-</html>
+
 
 
 
