@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Locations</title>
+    <!-- Importa il font Libre Baskerville -->
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400&display=swap" rel="stylesheet">
     <style>
         body {
             font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
@@ -17,10 +19,11 @@
             justify-content: space-between;
             align-items: center;
             padding: 20px;
+            border-bottom: 1px solid #ddd;
         }
         .title {
             font-size: 1.5rem;
-            color: #000; /* Colore nero */
+            color: #000;
             margin: 0;
         }
         .menu-icon {
@@ -38,38 +41,43 @@
             border-radius: 1px;
         }
         .menu {
-            display: none; /* Nasconde il menu di default */
+            display: none;
             position: absolute;
             top: 60px;
             right: 20px;
-            padding: 0;
+            background: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 10px;
         }
         .menu a {
             display: block;
             padding: 10px 0;
             text-decoration: none;
-            color: #000; /* Scritte nere */
+            color: #000;
             font-size: 0.9rem;
         }
         .menu a:hover {
-            text-decoration: underline; /* Sottolinea al passaggio del mouse */
+            text-decoration: underline;
         }
         ul {
             list-style-type: none;
             padding: 20px;
             margin: 0;
+            font-family: 'Libre Baskerville', serif; /* Applica font simile a Bembo */
+            font-size: 1.3rem; /* Aumenta la dimensione */
+            line-height: 1.8; /* Maggiore spaziatura tra le righe */
         }
         li {
-            margin-bottom: 10px;
-            font-size: 1rem; /* Dimensione leggermente ridotta */
-            color: #000; /* Colore nero */
+            margin-bottom: 15px; /* Spaziatura tra gli elementi */
+            color: #000;
         }
         a {
             text-decoration: none;
-            color: #000; /* Nero per i link */
+            color: #000;
         }
         a:hover {
-            color: #555; /* Grigio al passaggio del mouse */
+            color: #555;
         }
     </style>
 </head>
@@ -83,51 +91,49 @@
         </div>
     </div>
 
-  <!-- Menu opzioni -->
+    <!-- Menu opzioni -->
     <div class="menu" id="menu">
         <a href="index.html">home</a>
-        <a href="news.html">news</a>
-        <a href="3500cm2.html">3500cm2</a>
-        <a href="pagina.html">artist</a>
+        <a href="news.html">News</a>
+        <a href="3500cm2.html">3500cm²</a>
+        <a href="pagina.html">artists</a>
         <a href="exhibitions.html">exhibitions</a>
         <a href="contact.html">contact</a>
     </div>
 
-<ul>
-    <li><a href="https://www.accademiabelleartiroma.it/" target="_blank">Accademia di Belle Arti, Rome</a></li>
-    <li><a href="https://www.danishacademyrome.com/" target="_blank">Accademia di Danimarca, Rome</a></li>
-    <li><a href="https://www.villamedici.it/" target="_blank">Accademia di Francia Villa Medici, Rome</a></li>
-    <li><a href="https://accademiasanluca.it/" target="_blank">Accademia Nazionale di San Luca, Rome</a></li>
-    <li><a href="https://www.accademiaspagna.org/" target="_blank">Accademia Reale Spagnola, Rome</a></li>
-    <li><a href="https://www.britishschoolatrome.org.uk/" target="_blank">Accademia Britannica, Rome</a></li>
-    <li><a href="https://www.villamassimo.de/" target="_blank">Accademia Tedesca Villa Massimo, Rome</a></li>
-    <li><a href="https://www.accademiavirtuosi.it/" target="_blank">Accademia dei Virtuosi al Pantheon, Rome</a></li>
-    <li><a href="https://alkatrazgallery.org/" target="_blank">Alkatraz Gallery, Ljubljana</a></li>
-    <li><a href="https://www.aarome.org/" target="_blank"> American Academy, Rome</a></li>
-    <li><a href="https://www.assab-one.org/" target="_blank">Assab One, Milan</a></li>
-    <li><a href="https://www.mglc-lj.si/" target="_blank">27th Bienniale of Graphic Arts, Ljubljana</a></li>
-    <li><a href="https://casadigoethe.it/it/" target="_blank">Casa di Goethe, Rome</a></li>
-    <li><a href="https://consparigi.esteri.it/" target="_blank">Consolato d’Italia, Paris</a></li>
-    <li><a href="https://www.contemporalis.eu/3500-cm2/" target="_blank">Contemporalis, Paris</a></li>
-    <li><a href="https://vleeshal.nl/en" target="_blank">De Vleeshal, Middelburg</a></li>
-    <li><a href="https://www.austriacult.roma.it/" target="_blank">Istituto Austriaco di Cultura, Rome</a></li>
-    <li><a href="https://instytutpolski.pl/roma/" target="_blank">Istituto Polacco, Rome</a></li>
-    <li><a href="https://www.istitutosvizzero.it/" target="_blank">Istituto Svizzero, Rome</a></li>
-    <li><a href="https://www.mattatoioroma.it/" target="_blank">Mattatoio, Rome</a></li>
-    <li><a href="https://www.museomacro.it/" target="_blank">Macro, Rome</a></li>
-    <li><a href="https://palazzolantieri.com/" target="_blank">Palazzo Lantieri, Gorizia</a></li>
-    <li><a href="https://www.palazzoesposizioni.it/" target="_blank">Palazzo delle Esposizioni, Rome</a></li>
-    <li><a href="https://www.palazzoesposizioni.it/" target="_blank">Palazzo Esposizioni, Rome</a></li>
-    <li><a href="http://radioartemobile.it/" target="_blank">Ram RadioArteMobile, Rome</a></li>
-    <li><a href="https://www.knir.it/" target="_blank">Reale Istituto Neerlandese, Rome</a></li>
-    <li>Rialto Sant'Ambrogio, Rome</li>
-    <li><a href="https://www.radioartemobile.it/evento/camere-5-3500cm2/" target="_blank">RadioArteMobile, Rome</a></li>
-    <li><a href="https://fondazionevolume.com" target="_blank">Fondazione VOLUME!, Rome</a></li>
-    <li><a href="https://www.sansalvatore.org/" target="_blank">San Salvatore in Lauro, Rome</a></li>
-    <li><a href="http://projectspace.uqbar-ev.de/index.php?mact=News,cntnt01,detail,0&cntnt01articleid=22&cntnt01returnid=56" target="_blank">uqbar, Berlin</a></li>
-    <li>Villa Ada - Roma incontra il mondo, Rome</li>
-    <li><a href="https://www.radioartemobile.it/evento/la-seduzione-del-luogo/">Zerynthia, Rome</a></li>
-</ul>
+    <ul>
+        <li><a href="https://www.accademiabelleartiroma.it/" target="_blank">Accademia di Belle Arti, Rome</a></li>
+        <li><a href="https://www.danishacademyrome.com/" target="_blank">Accademia di Danimarca, Rome</a></li>
+        <li><a href="https://www.villamedici.it/" target="_blank">Accademia di Francia Villa Medici, Rome</a></li>
+        <li><a href="https://accademiasanluca.it/" target="_blank">Accademia Nazionale di San Luca, Rome</a></li>
+        <li><a href="https://www.accademiaspagna.org/" target="_blank">Accademia Reale Spagnola, Rome</a></li>
+        <li><a href="https://www.britishschoolatrome.org.uk/" target="_blank">Accademia Britannica, Rome</a></li>
+        <li><a href="https://www.villamassimo.de/" target="_blank">Accademia Tedesca Villa Massimo, Rome</a></li>
+        <li><a href="https://www.accademiavirtuosi.it/" target="_blank">Accademia dei Virtuosi al Pantheon, Rome</a></li>
+        <li><a href="https://alkatrazgallery.org/" target="_blank">Alkatraz Gallery, Ljubljana</a></li>
+        <li><a href="https://www.aarome.org/" target="_blank">American Academy, Rome</a></li>
+        <li><a href="https://www.assab-one.org/" target="_blank">Assab One, Milan</a></li>
+        <li><a href="https://www.mglc-lj.si/" target="_blank">27th Biennale of Graphic Arts, Ljubljana</a></li>
+        <li><a href="https://casadigoethe.it/it/" target="_blank">Casa di Goethe, Rome</a></li>
+        <li><a href="https://consparigi.esteri.it/" target="_blank">Consolato d’Italia, Paris</a></li>
+        <li><a href="https://www.contemporalis.eu/3500-cm2/" target="_blank">Contemporalis, Paris</a></li>
+        <li><a href="https://vleeshal.nl/en" target="_blank">De Vleeshal, Middelburg</a></li>
+        <li><a href="https://www.austriacult.roma.it/" target="_blank">Istituto Austriaco di Cultura, Rome</a></li>
+        <li><a href="https://instytutpolski.pl/roma/" target="_blank">Istituto Polacco, Rome</a></li>
+        <li><a href="https://www.istitutosvizzero.it/" target="_blank">Istituto Svizzero, Rome</a></li>
+        <li><a href="https://www.mattatoioroma.it/" target="_blank">Mattatoio, Rome</a></li>
+        <li><a href="https://www.museomacro.it/" target="_blank">Macro, Rome</a></li>
+        <li><a href="https://palazzolantieri.com/" target="_blank">Palazzo Lantieri, Gorizia</a></li>
+        <li><a href="https://www.palazzoesposizioni.it/" target="_blank">Palazzo delle Esposizioni, Rome</a></li>
+        <li><a href="http://radioartemobile.it/" target="_blank">Ram RadioArteMobile, Rome</a></li>
+        <li><a href="https://www.knir.it/" target="_blank">Reale Istituto Neerlandese, Rome</a></li>
+        <li>Rialto Sant'Ambrogio, Rome</li>
+        <li><a href="https://fondazionevolume.com" target="_blank">Fondazione VOLUME!, Rome</a></li>
+        <li><a href="https://www.sansalvatore.org/" target="_blank">San Salvatore in Lauro, Rome</a></li>
+        <li><a href="http://projectspace.uqbar-ev.de/" target="_blank">uqbar, Berlin</a></li>
+        <li>Villa Ada - Roma incontra il mondo, Rome</li>
+        <li><a href="https://www.radioartemobile.it/evento/la-seduzione-del-luogo/">Zerynthia, Rome</a></li>
+    </ul>
 
     <script>
         function toggleMenu() {
