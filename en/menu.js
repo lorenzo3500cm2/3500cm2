@@ -1,9 +1,6 @@
-document.write(`
-<div class="menu" id="menu">
-    <a href="index.html">home</a>
-    <a href="pagina.html">artists</a>
-    <a href="news.html">news</a>
-    <a href="luoghi.html">venues</a>
-    <a href="contatti.html">cantact</a>
-</div>
-`);
+document.getElementById('menu').innerHTML = `
+    <a href="pagina.html">Lista Artisti</a>
+    <a href="luoghi.html">Luoghi</a>
+    <a href="contatti.html">Contatti</a>
+`;
+
