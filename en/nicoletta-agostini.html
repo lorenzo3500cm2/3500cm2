@@ -11,6 +11,7 @@
             padding: 0;
             background-color: #fff;
             color: #000;
+            position: relative;
         }
         .header {
             display: flex;
@@ -19,50 +20,109 @@
             padding: 20px;
             border-bottom: 1px solid #ddd;
         }
-        .artist-name {
+        .back-link {
             font-size: 1.5rem;
             font-weight: bold;
+            text-decoration: none;
             color: #333;
         }
-        .back-link {
-            font-size: 1.2rem;
-            font-weight: bold;
-            text-decoration: none;
-            color: #0077cc;
+        .menu-icon {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            width: 25px;
+            height: 15px;
+            cursor: pointer;
         }
-        .back-link:hover {
-            color: #005499;
+        .menu-icon div {
+            background-color: #000;
+            height: 2px;
+            width: 100%;
+            border-radius: 1px;
         }
-        .next-artist {
+        .menu {
+            display: none; /* Nasconde il menu di default */
             position: absolute;
-            top: 50%;
+            top: 60px;
             right: 20px;
-            font-size: 2rem;
-            color: #bbb;
-            text-decoration: none;
-            transform: translateY(-50%);
+            padding: 0;
         }
-        .next-artist:hover {
-            color: #0077cc;
+        .menu a {
+            display: block;
+            padding: 10px 0;
+            text-decoration: none;
+            color: #000;
+            font-size: 1rem;
+        }
+        .menu a:hover {
+            text-decoration: underline;
         }
         img {
-            width: 100%; /* Adatta l'immagine alla larghezza dello schermo */
-            max-height: 90vh; /* Limita l'altezza al 90% dell'altezza dello schermo */
-            object-fit: contain; /* Mantiene le proporzioni dell'immagine */
+            width: 100%;
+            max-height: 90vh;
+            object-fit: contain;
             display: block;
             margin: 20px auto;
+        }
+        .description {
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 1rem;
+            text-align: left;
+            margin: 20px;
+            color: #333;
+        }
+        .prev-artist, .next-artist {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 2.5rem;
+            color: gray;
+            text-decoration: none;
+            z-index: 1000;
+        }
+        .prev-artist {
+            left: 10px;
+        }
+        .next-artist {
+            right: 10px;
+        }
+        .prev-artist:hover, .next-artist:hover {
+            color: black;
         }
     </style>
 </head>
 <body>
     <div class="header">
-        <div class="artist-name">#3 Nicoletta Agostini</div>
-        <a href="pagina.html" class="back-link">3500 cm²</a>
+        <a href="pagina.html" class="back-link">#3 Nicoletta Agostini</a>
+        <div class="menu-icon" onclick="toggleMenu()">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
     </div>
 
-    <img src="nicoletta agostini.jpg" alt="Nicoletta Agostini">
+    <!-- Menu nascosto -->
+    <div class="menu" id="menu">
+        <a href="pagina.html">Lista Artisti</a>
+        <a href="luoghi.html">Luoghi</a>
+        <a href="contatti.html">Contatti</a>
+    </div>
 
-    <!-- Freccia per passare all'artista successivo -->
+    <img src="nicoletta-agostini.jpg" alt="Nicoletta Agostini">
+
+    <div class="description">
+        realizzato nel 2005, in occasione di Blueroom a Rialto Sant'Ambrogio, Roma.
+    </div>
+
+    <!-- Frecce per navigare tra le pagine -->
+    <a href="carla-accardi.html" class="prev-artist">&#8592;</a>
     <a href="maria-thereza-alves.html" class="next-artist">&#8594;</a>
+
+    <script>
+        function toggleMenu() {
+            const menu = document.getElementById('menu');
+            menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
+        }
+    </script>
 </body>
 </html>
