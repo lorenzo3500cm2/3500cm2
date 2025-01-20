@@ -78,18 +78,41 @@
         }
         a:hover {
             color: #555;
+            }
+        .name {
+            font-weight: bold;
+        }
+        .name:nth-child(1) {
+            color: #0077cc; /* Blu */
+        }
+        .name:nth-child(2) {
+            color: #ff6600; /* Arancione */
+        }
+        .name:nth-child(3) {
+            color: #228b22; /* Verde */
+        }
+        .name:nth-child(4) {
+            color: #9932cc; /* Viola */
+        }
+        .name:nth-child(5) {
+            color: #ff1493; /* Rosa */
         }
     </style>
 </head>
 <body>
     <div class="header">
         <div class="title">Venues</div>
-        <div class="menu-icon" onclick="toggleMenu()">
-            <div></div>
-            <div></div>
-            <div></div>
-        </div>
     </div>
+
+    <ul>
+        <li>
+            <a href="https://www.villamedici.it/" target="_blank">Accademia di Francia Villa Medici, Rome</a>
+            <span class="name">Nil Yalter</span>
+        </li>
+        <li>
+            <a href="https://www.accademiabelleartiroma.it/" target="_blank">Accademia di Belle Arti, Rome</a>
+            <span class="name">Sarina Scheidegger</span>
+        </li>
 
     <!-- Menu opzioni -->
     <div class="menu" id="menu">
