@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jochen Lempert</title>
+    <title>John Armleder</title>
     <style>
         body {
             font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
@@ -11,7 +11,6 @@
             padding: 0;
             background-color: #fff;
             color: #000;
-            position: relative;
         }
         .header {
             display: flex;
@@ -20,42 +19,37 @@
             padding: 20px;
             border-bottom: 1px solid #ddd;
         }
-        .back-link {
+        .artist-name {
             font-size: 1.5rem;
             font-weight: bold;
-            text-decoration: none;
             color: #333;
         }
-        .menu-icon {
-            display: flex;
-            flex-direction: column;
-            justify-content: space-around;
-            width: 25px;
-            height: 15px;
-            cursor: pointer;
-        }
-        .menu-icon div {
-            background-color: #000;
-            height: 2px;
-            width: 100%;
-            border-radius: 1px;
-        }
-        .menu {
-            display: none;
-            position: absolute;
-            top: 60px;
-            right: 20px;
-            padding: 0;
-        }
-        .menu a {
-            display: block;
-            padding: 10px 0;
+        .back-link {
+            font-size: 1.2rem;
+            font-weight: bold;
             text-decoration: none;
-            color: #000;
-            font-size: 1rem;
+            color: #0077cc;
         }
-        .menu a:hover {
-            text-decoration: underline;
+        .back-link:hover {
+            color: #005499;
+        }
+        .prev-artist, .next-artist {
+            position: absolute;
+            top: 50%;
+            font-size: 2rem;
+            text-decoration: none;
+            transform: translateY(-50%);
+        }
+        .prev-artist {
+            left: 20px;
+            color: #bbb;
+        }
+        .next-artist {
+            right: 20px;
+            color: #bbb;
+        }
+        .prev-artist:hover, .next-artist:hover {
+            color: #0077cc;
         }
         img {
             width: 100%;
@@ -63,70 +57,19 @@
             object-fit: contain;
             display: block;
             margin: 20px auto;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            border-radius: 5px;
-        }
-        .description {
-            font-family: 'Courier New', Courier, monospace;
-            font-size: 1rem;
-            text-align: left;
-            margin: 20px;
-            color: #333;
-        }
-        .prev-artist, .next-artist {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            font-size: 2rem;
-            color: gray;
-            text-decoration: none;
-            z-index: 1000;
-        }
-        .prev-artist {
-            left: 20px;
-        }
-        .next-artist {
-            right: 20px;
-        }
-        .prev-artist:hover, .next-artist:hover {
-            color: black;
         }
     </style>
 </head>
 <body>
     <div class="header">
-        <a href="pagina.html" class="back-link">#86 Jochen Lempert</a>
-        <div class="menu-icon" onclick="toggleMenu()">
-            <div></div>
-            <div></div>
-            <div></div>
-        </div>
+        <div class="artist-name">#45 John Armleder</div>
+        <a href="pagina.html" class="back-link">3500 cm²</a>
     </div>
 
-    <!-- Menu nascosto -->
-    <div class="menu" id="menu">
-        <a href="pagina.html">Artisti</a>
-        <a href="3500cm2.html">3500cm2</a>
-        <a href="luoghi.html">Luoghi</a>
-        <a href="contatti.html">Contatti</a>
-    </div>
-
-    <img src="jochen-lempert.jpg" alt="Jochen Lempert">
-
-    <div class="description">
-   #86 Jochem Lempert, Podalirio, 2016-2024, Expodemic, Festival delle Accademie e degli Istituti di Cultura stranieri 2024 - 
-    Palazzo Esposizioni Roma – Museo Casa di Goethe, Roma © JOCHEN LEMPERT by SIAE 2024    </div>
-
+    <img src="john-armleder.jpg" alt="John Armleder">
 
     <!-- Frecce per navigare tra le pagine -->
-    <a href="robert-kusmirowski.html" class="prev-artist">&#8592;</a>
-    <a href="chi-wo-leung.html" class="next-artist">&#8594;</a>
-
-    <script>
-        function toggleMenu() {
-            const menu = document.getElementById('menu');
-            menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
-        }
-    </script>
+    <a href="maria-thereza-alves.html" class="prev-artist">&#8592;</a>
+    <a href="francesco-arena.html" class="next-artist">&#8594;</a>
 </body>
 </html>
