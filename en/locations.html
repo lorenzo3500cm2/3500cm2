@@ -20,6 +20,53 @@
             align-items: center;
             padding: 20px;
             border-bottom: 1px solid #ddd;
+
+
+               }
+        .menu-icon {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            width: 25px;
+            height: 15px;
+            cursor: pointer;
+        }
+        .menu-icon div {
+            background-color: #000;
+            height: 2px;
+            width: 100%;
+            border-radius: 1px;
+        }
+        .menu {
+            display: none;
+            position: absolute;
+            top: 60px;
+            right: 20px;
+            background: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 10px;
+        }
+        .menu a {
+            display: block;
+            padding: 10px 0;
+            text-decoration: none;
+            color: #000;
+            font-size: 0.9rem;
+        }
+        .menu a:hover {
+            text-decoration: underline;
+
+               <!-- Menu opzioni -->
+    <div class="menu" id="menu">
+        <a href="index.html">home</a>
+        <a href="news.html">News</a>
+        <a href="3500cm2.html">3500cm²</a>
+        <a href="pagina.html">artists</a>
+        <a href="exhibitions.html">exhibitions</a>
+        <a href="contact.html">contact</a>
+    </div>
+
         }
         .title {
             font-size: 1.5rem;
@@ -309,51 +356,7 @@
 
     </ul>
 
-        }
-        .menu-icon {
-            display: flex;
-            flex-direction: column;
-            justify-content: space-around;
-            width: 25px;
-            height: 15px;
-            cursor: pointer;
-        }
-        .menu-icon div {
-            background-color: #000;
-            height: 2px;
-            width: 100%;
-            border-radius: 1px;
-        }
-        .menu {
-            display: none;
-            position: absolute;
-            top: 60px;
-            right: 20px;
-            background: #f9f9f9;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            padding: 10px;
-        }
-        .menu a {
-            display: block;
-            padding: 10px 0;
-            text-decoration: none;
-            color: #000;
-            font-size: 0.9rem;
-        }
-        .menu a:hover {
-            text-decoration: underline;
-
-               <!-- Menu opzioni -->
-    <div class="menu" id="menu">
-        <a href="index.html">home</a>
-        <a href="news.html">News</a>
-        <a href="3500cm2.html">3500cm²</a>
-        <a href="pagina.html">artists</a>
-        <a href="exhibitions.html">exhibitions</a>
-        <a href="contact.html">contact</a>
-    </div>
-
+     
         
     <script>
         function toggleMenu() {
