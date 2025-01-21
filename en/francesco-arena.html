@@ -9,128 +9,78 @@
             font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #fff;
+            background-color: #f7f7f7;
             color: #000;
-            position: relative;
-        }
-        .header {
             display: flex;
-            justify-content: space-between;
+            justify-content: center;
             align-items: center;
-            padding: 20px;
-            border-bottom: 1px solid #ddd;
-            position: relative;
+            height: 100vh;
         }
-        .back-link {
-            font-size: 1.5rem;
-            font-weight: bold;
-            text-decoration: none;
-            color: #333;
+
+        .container {
+            width: 60%; /* Aumenta le dimensioni della struttura */
+            max-width: 800px; /* Limita la larghezza massima */
+            margin: auto;
+            padding: 30px;
+            background-color: #fff;
+            border: 5px solid #000; /* Bordo nero spesso */
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Ombreggiatura */
+            border-radius: 10px; /* Angoli arrotondati */
         }
-        .menu-icon {
-            display: flex;
-            flex-direction: column;
-            justify-content: space-around;
-            width: 25px;
-            height: 15px;
-            cursor: pointer;
-        }
-        .menu-icon div {
-            background-color: #000;
-            height: 2px;
-            width: 100%;
-            border-radius: 1px;
-        }
-        .menu {
-            display: none; /* Nasconde il menu di default */
-            position: absolute;
-            top: 60px;
-            right: 20px;
-            padding: 0;
-        }
-        .menu a {
-            display: block;
-            padding: 10px 0;
-            text-decoration: none;
-            color: #000; /* Scritte nere */
-            font-size: 1rem;
-        }
-        .menu a:hover {
-            background-color: transparent; /* Nessun colore di sfondo al hover */
-            text-decoration: underline; /* Sottolinea al passaggio del mouse */
-        }
-        img {
-            width: 100%;
-            max-height: 90vh;
-            object-fit: contain;
+
+        .poster {
             display: block;
             margin: 20px auto;
-        }
-        .img-bordered {
-            border: 2px solid #000; /* Cornice nera */
+            width: 100%;
+            max-width: 500px; /* Larghezza massima del poster */
+            aspect-ratio: 5 / 7; /* Mantiene il formato 50x70 cm */
+            object-fit: cover;
+            border: 2px solid #000; /* Cornice nera per il poster */
             border-radius: 5px; /* Angoli arrotondati */
         }
+
         .description {
             font-family: 'Courier New', Courier, monospace;
-            font-size: 1rem;
-            text-align: left;
-            margin: 20px;
-            color: #333;
+            font-size: 1.2rem;
+            text-align: center;
+            margin-top: 20px;
         }
-        .prev-artist, .next-artist {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            font-size: 2rem;
-            color: gray;
+
+        .navigation {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+
+        .navigation a {
             text-decoration: none;
-            z-index: 1000;
+            font-size: 1rem;
+            color: #0077cc;
+            font-weight: bold;
         }
-        .prev-artist {
-            left: 20px;
-        }
-        .next-artist {
-            right: 20px;
-        }
-        .prev-artist:hover, .next-artist:hover {
-            color: black;
+
+        .navigation a:hover {
+            text-decoration: underline;
         }
     </style>
-    <script src="menu.js" defer></script> <!-- Includi menu.js -->
 </head>
 <body>
-    <div class="header">
-        <a href="pagina.html" class="back-link">Francesco Arena</a>
-        <div class="menu-icon" onclick="toggleMenu()">
-            <div></div>
-            <div></div>
-            <div></div>
+    <div class="container">
+        <h1 style="text-align: center;">Francesco Arena</h1>
+        
+        <!-- Immagine del poster -->
+        <img src="francesco-arena-poster.jpg" alt="Francesco Arena Poster" class="poster">
+        
+        <!-- Descrizione -->
+        <div class="description">
+            2016 Volume! Roma
+        </div>
+
+        <!-- Navigazione -->
+        <div class="navigation">
+            <a href="john-armleder.html">&#8592; Previous</a>
+            <a href="mark-bain.html">Next &#8594;</a>
         </div>
     </div>
-
-    <!-- Menu nascosto -->
-    <div class="menu" id="menu">
-        <a href="pagina.html">Artisti</a>
-        <a href="3500cm2.html">3500cm2</a>
-        <a href="luoghi.html">Luoghi</a>
-        <a href="contatti.html">Contatti</a>
-    </div>
-
-    <img src="francesco-arena.jpg" alt="Francesco Arena" class="img-bordered">
-
-    <div class="description">
-        2016 Volume! Roma
-    </div>
-
-    <!-- Frecce per navigare tra le pagine -->
-    <a href="john-armleder.html" class="prev-artist">&#8592;</a>
-    <a href="mark-bain.html" class="next-artist">&#8594;</a>
-
-    <script>
-        function toggleMenu() {
-            const menu = document.getElementById('menu');
-            menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
-        }
-    </script>
 </body>
 </html>
