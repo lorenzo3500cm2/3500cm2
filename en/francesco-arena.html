@@ -14,7 +14,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            min-height: 100vh; /* Corregge l'altezza */
+            min-height: 100vh;
         }
 
         .container {
@@ -25,7 +25,7 @@
             background-color: #fff;
             border: 5px solid #000; /* Bordo principale */
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            border-radius: 10px;
+            border-radius: 10px; /* Angoli arrotondati solo per il contenitore */
         }
 
         .poster {
@@ -34,8 +34,8 @@
             width: 100%;
             max-width: 500px; /* Larghezza massima */
             object-fit: cover;
-            border: 1px solid #000; /* Bordo sottile solo intorno al poster */
-            border-radius: 5px; /* Angoli arrotondati */
+            border: 1px solid #000; /* Cornice nera sottile */
+            border-radius: 0; /* Angoli non arrotondati */
         }
 
         .description {
@@ -55,11 +55,11 @@
             text-decoration: none;
             font-size: 1.2rem;
             font-weight: bold;
-            color: #000; /* Colore uniforme */
+            color: #000;
         }
 
         .navigation a:hover {
-            color: #555; /* Colore al passaggio del mouse */
+            color: #555;
         }
     </style>
 </head>
