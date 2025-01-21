@@ -4,7 +4,7 @@
     <!-- Meta tag di configurazione -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://www.googletagmanager.com; style-src 'self'; img-src 'self';">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://www.googletagmanager.com; style-src 'self' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self';">
     
     <!-- Titolo del sito -->
     <title>3500 cm²</title>
@@ -14,7 +14,7 @@
     <link rel="icon" type="image/svg+xml" href="/path-to-your-favicon/favicon.svg">
     <link rel="shortcut icon" href="/path-to-your-favicon/favicon.ico">
     <link rel="apple-touch-icon" sizes="180x180" href="/path-to-your-favicon/apple-touch-icon.png">
-    <link rel="manifest" href="/path-to-your-favicon/site.webmanifest">
+    <link rel="manifest" href="/site.webmanifest">
 
     <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-1ZDKD18HZM"></script>
@@ -25,19 +25,15 @@
         gtag('config', 'G-1ZDKD18HZM');
     </script>
 
-    <link rel="manifest" href="/site.webmanifest">
-
     <!-- Importa font mancanti -->
     <link href="https://fonts.googleapis.com/css2?family=Garamond:wght@400&family=Courier+Prime:wght@400&family=Comic+Sans+MS:wght@400&display=swap" rel="stylesheet">
 
     <!-- Stile personalizzato -->
     <style>
-    
         .img-bordered {
             border: 2px solid #000; /* Cornice nera */
             border-radius: 5px; /* Angoli arrotondati */
         }
- 
 
         body {
             margin: 0;
@@ -104,7 +100,27 @@
     <div class="title" id="changing-text">3500 cm²</div>
 
     <script>
-    <script src="script.js"></script>
+        const texts = [
+            "3500 cm²",
+            "३५०० वर्ग सेंटीमीटर",
+            "٣٥٠٠ سم²",
+            "3500 சதுர செ.மீ.",
+            "3500 చదరపు సెం.మీ",
+            "৩৫০০ বর্গ সেন্টিমিটার",
+            "3500 ಚದರ ಸೆ.ಮೀ",
+            "3500 平方厘米",
+            "3500 ตารางเซนติเมตร"
+        ];
+
+        let index = 0;
+
+        function changeText() {
+            const title = document.getElementById('changing-text');
+            title.textContent = texts[index];
+            index = (index + 1) % texts.length;
+        }
+
+        setInterval(changeText, 2000); // Cambia il testo ogni 2 secondi
     </script>
 </body>
 </html>
