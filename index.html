@@ -1,32 +1,31 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-
+    <!-- Meta tag di configurazione -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>3500cm2.org</title>
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self';">
-    <!-- Altri meta tag o link -->
-
-    <link rel="icon" type="image/png" sizes="96x96" href="/path-to-your-favicon/favicon-96x96.png">
-<link rel="icon" type="image/svg+xml" href="/path-to-your-favicon/favicon.svg">
-<link rel="shortcut icon" href="/path-to-your-favicon/favicon.ico">
-<link rel="apple-touch-icon" sizes="180x180" href="/path-to-your-favicon/apple-touch-icon.png">
-<link rel="manifest" href="/path-to-your-favicon/site.webmanifest">
-
-    <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-1ZDKD18HZM"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-1ZDKD18HZM');
-</script>
     
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Titolo del sito -->
     <title>3500 cm²</title>
+    
+    <!-- Favicons -->
+    <link rel="icon" type="image/png" sizes="96x96" href="/path-to-your-favicon/favicon-96x96.png">
+    <link rel="icon" type="image/svg+xml" href="/path-to-your-favicon/favicon.svg">
+    <link rel="shortcut icon" href="/path-to-your-favicon/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="/path-to-your-favicon/apple-touch-icon.png">
+    <link rel="manifest" href="/path-to-your-favicon/site.webmanifest">
+
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1ZDKD18HZM"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-1ZDKD18HZM');
+    </script>
+
+    <!-- Stile personalizzato -->
     <style>
         body {
             margin: 0;
@@ -46,10 +45,10 @@
             font-size: 10rem;
             font-weight: bold;
             text-align: center;
-            animation: changeFont 10s infinite; /* Mantiene l'animazione del font */
+            animation: changeFont 10s infinite;
         }
 
-        @keyframes changeFont {
+         @keyframes changeFont {
             0% { font-family: 'Arial', sans-serif; color: #000; }
             10% { font-family: 'Garamond', serif; color: #0077cc; }
             20% { font-family: 'Courier New', monospace; color: #ff6600; }
@@ -84,12 +83,12 @@
     </style>
 </head>
 <body>
-    <!-- Lingua -->
+    <!-- Scelta della lingua -->
     <div class="language-switch">
         <a href="it/index.html">IT</a> | <a href="en/index.html">EN</a>
     </div>
 
-    <!-- Titolo -->
+    <!-- Titolo dinamico -->
     <div class="title" id="changing-text">3500 cm²</div>
 
     <script>
