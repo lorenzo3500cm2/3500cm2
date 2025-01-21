@@ -14,17 +14,17 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
+            min-height: 100vh; /* Corregge l'altezza */
         }
 
         .container {
             width: 60%;
             max-width: 800px;
             margin: auto;
-            padding: 30px;
+            padding: 20px;
             background-color: #fff;
-            border: 5px solid #000;
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            border: 5px solid #000; /* Bordo principale */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             border-radius: 10px;
         }
 
@@ -32,16 +32,15 @@
             display: block;
             margin: 20px auto;
             width: 100%;
-            max-width: 500px;
-            aspect-ratio: 5 / 7; /* Formato del poster */
+            max-width: 500px; /* Larghezza massima */
             object-fit: cover;
-            border: 1px solid #000; /* Cornice più sottile per il poster */
-            border-radius: 5px;
+            border: 1px solid #000; /* Bordo sottile solo intorno al poster */
+            border-radius: 5px; /* Angoli arrotondati */
         }
 
         .description {
             font-family: 'Courier New', Courier, monospace;
-            font-size: 1.2rem;
+            font-size: 1rem;
             text-align: center;
             margin-top: 20px;
         }
@@ -54,13 +53,13 @@
 
         .navigation a {
             text-decoration: none;
-            font-size: 1rem;
-            color: #0077cc;
+            font-size: 1.2rem;
             font-weight: bold;
+            color: #000; /* Colore uniforme */
         }
 
         .navigation a:hover {
-            text-decoration: underline;
+            color: #555; /* Colore al passaggio del mouse */
         }
     </style>
 </head>
@@ -69,7 +68,7 @@
         <h1 style="text-align: center;">Francesco Arena</h1>
         
         <!-- Immagine del poster -->
-        <img src="francesco-arena.jpg" alt="Francesco Arena Poster" class="poster">
+        <img src="francesco-arena-poster.jpg" alt="Francesco Arena Poster" class="poster">
         
         <!-- Descrizione -->
         <div class="description">
@@ -78,8 +77,8 @@
 
         <!-- Navigazione -->
         <div class="navigation">
-            <a href="john-armleder.html">&#8592; Previous</a>
-            <a href="mark-bain.html">Next &#8594;</a>
+            <a href="john-armleder.html">&#8592; John Armleder</a>
+            <a href="mark-bain.html">Mark Bain &#8594;</a>
         </div>
     </div>
 </body>
