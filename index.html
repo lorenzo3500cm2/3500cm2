@@ -4,7 +4,7 @@
     <!-- Meta tag di configurazione -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self';">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://www.googletagmanager.com; style-src 'self'; img-src 'self';">
     
     <!-- Titolo del sito -->
     <title>3500 cm²</title>
@@ -24,6 +24,9 @@
         gtag('js', new Date());
         gtag('config', 'G-1ZDKD18HZM');
     </script>
+
+    <!-- Importa font mancanti -->
+    <link href="https://fonts.googleapis.com/css2?family=Garamond:wght@400&family=Courier+Prime:wght@400&family=Comic+Sans+MS:wght@400&display=swap" rel="stylesheet">
 
     <!-- Stile personalizzato -->
     <style>
@@ -48,12 +51,12 @@
             animation: changeFont 10s infinite;
         }
 
-         @keyframes changeFont {
+        @keyframes changeFont {
             0% { font-family: 'Arial', sans-serif; color: #000; }
             10% { font-family: 'Garamond', serif; color: #0077cc; }
-            20% { font-family: 'Courier New', monospace; color: #ff6600; }
+            20% { font-family: 'Courier Prime', monospace; color: #ff6600; }
             30% { font-family: 'Helvetica', sans-serif; color: #228b22; }
-            40% { font-family: 'Bodoni', serif; color: #ff1493; }
+            40% { font-family: 'Comic Sans MS', cursive; color: #ff1493; }
             50% { font-family: 'Times New Roman', serif; color: #8b0000; }
             60% { font-family: 'Verdana', sans-serif; color: #ff00ff; }
             70% { font-family: 'Georgia', serif; color: #ff6347; }
