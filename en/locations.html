@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Locations</title>
-    <!-- Importa il font Libre Baskerville -->
     <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400&display=swap" rel="stylesheet">
     <style>
         body {
@@ -20,9 +19,13 @@
             align-items: center;
             padding: 20px;
             border-bottom: 1px solid #ddd;
-
-
-               }
+        }
+        .title {
+            font-size: 1.5rem;
+            color: #000;
+            margin: 0;
+            margin-bottom: 20px; /* Spazio sotto l'intestazione */
+        }
         .menu-icon {
             display: flex;
             flex-direction: column;
@@ -38,7 +41,7 @@
             border-radius: 1px;
         }
         .menu {
-            display: none;
+            display: none; /* Nasconde il menu di default */
             position: absolute;
             top: 60px;
             right: 20px;
@@ -56,23 +59,6 @@
         }
         .menu a:hover {
             text-decoration: underline;
-
-               <!-- Menu opzioni -->
-    <div class="menu" id="menu">
-        <a href="index.html">home</a>
-        <a href="news.html">News</a>
-        <a href="3500cm2.html">3500cm²</a>
-        <a href="pagina.html">artists</a>
-        <a href="exhibitions.html">exhibitions</a>
-        <a href="contact.html">contact</a>
-    </div>
-
-        }
-        .title {
-            font-size: 1.5rem;
-            color: #000;
-            margin: 0;
-            margin-bottom: 20px; /* Spazio sotto l'intestazione */
         }
         ul {
             list-style-type: none;
@@ -92,46 +78,44 @@
         a:hover {
             color: #555;
         }
-        /* Classi per colori personalizzati */
+        .artist-name {
+            margin-left: 20px; /* Spazio personalizzato */
+        }
         .blue { color: #0077cc; }        /* Blu */
-.orange { color: #ff6600; }     /* Arancione */
-.green { color: #228b22; }      /* Verde */
-.purple { color: #9932cc; }     /* Viola */
-.pink { color: #ff1493; }       /* Rosa */
-.red { color: #8b0000; }        /* Rosso scuro */
-.yellow { color: #ffa500; }     /* Giallo arancione */
-.steelblue { color: #4682b4; }  /* Blu acciaio */
-.teal { color: #008080; }       /* Teal */
-.maroon { color: #800000; }     /* Marrone scuro */
-.gold { color: #ffd700; }       /* Oro */
-.crimson { color: #dc143c; }    /* Cremisi */
-.lime { color: #00ff00; }       /* Lime */
-.aqua { color: #00ffff; }       /* Azzurro */
-.coral { color: #ff7f50; }      /* Corallo */
-.indigo { color: #4b0082; }     /* Indaco */
-.sienna { color: #a0522d; }     /* Siena */
-.silver { color: #c0c0c0; }     /* Argento */
-.navy { color: #000080; }       /* Blu navy */
-.chocolate { color: #d2691e; }  /* Cioccolato */
-.turquoise { color: #40e0d0; }  /* Turchese */
-.olive { color: #808000; }      /* Oliva */
-.plum { color: #dda0dd; }       /* Prugna */
-.salmon { color: #fa8072; }     /* Salmone */
-.khaki { color: #f0e68c; }      /* Kaki */
-.peru { color: #cd853f; }       /* Perù */
-.fuchsia { color: #ff00ff; }    /* Fucsia */
-.violet { color: #ee82ee; }     /* Viola chiaro */
-.tan { color: #d2b48c; }        /* Beige scuro */
-.midnightblue { color: #191970; } /* Blu notte */
-.seagreen { color: #2e8b57; }   /* Verde mare */
-.lightcoral { color: #f08080; } /* Corallo chiaro */
-        
+        .orange { color: #ff6600; }     /* Arancione */
+        .green { color: #228b22; }      /* Verde */
+        .purple { color: #9932cc; }     /* Viola */
+        .pink { color: #ff1493; }       /* Rosa */
+        .red { color: #8b0000; }        /* Rosso scuro */
+        .yellow { color: #ffa500; }     /* Giallo arancione */
+        .steelblue { color: #4682b4; }  /* Blu acciaio */
+        .teal { color: #008080; }       /* Teal */
+        .maroon { color: #800000; }     /* Marrone scuro */
+        .gold { color: #ffd700; }       /* Oro */
+        .crimson { color: #dc143c; }    /* Cremisi */
+        .lime { color: #00ff00; }       /* Lime */
+        .aqua { color: #00ffff; }       /* Azzurro */
+        .coral { color: #ff7f50; }      /* Corallo */
+        .indigo { color: #4b0082; }     /* Indaco */
+        .sienna { color: #a0522d; }     /* Siena */
+        .silver { color: #c0c0c0; }     /* Argento */
+        .navy { color: #000080; }       /* Blu navy */
+        .chocolate { color: #d2691e; }  /* Cioccolato */
+        .turquoise { color: #40e0d0; }  /* Turchese */
+        .olive { color: #808000; }      /* Oliva */
+        .plum { color: #dda0dd; }       /* Prugna */
+        .salmon { color: #fa8072; }     /* Salmone */
+        .khaki { color: #f0e68c; }      /* Kaki */
+        .peru { color: #cd853f; }       /* Perù */
+        .fuchsia { color: #ff00ff; }    /* Fucsia */
+        .violet { color: #ee82ee; }     /* Viola chiaro */
+        .tan { color: #d2b48c; }        /* Beige scuro */
+        .midnightblue { color: #191970; } /* Blu notte */
+        .seagreen { color: #2e8b57; }   /* Verde mare */
+        .lightcoral { color: #f08080; } /* Corallo chiaro */
     </style>
 </head>
 <body>
-    .artist-name {
-    margin-left: 20px; /* Spazio personalizzato */
-}
     <div class="header">
         <div class="title">Venues</div>
     </div>
