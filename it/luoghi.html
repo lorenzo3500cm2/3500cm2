@@ -3,8 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Luoghi</title>
-    <!-- Importa il font Libre Baskerville -->
+    <title>Locations</title>
     <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400&display=swap" rel="stylesheet">
     <style>
         body {
@@ -19,11 +18,13 @@
             justify-content: space-between;
             align-items: center;
             padding: 20px;
+            border-bottom: 1px solid #ddd;
         }
         .title {
             font-size: 1.5rem;
-            color: #000; /* Colore nero */
+            color: #000;
             margin: 0;
+            margin-bottom: 20px; /* Spazio sotto l'intestazione */
         }
         .menu-icon {
             display: flex;
@@ -44,92 +45,303 @@
             position: absolute;
             top: 60px;
             right: 20px;
-            padding: 0;
+            background: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 10px;
         }
         .menu a {
             display: block;
             padding: 10px 0;
             text-decoration: none;
-            color: #000; /* Scritte nere */
+            color: #000;
             font-size: 0.9rem;
         }
         .menu a:hover {
-            text-decoration: underline; /* Sottolinea al passaggio del mouse */
+            text-decoration: underline;
         }
         ul {
             list-style-type: none;
             padding: 20px;
             margin: 0;
-            font-family: 'Libre Baskerville', serif; /* Applica Bembo-like font */
-            font-size: 1.2rem; /* Dimensione aumentata */
-            line-height: 1.8; /* Maggiore spaziatura tra le righe */
+            font-family: 'Libre Baskerville', serif;
+            font-size: 1.3rem;
+            line-height: 1.8;
         }
         li {
-            margin-bottom: 15px; /* Spaziatura aumentata tra gli elementi */
-            color: #000; /* Colore nero */
+            margin-bottom: 15px;
         }
         a {
             text-decoration: none;
-            color: #000; /* Nero per i link */
+            color: #000;
         }
         a:hover {
-            color: #555; /* Grigio al passaggio del mouse */
+            color: #555;
         }
+        .artist-name {
+            margin-left: 20px; /* Spazio personalizzato */
+        }
+        .blue { color: #0077cc; }        /* Blu */
+        .orange { color: #ff6600; }     /* Arancione */
+        .green { color: #228b22; }      /* Verde */
+        .purple { color: #9932cc; }     /* Viola */
+        .pink { color: #ff1493; }       /* Rosa */
+        .red { color: #8b0000; }        /* Rosso scuro */
+        .yellow { color: #ffa500; }     /* Giallo arancione */
+        .steelblue { color: #4682b4; }  /* Blu acciaio */
+        .teal { color: #008080; }       /* Teal */
+        .maroon { color: #800000; }     /* Marrone scuro */
+        .gold { color: #ffd700; }       /* Oro */
+        .crimson { color: #dc143c; }    /* Cremisi */
+        .lime { color: #00ff00; }       /* Lime */
+        .aqua { color: #00ffff; }       /* Azzurro */
+        .coral { color: #ff7f50; }      /* Corallo */
+        .indigo { color: #4b0082; }     /* Indaco */
+        .sienna { color: #a0522d; }     /* Siena */
+        .silver { color: #c0c0c0; }     /* Argento */
+        .navy { color: #000080; }       /* Blu navy */
+        .chocolate { color: #d2691e; }  /* Cioccolato */
+        .turquoise { color: #40e0d0; }  /* Turchese */
+        .olive { color: #808000; }      /* Oliva */
+        .plum { color: #dda0dd; }       /* Prugna */
+        .salmon { color: #fa8072; }     /* Salmone */
+        .khaki { color: #f0e68c; }      /* Kaki */
+        .peru { color: #cd853f; }       /* Perù */
+        .fuchsia { color: #ff00ff; }    /* Fucsia */
+        .violet { color: #ee82ee; }     /* Viola chiaro */
+        .tan { color: #d2b48c; }        /* Beige scuro */
+        .midnightblue { color: #191970; } /* Blu notte */
+        .seagreen { color: #2e8b57; }   /* Verde mare */
+        .lightcoral { color: #f08080; } /* Corallo chiaro */
     </style>
 </head>
 <body>
     <div class="header">
-        <div class="title">Luoghi</div>
-        <div class="menu-icon" onclick="toggleMenu()">
-            <div></div>
-            <div></div>
-            <div></div>
-        </div>
-    </div>
-
-    <!-- Menu nascosto -->
-    <div class="menu" id="menu">
-        <a href="index.html">Home</a>
-        <a href="3500cm2.html">3500cm2</a>
-        <a href="pagina.html">artisti</a>
-        <a href="mostre.html">mostre</a>
-        <a href="contatti.html">contatti</a>
+        <div class="title">Venues</div>
     </div>
 
     <ul>
-        <li><a href="https://www.accademiabelleartiroma.it/" target="_blank">Accademia di Belle Arti, Roma</a></li>
-        <li><a href="https://www.danishacademyrome.com/" target="_blank">Accademia di Danimarca, Roma</a></li>
-        <li><a href="https://www.villamedici.it/" target="_blank">Accademia di Francia Villa Medici, Roma</a></li>
-        <li><a href="https://accademiasanluca.it/" target="_blank">Accademia Nazionale di San Luca, Roma</a></li>
-        <li><a href="https://www.accademiaspagna.org/" target="_blank">Accademia Reale Spagnola, Roma</a></li>
-        <li><a href="https://www.britishschoolatrome.org.uk/" target="_blank">Accademia Britannica, Roma</a></li>
-        <li><a href="https://www.villamassimo.de/" target="_blank">Accademia Tedesca Villa Massimo, Roma</a></li>
-        <li><a href="https://www.accademiavirtuosi.it/" target="_blank">Accademia dei Virtuosi al Pantheon, Roma</a></li>
-        <li><a href="https://alkatrazgallery.org/" target="_blank">Alkatraz Gallery, Ljubljana</a></li>
-        <li><a href="https://www.aarome.org/" target="_blank">American Academy, Roma</a></li>
-        <li><a href="https://www.assab-one.org/" target="_blank">Assab One, Milano</a></li>
-        <li><a href="https://www.mglc-lj.si/" target="_blank">27th Bienniale of Graphic Arts, Ljubljana</a></li>
-        <li><a href="https://casadigoethe.it/it/" target="_blank">Casa di Goethe, Roma</a></li>
-        <li><a href="https://consparigi.esteri.it/" target="_blank">Consolato Generale d'Italia a Parigi, Parigi</a></li>
-        <li><a href="https://www.contemporalis.eu/3500-cm2/" target="_blank">Contemporalis, Parigi</a></li>
-        <li><a href="https://vleeshal.nl/en" target="_blank">De Vleeshal, Middelburg</a></li>
-        <li><a href="https://www.austriacult.roma.it/" target="_blank">Istituto Austriaco di Cultura, Roma</a></li>
-        <li><a href="https://instytutpolski.pl/roma/" target="_blank">Istituto Polacco, Roma</a></li>
-        <li><a href="https://www.istitutosvizzero.it/" target="_blank">Istituto Svizzero, Roma</a></li>
-        <li><a href="https://www.mattatoioroma.it/" target="_blank">Mattatoio, Roma</a></li>
-        <li><a href="https://www.museomacro.it/" target="_blank">Macro, Roma</a></li>
-        <li>Palazzo Lantieri, Gorizia</li>
-        <li><a href="https://www.palazzoesposizioni.it/" target="_blank">Palazzo Esposizioni Roma, Roma</a></li>
-        <li><a href="http://radioartemobile.it/" target="_blank">Ram RadioArteMobile, Roma</a></li>
-        <li><a href="https://www.knir.it/" target="_blank">Reale Istituto Neerlandese, Roma</a></li>
-        <li>Rialto Sant'Ambrogio, Roma</li>
-        <li><a href="https://fondazionevolume.com" target="_blank">Fondazione VOLUME!, Roma</a></li>
-        <li>San Salvatore in Lauro, Roma</li>
-        <li><a href="http://projectspace.uqbar-ev.de/index.php?mact=News,cntnt01,detail,0&cntnt01articleid=22&cntnt01returnid=56" target="_blank">uqbar, Berlino</a></li>
-        <li>Villa Ada - Roma Incontra il Mondo, Roma</li>
-        <li><a href="https://www.radioartemobile.it/evento/la-seduzione-del-luogo/">Zerynthia, Roma</a></li>
+        <li>
+            <a href="https://www.villamedici.it/" target="_blank">Accademia di Francia Villa Medici, Rome</a>
+            <span class="blue artist-name">Nil Yalter</span>
+        </li>
+        <li>
+            <a href="https://www.accademiabelleartiroma.it/" target="_blank">Accademia di Belle Arti, Rome</a>
+            <span class="orange">Sarina Scheidegger</span>
+        </li>
+        <li>
+            <a href="https://www.acdan.it/it" target="_blank">Accademia di Danimarca, Rome</a>
+            <span class="green">Simon Dybbroe Møller</span>
+        </li>
+        <li>
+            <a href="https://accademiasanluca.it/" target="_blank">Accademia Nazionale di San Luca, Rome</a>
+            <span class="purple">Giulio Paolini</span>
+        </li>
+        <li>
+            <a href="https://bsr.ac.uk/" target="_blank">Accademia Britannica, Rome</a>
+            <span class="pink">Tura Oliveira</span>
+        </li>
+        <li>
+            <a href="https://www.villamassimo.de/" target="_blank">Accademia Tedesca Villa Massimo, Rome</a>
+            <span class="red">Nicole Wermers</span>
+        </li>
+        <li>
+            <a href="https://galerijalkatraz.org/?p=11249" target="_blank">Alkatraz Gallery, Ljubljana</a>
+            <span class="yellow">Vadim Fishkin</span>
+        </li>
+        <li>
+            <a href="https://www.assab-one.org/" target="_blank">Assab One, Milan</a>
+            <span class="orange">Dafne Boggeri</span>
+
+            <li>
+    <a href="https://www.accademiaspagna.org/" target="_blank">Accademia Reale Spagnola, Rome</a>
+    <span class="seagreen">Fernando Sanchez Castillo</span>
+                
+        </li>
+
+        <li>
+    <a href="https://www.accademiavirtuosi.it/" target="_blank">Accademia dei Virtuosi al Pantheon, Rome</a>
+    <span class="silver">Elisabetta Benassi</span>
+        </li>
+
+        <li>
+    <a href="https://www.aarome.org/" target="_blank">American Academy</a>
+    <span class="silver">Yun Fei Ji</span>, <span class="turquoise">Matt Mullican</span>
+        </li>
+        <li>
+    <a href="https://www.mglc-lj.si/" target="_blank">27th Biennale of Graphic Arts, Ljubljana</a>
+    <span class="lime">Vadim Fishkin</span>
+</li>
+
+        <li>
+    <a href="https://casadigoethe.it/it/" target="_blank">Casa di Goethe, Rome</a>
+    <span class="lightcoral">Jochem Lempert</span>
+</li>
+
+        <li>
+    <a href="https://consparigi.esteri.it/" target="_blank">Consolato d’Italia, Paris</a>
+    <span class="silver">Diego Cibelli</span>, <span class="sienna">Marinella Senatore</span>
+</li>
+
+        <li>
+    <a href="https://www.contemporalis.eu/3500-cm2/" target="_blank">Contemporalis, Paris</a>
+    <span class="violet">Diego Cibelli</span>, <span class="salmon">Marinella Senatore</span>
+</li>
+
+        <li>
+    <a href="https://vleeshal.nl/en" target="_blank">SMBK De Vleeshal, Middelburg, NL</a>
+    <span class="fuchsia">Nina Beier & Marie Lund</span>, <span class="chocolate">Katinka Bock</span>, <span class="olive">Benoit Maire</span>, <span class="crimson">Kelly Schacht</span>
+</li>
+
+        <li>
+    <a href="https://www.austriacult.roma.it/" target="_blank">Istituto Austriaco di Cultura, Rome</a>
+    <span class="tan">Hans Schabus</span>
+</li>
+
+        <li>
+    <a href="https://instytutpolski.pl/roma/" target="_blank">Istituto Polacco, Rome</a>
+   <span class="red">Kuba Bakowski</span>,  <span class="coral">Robert Kuśmirowski</span>
+</li>
+
+        <li>
+    <a href="https://www.istitutosvizzero.it/" target="_blank">Istituto Svizzero, Rome</a>
+    <span class="gold">John Armleder</span>
+</li>
+
+        <li>
+    <a href="https://www.mattatoioroma.it/" target="_blank">Mattatoio, Rome</a>
+    <span class="plum">Vladimir Radunsky</span>
+</li>
+
+        <li>
+    <a href="https://www.museomacro.it/" target="_blank">Macro, Rome</a>
+    <span class="teal">Elisabetta Benassi</span>
+</li>
+
+        <li>
+    <a href="https://palazzolantieri.com" target="_blank">Palazzo Lantieri, Gorizia</a>
+    <span class="khaki">H. H. Lim</span>
+</li>
+
+        <li>
+    <a href="https://www.palazzoesposizioni.it/" target="_blank">Palazzo Esposizioni Roma, Rome</a>
+    <span class="purple">Carla Accardi</span>
+</li>
+
+        <li>
+    <a href="http://radioartemobile.it/" target="_blank">RadioArteMobile, Rome</a>
+    <span class="yellow">Valentino Diego</span>
+</li>
+
+         <li>
+    <a href="https://www.knir.it/" target="_blank">Reale Istituto Neerlandese, Rome</a>
+    <span class="orange">Domenico Mangano & Marieke van Rooy</span>
+</li>
+   
+       
+<li>
+    Blueroom, rialtosantambrogio, Rome
+    <span class="blue">Stanislao Di Giugno</span>, 
+    <span class="orange">Wolfgang Berkowski</span>, 
+    <span class="green">Nicoletta Agostini</span>, 
+    <span class="purple">Italo Zuffi</span>, 
+    <span class="pink">Liliana Moro</span>, 
+    <span class="red">Cesare Pietroiusti</span>, 
+    <span class="yellow">Silvia Iorio</span>, 
+    <span class="steelblue">Giuseppe Pietroniro</span>, 
+    <span class="teal">Corrado Sassi</span>, 
+    <span class="maroon">Paolo William Tamburella</span>, 
+    <span class="gold">Elisabetta Benassi</span>, 
+    <span class="crimson">Maurizio Savini</span>, 
+    <span class="lime">Guendalina Salini</span>, 
+    <span class="aqua">Federico Pietrella</span>, 
+    <span class="coral">Alessandro Piangiamore</span>, 
+    <span class="indigo">Alessandro Bulgini</span>, 
+    <span class="sienna">Costa Vece</span>, 
+    <span class="silver">Olaf Nicolai</span>, 
+    <span class="navy">Laurent Grasso</span>, 
+    <span class="chocolate">Marco Raparelli</span>, 
+    <span class="turquoise">Ph.on</span>, 
+    <span class="olive">Kuba Bakowski</span>, 
+    <span class="plum">Mikael Paananen / Linda Tallroth</span>, 
+    <span class="salmon">Marco Fedele di Catrano</span>, 
+    <span class="khaki">Luca Vitone</span>, 
+    <span class="peru">Paolo Chiasera</span>, 
+    <span class="fuchsia">Sarra Brill / Chiara Graziani</span>, 
+    <span class="violet">Christoph Girardet</span>, 
+    <span class="tan">Carla Accardi</span>, 
+    <span class="midnightblue">Stefania Galegati</span>, 
+    <span class="seagreen">Robert Lippok</span>, 
+    <span class="lightcoral">Rob Johannesma</span>, 
+    <span class="blue">Globalgroove</span>, 
+    <span class="orange">Max Renkel</span>, 
+    <span class="green">Massimo Bartolini</span>, 
+    <span class="purple">Carsten Nicolai</span>, 
+    <span class="pink">Rainer Ganahl</span>, 
+    <span class="red">Elena Nemkova</span>, 
+    <span class="yellow">Laura Palmieri</span>, 
+    <span class="steelblue">Emiliano Zelada</span>, 
+    <span class="teal">Philippe Rahm</span>, 
+    <span class="maroon">Emilio Prini</span>, 
+    <span class="gold">Heidrun Holzfeind</span>, 
+    <span class="crimson">Annie Ratti</span>, 
+    <span class="lime">Pedro Cabrita Reis</span>, 
+    <span class="coral">Dafne Boggeri</span>, 
+    <span class="indigo">Flavio de Marco</span>, 
+    <span class="sienna">Parastou Forouhar</span>, 
+    <span class="silver">Yun-Fei Ji</span>, 
+    <span class="navy">Rä di Martino</span>, 
+    <span class="chocolate">Giuliano Lombardo</span>, 
+    <span class="turquoise">Chiara</span>, 
+    <span class="olive">Luigi Rizzo</span>, 
+    <span class="plum">Jeanette Montgomery Barron</span>, 
+    <span class="salmon">Chi Wo Leung</span>, 
+    <span class="khaki">Luis Gonzales Palma</span>, 
+    <span class="peru">Marco Klefisch</span>, 
+    <span class="fuchsia">Vlad Nanca</span>, 
+    <span class="violet">Andrea Salvino</span>, 
+    <span class="tan">Gabriel Lester</span>, 
+    <span class="midnightblue">Davide D’Elia</span>, 
+    <span class="seagreen">Jimmie Durham</span>, 
+    <span class="lightcoral">Mario Garcia Torres</span>, 
+    <span class="blue">Maria Thereza Alves</span>, 
+    <span class="orange">Donatella Spaziani</span>, 
+    <span class="green">Riccardo Previdi</span>, 
+    <span class="purple">Mark Bain</span>, 
+    <span class="pink">Jorge Peris</span>, 
+    <span class="red">Alon Levin</span>
+</li>
+    
+         <li>
+    <a href="https://fondazionevolume.com" target="_blank">Fondazione VOLUME!, Rome</a>
+    <span class="navy">Dennis Oppenheim</span>, <span class="orange">Francesco Arena</span>, <span class="olive">Marc Nachtzaam</span>, <span class="fuchsia">Batia Suter</span>, <span class="turquoise">Mandla Reuter</span>
+
+</li>
+        
+         <li>
+    <a href="https://www.sansalvatore.org/" target="_blank">San Salvatore in Lauro, Rome</a>
+    <span class="purple">Fernando Sanchez Castillo</span>
+</li>
+        
+         <li>
+    <a href="http://projectspace.uqbar-ev.de/" target="_blank">Uqbar, Berlin</a>
+    <span class="peru">Mathilde ter Hijne</span>
+</li>
+        
+         <li>
+    <a href="URL_LUOGO" target="_blank">Villa Ada - Roma incontra il mondo, Rome</a>
+    <span class="crimson">Francesco Arena</span>, <span class="aqua">Marc Nachtzaam</span>, <span class="midnightblue">Batia Suter</span>, <span class="turquoise">Mandla Reuter</span>
+</li>
+
+             <li>
+    <a href="https://www.radioartemobile.it/evento/la-seduzione-del-luogo/" target="_blank">Zerynthia, Rome</a>
+    <span class="seagreen">Diego Valentino</span>
+</li>
+
     </ul>
 
+     
+        
     <script>
         function toggleMenu() {
             const menu = document.getElementById('menu');
