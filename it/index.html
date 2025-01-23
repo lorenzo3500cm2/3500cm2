@@ -35,14 +35,14 @@
             animation: changeFont 20s infinite;
         }
 
-        @keyframes changeFont {
-            0% { font-family: 'Arial', sans-serif; color: #000; }
-            20% { font-family: 'Garamond', serif; color: #0077cc; }
-            40% { font-family: 'Courier New', monospace; color: #ff6600; }
-            60% { font-family: 'Helvetica', sans-serif; color: #228b22; }
-            80% { font-family: 'Bodoni', serif; color: #ff1493; }
-            100% { font-family: 'Times New Roman', serif; color: #8b0000; }
-        }
+     @keyframes changeFont {
+    0% { font-family: 'Arial', sans-serif; color: #000; }
+    20% { font-family: 'Garamond', serif; color: #0077cc; }
+    40% { font-family: 'Courier New', monospace; color: #ff6600; }
+    60% { font-family: 'Helvetica', sans-serif; color: #228b22; }
+    80% { font-family: 'Bodoni', serif; color: #ff1493; }
+    100% { font-family: 'Times New Roman', serif; color: #8b0000; }
+}
 
         .language-switch {
             position: absolute;
@@ -83,18 +83,23 @@
             border-radius: 2px;
         }
 
-        .menu {
-            display: none;
-            position: absolute;
-            top: 60px;
-            right: 20px;
-            flex-direction: column;
-            gap: 10px;
-        }
+.menu {
+    display: none;
+    position: absolute;
+    top: 60px;
+    right: 20px;
+    flex-direction: column;
+    gap: 10px;
+    opacity: 0;
+    transform: scale(0.9);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
 
-        .menu.active {
-            display: flex;
-        }
+.menu.active {
+    display: flex;
+    opacity: 1;
+    transform: scale(1);
+}
 
         .menu a {
             text-decoration: none;
@@ -105,6 +110,9 @@
         .menu a:hover {
             text-decoration: underline;
         }
+
+<div class="menu-icon" onclick="toggleMenu()" aria-label="Apri il menu">
+        
     </style>
 </head>
 <body>
@@ -143,18 +151,22 @@
             const menu = document.getElementById('menu');
             menu.classList.toggle('active');
         }
-    </script>
-        <audio id="flipSound" src="suono.wav" preload="auto"></audio>
+  <audio id="flipSound" src="suono.wav" preload="auto"></audio>
 
-    <script>
-        // Riproduci il suono ogni 3 secondi
-        const flipSound = document.getElementById('flipSound');
+<script>
+    const flipSound = document.getElementById('flipSound');
 
-        function playSound() {
-            flipSound.currentTime = 0; // Riavvia il suono
-            flipSound.play();
-        }
+    // Riproduci il suono al click sul titolo
+    const title = document.querySelector('.title a');
+    title.addEventListener('click', () => {
+        flipSound.currentTime = 0; // Riavvia il suono
+        flipSound.play();
+    });
+</script>
 
+<link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+        
         setInterval(playSound, 3000); // Riproduci ogni 3 secondi
     </script>
 </body>
