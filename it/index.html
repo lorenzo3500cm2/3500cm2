@@ -27,14 +27,17 @@
             position: relative;
             overflow: hidden;
         }
+.title {
+    font-size: 8rem;
+    font-weight: bold;
+    text-align: center;
+    animation: changeFont 20s infinite;
+}
 
-        .title {
-            font-size: 8rem;
-            font-weight: bold;
-            text-align: center;
-            animation: changeFont 20s infinite;
-        }
-
+.title a {
+    text-decoration: none;
+    color: inherit; /* Usa il colore animato ereditato */
+}
         @keyframes changeFont {
             0% { font-family: 'Arial', sans-serif; color: #000; }
             20% { font-family: 'Garamond', serif; color: #0077cc; }
