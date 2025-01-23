@@ -1,20 +1,16 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-    <!-- Meta tag di configurazione -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://www.googletagmanager.com; style-src 'self' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self';">
-    
-    <!-- Titolo del sito -->
     <title>3500 cm²</title>
-    
+
     <!-- Favicons -->
- <link rel="icon" type="image/png" href="/3500cm2.org/favicon-96x96.png" sizes="96x96" />
-<link rel="icon" type="image/svg+xml" href="/3500cm2.org/favicon.svg" />
-<link rel="shortcut icon" href="/3500cm2.org/favicon.ico" />
-<link rel="apple-touch-icon" sizes="180x180" href="/3500cm2.org/apple-touch-icon.png" />
-<link rel="manifest" href="/3500cm2.org/site.webmanifest" />
+    <link rel="icon" type="image/png" href="/3500cm2.org/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="/3500cm2.org/favicon.svg" />
+    <link rel="shortcut icon" href="/3500cm2.org/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/3500cm2.org/apple-touch-icon.png" />
+    <link rel="manifest" href="/3500cm2.org/site.webmanifest" />
 
     <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-1ZDKD18HZM"></script>
@@ -25,16 +21,7 @@
         gtag('config', 'G-1ZDKD18HZM');
     </script>
 
-    <!-- Importa font mancanti -->
-    <link href="https://fonts.googleapis.com/css2?family=Garamond:wght@400&family=Courier+Prime:wght@400&family=Comic+Sans+MS:wght@400&display=swap" rel="stylesheet">
-
-    <!-- Stile personalizzato -->
     <style>
-        .img-bordered {
-            border: 2px solid #000; /* Cornice nera */
-            border-radius: 5px; /* Angoli arrotondati */
-        }
-
         body {
             margin: 0;
             padding: 0;
@@ -44,24 +31,25 @@
             display: flex;
             justify-content: center;
             align-items: center;
+            flex-direction: column;
             height: 100vh;
-            position: relative;
             overflow: hidden;
         }
 
         .title {
-            font-size: 10rem;
+            font-size: 8rem;
             font-weight: bold;
             text-align: center;
             animation: changeFont 10s infinite;
+            margin-bottom: 50px;
         }
 
         @keyframes changeFont {
             0% { font-family: 'Arial', sans-serif; color: #000; }
             10% { font-family: 'Garamond', serif; color: #0077cc; }
-            20% { font-family: 'Courier Prime', monospace; color: #ff6600; }
+            20% { font-family: 'Courier New', monospace; color: #ff6600; }
             30% { font-family: 'Helvetica', sans-serif; color: #228b22; }
-            40% { font-family: 'Comic Sans MS', cursive; color: #ff1493; }
+            40% { font-family: 'Bodoni', serif; color: #ff1493; }
             50% { font-family: 'Times New Roman', serif; color: #8b0000; }
             60% { font-family: 'Verdana', sans-serif; color: #ff00ff; }
             70% { font-family: 'Georgia', serif; color: #ff6347; }
@@ -71,33 +59,36 @@
         }
 
         .language-switch {
-            position: absolute;
-            top: 20px;
-            left: 20px;
-            font-size: 1rem;
-            font-weight: lighter;
-            font-family: Helvetica, Arial, sans-serif;
+            font-size: 2rem;
+            font-weight: bold;
+            display: flex;
+            gap: 20px;
         }
 
         .language-switch a {
-            margin: 0 10px;
             text-decoration: none;
             color: #000;
+            border: 2px solid #000;
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: all 0.3s ease;
         }
 
         .language-switch a:hover {
-            text-decoration: underline;
+            background-color: #000;
+            color: #fff;
         }
     </style>
 </head>
 <body>
-    <!-- Scelta della lingua -->
-    <div class="language-switch">
-        <a href="it/index.html">IT</a> | <a href="en/index.html">EN</a>
-    </div>
-
     <!-- Titolo dinamico -->
     <div class="title" id="changing-text">3500 cm²</div>
+
+    <!-- Selezione di lingua -->
+    <div class="language-switch">
+        <a href="it/index.html">Italiano</a>
+        <a href="en/index.html">English</a>
+    </div>
 
     <script>
         const texts = [
@@ -109,7 +100,8 @@
             "৩৫০০ বর্গ সেন্টিমিটার",
             "3500 ಚದರ ಸೆ.ಮೀ",
             "3500 平方厘米",
-            "3500 ตารางเซนติเมตร"
+            "3500 ตารางเซนติเมตร",
+            "3500 cm²"
         ];
 
         let index = 0;
