@@ -2,14 +2,14 @@
 <html lang="it">
 <head>
     <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-1ZDKD18HZM"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-1ZDKD18HZM');
-</script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1ZDKD18HZM"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-1ZDKD18HZM');
+    </script>
+    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>3500 cm²</title>
@@ -35,14 +35,14 @@
             animation: changeFont 20s infinite;
         }
 
-     @keyframes changeFont {
-    0% { font-family: 'Arial', sans-serif; color: #000; }
-    20% { font-family: 'Garamond', serif; color: #0077cc; }
-    40% { font-family: 'Courier New', monospace; color: #ff6600; }
-    60% { font-family: 'Helvetica', sans-serif; color: #228b22; }
-    80% { font-family: 'Bodoni', serif; color: #ff1493; }
-    100% { font-family: 'Times New Roman', serif; color: #8b0000; }
-}
+        @keyframes changeFont {
+            0% { font-family: 'Arial', sans-serif; color: #000; }
+            20% { font-family: 'Garamond', serif; color: #0077cc; }
+            40% { font-family: 'Courier New', monospace; color: #ff6600; }
+            60% { font-family: 'Helvetica', sans-serif; color: #228b22; }
+            80% { font-family: 'Bodoni', serif; color: #ff1493; }
+            100% { font-family: 'Times New Roman', serif; color: #8b0000; }
+        }
 
         .language-switch {
             position: absolute;
@@ -50,7 +50,6 @@
             left: 20px;
             font-size: 1rem;
             font-weight: lighter;
-            font-family: Helvetica, Arial, sans-serif;
         }
 
         .language-switch a {
@@ -83,23 +82,23 @@
             border-radius: 2px;
         }
 
-.menu {
-    display: none;
-    position: absolute;
-    top: 60px;
-    right: 20px;
-    flex-direction: column;
-    gap: 10px;
-    opacity: 0;
-    transform: scale(0.9);
-    transition: opacity 0.3s ease, transform 0.3s ease;
-}
+        .menu {
+            display: none;
+            position: absolute;
+            top: 60px;
+            right: 20px;
+            flex-direction: column;
+            gap: 10px;
+            opacity: 0;
+            transform: scale(0.9);
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
 
-.menu.active {
-    display: flex;
-    opacity: 1;
-    transform: scale(1);
-}
+        .menu.active {
+            display: flex;
+            opacity: 1;
+            transform: scale(1);
+        }
 
         .menu a {
             text-decoration: none;
@@ -110,21 +109,15 @@
         .menu a:hover {
             text-decoration: underline;
         }
-
-<div class="menu-icon" onclick="toggleMenu()" aria-label="Apri il menu">
-        
     </style>
 </head>
 <body>
     <!-- Lingua -->
     <div class="language-switch">
         <a href="../en/index.html">EN</a>
-
-        
     </div>
 
- 
-      <!-- Titolo come link -->
+    <!-- Titolo come link -->
     <div class="title">
         <a href="pagina.html">3500 cm²</a>
     </div>
@@ -138,38 +131,41 @@
 
     <!-- Menu opzioni -->
     <div class="menu" id="menu">
-        <a href="news.html">news</a>
+        <a href="news.html">News</a>
         <a href="3500cm2.html">3500cm2</a>
-        <a href="pagina.html">artisti</a>
-        <a href="luoghi.html">luoghi</a>
-        <a href="mostre.html">mostre</a>
-        <a href="contatti.html">contatti</a>
+        <a href="pagina.html">Artisti</a>
+        <a href="luoghi.html">Luoghi</a>
+        <a href="mostre.html">Mostre</a>
+        <a href="contatti.html">Contatti</a>
     </div>
 
+    <!-- Audio -->
+    <audio id="flipSound" src="suono.wav" preload="auto"></audio>
+
     <script>
+        // Funzione per mostrare/nascondere il menu
         function toggleMenu() {
             const menu = document.getElementById('menu');
             menu.classList.toggle('active');
         }
-  <audio id="flipSound" src="suono.wav" preload="auto"></audio>
 
-<script>
-    const flipSound = document.getElementById('flipSound');
+        // Riproduci il suono al click sul titolo
+        const flipSound = document.getElementById('flipSound');
+        const title = document.querySelector('.title a');
+        title.addEventListener('click', () => {
+            flipSound.currentTime = 0; // Riavvia il suono
+            flipSound.play();
+        });
 
-    // Riproduci il suono al click sul titolo
-    const title = document.querySelector('.title a');
-    title.addEventListener('click', () => {
-        flipSound.currentTime = 0; // Riavvia il suono
-        flipSound.play();
-    });
-</script>
-
-<link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
-<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-        
-        setInterval(playSound, 3000); // Riproduci ogni 3 secondi
+        // Riproduci il suono ogni 3 secondi
+        setInterval(() => {
+            flipSound.currentTime = 0;
+            flipSound.play();
+        }, 3000);
     </script>
-</body>
-</html>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 </body>
 </html>
