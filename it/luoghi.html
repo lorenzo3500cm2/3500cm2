@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Locations</title>
+    <title>Luoghi</title>
     <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400&display=swap" rel="stylesheet">
     <style>
         body {
@@ -24,7 +24,6 @@
             font-size: 1.5rem;
             color: #000;
             margin: 0;
-            margin-bottom: 20px; /* Spazio sotto l'intestazione */
         }
         .menu-icon {
             display: flex;
@@ -41,7 +40,7 @@
             border-radius: 1px;
         }
         .menu {
-            display: none; /* Nasconde il menu di default */
+            display: none;
             position: absolute;
             top: 60px;
             right: 20px;
@@ -49,6 +48,10 @@
             border: 1px solid #ddd;
             border-radius: 5px;
             padding: 10px;
+            z-index: 1000;
+        }
+        .menu.active {
+            display: block;
         }
         .menu a {
             display: block;
@@ -80,6 +83,30 @@
         }
         .artist-name {
             margin-left: 20px; /* Spazio personalizzato */
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="title">Luoghi</div>
+        <div class="menu-icon" onclick="toggleMenu()">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+
+    <div class="menu" id="menu">
+        <a href="index.html">Home</a>
+        <a href="news.html">News</a>
+        <a href="3500cm2.html">3500cm²</a>
+        <a href="pagina.html">Artisti</a>
+        <a href="mostre.html">Mostre</a>
+        <a href="contatti.html">Contatti</a>
+    </div>
+
+    <ul>
+        <li>
         }
         .blue { color: #0077cc; }        /* Blu */
         .orange { color: #ff6600; }     /* Arancione */
