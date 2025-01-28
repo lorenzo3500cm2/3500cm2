@@ -5,13 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mostre</title>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400&display=swap'); /* Font */
+
         body {
             font-family: 'Libre Baskerville', serif;
             margin: 0;
-            padding: 0;
+            padding: 20px;
             background-color: #fff;
             color: #000;
         }
+
         .header {
             display: flex;
             justify-content: space-between;
@@ -19,11 +22,13 @@
             padding: 20px;
             border-bottom: 1px solid #ddd;
         }
+
         .title {
             font-size: 1.5rem;
             color: #000;
             margin: 0;
         }
+
         .menu-icon {
             display: flex;
             flex-direction: column;
@@ -32,43 +37,55 @@
             height: 15px;
             cursor: pointer;
         }
+
         .menu-icon div {
             background-color: #000;
             height: 2px;
             width: 100%;
             border-radius: 1px;
         }
+
         .menu {
             display: none;
             position: absolute;
             top: 60px;
             right: 20px;
-            padding: 0;
+            background: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 10px;
         }
+
         .menu a {
-            display: block;
-            padding: 10px 0;
             text-decoration: none;
             color: #000;
             font-size: 1rem;
+            margin-bottom: 10px;
+            display: block;
         }
+
         .menu a:hover {
             text-decoration: underline;
         }
-        ul {
-            list-style-type: none;
-            padding: 20px;
-            margin: 0;
-            font-size: 1rem;
+
+        .exhibitions-list {
+            font-size: 1.5rem; /* Stessa dimensione della lista artisti */
+            line-height: 1.8; /* Distanza tra le righe */
+            margin-top: 60px;
         }
-        li {
-            margin-bottom: 15px;
-        }
-        a {
+
+        .exhibitions-list a {
             text-decoration: none;
             color: #000;
+            display: block;
         }
-        a:hover {
+
+        .exhibitions-list a:hover {
+            text-decoration: underline;
+        }
+
+        .exhibitions-list span {
+            font-size: 1rem;
             color: #555;
         }
     </style>
@@ -93,33 +110,27 @@
     </div>
 
     <!-- Lista Mostre -->
-    <ul>
-        <li>
-            <a href="american-academy.html" target="_blank">American Academy, Roma</a>
-            <span>20 ottobre - 2 novembre 2006</span>
-        </li>
-        <li>
-            <a href="assab-one.html" target="_blank">Assab One, Milano</a>
-            <span>ottobre - novembre 2006</span>
-        </li>
-        <li>
-            <a href="palazzo-lantieri.html" target="_blank">Palazzo Lantieri, Gorizia</a>
-            <span>Data non specificata</span>
-        </li>
-        <li>
-            <a href="uqbar-berlino.html" target="_blank">Uqbar, Berlino</a>
-            <span>Data non specificata</span>
-        </li>
-        <li>
-            <a href="palazzo-esposizioni.html" target="_blank">Palazzo Esposizioni, Roma</a>
-            <span>5 maggio - 28 agosto 2024</span>
-        </li>
-    </ul>
+    <div class="exhibitions-list">
+        <a href="american-academy.html">American Academy, Roma</a>
+        <span>20 ottobre - 2 novembre 2006</span>
+        
+        <a href="assab-one.html">Assab One, Milano</a>
+        <span>ottobre - novembre 2006</span>
+        
+        <a href="palazzo-lantieri.html">Palazzo Lantieri, Gorizia</a>
+        <span>Data non specificata</span>
+        
+        <a href="uqbar-berlino.html">Uqbar, Berlino</a>
+        <span>Data non specificata</span>
+        
+        <a href="palazzo-esposizioni.html">Palazzo Esposizioni, Roma</a>
+        <span>5 maggio - 28 agosto 2024</span>
+    </div>
 
     <script>
         function toggleMenu() {
             const menu = document.getElementById('menu');
-            menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
+            menu.classList.toggle('active');
         }
     </script>
 </body>
