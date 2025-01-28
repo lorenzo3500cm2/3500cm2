@@ -19,10 +19,11 @@
             padding: 20px;
             border-bottom: 1px solid #ddd;
         }
-        .title {
+        .back-link {
             font-size: 1.5rem;
-            color: #000; /* Colore nero */
-            margin: 0;
+            font-weight: bold;
+            text-decoration: none;
+            color: #000;
         }
         .menu-icon {
             display: flex;
@@ -39,31 +40,60 @@
             border-radius: 1px;
         }
         .menu {
-            display: none; /* Nasconde il menu di default */
-            padding: 10px 20px;
-            background-color: #fff;
-            border-top: 1px solid #ddd;
+            display: none;
+            position: absolute;
+            top: 60px;
+            right: 20px;
+            padding: 0;
         }
         .menu a {
             display: block;
             padding: 10px 0;
             text-decoration: none;
-            color: #000; /* Scritte nere */
+            color: #000;
             font-size: 1rem;
-            border-bottom: 1px solid #eee;
         }
         .menu a:hover {
-            text-decoration: underline; /* Sottolinea al passaggio del mouse */
+            text-decoration: underline;
         }
         .content {
             padding: 20px;
+        }
+        .image-container {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            margin: 20px 0;
+            flex-wrap: wrap;
+        }
+        .image-container img {
+            width: 100%;
+            max-width: 300px;
+            height: auto;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .image-container a {
+            text-align: center;
+            text-decoration: none;
+            color: #000;
+        }
+        .image-container span {
+            display: block;
+            margin-top: 10px;
+            font-size: 1rem;
+        }
+        .text-section {
+            margin: 20px 0;
+            font-size: 1rem;
+            line-height: 1.6;
         }
     </style>
 </head>
 <body>
     <div class="header">
-        <div class="title">News</div>
-        <div class="menu-icon" onclick="toggleMenu()" aria-label="Apri menu" role="button" tabindex="0">
+        <a href="pagina.html" class="back-link">News</a>
+        <div class="menu-icon" onclick="toggleMenu()">
             <div></div>
             <div></div>
             <div></div>
@@ -72,274 +102,158 @@
 
     <!-- Menu nascosto -->
     <div class="menu" id="menu">
-        <a href="index.html">Home</a>
+        <a href="index.html">home</a>
+        <a href="pagina.html">artists</a>
         <a href="3500cm2.html">3500cm2</a>
-        <a href="pagina.html">Lista Artisti</a>
-        <a href="luoghi.html">Luoghi</a>
-        <a href="mostre.html">Mostre</a>
-        <a href="contatti.html">Contatti</a>
+        <a href="locations.html">venues</a>
+        <a href="contact.html">contact</a>
+    </div>
+
+    <div class="content">
+        <!-- Sezione Parigi -->
+        <div class="description">Paris 2024</div>
+        <div class="text-section">
+            <strong>3500 cm2</strong><br>
+            <strong>XX Giornata del Contemporaneo</strong><br><br>
+           CONTEMPORALIS partecipa alla Giornata del Contemporaneo, la giornata italiana dedicata all’arte contemporanea.
+
+In occasione della ventesima edizione della GDC, CONTEMPORALIS presenta 3500 cm2, un progetto che quest’anno festeggia il suo ventesimo anniversario. 3500cm2 è un progetto di diffusione di opere d’arte contemporanea curato da Lorenzo Benedetti. 3500cm2 sono i centimetri quadrati messi a disposizione di un artista per realizzare un poster di 50×70cm, la cui missione è diffondere il linguaggio dell’arte contemporanea a un pubblico più ampio ed eterogeneo di quello dell’arte contemporanea.
+
+Martedì 15 ottobre, CONTEMPORALIS ha inoltre organizzato una conferenza sull’arte contemporanea organizzata da presso il Consolato d’Italia a Parigi, moderata da Maddalena Labricciosa, giornalista RAI, esperta d’arte – TG1, con la partecipazione di Lorenzo Benedetti, condirettore della Fondazione Ratti Art-Lab e ideatore e curatore del progetto 3500cm², Marinella Senatore, artista e Diego Cibelli, artista in diretta streaming da Napoli. Per l’occasione sono stati distribuiti gratuitamente i manifesti degli artisti italiani Marinella Senatore e Diego Cibelli.        </div>
+        <div class="image-container">
+            <a href="diego-cibelli.html">
+                <img src="diego-cibelli.jpg" alt="Diego Cibelli">
+                <span>Diego Cibelli</span>
+            </a>
+            <a href="marinella-senatore.html">
+                <img src="marinella-senatore.jpg" alt="Marinella Senatore">
+                <span>Marinella Senatore</span>
+            </a>
+        </div>
+
+        <!-- Sezione Roma -->
+        <div class="description">Rome 2024</div>
+         <div class="text-section">
+            <strong>3500 cm2</strong><br>
+            <strong>EXPODEMIC - Festival of Foreign Academies and Cultural Institutes</strong><br><br>
+           07.05__25.08.2024
+<strong>Curated by Lorenzo Benedetti in collaboration with Francesca Campana</strong><br>
+ 
+
+<p>Mostra promossa dall’Assessorato alla Cultura di Roma Capitale e Azienda Speciale Palaexpo</p>
+ 
+
+<p>Organizzata da Azienda Speciale Palaexpo con la collaborazione di 
+Accademia di Belle Arti di Roma, Accademia di Danimarca, Académie de France à Rome – Villa Médicis, Accademia Nazionale di San Luca, Accademia di Romania in Roma, Accademia Tedesca Roma Villa Massimo, Accademia d'Ungheria in Roma, Accademia dei Virtuosi al Pantheon, American Academy in Rome, British School at Rome, Circolo Scandinavo, Complesso monumentale di San Salvatore in Lauro, Forum Austriaco di Cultura, Institutum Romanum Finlandiae, Istituto Culturale Coreano, Istituto Giapponese di Cultura, Istituto Polacco di Roma, Istituto Svizzero, Museo Casa di Goethe, Reale Istituto Neerlandese di Roma, Real Academia de España en Roma.</p>
+  
+<p>Artisti: Kamrooz Aram, Ane Rodriguez Armendariz, Séverine Ballon, Jacopo Belloni, Alix Boillot, Susanne Brorson, Fatma Bucak, Pedro Luis Cembranos, Zachary Fabri, Hamedine Kane, Kapwani Kiwanga, Bjørn Melhus, Marko Nikodijevic, Tura Oliveira, Estefania Puerta Grisales, Chloé Quenum, Marie Robert, Sarina Scheidegger. </p>
+
+Expodemic è la seconda edizione del Festival delle Accademie e degli Istituti di Cultura stranieri a Roma, che a partire dal Palazzo Esposizioni Roma si diffonde nel tessuto della città.
+La mostra racconta lo stretto legame tra la nascita e lo sviluppo delle esposizioni e la storia delle accademie, sia attraverso il coinvolgimento di artisti stranieri attualmente residenti sia con documenti storici.
+Roma non solo ospita il più alto numero di centri culturali internazionali, le cui vicende si intrecciano e si sviluppano fin dal 1666 con la fondazione dell’Accademia di Francia, ma è anche il luogo in cui sono state inventate le esposizioni moderne. Per oltre 40 anni, tra il 1680 e 1720, il pittore, segretario dell’Accademia di San Luca e reggente della Congregazione dei Virtuosi al Pantheon, Giuseppe Ghezzi, organizza nel Complesso monumentale di San Salvatore in Lauro una serie di mostre di importanti opere presenti nelle collezioni delle famiglie aristocratiche romane, dando così avvio al concetto di esposizione moderna. Grazie alla capacità di capire il proprio periodo storico, Ghezzi, con questa serie di esposizioni, rende pubblica l’arte, proponendo un’idea moderna e democratica della cultura e agendo così come primo curatore della storia.
+Expodemic, a partire dalla mostra a Palazzo Esposizioni, si diffonde nella città con una serie di poster realizzati appositamente per l’occasione e in distribuzione gratuita nelle varie sedi dei partner culturali. Un percorso che illustra l’importanza del rapporto rizomatico tra il Palazzo Esposizioni e le Accademie e Istituti di Cultura stranieri a Roma, mettendone in evidenza la ricchezza e la diversità, nonché l’assoluta attualità di questo arcipelago culturale.
+La mostra è arricchita anche da un programma pubblico di incontri, performance e proiezioni ospitato a Palazzo Esposizioni e dalle numerose mostre ed eventi organizzati nelle Accademie e Istituti di Cultura.
+
+3500 cm2
+Progetto di poster d’artista
+3500 cm2 sono i centimetri quadrati a disposizione di un artista per realizzare un manifesto 50x70 cm, a cui è affidato il compito di diffondere il linguaggio dell’arte contemporanea a un pubblico più vasto e più eterogeneo di quello che abitualmente visita le mostre. I poster sono distribuiti gratuitamente, in diverse centinaia di copie, a tutti i visitatori di Expodemic, il Festival delle Accademie e degli Istituti di Cultura stranieri, che ha la mostra a Palazzo Esposizioni ma si diffonde attraverso la fitta rete di Accademie e Istituti a Roma.
+3500 cm2 è una mostra senza confini spaziali e temporali che si sviluppa nel tessuto urbano in un modo inedito e con l’intento di costruire una piattaforma culturale che amplifica le possibilità comunicative dell’arte in una forma alternativa di interazione tra artista, istituzione e pubblico. Il percorso si sviluppa su due coordinate: l’unicità (l’opera originale creata dall’artista che aderisce al progetto) e la ripetizione (la moltiplicazione dell’opera per tutte le persone che visitano il luogo). 3500 cm2 dialoga con un pubblico vasto conservando un’alta qualità artistica e creando costantemente nuovi “visitatori/collezionisti” sensibili al linguaggio dell’arte.
+        </div>
+        <div class="image-container">
+            <a href="matt-mullican.html">
+                <img src="matt-mullican.jpg" alt="Matt Mullican">
+                <span>Matt Mullican</span>
+            </a>
+            <a href="giulio-paolini.html">
+                <img src="giulio-paolini.jpg" alt="Giulio Paolini">
+                <span>Giulio Paolini</span>
+            </a>
+               <a href="nil-yalter.html">
+                <img src="nil-yalter.jpg" alt="Nil Yalter">
+                <span>Nil Yalter</span>
+            </a>
+
+               </a>
+               <a href="cristina-lucas.html">
+                <img src="cristina-lucas.jpg" alt="Cristina Lucas">
+                <span>Cristina Lucas</span>
+            </a>
+            
+     <a href="carla-accardi.html">
+        <img src="carla-accardi.jpg" alt="Carla Accardi">
+        <span>Carla Accardi</span>
+    </a>
+
+		  <a href="john-armleder.html">
+        <img src="john-armleder.jpg" alt="John Armleder">
+        <span>John Armleder</span>
+	</a>
+		
+	<a href="elisabetta-benassi.html">
+        <img src="elisabetta-benassi-1.jpg" alt="Elisabetta Benassi">
+        <span>Elisabetta Benassi</span>
+    </a>
+    <a href="attila-csorgo.html">
+        <img src="attila-csorgo.jpg" alt="Attila Csörgő">
+        <span>Attila Csörgő</span>
+    </a>
+    <a href="simon-dybbroe-moller.html">
+        <img src="simon-dybbroe-moller.jpg" alt="Simon Dybbroe Møller">
+        <span>Simon Dybbroe Møller</span>
+    </a>
+    <a href="robert-kusmirowski.html">
+        <img src="robert-kusmirowski.jpg" alt="Robert Kusmirowski">
+        <span>Robert Kusmirowski</span>
+    </a>
+ 
+    <a href="jochen-lempert.html">
+        <img src="jochen-lempert.jpg" alt="Jochen Lempert">
+        <span>Jochen Lempert</span>
+    </a>
+    <a href="domenico-mangano-marieke-van-rooy.html">
+        <img src="mangano-van-rooy.jpg" alt="Domenico Mangano & Marieke van Rooy">
+        <span>Domenico Mangano & Marieke van Rooy</span>
+    </a>
+  
+    <a href="ciprian-muresan.html">
+        <img src="ciprian-muresan.jpg" alt="Ciprian Mureşan">
+        <span>Ciprian Mureşan</span>
+    </a>
+    <a href="tura-oliveira.html">
+        <img src="tura-oliveira.jpg" alt="Tura Oliveira">
+        <span>Tura Oliveira</span>
+    </a>
+   
+    <a href="fernando-sanchez-castillo.html">
+        <img src="fernando-sanchez-castillo.jpg" alt="Fernando Sánchez Castillo">
+        <span>Fernando Sánchez Castillo</span>
+    </a>
+    <a href="hans-schabus.html">
+        <img src="hans-schabus.jpg" alt="Hans Schabus">
+        <span>Hans Schabus</span>
+    </a>
+    <a href="sarina-scheidegger.html">
+        <img src="sarina-scheidegger.jpg" alt="Sarina Scheidegger">
+        <span>Sarina Scheidegger</span>
+    </a>
+  
+    <a href="nicole-wermers.html">
+        <img src="nicole-wermers.jpg" alt="Nicole Wermers">
+        <span>Nicole Wermers</span>
+    </a>
+   
+    <a href="vladimir-radunsky.html">
+        <img src="vladimir-radunsky.jpg" alt="Vladimir Radunsky">
+        <span>Vladimir Radunsky</span>
+    </a>
+        </div>
     </div>
 
     <script>
         function toggleMenu() {
             const menu = document.getElementById('menu');
-            if (menu.style.display === 'none' || menu.style.display === '') {
-                menu.style.display = 'block';
-            } else {
-                menu.style.display = 'none';
-            }
+            menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
         }
     </script>
-</body>
-
-
-
-
-
-
-        <!-- Sezione Parigi -->
-  
-
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>News</title>
-    <style>
-        body {
-            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #fff; /* Sfondo bianco */
-            color: #000; /* Testo nero */
-            position: relative;
-        }
-        .header {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 20px;
-            border-bottom: 1px solid #ddd;
-            text-align: center;
-        }
-        .content {
-            padding: 20px;
-        }
-        .sub-header {
-            margin: 20px 0;
-            text-align: center;
-            font-size: 1.2rem;
-            font-weight: bold;
-        }
-</div>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>News</title>
-    <style>
-        body {
-            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #fff;
-            color: #000;
-        }
-
-        .header {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 20px;
-            border-bottom: 1px solid #ddd;
-        }
-
-        .content {
-            padding: 20px;
-        }
-
-        .image-container {
-            display: flex;
-            gap: 20px;
-            justify-content: center;
-            margin: 20px 0;
-        }
-
-        .image-container img {
-            width: 100%;
-            max-width: 300px;
-            height: auto;
-            aspect-ratio: 3 / 4; /* Mantiene proporzioni uniformi */
-            object-fit: cover; /* Adatta l'immagine senza deformarla */
-            border: 1px solid #ddd;
-            border-radius: 5px;
-        }
-
-        .text {
-            font-size: 1rem;
-            line-height: 1.6;
-            margin: 20px 0;
-        }
-    </style>
-
-<body>
-    <div class="header">
-        <h1>3500 cm² #104 Marinella Senatore #105 Diego Cibelli</h1>
-    </div>
-    
-    <div class="content">
-        <div class="text">
-            Consolato d’Italia a Parigi<br><br>
-            CONTEMPORALIS partecipa alla Giornata del Contemporaneo. la giornata italiana dedicata all’arte contemporanea.
-        </div>
-
-    
-
-
-        <!-- Immagini Parigi -->
-        <style>
-    .image-container img {
-        width: 100%; /* Adatta la larghezza all'elemento contenitore */
-        max-width: 300px; /* Limita la dimensione massima */
-        height: auto; /* Mantiene le proporzioni originali */
-        border: 1px solid #ddd; /* Aggiunge un bordo sottile */
-        border-radius: 5px; /* Arrotonda leggermente gli angoli */
-    }
-</style>
-
-           <div class="image-container">
-            <img src="diego-cibelli.jpg" alt="Diego Cibelli">
-            <img src="marinella-senatore.jpg" alt="Marinella Senatore">
-        </div>
-
-  
-
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>News - Expodemic</title>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Courier+Prime&display=swap'); /* Font Courier */
-        
-        body {
-            font-family: 'Courier Prime', monospace;
-            margin: 0;
-            padding: 20px;
-            background-color: #fff;
-            color: #000;
-        }
-
-        .header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px;
-            border-bottom: 1px solid #ddd;
-        }
-
-        .content {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 20px;
-            margin-top: 20px;
-        }
-
-        .column {
-            width: calc(50% - 10px);
-        }
-
-        .image-container {
-            display: flex;
-            justify-content: center;
-            margin: 20px 0;
-        }
-
-        .image-container img {
-            max-width: 100%;
-            height: auto;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-        }
-
-        .text {
-            margin-bottom: 20px;
-        }
-
-        .poster-list {
-            margin: 20px 0;
-        }
-
-        .poster-list img {
-            width: 100px;
-            height: auto;
-            margin-right: 10px;
-        }
-    </style>
-
-<body>
-    <div class="header">
-        <h1>Expodemic</h1>
-    </div>
-
-    <div class="content">
-        <div class="column">
-            <div class="text">
-                <strong>Festival delle Accademie e degli Istituti di Cultura stranieri</strong><br>
-                07.05__25.08.2024<br>
-                <strong>A cura di Lorenzo Benedetti</strong><br>
-                Con la collaborazione di Francesca Campana
-            </div>
-
-            <div class="poster-list">
-                <strong>Artisti:</strong><br>
-                </a>
-                <a href="john-armleder.html">
-                <img src="john-armleder.jpg" alt="John Armleder">
-                </a>
-                <img src="elisabetta-benassi.jpg" alt="Elisabetta Benassi">
-                   </a>
-                <a href="attila-csorgo.html">
-                <img src="attila-csorgo.jpg" alt="Attila Csörgő">
-                    </a>
-                <a href="simon-dybbroe-moller.html">
-                <img src="simon-dybbroe-moller.jpg" alt="Simon Dybbroe Møller">
-                </a>
-                <!-- Aggiungere altre immagini -->
-            </div>
-
-            <div class="text">
-                Mostra promossa dall’Assessorato alla Cultura di Roma Capitale e Azienda Speciale Palaexpo. Organizzata da Azienda Speciale Palaexpo con la collaborazione di:
-                <ul>
-                    <li>Accademia di Belle Arti di Roma</li>
-                    <li>Accademia di Danimarca</li>
-                    <li>Académie de France à Rome – Villa Médicis</li>
-                    <!-- Aggiungere altre accademie -->
-                </ul>
-            </div>
-        </div>
-
-        <div class="column">
-            <div class="text">
-                <strong>Expodemic</strong> è la seconda edizione del Festival delle Accademie e degli Istituti di Cultura stranieri a Roma, che a partire dal Palazzo Esposizioni Roma si diffonde nel tessuto della città.
-                La mostra racconta lo stretto legame tra la nascita e lo sviluppo delle esposizioni e la storia delle accademie, sia attraverso il coinvolgimento di artisti stranieri attualmente residenti sia con documenti storici.
-
-Roma non solo ospita il più alto numero di centri culturali internazionali, le cui vicende si intrecciano e si sviluppano fin dal 1666 con la fondazione dell’Accademia di Francia, ma è anche il luogo in cui sono state inventate le esposizioni moderne. Per oltre 40 anni, tra il 1680 e 1720, il pittore, segretario dell’Accademia di San Luca e reggente della Congregazione dei Virtuosi al Pantheon, Giuseppe Ghezzi, organizza nel Complesso monumentale di San Salvatore in Lauro una serie di mostre di importanti opere presenti nelle collezioni delle famiglie aristocratiche romane, dando così avvio al concetto di esposizione moderna. Grazie alla capacità di capire il proprio periodo storico, Ghezzi, con questa serie di esposizioni, rende pubblica l’arte, proponendo un’idea moderna e democratica della cultura e agendo così come primo curatore della storia
-            </div>
-
-<div class="image-container">
-    <a href="matt-mullican.html">
-        <img src="matt-mullican.jpg" alt="Matt Mullican">
-    </a>
-    <a href="tura-oliveira.html">
-        <img src="tura-oliveira.jpg" alt="Tura Oliveira">
-    </a>
-    <a href="mangano-van-rooy.html">
-        <img src="mangano-van-rooy.jpg" alt="Domenico Mangano Marieke van Rooy">
-    </a>
-    <a href="fernando-sanchez-castillo.html">
-        <img src="fernando-sanchez-castillo.jpg" alt="Fernando Sanchez Castillo">
-    </a>
-</div>
-
-            <div class="text">
-                <strong>3500 cm²</strong> sono i centimetri quadrati a disposizione di un artista per realizzare un manifesto 50x70 cm, la cui missione è diffondere il linguaggio dell’arte contemporanea a un pubblico più vasto.
-            </div>
-        </div>
-    </div>
 </body>
 </html>
