@@ -21,7 +21,7 @@
         }
         .title {
             font-size: 1.5rem;
-            color: #000; /* Colore nero */
+            color: #000;
             margin: 0;
         }
         .menu-icon {
@@ -39,7 +39,7 @@
             border-radius: 1px;
         }
         .menu {
-            display: none; /* Nasconde il menu di default */
+            display: none;
             position: absolute;
             top: 60px;
             right: 20px;
@@ -49,22 +49,27 @@
             display: block;
             padding: 10px 0;
             text-decoration: none;
-            color: #000; /* Scritte nere */
+            color: #000;
             font-size: 1rem;
         }
         .menu a:hover {
-            text-decoration: underline; /* Sottolinea al passaggio del mouse */
+            text-decoration: underline;
         }
-        .content {
+        ul {
+            list-style-type: none;
             padding: 20px;
-        }
-        h2 {
-            font-size: 1.2rem;
-            margin-bottom: 10px;
-        }
-        .exhibition {
-            margin-bottom: 20px;
+            margin: 0;
             font-size: 1rem;
+        }
+        li {
+            margin-bottom: 15px;
+        }
+        a {
+            text-decoration: none;
+            color: #000;
+        }
+        a:hover {
+            color: #555;
         }
     </style>
 </head>
@@ -81,37 +86,35 @@
     <!-- Menu nascosto -->
     <div class="menu" id="menu">
         <a href="index.html">Home</a>
-        <a href="3500cm2.html">3500cm2</a>
+        <a href="3500cm2.html">3500cm²</a>
         <a href="pagina.html">Lista Artisti</a>
         <a href="luoghi.html">Luoghi</a>
         <a href="contatti.html">Contatti</a>
     </div>
 
-    <div class="content">
-        <div class="exhibition">
-            <h2>American Academy, Roma</h2>
-            <p>20 ottobre - 2 novembre 2006</p>
-        </div>
-        <div class="exhibition">
-            <h2>Assab One, Milano</h2>
-            <p>ottobre - novembre 2006</p>
-        </div>
-        <div class="exhibition">
-            <h2>Palazzo Lantieri, Gorizia</h2>
-            <p></p>
-        </div>
-        <div class="exhibition">
-            <h2>Uqbar, Berlino</h2>
-            <p></p>
-
-               </div>
-        <div class="exhibition">
-            <h2>Palazzo Esposizioni Roma, Rome</h2>
-            <p>5 maggio - 28 agosto 2024</p>
-        </div>
-
-    </div>
-    </div>
+    <!-- Lista Mostre -->
+    <ul>
+        <li>
+            <a href="american-academy.html" target="_blank">American Academy, Roma</a>
+            <span>20 ottobre - 2 novembre 2006</span>
+        </li>
+        <li>
+            <a href="assab-one.html" target="_blank">Assab One, Milano</a>
+            <span>ottobre - novembre 2006</span>
+        </li>
+        <li>
+            <a href="palazzo-lantieri.html" target="_blank">Palazzo Lantieri, Gorizia</a>
+            <span>Data non specificata</span>
+        </li>
+        <li>
+            <a href="uqbar-berlino.html" target="_blank">Uqbar, Berlino</a>
+            <span>Data non specificata</span>
+        </li>
+        <li>
+            <a href="palazzo-esposizioni.html" target="_blank">Palazzo Esposizioni, Roma</a>
+            <span>5 maggio - 28 agosto 2024</span>
+        </li>
+    </ul>
 
     <script>
         function toggleMenu() {
