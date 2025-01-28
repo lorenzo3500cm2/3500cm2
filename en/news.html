@@ -1,4 +1,93 @@
-<a href="pagina.html" class="back-link">News</a>
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News</title>
+    <style>
+        body {
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #fff;
+            color: #000;
+        }
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            border-bottom: 1px solid #ddd;
+        }
+        .back-link {
+            font-size: 1.5rem;
+            font-weight: bold;
+            text-decoration: none;
+            color: #000;
+        }
+        .menu-icon {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            width: 25px;
+            height: 15px;
+            cursor: pointer;
+        }
+        .menu-icon div {
+            background-color: #000;
+            height: 2px;
+            width: 100%;
+            border-radius: 1px;
+        }
+        .menu {
+            display: none;
+            position: absolute;
+            top: 60px;
+            right: 20px;
+            padding: 0;
+        }
+        .menu a {
+            display: block;
+            padding: 10px 0;
+            text-decoration: none;
+            color: #000;
+            font-size: 1rem;
+        }
+        .menu a:hover {
+            text-decoration: underline;
+        }
+        .content {
+            padding: 20px;
+        }
+        .image-container {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            margin: 20px 0;
+            flex-wrap: wrap; /* Consente il ritorno a capo per immagini */
+        }
+        .image-container img {
+            width: 100%;
+            max-width: 150px; /* Dimensione più piccola per le immagini */
+            height: auto;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .image-container a {
+            text-align: center;
+            text-decoration: none;
+            color: #000;
+        }
+        .image-container span {
+            display: block;
+            margin-top: 10px;
+            font-size: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <a href="pagina.html" class="back-link">News</a>
         <div class="menu-icon" onclick="toggleMenu()">
             <div></div>
             <div></div>
@@ -20,29 +109,26 @@
         <div class="description">Paris 2024</div>
         <div class="image-container">
             <a href="diego-cibelli.html">
-    <img src="diego-cibelli.jpg" alt="Diego Cibelli">
-</a>
-            <img src="marinella-senatore.jpg" alt="Marinella Senatore">
+                <img src="diego-cibelli.jpg" alt="Diego Cibelli">
+                <span>Diego Cibelli</span>
+            </a>
             <a href="marinella-senatore.html">
-    <img src="marinella-senatore.jpg" alt="Marinella Senatore">
-</a>
+                <img src="marinella-senatore.jpg" alt="Marinella Senatore">
+                <span>Marinella Senatore</span>
+            </a>
         </div>
 
         <!-- Sezione Roma -->
         <div class="description">Rome 2024</div>
         <div class="image-container">
-   
-        <a href="matt-mullican.html">
-            <img src="matt-mullican.jpg" alt="Matt Mullican">
-        </a>
-        <span>Matt Mullican</span>
-    </li>
-    <li>
-        <a href="giulio-paolini.html">
-            <img src="giulio-paolini.jpg" alt="Giulio Paolini">
-        </a>
-        <span>Giulio Paolini</span>
-   
+            <a href="matt-mullican.html">
+                <img src="matt-mullican.jpg" alt="Matt Mullican">
+                <span>Matt Mullican</span>
+            </a>
+            <a href="giulio-paolini.html">
+                <img src="giulio-paolini.jpg" alt="Giulio Paolini">
+                <span>Giulio Paolini</span>
+            </a>
         </div>
     </div>
 
