@@ -1,164 +1,28 @@
-<!DOCTYPE html>
-<html lang="it">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>News</title>
-    <style>
-        body {
-            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #fff; /* Sfondo bianco */
-            color: #000; /* Testo nero */
-            position: relative;
-        }
-        .header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px;
-            border-bottom: 1px solid #ddd;
-        }
-        .back-link {
-            font-size: 1.5rem;
-            font-weight: bold;
-            text-decoration: none;
-            color: #000; /* Link nero */
-        }
-        .menu-icon {
-            display: flex;
-            flex-direction: column;
-            justify-content: space-around;
-            width: 25px;
-            height: 15px;
-            cursor: pointer;
-        }
-        .menu-icon div {
-            background-color: #000;
-            height: 2px;
-            width: 100%;
-            border-radius: 1px;
-        }
-        .menu {
-            display: none; /* Nasconde il menu di default */
-            position: absolute;
-            top: 60px;
-            right: 20px;
-            padding: 0;
-        }
-        .menu a {
-            display: block;
-            padding: 10px 0;
-            text-decoration: none;
-            color: #000; /* Link neri */
-            font-size: 1rem;
-        }
-        .menu a:hover {
-            text-decoration: underline;
-        }
-        .content {
-            padding: 20px;
-        }
-        .image-container {
-            display: flex;
-            gap: 20px;
-            justify-content: center;
-            margin: 20px 0;
-        }
-        .image-container img {
-            width: 100%;
-            max-width: 300px;
-            height: auto;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-        }
-        .description {
-            font-size: 1.2rem;
-            font-weight: bold;
-            margin: 20px 0 10px;
-            text-align: center;
-        }
-    </style>
-</head>
-<body>
-    <div class="header">
-        <a href="pagina.html" class="back-link">News</a>
-        <div class="menu-icon" onclick="toggleMenu()">
-            <div></div>
-            <div></div>
-            <div></div>
-        </div>
-    </div>
-
-    <!-- Menu nascosto -->
-    <div class="menu" id="menu">
-        <a href="index.html">home</a>
-        <a href="pagina.html">artists</a>
-        <a href="3500cm2.html">3500cm2</a>
-        <a href="locations.html">venues</a>
-        <a href="contact.html">contact</a>
-    </div>
-
-    <div class="content">
-        <!-- Sezione Parigi -->
-        <div class="description">Paris 2024</div>
-        <div class="image-container">
-            <a href="diego-cibelli.html">
-    <img src="diego-cibelli.jpg" alt="Diego Cibelli">
-</a>
-            <a href="marinella-senatore.html">
-    <img src="marinella-senatore.jpg" alt="Marinella Senatore">
-</a>
-        </div>
 <style>
-    ul {
-        padding: 0;
+    .image-container {
+        display: flex;
+        gap: 20px;
+        justify-content: center;
+        margin: 20px 0;
+        flex-wrap: wrap; /* Consente il ritorno a capo per immagini */
     }
-    li {
-        text-align: center;
-        list-style: none;
-        margin-bottom: 20px;
-    }
-    img {
+    .uniform-image {
+        width: 100%;
+        max-width: 300px; /* Uniforma tutte le immagini */
+        height: auto;
+        border: 1px solid #ddd;
+        border-radius: 5px;
         display: block;
         margin: 0 auto;
-        width: 150px;
     }
-    span {
+    .image-container a {
+        text-align: center;
+        text-decoration: none;
+        color: #000;
+    }
+    .image-container span {
         display: block;
         margin-top: 10px;
         font-size: 1rem;
-        color: #000;
     }
 </style>
-        <!-- Sezione Roma -->
-        <div class="description"> Expodemic - Festival delle Accademie e degli Istituti stranieri in Rome 2024</div>
-        <div class="image-container">
-   
-    <ul>
-    <li style="text-align: center; list-style: none; margin-bottom: 20px;">
-        <a href="matt-mullican.html">
-            <img src="matt-mullican.jpg" alt="Matt Mullican" style="display: block; margin: 0 auto; width: 150px;">
-        </a>
-        <span style="display: block; margin-top: 10px; font-size: 1rem; color: #000;">Matt Mullican</span>
-    </li>
-    <li style="text-align: center; list-style: none; margin-bottom: 20px;">
-        <a href="giulio-paolini.html">
-            <img src="giulio-paolini.jpg" alt="Giulio Paolini" style="display: block; margin: 0 auto; width: 150px;">
-        </a>
-        <span style="display: block; margin-top: 10px; font-size: 1rem; color: #000;">Giulio Paolini</span>
-    </li>
-</ul>
-   
-        </div>
-    </div>
-
-    <script>
-        function toggleMenu() {
-            const menu = document.getElementById('menu');
-            menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
-        }
-    </script>
-</body>
-</html>
