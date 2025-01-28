@@ -83,10 +83,19 @@
             margin-top: 10px;
             font-size: 1rem;
         }
-        .text-section {
-            margin: 20px 0;
-            font-size: 1rem;
-            line-height: 1.6;
+      .text-section {
+    margin: 20px 0;
+    font-size: 1rem;
+    line-height: 1.6;
+    column-count: 2; /* Divide il testo in 2 colonne */
+    column-gap: 20px; /* Spazio tra le colonne */
+}
+
+@media (max-width: 768px) { /* Per dispositivi mobili */
+    .text-section {
+        column-count: 1; /* Ritorna a una colonna */
+    }
+}
         }
     </style>
 </head>
