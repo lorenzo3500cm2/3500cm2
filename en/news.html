@@ -1,28 +1,56 @@
-<style>
-    .image-container {
-        display: flex;
-        gap: 20px;
-        justify-content: center;
-        margin: 20px 0;
-        flex-wrap: wrap; /* Consente il ritorno a capo per immagini */
-    }
-    .uniform-image {
-        width: 100%;
-        max-width: 300px; /* Uniforma tutte le immagini */
-        height: auto;
-        border: 1px solid #ddd;
-        border-radius: 5px;
-        display: block;
-        margin: 0 auto;
-    }
-    .image-container a {
-        text-align: center;
-        text-decoration: none;
-        color: #000;
-    }
-    .image-container span {
-        display: block;
-        margin-top: 10px;
-        font-size: 1rem;
-    }
-</style>
+<a href="pagina.html" class="back-link">News</a>
+        <div class="menu-icon" onclick="toggleMenu()">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+
+    <!-- Menu nascosto -->
+    <div class="menu" id="menu">
+        <a href="index.html">home</a>
+        <a href="pagina.html">artists</a>
+        <a href="3500cm2.html">3500cm2</a>
+        <a href="locations.html">venues</a>
+        <a href="contact.html">contact</a>
+    </div>
+
+    <div class="content">
+        <!-- Sezione Parigi -->
+        <div class="description">Paris 2024</div>
+        <div class="image-container">
+            <a href="diego-cibelli.html">
+    <img src="diego-cibelli.jpg" alt="Diego Cibelli">
+</a>
+            <img src="marinella-senatore.jpg" alt="Marinella Senatore">
+            <a href="marinella-senatore.html">
+    <img src="marinella-senatore.jpg" alt="Marinella Senatore">
+</a>
+        </div>
+
+        <!-- Sezione Roma -->
+        <div class="description">Rome 2024</div>
+        <div class="image-container">
+   
+        <a href="matt-mullican.html">
+            <img src="matt-mullican.jpg" alt="Matt Mullican">
+        </a>
+        <span>Matt Mullican</span>
+    </li>
+    <li>
+        <a href="giulio-paolini.html">
+            <img src="giulio-paolini.jpg" alt="Giulio Paolini">
+        </a>
+        <span>Giulio Paolini</span>
+   
+        </div>
+    </div>
+
+    <script>
+        function toggleMenu() {
+            const menu = document.getElementById('menu');
+            menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
+        }
+    </script>
+</body>
+</html>
