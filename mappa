@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luoghi 3500 cm²</title>
+    
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        #map {
+            height: 600px;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+
+    <h1 style="text-align: center;">Mappa dei luoghi di 3500 cm²</h1>
+    <div id="map"></div>
+
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    
+    <script>
+        // Crea la mappa e la centra su Roma
+        var map = L.map('map').setView([45.0, 10.0], 5); // Punto intermedio tra le città
+
+        // Aggiunge una mappa di base da OpenStreetMap
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; OpenStreetMap contributors'
+        }).addTo(map);
+
+        // Lista dei luoghi con nome, coordinate e link
+        var locations = [
+            { name: "Accademia di Francia Villa Medici, Roma", lat: 41.9103, lon: 12.4885, link: "https://www.villamedici.it/" },
+            { name: "Accademia di Danimarca, Roma", lat: 41.9029, lon: 12.4818, link: "https://www.acdan.it/it" },
+            { name: "American Academy in Rome", lat: 41.8877, lon: 12.4856, link: "https://www.aarome.org/" },
+            { name: "Assab One, Milano", lat: 45.5053, lon: 9.2278, link: "https://www.assab-one.org/" },
+            { name: "Macro, Roma", lat: 41.9100, lon: 12.5011, link: "https://www.museomacro.it/" },
+            { name: "Galeria Alkatraz, Lubiana", lat: 46.0511, lon: 14.5051, link: "https://galerijalkatraz.org/?p=11249" },
+            { name: "RadioArteMobile, Roma", lat: 41.9029, lon: 12.4964, link: "http://radioartemobile.it/" },
+            { name: "Consolato Italiano, Parigi", lat: 48.8566, lon: 2.3522, link: "https://consparigi.esteri.it/" },
+            { name: "Contemporalis, Parigi", lat: 48.8606, lon: 2.3376, link: "https://www.contemporalis.eu/3500-cm2/" }
+        ];
+
+        // Aggiunge i marker alla mappa
+        locations.forEach(function(location) {
+            L.marker([location.lat, location.lon])
+                .addTo(map)
+                .bindPopup(`<b>${location.name}</b><br><a href="${location.link}" target="_blank">Visita</a>`);
+        });
+    </script>
+
+</body>
+</html>
