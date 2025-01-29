@@ -92,12 +92,15 @@
             color: black;
         }
 
-        .text-section {
-            margin: 20px 0;
-            font-size: 1rem;
-            line-height: 1.6;
-            column-count: 2; /* Divide il testo in 2 colonne */
-            column-gap: 20px; /* Spazio tra le colonne */
+   .text-section {
+    margin: 20px auto; /* Margine sopra e sotto, centrato automaticamente */
+    padding: 0 40px; /* Aggiunge spazio a destra e sinistra */
+    font-size: 1rem;
+    line-height: 1.6;
+    column-count: 2; /* Divide il testo in 2 colonne */
+    column-gap: 20px; /* Spazio tra le colonne */
+    max-width: 900px; /* Limita la larghezza massima per un layout leggibile */
+}
         }
 
         @media (max-width: 768px) { /* Per dispositivi mobili */
