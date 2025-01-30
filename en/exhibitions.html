@@ -5,8 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Exhibitions</title>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&display=swap');
+
         body {
-            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            font-family: 'Libre Baskerville', serif;
             margin: 0;
             padding: 0;
             background-color: #fff;
@@ -25,6 +27,13 @@
             font-weight: bold;
             text-align: center;
             margin: 0;
+        }
+        .page-title a {
+            text-decoration: none;
+            color: inherit;
+        }
+        .page-title a:hover {
+            text-decoration: underline;
         }
         .menu-icon {
             display: flex;
@@ -75,7 +84,9 @@
 <body>
 
     <div class="header">
-        <h1 class="page-title">Exhibitions</h1>
+        <h1 class="page-title">
+            <a href="pagina.html">Exhibitions</a>
+        </h1>
         <div class="menu-icon" onclick="toggleMenu()">
             <div></div>
             <div></div>
