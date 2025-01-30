@@ -18,12 +18,12 @@
             align-items: center;
             padding: 20px;
             border-bottom: 1px solid #ddd;
-            <h1 class="page-title">Exhibition</h1>
-        
+            position: relative;
         }
-        .title {
-            font-size: 1.5rem;
-            color: #000; /* Colore nero */
+        .page-title {
+            font-size: 2.5rem;
+            font-weight: bold;
+            text-align: center;
             margin: 0;
         }
         .menu-icon {
@@ -41,21 +41,23 @@
             border-radius: 1px;
         }
         .menu {
-            display: none; /* Nasconde il menu di default */
+            display: none;
             position: absolute;
             top: 60px;
             right: 20px;
-            padding: 0;
+            background: white;
+            padding: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
         }
         .menu a {
             display: block;
             padding: 10px 0;
             text-decoration: none;
-            color: #000; /* Scritte nere */
+            color: #000;
             font-size: 1rem;
         }
         .menu a:hover {
-            text-decoration: underline; /* Sottolinea al passaggio del mouse */
+            text-decoration: underline;
         }
         .content {
             padding: 20px;
@@ -69,17 +71,11 @@
             font-size: 1rem;
         }
     </style>
-    
 </head>
 <body>
+
     <div class="header">
-        .page-title {
-    font-size: 2.5rem; /* Regola la dimensione del titolo */
-    font-weight: bold;
-    text-align: center;
-    margin-top: 20px;
-}
-          <a href="pagina.html" class="back-link">Exhibitions</a>
+        <h1 class="page-title">Exhibitions</h1>
         <div class="menu-icon" onclick="toggleMenu()">
             <div></div>
             <div></div>
@@ -109,18 +105,13 @@
         </div>
         <div class="exhibition">
             <h2>Palazzo Lantieri, Gorizia</h2>
-            <p></p>
         </div>
         <div class="exhibition">
             <h2>Uqbar, Berlino</h2>
-            <p></p>
-
-        
-               </div>
+        </div>
         <div class="exhibition">
             <h2>Palazzo Esposizioni Roma, Rome</h2>
             <p>5 May - 28 August 2024</p>
-        </div>
         </div>
     </div>
 
@@ -130,5 +121,6 @@
             menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
         }
     </script>
+
 </body>
 </html>
