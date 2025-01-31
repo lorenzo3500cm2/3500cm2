@@ -7,5 +7,5 @@
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-    gtag('config', 'G-XXXXXXXXXX'); // Sostituisci con il tuo ID
+    gtag('config', 'G-1ZDKD18HZM'); // Sostituisci con il tuo ID
 })();
