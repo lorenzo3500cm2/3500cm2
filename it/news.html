@@ -39,13 +39,18 @@
             width: 100%;
             border-radius: 1px;
         }
-        .menu {
-            display: none;
-            position: absolute;
-            top: 60px;
-            right: 20px;
-            padding: 0;
-        }
+       .menu {
+    display: none;
+    position: absolute;
+    top: 60px;
+    right: 20px;
+    background: white;
+    padding: 10px;
+    border: 1px solid #ddd;
+}
+.menu.open {
+    display: block;
+}
         .menu a {
             display: block;
             padding: 10px 0;
@@ -94,7 +99,7 @@
 @media (max-width: 768px) { /* Per dispositivi mobili */
     .text-section {
         column-count: 1; /* Ritorna a una colonna */
-    }
+    
 }
         }
     </style>
@@ -335,9 +340,8 @@ Progetto di poster d’artista
                 <span>Nina Beier & Marie Lund</span>
             </a>
        
-            </a>
-               <a href="kelly-schacht.html">
-                <img src="kelly-schacht.jpg" alt="Kelly Schacht.>
+               <a >href="kelly-schacht.html">
+                <img src="kelly-schacht.jpg" alt="Kelly Schacht>
                 <span>Kelly Schacht</span>
             </a>
 
