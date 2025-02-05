@@ -8,3 +8,46 @@ footer {
     font-size: 0.9rem; /* Dimensione del testo */
     border-top: none; /* Nessun bordo superiore */
 }
+
+
+
+.cookie-banner {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    width: auto;
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 15px;
+    border-radius: 5px;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.cookie-banner button {
+    background: #fff;
+    border: none;
+    padding: 8px 12px;
+    cursor: pointer;
+}
+
+.cookie-banner button:hover {
+    background: #ddd;
+}
+
+.hidden {
+    display: none;
+}
+
+.cookie-settings {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    background: white;
+    padding: 15px;
+    border: 1px solid #ccc;
+    z-index: 1001;
+    display: none;
+}
