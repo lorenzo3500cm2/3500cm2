@@ -83,6 +83,39 @@
     </style>
 </head>
 <body>
+
+    <div id="cookie-banner" class="cookie-banner">
+    Questo sito utilizza cookie per migliorare l'esperienza di navigazione. 
+    <button id="accept-cookies">Accetta</button>
+    <a href="cookie-policy.html">Leggi di più</a>
+
+        .cookie-banner {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    text-align: center;
+    padding: 10px;
+    font-size: 14px;
+}
+
+.cookie-banner button {
+    margin-left: 10px;
+    background-color: #0077cc;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.cookie-banner a {
+    color: #ffcc00;
+    text-decoration: none;
+    margin-left: 10px;
+}
+</div>
     <!-- Titolo dinamico -->
     <div class="title" id="changing-text">3500 cm²</div>
 
@@ -127,5 +160,35 @@
 </script>
 
 
+    <script>
+document.addEventListener("DOMContentLoaded", function() {
+    if (!localStorage.getItem("cookiesAccepted")) {
+        document.getElementById("cookie-banner").style.display = "block";
+    }
+
+    document.getElementById("accept-cookies").addEventListener("click", function() {
+        localStorage.setItem("cookiesAccepted", "true");
+        document.getElementById("cookie-banner").style.display = "none";
+    });
+});
+</script>
+
+    <div id="cookie-banner" class="cookie-banner">
+    <p>Utilizziamo i cookie per garantire la migliore esperienza sul nostro sito. Puoi accettare tutti i cookie o gestire le tue preferenze.</p>
+    <button id="accept-all">Accetta tutti</button>
+    <button id="reject-non-essential">Rifiuta non essenziali</button>
+    <button id="manage-cookies">Personalizza</button>
+</div>
+
+<!-- Popup per la gestione avanzata -->
+<div id="cookie-settings" class="cookie-settings hidden">
+    <h2>Impostazioni Cookie</h2>
+    <label>
+        <input type="checkbox" id="analytics-cookies" checked>
+        Consenti cookie analitici (Google Analytics)
+    </label>
+    <br>
+    <button id="save-settings">Salva preferenze</button>
+</div>
 </body>
 </html>
