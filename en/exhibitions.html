@@ -14,6 +14,7 @@
             background-color: #fff;
             color: #000;
         }
+
         .header {
             display: flex;
             justify-content: space-between;
@@ -22,19 +23,22 @@
             border-bottom: 1px solid #ddd;
             position: relative;
         }
+
         .page-title {
             font-size: 2.5rem;
             font-weight: bold;
-            text-align: center;
             margin: 0;
         }
+
         .page-title a {
             text-decoration: none;
             color: inherit;
         }
+
         .page-title a:hover {
             text-decoration: underline;
         }
+
         .menu-icon {
             display: flex;
             flex-direction: column;
@@ -43,12 +47,14 @@
             height: 15px;
             cursor: pointer;
         }
+
         .menu-icon div {
             background-color: #000;
             height: 2px;
             width: 100%;
             border-radius: 1px;
         }
+
         .menu {
             display: none;
             position: absolute;
@@ -58,6 +64,7 @@
             padding: 10px;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
         }
+
         .menu a {
             display: block;
             padding: 10px 0;
@@ -65,19 +72,39 @@
             color: #000;
             font-size: 1rem;
         }
+
         .menu a:hover {
             text-decoration: underline;
         }
+
         .content {
             padding: 20px;
         }
-        h2 {
-            font-size: 1.2rem;
-            margin-bottom: 10px;
+
+        .exhibitions-list {
+            padding: 20px;
         }
+
         .exhibition {
             margin-bottom: 20px;
             font-size: 1rem;
+        }
+
+        .exhibition a {
+            font-weight: bold;
+            text-decoration: none;
+            color: #000;
+        }
+
+        .exhibition a:hover {
+            text-decoration: underline;
+        }
+
+        .exhibition span {
+            display: block;
+            font-size: 0.9rem;
+            color: #555;
+            margin-top: 5px;
         }
     </style>
     <script src="analytics.js"></script>
@@ -106,35 +133,38 @@
         <a href="contact.html">contacts</a>
     </div>
 
-   <!-- Lista Mostre -->
+    <!-- Lista Mostre -->
     <div class="exhibitions-list">
-      </div>   
-         <a href="https://www.palazzoesposizioniroma.it/mostra/expodemic-festival-of-foreign-academies-and-cultural-institutes">Palazzo Esposizioni, Roma</a>
-        <span>5 maggio - 28 agosto 2024</span>
-        
-     <a href="http://projectspace.uqbar-ev.de/index.php?mact=News,cntnt01,detail,0&cntnt01articleid=22&cntnt01returnid=56">Uqbar, Berlino</a>
-        <span></span>
-        
-      
-        
-        <a "https://www.palazzo-lantieri.com/it/arte">Palazzo Lantieri, Gorizia</a>
-        <span></span>
-        
-         <a href="https://www.assab-one.org/en/exhibition-event/3500-cm%C2%B2-at-assab-one/">Assab One, Milano</a>
-        <span>ottobre - novembre 2006</span>
-        
-            <a href="https://aarome.org/">American Academy, Roma</a>
-        <span>20 ottobre - 2 novembre 2006</span>
-       
-    </div>
-    
+        <div class="exhibition">
+            <a href="https://www.palazzoesposizioniroma.it/mostra/expodemic-festival-of-foreign-academies-and-cultural-institutes">Palazzo Esposizioni, Roma</a>
+            <span>5 maggio - 28 agosto 2024</span>
+        </div>
 
+        <div class="exhibition">
+            <a href="http://projectspace.uqbar-ev.de/index.php?mact=News,cntnt01,detail,0&cntnt01articleid=22&cntnt01returnid=56">Uqbar, Berlino</a>
+            <span></span>
+        </div>
+
+        <div class="exhibition">
+            <a href="https://www.palazzo-lantieri.com/it/arte">Palazzo Lantieri, Gorizia</a>
+            <span></span>
+        </div>
+
+        <div class="exhibition">
+            <a href="https://www.assab-one.org/en/exhibition-event/3500-cm%C2%B2-at-assab-one/">Assab One, Milano</a>
+            <span>ottobre - novembre 2006</span>
+        </div>
+
+        <div class="exhibition">
+            <a href="https://aarome.org/">American Academy, Roma</a>
+            <span>20 ottobre - 2 novembre 2006</span>
+        </div>
     </div>
 
     <script>
         function toggleMenu() {
             const menu = document.getElementById('menu');
-            menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
+            menu.style.display = (menu.style.display === 'block') ? 'none' : 'block';
         }
     </script>
 
