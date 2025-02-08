@@ -204,8 +204,6 @@
             const menu = document.getElementById('menu');
             menu.classList.toggle('active');
         }
-      Ecco il codice aggiornato con i 20 colori vivaci sostituiti nella lista:
-
 // Lista di colori per l'effetto hover
 const colors = [
     "#FF595E", "#FF924C", "#FFCA3A", "#8AC926", "#1982C4",
@@ -217,17 +215,17 @@ const colors = [
 // Seleziona tutti i link degli artisti
 const artistLinks = document.querySelectorAll(".artists-list a");
 
-// Applica un colore diverso a ogni link
+// Salva il colore originale per ciascun link
 artistLinks.forEach((link, index) => {
-    const colorIndex = index % colors.length; // Cicla tra i colori disponibili
-    const originalColor = link.style.color; // Salva il colore originale
+    const originalColor = window.getComputedStyle(link).color; // Ottiene il colore predefinito del CSS
+    const colorIndex = index % colors.length; // Associa un colore diverso a ogni link
 
     link.addEventListener("mouseenter", () => {
         link.style.color = colors[colorIndex]; // Cambia colore al passaggio del mouse
     });
 
     link.addEventListener("mouseleave", () => {
-        link.style.color = originalColor; // Torna al colore originale
+        link.style.color = originalColor; // Ripristina il colore originale
     });
 });
     </script>
