@@ -204,6 +204,24 @@
             const menu = document.getElementById('menu');
             menu.classList.toggle('active');
         }
+            // Lista di colori per l'effetto hover
+        const colors = [
+            "#E63946", "#F4A261", "#2A9D8F", "#264653", "#E76F51",
+            "#D67D3E", "#A8DADC", "#457B9D", "#1D3557", "#F1FAEE"
+        ];
+
+        // Seleziona tutti i link degli artisti
+        const artistLinks = document.querySelectorAll(".artists-list a");
+
+        artistLinks.forEach((link, index) => {
+            link.addEventListener("mouseenter", () => {
+                link.style.color = colors[index % colors.length]; // Applica un colore dall'array
+            });
+
+            link.addEventListener("mouseleave", () => {
+                link.style.color = "#000"; // Torna al colore nero
+            });
+        });
     </script>
 </body>
 </html>
