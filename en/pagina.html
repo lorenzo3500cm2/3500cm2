@@ -214,19 +214,22 @@ const colors = [
     "#20A39E", "#EF233C", "#5A189A", "#06D6A0", "#8338EC"
 ];
 
+// Seleziona tutti i link degli artisti
+const artistLinks = document.querySelectorAll(".artists-list a");
 
-        // Seleziona tutti i link degli artisti
-        const artistLinks = document.querySelectorAll(".artists-list a");
+// Applica un colore diverso a ogni link
+artistLinks.forEach((link, index) => {
+    const colorIndex = index % colors.length; // Cicla tra i colori disponibili
+    const originalColor = link.style.color; // Salva il colore originale
 
-        artistLinks.forEach((link, index) => {
-            link.addEventListener("mouseenter", () => {
-                link.style.color = colors[index % colors.length]; // Applica un colore dall'array
-            });
+    link.addEventListener("mouseenter", () => {
+        link.style.color = colors[colorIndex]; // Cambia colore al passaggio del mouse
+    });
 
-            link.addEventListener("mouseleave", () => {
-                link.style.color = "#000"; // Torna al colore nero
-            });
-        });
+    link.addEventListener("mouseleave", () => {
+        link.style.color = originalColor; // Torna al colore originale
+    });
+});
     </script>
 </body>
 </html>
