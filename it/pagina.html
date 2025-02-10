@@ -237,6 +237,30 @@
             const menu = document.getElementById('menu');
             menu.classList.toggle('active');
         }
+        // Lista di colori per l'effetto hover
+const colors = [
+    "#FF595E", "#FF924C", "#FFCA3A", "#8AC926", "#1982C4",
+    "#6A4C93", "#FF00A6", "#00C49A", "#FB5607", "#3A86FF",
+    "#FF36AB", "#C81D25", "#29BF12", "#EE4266", "#F77F00",
+    "#20A39E", "#EF233C", "#5A189A", "#06D6A0", "#8338EC"
+];
+
+// Seleziona tutti i link degli artisti
+const artistLinks = document.querySelectorAll(".artists-list a");
+
+// Salva il colore originale per ciascun link
+artistLinks.forEach((link, index) => {
+    const originalColor = window.getComputedStyle(link).color; // Ottiene il colore predefinito del CSS
+    const colorIndex = index % colors.length; // Associa un colore diverso a ogni link
+
+    link.addEventListener("mouseenter", () => {
+        link.style.color = colors[colorIndex]; // Cambia colore al passaggio del mouse
+    });
+
+    link.addEventListener("mouseleave", () => {
+        link.style.color = originalColor; // Ripristina il colore originale
+    });
+});
     </script>
 </body>
 </html>
