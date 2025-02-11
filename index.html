@@ -25,15 +25,12 @@
     <style>
 
 
-    @media screen and (max-width: 600px) {
+  @media screen and (max-width: 600px) {
     .title {
-        font-size: 16vw; /* Usa un valore più grande per mobile */
-        max-width: 90%;
+        font-size: 16vw; /* Adatta dinamicamente per mobile, senza diventare troppo piccola */
         text-align: center;
         white-space: normal;
-        word-break: break-word;
-        overflow-wrap: break-word;
-        line-height: 1.1; /* Mantiene il testo compatto */
+        line-height: 1.1;
     
     }
 
@@ -96,13 +93,16 @@
             overflow: hidden;
         }
 
-        .title {
-            font-size: 8rem;
-            font-weight: bold;
-            text-align: center;
-            animation: changeFont 10s infinite;
-            margin-bottom: 50px;
-        }
+       .title {
+    font-size: 8rem; /* Grande su desktop */
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 50px;
+    max-width: 90%;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    line-height: 1.2;
+}
 
         @keyframes changeFont {
             0% { font-family: 'Arial', sans-serif; color: #000; }
@@ -194,9 +194,11 @@
 
     let index = 0;
 
- function changeText() {
+function changeText() {
     const element = document.getElementById('changing-text');
     element.textContent = texts[index];
+    index = (index + 1) % texts.length;
+}
 
     // Se il testo è troppo lungo, riduci la dimensione del font
     if (element.textContent.length > 15) {
