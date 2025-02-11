@@ -202,22 +202,25 @@
     ];
 
    
-    let index = 0;
-    const element = document.getElementById('changing-text');
+      let index = 0;
+    const element = document.getElementById("changing-text");
+
+    if (!element) {
+        console.error("Elemento con ID 'changing-text' non trovato.");
+        return;
+    }
 
     function changeText() {
         element.textContent = texts[index];
         index = (index + 1) % texts.length;
     }
 
+    // Cambia il testo ogni 3 secondi
     setInterval(changeText, 3000);
+
+    // Esegui subito la prima sostituzione del testo
+    changeText();
 });
-
- 
-
-    index = (index + 1) % texts.length;
-}
-
 
 </script>
 <body>
