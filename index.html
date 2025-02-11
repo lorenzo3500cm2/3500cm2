@@ -93,7 +93,7 @@
             overflow: hidden;
         }
 
-       .title {
+  .title {
     font-size: 8rem; /* Grande su desktop */
     font-weight: bold;
     text-align: center;
@@ -102,6 +102,16 @@
     word-wrap: break-word;
     overflow-wrap: break-word;
     line-height: 1.2;
+}
+
+@media screen and (max-width: 600px) {
+    .title {
+        font-size: 16vw; /* Grande su mobile, ma senza diventare troppo piccolo */
+        text-align: center;
+        white-space: normal;
+        line-height: 1.1;
+    }
+
 }
 
         @keyframes changeFont {
@@ -197,8 +207,12 @@
 function changeText() {
     const element = document.getElementById('changing-text');
     element.textContent = texts[index];
+
     index = (index + 1) % texts.length;
 }
+
+// Cambia il testo ogni 3 secondi
+setInterval(changeText, 3000);
 
     // Se il testo è troppo lungo, riduci la dimensione del font
     if (element.textContent.length > 15) {
@@ -210,8 +224,7 @@ function changeText() {
     index = (index + 1) % texts.length;
 }
 
-// Cambia il testo ogni 3 secondi
-setInterval(changeText, 3000);
+
 </script>
 <body>
 
