@@ -5,13 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mostre</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400&display=swap'); /* Font */
+        @import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&display=swap');
 
         body {
             font-family: 'Libre Baskerville', serif;
             margin: 0;
-            padding: 20px;
+            padding: 0;
             background-color: #fff;
+            font-size: 1.5rem;
             color: #000;
         }
 
@@ -21,12 +22,22 @@
             align-items: center;
             padding: 20px;
             border-bottom: 1px solid #ddd;
+            position: relative;
         }
 
-        .title {
-            font-size: 1.5rem;
-            color: #000;
+        .page-title {
+            font-size: 2.5rem;
+            font-weight: bold;
             margin: 0;
+        }
+
+        .page-title a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .page-title a:hover {
+            color: blue; /* Cambia il colore in blu */
         }
 
         .menu-icon {
@@ -50,49 +61,61 @@
             position: absolute;
             top: 60px;
             right: 20px;
-            background: #f9f9f9;
-            border: 1px solid #ddd;
-            border-radius: 5px;
+            background: white;
             padding: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
         }
 
         .menu a {
+            display: block;
+            padding: 10px 0;
             text-decoration: none;
             color: #000;
             font-size: 1rem;
-            margin-bottom: 10px;
-            display: block;
         }
 
         .menu a:hover {
-            text-decoration: underline;
+            text-decoration: red;
+        }
+
+        .content {
+            padding: 20px;
         }
 
         .exhibitions-list {
-            font-size: 1.5rem; /* Stessa dimensione della lista artisti */
-            line-height: 1.8; /* Distanza tra le righe */
-            margin-top: 60px;
+            padding: 20px;
         }
 
-        .exhibitions-list a {
+        .exhibition {
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+        }
+
+        .exhibition a {
+            font-weight: bold;
             text-decoration: none;
             color: #000;
+        }
+
+        .exhibition a:hover {
+             color: red; /* Cambia colore in rosso acceso */
+        }
+
+        .exhibition span {
             display: block;
-        }
-
-        .exhibitions-list a:hover {
-            text-decoration: underline;
-        }
-
-        .exhibitions-list span {
-            font-size: 1rem;
+            font-size: 0.9rem;
             color: #555;
+            margin-top: 5px;
         }
     </style>
+    <script src="analytics.js"></script>
 </head>
 <body>
+
     <div class="header">
-        <div class="title">Mostre</div>
+        <h1 class="page-title">
+            <a href="pagina.html">Exhibitions</a>
+        </h1>
         <div class="menu-icon" onclick="toggleMenu()">
             <div></div>
             <div></div>
@@ -100,7 +123,7 @@
         </div>
     </div>
 
-    <!-- Menu nascosto -->
+   <!-- Menu nascosto -->
     <div class="menu" id="menu">
         <a href="index.html">Home</a>
         <a href="3500cm2.html">3500cm²</a>
@@ -109,29 +132,50 @@
         <a href="contatti.html">Contatti</a>
     </div>
 
-    <!-- Lista Mostre -->
-    <div class="exhibitions-list">
-        <a href="https://aarome.org/">American Academy, Roma</a>
-        <span>20 ottobre - 2 novembre 2006</span>
+  <!-- Lista Mostre -->
+<div class="exhibitions-list">
+    <div class="exhibition">
+        <a href="https://www.palazzoesposizioniroma.it/mostra/expodemic-festival-of-foreign-academies-and-cultural-institutes" target="_blank" rel="noopener noreferrer">
+            Palazzo Esposizioni Roma, Roma
+        </a>
         
-        <a href="https://www.assab-one.org/en/exhibition-event/3500-cm%C2%B2-at-assab-one/">Assab One, Milano</a>
-        <span>ottobre - novembre 2006</span>
-        
-        <a "https://www.palazzo-lantieri.com/it/arte">Palazzo Lantieri, Gorizia</a>
-        <span></span>
-        
-        <a href="http://projectspace.uqbar-ev.de/index.php?mact=News,cntnt01,detail,0&cntnt01articleid=22&cntnt01returnid=56">Uqbar, Berlino</a>
-        <span></span>
-        
-        <a href="https://www.palazzoesposizioniroma.it/mostra/expodemic-festival-of-foreign-academies-and-cultural-institutes">Palazzo Esposizioni, Roma</a>
-        <span>5 maggio - 28 agosto 2024</span>
     </div>
+
+    <div class="exhibition">
+        <a href="http://projectspace.uqbar-ev.de/index.php?mact=News,cntnt01,detail,0&cntnt01articleid=22&cntnt01returnid=56" target="_blank" rel="noopener noreferrer">
+            Uqbar, Berlino
+        </a>
+        <span></span>
+    </div>
+
+    <div class="exhibition">
+        <a href="https://www.palazzo-lantieri.com/it/arte" target="_blank" rel="noopener noreferrer">
+            Palazzo Lantieri, Gorizia
+        </a>
+        <span></span>
+    </div>
+
+    <div class="exhibition">
+        <a href="https://www.assab-one.org/en/exhibition-event/3500-cm%C2%B2-at-assab-one/" target="_blank" rel="noopener noreferrer">
+            Assab One, Milano
+        </a>
+       
+    </div>
+
+    <div class="exhibition">
+        <a href="https://aarome.org/" target="_blank" rel="noopener noreferrer">
+            American Academy in Rome, Roma
+        </a>
+        
+    </div>
+</div>
 
     <script>
         function toggleMenu() {
             const menu = document.getElementById('menu');
-            menu.classList.toggle('active');
+            menu.style.display = (menu.style.display === 'block') ? 'none' : 'block';
         }
     </script>
+
 </body>
 </html>
