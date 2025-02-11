@@ -25,14 +25,17 @@
     <style>
 
 
-        @media screen and (max-width: 600px) {
+     @media screen and (max-width: 600px) {
     .title {
-        font-size: 5vw; /* Adatta dinamicamente il font alla larghezza dello schermo */
+        font-size: 5vw; /* Regola il font per dispositivi mobili */
         word-wrap: break-word;
-        text-align: center;
         white-space: normal; /* Permette il ritorno a capo */
         max-width: 90%;
+        text-align: center;
         overflow-wrap: break-word;
+        line-height: 1.2; /* Riduce lo spazio tra le righe */
+    }
+
     }
 
         /* 🔹 Stile per il banner cookie */
@@ -190,13 +193,22 @@
 
     let index = 0;
 
-    function changeText() {
-        document.getElementById('changing-text').textContent = texts[index];
-        index = (index + 1) % texts.length;
+ function changeText() {
+    const element = document.getElementById('changing-text');
+    element.textContent = texts[index];
+
+    // Se il testo è troppo lungo, riduci la dimensione del font
+    if (element.textContent.length > 15) {
+        element.style.fontSize = "4vw"; // Riduci il font se il testo è molto lungo
+    } else {
+        element.style.fontSize = "5vw"; // Mantieni la dimensione normale per testi corti
     }
 
-    // Cambia il testo ogni 3 secondi (3000ms)
-    setInterval(changeText, 3000);
+    index = (index + 1) % texts.length;
+}
+
+// Cambia il testo ogni 3 secondi
+setInterval(changeText, 3000);
 </script>
 <body>
 
