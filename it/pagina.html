@@ -16,6 +16,7 @@
             background-color: #ffffff;
             color: #000;
             position: relative;
+            overflow: hidden; /* Evita overflow dei loghi */
         }
 
         /* MENU */
@@ -74,7 +75,7 @@
             line-height: 1.8;
             margin-top: 60px;
             position: relative;
-            z-index: 1; /* Testo sopra il logo */
+            z-index: 1; /* Testo sopra i loghi */
         }
 
         .artists-list a {
@@ -87,21 +88,22 @@
             text-decoration: underline;
         }
 
-        /* LOGO ANIMATO */
+        /* LOGHI ANIMATI */
         .logo {
-            position: absolute; /* Movimento fluido */
-            top: 50%;
-            left: 50%;
-            width: 200px;
-            transform: translate(-50%, -50%);
-            z-index: 0; /* Assicura che non sia sotto il background */
-            opacity: 0.3; /* Semi-trasparente */
-            pointer-events: none; /* Evita che il mouse interagisca */
+            position: absolute;
+            width: 150px;
+            opacity: 0.4; /* Semi-trasparente */
+            pointer-events: none; /* Evita interferenze con il testo */
         }
 
-        .logo img {
-            width: 100%;
-        }
+        /* Colorazione dei loghi */
+        .logo:nth-child(1) img { filter: invert(17%) sepia(94%) saturate(744%) hue-rotate(350deg) brightness(95%) contrast(108%); } /* Rosso */
+        .logo:nth-child(2) img { filter: invert(43%) sepia(90%) saturate(437%) hue-rotate(85deg) brightness(92%) contrast(103%); } /* Verde */
+        .logo:nth-child(3) img { filter: invert(60%) sepia(34%) saturate(600%) hue-rotate(190deg) brightness(96%) contrast(88%); } /* Blu */
+        .logo:nth-child(4) img { filter: invert(80%) sepia(92%) saturate(532%) hue-rotate(45deg) brightness(105%) contrast(92%); } /* Giallo */
+        .logo:nth-child(5) img { filter: invert(90%) sepia(34%) saturate(800%) hue-rotate(320deg) brightness(95%) contrast(95%); } /* Magenta */
+        .logo:nth-child(6) img { filter: invert(20%) sepia(100%) saturate(800%) hue-rotate(210deg) brightness(90%) contrast(100%); } /* Ciano */
+
     </style>
 
     <!-- Libreria GSAP per l'animazione -->
@@ -127,10 +129,13 @@
         <a href="contatti.html">contatti</a>
     </div>
 
-    <!-- Logo -->
-    <div class="logo">
-        <img src="LOGO-3500cm2.png" alt="Logo 3500 cm²">
-    </div>
+    <!-- Loghi -->
+    <div class="logo"><img src="LOGO-3500cm2.png" alt="Logo 1"></div>
+    <div class="logo"><img src="LOGO-3500cm2.png" alt="Logo 2"></div>
+    <div class="logo"><img src="LOGO-3500cm2.png" alt="Logo 3"></div>
+    <div class="logo"><img src="LOGO-3500cm2.png" alt="Logo 4"></div>
+    <div class="logo"><img src="LOGO-3500cm2.png" alt="Logo 5"></div>
+    <div class="logo"><img src="LOGO-3500cm2.png" alt="Logo 6"></div>
     
     <!-- Lista Artisti -->
     <div class="artists-list">
@@ -240,21 +245,29 @@
 
 
     
-   <script>
+    <script>
         function toggleMenu() {
             const menu = document.getElementById('menu');
             menu.classList.toggle('active');
         }
 
-        // Animazione GSAP per il logo in movimento fluido
-        gsap.to(".logo", {
-            x: "random(-300, 300)", // Movimento orizzontale casuale
-            y: "random(-300, 300)", // Movimento verticale casuale
-            duration: 5, // Durata animazione
-            repeat: -1, // Ripete all'infinito
-            yoyo: true, // Rimbalza avanti e indietro
-            ease: "power1.inOut"
-        });
+        // ANIMAZIONE RANDOM DEI LOGHI
+        function animateLogos() {
+            const logos = document.querySelectorAll(".logo");
+
+            logos.forEach((logo) => {
+                gsap.to(logo, {
+                    x: () => Math.random() * window.innerWidth - 100,
+                    y: () => Math.random() * window.innerHeight - 100,
+                    duration: Math.random() * 5 + 3, // Durata tra 3 e 8 secondi
+                    repeat: -1,
+                    yoyo: true,
+                    ease: "power1.inOut"
+                });
+            });
+        }
+
+        animateLogos(); // Avvia l'animazione
 
         // Effetto hover colorato sui nomi degli artisti
         const colors = ["#FF595E", "#FF924C", "#FFCA3A", "#8AC926", "#1982C4", "#6A4C93"];
