@@ -119,14 +119,6 @@
     }
 }
 
-        @keyframes changeFont {
-            0% { font-family: 'Arial', sans-serif; color: #000; }
-            20% { font-family: 'Garamond', serif; color: #0077cc; }
-            40% { font-family: 'Courier New', monospace; color: #ff6600; }
-            60% { font-family: 'Helvetica', sans-serif; color: #228b22; }
-            80% { font-family: 'Bodoni', serif; color: #ff1493; }
-            100% { font-family: 'Times New Roman', serif; color: #8b0000; }
-        }
 
         .language-switch {
             font-size: 2rem;
@@ -154,41 +146,14 @@
 
   
 
-
-
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            const element = document.getElementById("changing-text");
-
-            const colors = [
-                "#FF5733", // Arancione
-                "#33FF57", // Verde
-                "#3357FF", // Blu
-                "#FF33A1", // Rosa
-                "#FFFF33", // Giallo
-                "#A133FF", // Viola
-                "#33FFF2", // Azzurro
-                "#FF8C00", // Arancio scuro
-                "#228B22", // Verde foresta
-                "#8B0000"  // Rosso scuro
-            ];
-
-            let index = 0;
-            function changeColor() {
-                element.style.color = colors[index];
-                index = (index + 1) % colors.length;
-            }
-
-            setInterval(changeColor, 3000); // Cambia colore ogni 3 secondi
-        });
-    </script>
+    
     <!-- GSAP Library -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&display=swap');
 
-        /* Stile Generale */
+          /* Stile Generale */
         body {
             margin: 0;
             padding: 0;
@@ -213,7 +178,6 @@
             word-wrap: break-word;
             overflow-wrap: break-word;
             line-height: 1.2;
-            transition: color 0.5s ease-in-out;
             opacity: 1;
         }
 
@@ -289,25 +253,38 @@
         "3500 सेमी2 के बा ",
         "३५०० से.मी ",
         "ⵣⴰⴼ ⵙⴰⵎⵙ"
-    ];
+      ];
 
-      let index = 0;
-        const element = document.getElementById("changing-text");
+            const colors = [
+                "#FF5733", // Arancione
+                "#33FF57", // Verde
+                "#3357FF", // Blu
+                "#FF33A1", // Rosa
+                "#FFFF33", // Giallo
+                "#A133FF", // Viola
+                "#33FFF2", // Azzurro
+                "#FF8C00", // Arancio scuro
+                "#228B22", // Verde foresta
+                "#8B0000"  // Rosso scuro
+            ];
 
-        function changeText() {
-            gsap.to(element, { opacity: 0, duration: 0.5, onComplete: () => {
-                element.textContent = texts[index];
-                index = (index + 1) % texts.length;
-                gsap.to(element, { opacity: 1, duration: 0.5 });
-            }});
-        }
+            let index = 0;
+            const element = document.getElementById("changing-text");
 
-        setInterval(changeText, 3000);
+            function changeTextAndColor() {
+                gsap.to(element, { opacity: 0, duration: 0.5, onComplete: () => {
+                    element.textContent = texts[index];
+                    element.style.color = colors[index % colors.length]; // Cambia anche il colore
+                    index = (index + 1) % texts.length;
+                    gsap.to(element, { opacity: 1, duration: 0.5 });
+                }});
+            }
+
+            setInterval(changeTextAndColor, 3000);
+        });
     </script>
 
-
-</script>
-<body>
+</body>
 
 
     <!-- Selezione di lingua -->
