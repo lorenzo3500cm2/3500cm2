@@ -16,12 +16,11 @@
             background-color: #ffffff;
             color: #000;
             position: relative;
-            overflow: hidden; /* Evita overflow dei loghi */
         }
 
         /* MENU */
         .menu-icon {
-            position: absolute;
+            position: fixed;
             top: 20px;
             right: 20px;
             cursor: pointer;
@@ -75,7 +74,7 @@
             line-height: 1.8;
             margin-top: 60px;
             position: relative;
-            z-index: 1; /* Testo sopra i loghi */
+            z-index: 2; /* Testo sopra i loghi */
         }
 
         .artists-list a {
@@ -91,9 +90,10 @@
         /* LOGHI ANIMATI */
         .logo {
             position: absolute;
-            width: 150px;
-            opacity: 0.4; /* Semi-trasparente */
+            width: 80px; /* Loghi più piccoli */
+            opacity: 0.3; /* Semi-trasparente */
             pointer-events: none; /* Evita interferenze con il testo */
+            z-index: 1; /* Dietro il testo */
         }
 
         /* Colorazione dei loghi */
@@ -136,6 +136,7 @@
     <div class="logo"><img src="LOGO-3500cm2.png" alt="Logo 4"></div>
     <div class="logo"><img src="LOGO-3500cm2.png" alt="Logo 5"></div>
     <div class="logo"><img src="LOGO-3500cm2.png" alt="Logo 6"></div>
+    
     
     <!-- Lista Artisti -->
     <div class="artists-list">
@@ -257,8 +258,8 @@
 
             logos.forEach((logo) => {
                 gsap.to(logo, {
-                    x: () => Math.random() * window.innerWidth - 100,
-                    y: () => Math.random() * window.innerHeight - 100,
+                    x: () => Math.random() * (window.innerWidth - 100), // Movimento su tutta la larghezza
+                    y: () => Math.random() * (document.body.scrollHeight - 100), // Movimento su tutta l'altezza
                     duration: Math.random() * 5 + 3, // Durata tra 3 e 8 secondi
                     repeat: -1,
                     yoyo: true,
