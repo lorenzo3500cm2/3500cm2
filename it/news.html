@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>News</title>
-	<!-- Google Fonts -->
+    
+    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet">
 
     <style>
@@ -42,20 +43,19 @@
             width: 100%;
             border-radius: 1px;
         }
-       .menu {
-    display: none;
-    position: absolute;
-    top: 60px;
-    right: 20px;
-    background: white;
-    padding: 10px;
-    border: 1px solid #ddd;
-    z-index: 1000;
-	       
-}
-.menu.open {
-    display: block;
-}
+        .menu {
+            display: none;
+            position: absolute;
+            top: 60px;
+            right: 20px;
+            background: white;
+            padding: 10px;
+            border: 1px solid #ddd;
+            z-index: 1000;
+        }
+        .menu.open {
+            display: block;
+        }
         .menu a {
             display: block;
             padding: 10px 0;
@@ -93,22 +93,19 @@
             margin-top: 10px;
             font-size: 1rem;
         }
-      .text-section {
-    margin: 20px 0;
-    font-size: 1rem;
-    line-height: 1.6;
-    column-count: 2; /* Divide il testo in 2 colonne */
-    column-gap: 20px; /* Spazio tra le colonne */
-}
-
-@media (max-width: 768px) { /* Per dispositivi mobili */
-    .text-section {
-        column-count: 1; /* Ritorna a una colonna */
-    
-}
+        .text-section {
+            margin: 20px 0;
+            font-size: 1rem;
+            line-height: 1.6;
+            text-align: left;
+        }
+        hr {
+            border: none;
+            height: 1px;
+            background-color: #ddd;
+            margin: 40px 0;
         }
     </style>
-	<script src="analytics.js"></script>
 </head>
 <body>
     <div class="header">
@@ -130,6 +127,7 @@
     </div>
 
     <div class="content">
+	    
         <!-- Sezione Parigi -->
         <div class="description"><strong>Parigi 2024</strong><br></div>
         <div class="text-section">
@@ -153,7 +151,7 @@ Martedì 15 ottobre, CONTEMPORALIS ha inoltre organizzato una conferenza sull’
                 <span>Marinella Senatore</span>
             </a>
         </div>
-
+<hr>
         <!-- Sezione Roma -->
         <div class="description"><strong>Roma 2024</strong><br></div>
          <div class="text-section">
@@ -276,7 +274,7 @@ Progetto di poster d’artista
     </a>
         </div>
 
-	
+<hr>	
 	<!-- Sezione Roma incotra il mondo -->
 
 	
@@ -315,48 +313,40 @@ Progetto di poster d’artista
                 <img src="mandla-reuter.jpg" alt="Mandla Reuters">
                 <span>Mandla Reuter</span>
             </a>
-
-		  <!-- Sezione de vleeshal Middelburg -->
-
-	
+ </div>
+        <hr>
+  <!-- Sezione de Vleeshal Middelburg -->
         <div class="description"><strong>Middelburg 2009-2013</strong><br></div>
-         <div class="text-section">
+        <div class="text-section">
             <strong>3500 cm²</strong><br>
             <strong>De Vleeshal en de Kabinetten van de Vleeshal</strong><br><br>
-        
-}
-<h3>Artisti 3500 cm²</h3>
-<ul class="inline-list">
-    <li><a href="https://vleeshal.nl/archive/the-object-lessons" class="blue">Nina Beier & Marie Lund</a></li>
-    <li><a href="https://vleeshal.nl/en/archive/the-sound-of-distance" class="orange">Katinka Bock</a></li>
-    <li><a href="https://vleeshal.nl/nl/archief/persoon/benoit-maire" class="green">Benoît Maire</a></li>
-    <li><a href="https://vleeshal.nl/archive/person/kelly-schacht" class="purple">Kelly Schacht</a></li>
-</ul>
-        </div>
 
+            <h3>Artisti 3500 cm²</h3>
+            <ul class="inline-list">
+                <li><a href="https://vleeshal.nl/archive/the-object-lessons" class="blue">Nina Beier & Marie Lund</a></li>
+                <li><a href="https://vleeshal.nl/en/archive/the-sound-of-distance" class="orange">Katinka Bock</a></li>
+                <li><a href="https://vleeshal.nl/nl/archief/persoon/benoit-maire" class="green">Benoît Maire</a></li>
+                <li><a href="https://vleeshal.nl/archive/person/kelly-schacht" class="purple">Kelly Schacht</a></li>
+            </ul>
 
 <p>In occasione di alcune mostre realizzate tra il 2009 e il 2013 sono stati realizzate delle edizioni di 3500 cm² che spesso si integravano direttamente all'interno della mostra.  </p>
   
-    </div>
-        <div class="image-container">
+    <div class="image-container">
             <a href="beier-lund.html">
                 <img src="beier-lund.jpg" alt="Nina Beier & Marie Lund">
                 <span>Nina Beier & Marie Lund</span>
             </a>
-       
-               <a href="kelly-schacht.html">
+            <a href="kelly-schacht.html">
                 <img src="kelly-schacht.jpg" alt="Kelly Schacht">
                 <span>Kelly Schacht</span>
             </a>
-
-            
-  
-
+        </div>
+    </div>
 
     <script>
         function toggleMenu() {
             const menu = document.getElementById('menu');
-            menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
+            menu.classList.toggle('open');
         }
     </script>
 </body>
