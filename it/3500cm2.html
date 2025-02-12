@@ -5,108 +5,156 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>3500 cm²</title>
 
-        <!-- Favicons -->
-    <link rel="icon" type="image/png" href="favicon-96x96.png" sizes="96x96" />
-    <link rel="icon" type="image/png" href="/3500cm2.org/favicon-96x96.png" sizes="96x96" />
-    <link rel="icon" type="image/svg+xml" href="/3500cm2.org/favicon.svg" />
-    <link rel="shortcut icon" href="/3500cm2.org/favicon.ico" />
-    <link rel="apple-touch-icon" sizes="180x180" href="/3500cm2.org/apple-touch-icon.png" />
-    <link rel="manifest" href="/3500cm2.org/site.webmanifest" />
-    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet">
+
     <style>
         body {
             margin: 0;
             padding: 20px;
             background-color: #ffffff;
             color: #000;
-            line-height: 1.6;
-            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            font-family: 'Libre Baskerville', serif;
             display: flex;
             flex-direction: column;
-            align-items: center;
-            height: 100vh;
-            overflow-y: auto; /* Permette lo scroll verticale */
+            align-items: flex-start; /* Allinea a sinistra */
+            min-height: 100vh;
         }
 
         .title {
             font-size: 8rem;
             font-weight: bold;
-            text-align: center;
-            animation: changeFont 10s infinite; /* Animazione più veloce */
-            margin-bottom: 20px; /* Spazio sotto il titolo */
+            text-align: left;
+            min-height: 140px; /* Altezza minima per evitare il movimento */
+            margin-bottom: 180px; /* Maggiore spazio tra titolo e testo */
+            display: flex;
+            align-items: center;
         }
 
-        @keyframes changeFont {
-            0% { font-family: 'Arial', sans-serif; color: #000; }
-            10% { font-family: 'Verdana', sans-serif; color: #0077cc; }
-            20% { font-family: 'Times New Roman', serif; color: #ff6600; }
-            30% { font-family: 'Garamond', serif; color: #228b22; }
-            40% { font-family: 'Courier New', monospace; color: #ff1493; }
-            50% { font-family: 'Lucida Console', monospace; color: #8b0000; }
-            60% { font-family: 'Tahoma', sans-serif; color: #9932cc; }
-            70% { font-family: 'Palatino', serif; color: #1e90ff; }
-            80% { font-family: 'Georgia', serif; color: #ff8c00; }
-            90% { font-family: 'Comic Sans MS', cursive; color: #2e8b57; }
-            100% { font-family: 'Impact', sans-serif; color: #8a2be2; }
+        .title a {
+            text-decoration: none;
+            color: inherit;
         }
 
         .text {
-            font-size: 1rem;
+            font-size: 2rem;
             max-width: 800px;
-            text-align: center;
-            margin-bottom: 40px; /* Spazio sotto il testo */
+            text-align: left;
+            margin-bottom: 20px;
         }
 
-        .menu-toggle {
-            position: fixed;
+        .menu-icon {
+            position: absolute;
             top: 20px;
             right: 20px;
             cursor: pointer;
             display: flex;
             flex-direction: column;
-            justify-content: space-around;
+            justify-content: space-between;
             width: 30px;
             height: 20px;
-            z-index: 1001;
         }
 
-        .menu-toggle div {
+        .bar {
             width: 100%;
-            height: 3px;
+            height: 2.4px;
             background-color: #000;
             border-radius: 2px;
         }
 
         .menu {
             display: none;
-            position: fixed;
+            position: absolute;
             top: 60px;
             right: 20px;
-            z-index: 1000;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .menu.active {
+            display: flex;
         }
 
         .menu a {
-            display: block;
-            padding: 10px 0;
             text-decoration: none;
             color: #000;
             font-size: 1rem;
-            background: none; /* Rimosso il fondo */
         }
 
         .menu a:hover {
             text-decoration: underline;
         }
 
-        .menu.active {
-            display: block; /* Mostra il menu quando attivo */
+        .language-switch {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-size: 1rem;
+        }
+
+        .language-switch a {
+            text-decoration: none;
+            color: #000;
+        }
+
+        .language-switch a:hover {
+            text-decoration: underline;
+        }
+
+        /* Adattamenti per schermi piccoli */
+        @media screen and (max-width: 768px) {
+            .title {
+                font-size: 4rem;
+                min-height: 80px; /* Altezza ridotta per mobile */
+                margin-bottom: 40px;
+            }
+
+            .text {
+                font-size: 1.6rem;
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            .title {
+                font-size: 3rem;
+                min-height: 60px;
+                margin-bottom: 30px;
+            }
+
+            .text {
+                font-size: 1.4rem;
+            }
         }
     </style>
 </head>
 <body>
-    <!-- Titolo come link -->
+
+    <!-- Language Switch -->
+    <div class="language-switch"> 
+        <a href="../en/index.html">EN</a>
+    </div>
+
+    <!-- Titolo -->
     <div class="title">
-        <a href="pagina.html">3500 cm²</a>
+        <a href="pagina.html" id="changing-title">3500 cm²</a>
+    </div>
+
+    <!-- Menu Icon -->
+    <div class="menu-icon" onclick="toggleMenu()">
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+    </div>
+
+    <!-- Menu -->
+    <div class="menu" id="menu">
+        <a href="index.html">Home</a>
+        <a href="news.html">News</a>
+        <a href="3500cm2.html">3500cm²</a>
+        <a href="pagina.html">Artisti</a>
+        <a href="locations.html">Luoghi</a>
+        <a href="exhibitions.html">Mostre</a>
+        <a href="contact.html">Contatti</a>
     </div>
 
  
@@ -140,29 +188,51 @@ L’idea di museo diffuso di 3500 cm² si fonda sulla democratizzazione della fr
     
     
     </div>
-
-    <!-- Menu Toggle -->
-    <div class="menu-toggle" onclick="toggleMenu()">
-        <div></div>
-        <div></div>
-        <div></div>
-    </div>
-
-    <!-- Menu opzioni -->
-    <div class="menu" id="menu">
-        <a href="index.html">home</a>
-        <a href="news.html">news</a>
-        <a href="pagina.html">artisti</a>
-        <a href="luoghi.html">luoghi</a>
-        <a href="mostre.html">mostre</a>
-        <a href="contatti.html">contatti</a>
-    </div>
-
-    <script>
+<script>
         function toggleMenu() {
             const menu = document.getElementById('menu');
             menu.classList.toggle('active');
         }
+
+        const texts = [
+            "3500 cm²",
+            "𓂋𓏤𓈖𓏥𓄿𓂻",
+            "τρισχίλιοι πεντακόσιοι τετραγωνικά εκατοστά",
+            "MMMD centimetra quadrata",
+            "३५०० वर्ग सेंटीमीटर",
+            "𓆼𓆼𓆼 𓍢𓍢𓍢𓍢𓍢 𓌹𓏤𓐍𓏏𓏤",
+            "ᨕᨑᨒ ᨔᨙᨕᨊ",
+            "৩৫০০ চে.মি",
+            "𐂆𐂏 𐀂𐀗",
+            "٣٥٠٠ سم²",
+            "⊕⊕⊕ 𐌗 𐌉𐌀𐌔𐌉𐌀",
+            "3500 சதுர செ.மீ.",
+            "𒐐 𒌚 𒐕 𒋞",
+            "3500 সেমি²",
+            "3500 చదరపు సెం.మీ",
+            "৩৫০০ বর্গ সেন্টিমিটার",
+            "𐤋𐤌𐤄 𐤒𐤌𐤄",
+            "3500 ಚದರ ಸೆ.ಮೀ",
+            "3500 平方厘米",
+            "𒁹𒑏𒌋 𒀀𒇽", 
+            "3500 ตารางเซนติเมตร",
+            "ᛏᚱᛁᚢ ᚦᚢᛋᚢᚾᛏ ᚠᛁᛘᛘ ᚼᚢᚾᛏᚱᚢᚦ ᚠᛁᚱᛘᛖᛏᚱ",
+            "3500 cm²",
+            "3500厘米2",
+            "3500 sm²",
+            "3500 cm2 ཡིན།",
+            "3500 ሴ.ሜ ",
+            "3500 cm²"
+        ];
+
+        let index = 0;
+        function changeText() {
+            const titleElement = document.getElementById('changing-title');
+            titleElement.textContent = texts[index];
+            index = (index + 1) % texts.length;
+        }
+
+        setInterval(changeText, 2000); // Cambia il testo ogni 2 secondi
     </script>
 </body>
 </html>
