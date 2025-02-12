@@ -16,7 +16,7 @@
             background-color: #ffffff;
             color: #000;
             position: relative;
-            min-height: 100vh; /* Assicura che la pagina possa scorrere */
+            min-height: 100vh;
         }
 
         /* MENU */
@@ -75,7 +75,7 @@
             line-height: 1.8;
             margin-top: 60px;
             position: relative;
-            z-index: 2; /* Testo sopra i loghi */
+            z-index: 2;
         }
 
         .artists-list a {
@@ -91,19 +91,19 @@
         /* LOGHI ANIMATI */
         .logo {
             position: absolute;
-            width: 35px; /* Loghi più piccoli */
-            opacity: 0.7; /* Semi-trasparente */
-            pointer-events: none; /* Evita interferenze con il testo */
-            z-index: 1; /* Dietro il testo */
+            width: 30px; /* Loghi ancora più piccoli */
+            opacity: 0.6;
+            pointer-events: none;
+            z-index: 1;
         }
 
         /* Colorazione dei loghi */
-        .logo:nth-child(1) img { filter: invert(17%) sepia(94%) saturate(744%) hue-rotate(350deg) brightness(95%) contrast(108%); } /* Rosso */
-        .logo:nth-child(2) img { filter: invert(43%) sepia(90%) saturate(437%) hue-rotate(85deg) brightness(92%) contrast(103%); } /* Verde */
-        .logo:nth-child(3) img { filter: invert(60%) sepia(34%) saturate(600%) hue-rotate(190deg) brightness(96%) contrast(88%); } /* Blu */
-        .logo:nth-child(4) img { filter: invert(80%) sepia(92%) saturate(532%) hue-rotate(45deg) brightness(105%) contrast(92%); } /* Giallo */
-        .logo:nth-child(5) img { filter: invert(90%) sepia(34%) saturate(800%) hue-rotate(320deg) brightness(95%) contrast(95%); } /* Magenta */
-        .logo:nth-child(6) img { filter: invert(20%) sepia(100%) saturate(800%) hue-rotate(210deg) brightness(90%) contrast(100%); } /* Ciano */
+        .logo:nth-child(1) img { filter: invert(17%) sepia(94%) saturate(744%) hue-rotate(350deg) brightness(95%) contrast(108%); }
+        .logo:nth-child(2) img { filter: invert(43%) sepia(90%) saturate(437%) hue-rotate(85deg) brightness(92%) contrast(103%); }
+        .logo:nth-child(3) img { filter: invert(60%) sepia(34%) saturate(600%) hue-rotate(190deg) brightness(96%) contrast(88%); }
+        .logo:nth-child(4) img { filter: invert(80%) sepia(92%) saturate(532%) hue-rotate(45deg) brightness(105%) contrast(92%); }
+        .logo:nth-child(5) img { filter: invert(90%) sepia(34%) saturate(800%) hue-rotate(320deg) brightness(95%) contrast(95%); }
+        .logo:nth-child(6) img { filter: invert(20%) sepia(100%) saturate(800%) hue-rotate(210deg) brightness(90%) contrast(100%); }
 
     </style>
 
@@ -246,7 +246,7 @@
 
 
     
-    <script>
+     <script>
         function toggleMenu() {
             const menu = document.getElementById('menu');
             menu.classList.toggle('active');
@@ -258,9 +258,9 @@
 
             logos.forEach((logo) => {
                 gsap.to(logo, {
-                    x: () => Math.random() * (window.innerWidth - 100), // Movimento su tutta la larghezza
-                    y: () => Math.random() * (document.body.scrollHeight - 100), // Movimento su tutta l'altezza
-                    duration: Math.random() * 5 + 5, // Durata tra 3 e 8 secondi
+                    x: () => Math.random() * (window.innerWidth - 50), // Movimento su tutta la larghezza
+                    y: () => Math.random() * (document.body.scrollHeight - 50), // Movimento su tutta l'altezza
+                    duration: Math.random() * 7 + 8, // Durata tra 8 e 15 secondi (più lento)
                     repeat: -1,
                     yoyo: true,
                     ease: "power1.inOut"
