@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+       <title>GSAP Morphing Text</title>
     <title>3500cm²</title>
     <link rel="stylesheet" href="css/style.css"> <!-- Collega lo stile -->
 
@@ -180,7 +181,33 @@
             setInterval(changeColor, 3000); // Cambia colore ogni 3 secondi
         });
     </script>
+  <!-- Importa GSAP -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
 
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: white;
+            font-family: Arial, sans-serif;
+            font-size: 5rem;
+            font-weight: bold;
+        }
+
+        .title {
+            position: relative;
+            text-align: center;
+            color: black;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="title" id="changing-text">3500 cm²</div>
+
+    <script>
     </style>
 </head>
  <script>
@@ -241,26 +268,20 @@
         "ⵣⴰⴼ ⵙⴰⵎⵙ"
     ];
 
-   
       let index = 0;
-    const element = document.getElementById("changing-text");
+        const element = document.getElementById("changing-text");
 
-    if (!element) {
-        console.error("Elemento con ID 'changing-text' non trovato.");
-        return;
-    }
+        function changeText() {
+            gsap.to(element, { opacity: 0, duration: 0.5, onComplete: () => {
+                element.textContent = texts[index];
+                index = (index + 1) % texts.length;
+                gsap.to(element, { opacity: 1, duration: 0.5 });
+            }});
+        }
 
-    function changeText() {
-        element.textContent = texts[index];
-        index = (index + 1) % texts.length;
-    }
+        setInterval(changeText, 3000);
+    </script>
 
-    // Cambia il testo ogni 3 secondi
-    setInterval(changeText, 3000);
-
-    // Esegui subito la prima sostituzione del testo
-    changeText();
-});
 
 </script>
 <body>
