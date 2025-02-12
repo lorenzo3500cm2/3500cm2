@@ -1,10 +1,13 @@
+<!DOCTYPE html>
 <html lang="it">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Artisti - 3500 cm²</title>
+
+    <!-- Importazione font -->
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400&display=swap'); /* Font simile a Bembo */
+        @import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400&display=swap');
 
         body {
             margin: 0;
@@ -12,8 +15,10 @@
             font-family: 'Libre Baskerville', serif;
             background-color: #ffffff;
             color: #000;
+            position: relative;
         }
 
+        /* MENU */
         .menu-icon {
             position: absolute;
             top: 20px;
@@ -43,7 +48,7 @@
             height: 100vh;
             background-color: #fff;
             box-shadow: -2px 0 5px rgba(0, 0, 0, 0.2);
-            z-index: 1002; /* Più alto rispetto agli altri elementi */
+            z-index: 1002;
             flex-direction: column;
             padding: 20px;
         }
@@ -63,10 +68,13 @@
             text-decoration: underline;
         }
 
+        /* LISTA ARTISTI */
         .artists-list {
             font-size: 2rem;
             line-height: 1.8;
             margin-top: 60px;
+            position: relative;
+            z-index: 1; /* Testo sopra il logo */
         }
 
         .artists-list a {
@@ -79,52 +87,29 @@
             text-decoration: underline;
         }
 
-        
-         .logo {
-            position: fixed; /* Fisso in alto */
-            top: 20px;
-            right: 60px;
-            width: 150px; /* Dimensioni logo */
-            z-index: 1000; /* Più alto della lista */
-        }
-
-        .logo img {
-            width: 100%;
-        }
-
-        @keyframes scrollLogo {
-            0% {
-                transform: translateY(100%);
-            }
-            100% {
-                transform: translateY(-100%);
-            }
-        }
-
-
-           /* LOGO ANIMATO */
+        /* LOGO ANIMATO */
         .logo {
-            position: absolute;
+            position: absolute; /* Movimento fluido */
             top: 50%;
             left: 50%;
             width: 200px;
             transform: translate(-50%, -50%);
-            z-index: -1; /* Mette il logo sotto il testo */
-            opacity: 0.3; /* Rende il logo semi-trasparente */
+            z-index: 0; /* Assicura che non sia sotto il background */
+            opacity: 0.3; /* Semi-trasparente */
+            pointer-events: none; /* Evita che il mouse interagisca */
         }
 
         .logo img {
             width: 100%;
         }
-
     </style>
-    <script src="analytics.js"></script>
 
-     <!-- Libreria GSAP per l'animazione -->
+    <!-- Libreria GSAP per l'animazione -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
 
 </head>
 <body>
+
     <!-- Menu hamburger -->
     <div class="menu-icon" onclick="toggleMenu()">
         <div class="bar"></div>
@@ -136,13 +121,13 @@
     <div class="menu" id="menu">
         <a href="index.html">home</a>
         <a href="news.html">news</a>
-        <a href="3500cm2.html">3500cm2</a>
+        <a href="3500cm2.html">3500 cm²</a>
         <a href="luoghi.html">luoghi</a>
         <a href="mostre.html">mostre</a>
-        <a href="contatti.html">Contatti</a>
+        <a href="contatti.html">contatti</a>
     </div>
-    
- <!-- Logo -->
+
+    <!-- Logo -->
     <div class="logo">
         <img src="LOGO-3500cm2.png" alt="Logo 3500 cm²">
     </div>
@@ -255,16 +240,14 @@
 
 
     
-    <script>
+   <script>
         function toggleMenu() {
             const menu = document.getElementById('menu');
             menu.classList.toggle('active');
         }
 
-
-        
-        // Animazione GSAP per far muovere il logo in modo fluido sullo schermo
-        gsap.to("#logo", {
+        // Animazione GSAP per il logo in movimento fluido
+        gsap.to(".logo", {
             x: "random(-300, 300)", // Movimento orizzontale casuale
             y: "random(-300, 300)", // Movimento verticale casuale
             duration: 5, // Durata animazione
@@ -272,30 +255,24 @@
             yoyo: true, // Rimbalza avanti e indietro
             ease: "power1.inOut"
         });
-        // Lista di colori per l'effetto hover
-const colors = [
-    "#FF595E", "#FF924C", "#FFCA3A", "#8AC926", "#1982C4",
-    "#6A4C93", "#FF00A6", "#00C49A", "#FB5607", "#3A86FF",
-    "#FF36AB", "#C81D25", "#29BF12", "#EE4266", "#F77F00",
-    "#20A39E", "#EF233C", "#5A189A", "#06D6A0", "#8338EC"
-];
 
-// Seleziona tutti i link degli artisti
-const artistLinks = document.querySelectorAll(".artists-list a");
+        // Effetto hover colorato sui nomi degli artisti
+        const colors = ["#FF595E", "#FF924C", "#FFCA3A", "#8AC926", "#1982C4", "#6A4C93"];
+        const artistLinks = document.querySelectorAll(".artists-list a");
 
-// Salva il colore originale per ciascun link
-artistLinks.forEach((link, index) => {
-    const originalColor = window.getComputedStyle(link).color; // Ottiene il colore predefinito del CSS
-    const colorIndex = index % colors.length; // Associa un colore diverso a ogni link
+        artistLinks.forEach((link, index) => {
+            const originalColor = window.getComputedStyle(link).color;
+            const colorIndex = index % colors.length;
 
-    link.addEventListener("mouseenter", () => {
-        link.style.color = colors[colorIndex]; // Cambia colore al passaggio del mouse
-    });
+            link.addEventListener("mouseenter", () => {
+                link.style.color = colors[colorIndex];
+            });
 
-    link.addEventListener("mouseleave", () => {
-        link.style.color = originalColor; // Ripristina il colore originale
-    });
-});
+            link.addEventListener("mouseleave", () => {
+                link.style.color = originalColor;
+            });
+        });
     </script>
+
 </body>
 </html>
