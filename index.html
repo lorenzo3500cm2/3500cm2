@@ -102,6 +102,9 @@
     word-wrap: break-word;
     overflow-wrap: break-word;
     line-height: 1.2;
+     transition: color 1s ease-in-out; /* Transizione del colore */
+
+
 }
 
 @media screen and (max-width: 600px) {
@@ -141,6 +144,47 @@
             background-color: #000;
             color: #fff;
         }
+
+         </style>
+</head>
+<body>
+
+    <!-- Titolo dinamico -->
+    <div class="title" id="changing-text">3500 cm²</div>
+
+    <!-- Selezione di lingua -->
+    <div class="language-switch">
+        <a href="it/3500cm2.html">It</a>
+        <a href="en/3500cm2.html">En</a>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const element = document.getElementById("changing-text");
+
+            const colors = [
+                "#FF5733", // Arancione
+                "#33FF57", // Verde
+                "#3357FF", // Blu
+                "#FF33A1", // Rosa
+                "#FFFF33", // Giallo
+                "#A133FF", // Viola
+                "#33FFF2", // Azzurro
+                "#FF8C00", // Arancio scuro
+                "#228B22", // Verde foresta
+                "#8B0000"  // Rosso scuro
+            ];
+
+            let index = 0;
+            function changeColor() {
+                element.style.color = colors[index];
+                index = (index + 1) % colors.length;
+            }
+
+            setInterval(changeColor, 3000); // Cambia colore ogni 3 secondi
+        });
+    </script>
+
     </style>
 </head>
  <script>
