@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>3500cm²</title>
-    <link rel="stylesheet" href="css/style.css"> <!-- Collega lo stile -->
+    
+    <link rel="stylesheet" href="css/style.css"> <!-- Collegamento CSS -->
 
     <!-- Favicons -->
     <link rel="icon" type="image/png" href="favicon-96x96.png" sizes="96x96" />
@@ -151,8 +152,7 @@
 </head>
 <body>
 
-    <!-- Titolo dinamico -->
-    <div class="title" id="changing-text">3500 cm²</div>
+  
 
 
 
@@ -182,11 +182,11 @@
             setInterval(changeColor, 3000); // Cambia colore ogni 3 secondi
         });
     </script>
-  <!-- Importa GSAP -->
+    <!-- GSAP Library -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-
+    
     <style>
-       @import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&display=swap');
 
         /* Stile Generale */
         body {
@@ -213,7 +213,8 @@
             word-wrap: break-word;
             overflow-wrap: break-word;
             line-height: 1.2;
-            transition: color 1s ease-in-out;
+            transition: color 0.5s ease-in-out;
+            opacity: 1;
         }
 
         /* Adattamento per dispositivi mobili */
@@ -229,12 +230,12 @@
 </head>
 <body>
 
+ <!-- Titolo con effetto morphing -->
     <div class="title" id="changing-text">3500 cm²</div>
 
     <script>
-   
- document.addEventListener("DOMContentLoaded", function() {
-    const texts = [
+        document.addEventListener("DOMContentLoaded", function() {
+            const texts = [
         "3500 cm²",
         "𓂋𓏤𓈖𓏥𓄿𓂻",
         "τρισχίλιοι πεντακόσιοι τετραγωνικά εκατοστά",
@@ -308,8 +309,6 @@
 </script>
 <body>
 
-    <!-- Titolo dinamico -->
-    <div class="title" id="changing-text">3500 cm²</div>
 
     <!-- Selezione di lingua -->
     <div class="language-switch">
