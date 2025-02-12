@@ -100,8 +100,29 @@
                 transform: translateY(-100%);
             }
         }
+
+
+           /* LOGO ANIMATO */
+        .logo {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 200px;
+            transform: translate(-50%, -50%);
+            z-index: -1; /* Mette il logo sotto il testo */
+            opacity: 0.3; /* Rende il logo semi-trasparente */
+        }
+
+        .logo img {
+            width: 100%;
+        }
+
     </style>
     <script src="analytics.js"></script>
+
+     <!-- Libreria GSAP per l'animazione -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+
 </head>
 <body>
     <!-- Menu hamburger -->
@@ -120,7 +141,12 @@
         <a href="mostre.html">mostre</a>
         <a href="contatti.html">Contatti</a>
     </div>
-
+    
+ <!-- Logo -->
+    <div class="logo">
+        <img src="LOGO-3500cm2.png" alt="Logo 3500 cm²">
+    </div>
+    
     <!-- Lista Artisti -->
     <div class="artists-list">
         <a href="carla-accardi.html">Carla Accardi</a>
@@ -227,16 +253,25 @@
         <!-- Continua con gli altri artisti -->
     </div>
 
- <!-- Logo -->
-    <div class="logo">
-        <img src="LOGO-3500cm2.png" alt="Logo 3500 cm²">
-    </div>
+
     
     <script>
         function toggleMenu() {
             const menu = document.getElementById('menu');
             menu.classList.toggle('active');
         }
+
+
+        
+        // Animazione GSAP per far muovere il logo in modo fluido sullo schermo
+        gsap.to("#logo", {
+            x: "random(-300, 300)", // Movimento orizzontale casuale
+            y: "random(-300, 300)", // Movimento verticale casuale
+            duration: 5, // Durata animazione
+            repeat: -1, // Ripete all'infinito
+            yoyo: true, // Rimbalza avanti e indietro
+            ease: "power1.inOut"
+        });
         // Lista di colori per l'effetto hover
 const colors = [
     "#FF595E", "#FF924C", "#FFCA3A", "#8AC926", "#1982C4",
