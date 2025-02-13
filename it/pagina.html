@@ -9,6 +9,7 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400&display=swap');
 
+        /* Stile generale del corpo della pagina */
         body {
             margin: 0;
             padding: 20px;
@@ -16,7 +17,7 @@
             background-color: #ffffff;
             color: #000;
             position: relative;
-            min-height: 100vh;
+            min-height: 100vh; /* Assicura che la pagina possa scorrere */
         }
 
         /* MENU */
@@ -30,9 +31,10 @@
             justify-content: space-between;
             width: 30px;
             height: 20px;
-            z-index: 1001;
+            z-index: 1001; /* Assicura che il menu rimanga sopra gli altri elementi */
         }
 
+        /* Stile delle tre barre del menu hamburger */
         .bar {
             width: 100%;
             height: 3px;
@@ -40,6 +42,7 @@
             border-radius: 2px;
         }
 
+        /* Stile del menu nascosto */
         .menu {
             display: none;
             position: fixed;
@@ -49,15 +52,17 @@
             height: 100vh;
             background-color: #fff;
             box-shadow: -2px 0 5px rgba(0, 0, 0, 0.2);
-            z-index: 1002;
+            z-index: 1002; /* Assicura che il menu sia sopra gli altri elementi */
             flex-direction: column;
             padding: 20px;
         }
 
+        /* Mostra il menu quando attivato */
         .menu.active {
             display: flex;
         }
 
+        /* Stile dei link nel menu */
         .menu a {
             text-decoration: none;
             color: #000;
@@ -65,6 +70,7 @@
             margin-bottom: 10px;
         }
 
+        /* Cambia stile al passaggio del mouse */
         .menu a:hover {
             text-decoration: underline;
         }
@@ -75,15 +81,17 @@
             line-height: 1.8;
             margin-top: 60px;
             position: relative;
-            z-index: 2;
+            z-index: 2; /* Testo sopra i loghi */
         }
 
+        /* Stile per i link degli artisti */
         .artists-list a {
             text-decoration: none;
             color: #000;
             display: block;
         }
 
+        /* Effetto hover sui link */
         .artists-list a:hover {
             text-decoration: underline;
         }
@@ -91,18 +99,18 @@
         /* LOGHI ANIMATI */
         .logo {
             position: absolute;
-            width: 30px; /* Dimensione del contenitore */
-            height: 30px;
-            opacity: 0.6;
-            pointer-events: none;
-            z-index: 1;
+            width: 50px; /* Loghi leggermente più grandi */
+            height: 50px;
+            opacity: 0.6; /* Semi-trasparente */
+            pointer-events: none; /* Evita interferenze con il testo */
+            z-index: 1; /* Dietro il testo */
         }
 
-        /* Forza la dimensione delle immagini */
+        /* Dimensione forzata per i loghi */
         .logo img {
             width: 100%;
             height: 100%;
-            object-fit: contain; /* Mantiene le proporzioni */
+            object-fit: contain; /* Mantiene le proporzioni originali */
         }
 
         /* Colorazione dei loghi */
@@ -252,9 +260,8 @@
         <!-- Continua con gli altri artisti -->
     </div>
 
-
-    
-  <script>
+<script>
+        // Funzione per aprire e chiudere il menu
         function toggleMenu() {
             const menu = document.getElementById('menu');
             menu.classList.toggle('active');
@@ -266,17 +273,18 @@
 
             logos.forEach((logo) => {
                 gsap.to(logo, {
-                    x: () => Math.random() * (window.innerWidth - 50), // Movimento su tutta la larghezza
-                    y: () => Math.random() * (document.body.scrollHeight - 50), // Movimento su tutta l'altezza
-                    duration: Math.random() * 7 + 8, // Durata tra 8 e 15 secondi (più lento)
-                    repeat: -1,
-                    yoyo: true,
+                    x: () => Math.random() * (window.innerWidth - 100), // Movimento su tutta la larghezza
+                    y: () => Math.random() * (document.body.scrollHeight - 100), // Movimento su tutta l'altezza
+                    duration: Math.random() * 10 + 8, // Durata tra 8 e 18 secondi (più lento)
+                    repeat: -1, // Movimento continuo
+                    yoyo: true, // Movimento avanti e indietro
                     ease: "power1.inOut"
                 });
             });
         }
 
-        animateLogos(); // Avvia l'animazione
+        // Avvia l'animazione dei loghi
+        animateLogos();
 
         // Effetto hover colorato sui nomi degli artisti
         const colors = ["#FF595E", "#FF924C", "#FFCA3A", "#8AC926", "#1982C4", "#6A4C93"];
