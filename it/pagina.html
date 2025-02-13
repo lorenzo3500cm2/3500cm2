@@ -91,10 +91,18 @@
         /* LOGHI ANIMATI */
         .logo {
             position: absolute;
-            width: 10px; /* Loghi ancora più piccoli */
+            width: 30px; /* Dimensione del contenitore */
+            height: 30px;
             opacity: 0.6;
             pointer-events: none;
             z-index: 1;
+        }
+
+        /* Forza la dimensione delle immagini */
+        .logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain; /* Mantiene le proporzioni */
         }
 
         /* Colorazione dei loghi */
@@ -246,7 +254,7 @@
 
 
     
-     <script>
+  <script>
         function toggleMenu() {
             const menu = document.getElementById('menu');
             menu.classList.toggle('active');
