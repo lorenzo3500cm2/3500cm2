@@ -3,12 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Luoghi</title>
+    <title>Luoghi</title
+     <!-- Importazione font -->
     <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400&display=swap" rel="stylesheet">
     <style>
         /* Stili generali */
         body {
-            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            font-family: 'Libre Baskerville', serif; /* Imposta il font globale */
             margin: 0;
             padding: 0;
             background-color: #fff;
@@ -21,8 +22,11 @@
             padding: 20px;
             border-bottom: 1px solid #ddd;
         }
+  /* Stile del titolo "Luoghi" */
         .title {
-            font-size: 1.5rem;
+            font-size: 2rem; /* Ingrandisce il titolo */
+            font-weight: normal;
+            font-family: 'Libre Baskerville', serif; /* Font del titolo */
             color: #000;
             margin: 0;
         }
@@ -64,6 +68,7 @@
         .menu a:hover {
             text-decoration: underline;
         }
+           /* Stile della lista dei luoghi */
         ul {
             list-style-type: none;
             padding: 20px;
@@ -82,13 +87,32 @@
         a:hover {
             color: #555;
         }
+        /* Stile per i nomi degli artisti */
         .artist-name {
-            margin-left: 20px;
+            margin-left: 10px; /* Distanza uniforme dai nomi dei luoghi */
+            display: inline-block;
         }
-      .artist-name {
-    margin-left: 30px;  /* Mantiene lo spazio dopo il luogo */
-    margin-right: 15px; /* Aggiunge spazio tra i nomi degli artisti */
-    display: inline-block;
+
+        /* Formattazione dei nomi multipli */
+        .artist-list {
+            display: inline;
+        }
+
+        .artist-list a::after {
+            content: ", "; /* Aggiunge una virgola tra gli artisti */
+        }
+
+        .artist-list a:last-child::after {
+            content: ""; /* Rimuove la virgola dall'ultimo artista */
+        }
+
+        /* Copyright */
+        .copyright {
+            position: fixed;
+            bottom: 10px;
+            left: 20px;
+            font-size: 0.9rem;
+            color: #777;
 
 }
 
@@ -391,7 +415,9 @@
 
     </ul>
 
-     
+       <!-- Copyright -->
+    <div class="copyright">© 2025 3500 cm². Tutti i diritti riservati.</div>
+
         
     <script>
         function toggleMenu() {
