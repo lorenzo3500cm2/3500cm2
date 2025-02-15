@@ -24,16 +24,16 @@
         }
 
         /* Titolo animato */
-        .title-container {
-            position: absolute;
-            top: 20px;
-            left: 20px;
-            right: 20px;
-            text-align: left;
-            z-index: 0; /* Lo mantiene dietro il testo */
-            overflow: hidden;
-            height: 10rem; /* Altezza fissa per evitare spostamenti */
-        }
+       .title-container {
+    position: fixed;
+    top: 15%;
+    left: 20px;
+    right: 20px;
+    text-align: left;
+    z-index: 0; /* Mantiene il titolo dietro il testo */
+    opacity: 0.3; /* Leggermente trasparente per non coprire il contenuto */
+    pointer-events: none; /* Evita interferenze con il testo */
+}
 
         .title {
             font-size: 8rem;
