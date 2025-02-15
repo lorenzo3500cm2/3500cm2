@@ -9,6 +9,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet">
 
     <style>
+        /* Stili generali */
         body {
             margin: 0;
             padding: 20px;
@@ -17,18 +18,28 @@
             font-family: 'Libre Baskerville', serif;
             display: flex;
             flex-direction: column;
-            align-items: flex-start; /* Allinea a sinistra */
+            align-items: flex-start; /* Allinea il testo a sinistra */
             min-height: 100vh;
+            position: relative;
+        }
+
+        /* Titolo animato */
+        .title-container {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            right: 20px;
+            text-align: left;
+            z-index: 0; /* Lo mantiene dietro il testo */
+            overflow: hidden;
+            height: 10rem; /* Altezza fissa per evitare spostamenti */
         }
 
         .title {
             font-size: 8rem;
             font-weight: bold;
             text-align: left;
-            min-height: 140px; /* Altezza minima per evitare il movimento */
-            margin-bottom: 380px; /* Maggiore spazio tra titolo e testo */
-            display: flex;
-            align-items: center;
+            white-space: nowrap; /* Evita il wrapping */
         }
 
         .title a {
@@ -36,13 +47,17 @@
             color: inherit;
         }
 
+        /* Testo principale */
         .text {
             font-size: 2rem;
             max-width: 800px;
             text-align: left;
-            margin-bottom: 20px;
+            position: relative;
+            z-index: 1; /* Testo sopra il titolo */
+            margin-top: 200px; /* Evita che il testo venga coperto */
         }
 
+        /* Menu */
         .menu-icon {
             position: absolute;
             top: 20px;
@@ -85,6 +100,7 @@
             text-decoration: underline;
         }
 
+        /* Language Switch */
         .language-switch {
             position: absolute;
             top: 20px;
@@ -101,12 +117,20 @@
             text-decoration: underline;
         }
 
+        /* Footer */
+        footer {
+            position: absolute;
+            bottom: 10px;
+            left: 20px;
+            font-size: 1rem;
+            color: #000;
+        }
+
         /* Adattamenti per schermi piccoli */
         @media screen and (max-width: 768px) {
             .title {
                 font-size: 4rem;
-                min-height: 80px; /* Altezza ridotta per mobile */
-                margin-bottom: 40px;
+                height: 80px;
             }
 
             .text {
@@ -117,8 +141,7 @@
         @media screen and (max-width: 480px) {
             .title {
                 font-size: 3rem;
-                min-height: 60px;
-                margin-bottom: 30px;
+                height: 60px;
             }
 
             .text {
@@ -134,9 +157,11 @@
         <a href="../en/3500cm2.html">EN</a>
     </div>
 
-    <!-- Titolo -->
-    <div class="title">
-        <a href="pagina.html" id="changing-title">3500 cm²</a>
+    <!-- Titolo con animazione -->
+    <div class="title-container">
+        <div class="title">
+            <a href="pagina.html" id="changing-title">3500 cm²</a>
+        </div>
     </div>
 
     <!-- Menu Icon -->
