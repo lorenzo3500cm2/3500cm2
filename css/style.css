@@ -1,16 +1,24 @@
-footer {
-    position: fixed;  /* Fissa il footer in una posizione fissa */
-    bottom: 0;        /* Lo attacca al bordo inferiore */
-    left: 0;          /* Lo attacca al bordo sinistro */
-    padding: 10px 15px; /* Aggiunge spazio attorno al testo */
-    background-color: transparent; /* Sfondo trasparente */
-    color: #000; /* Testo nero */
-    font-size: 0.9rem; /* Dimensione del testo */
-    border-top: none; /* Nessun bordo superiore */
+/* Importa il font Libre Baskerville */
+@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&display=swap');
+
+/* Applica il font Libre Baskerville a tutto il sito */
+body, h1, h2, h3, h4, h5, h6, .artist-name, .header, .title {
+    font-family: 'Libre Baskerville', serif !important;
 }
 
+/* Stile footer */
+footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    padding: 10px 15px;
+    background-color: transparent;
+    color: #000;
+    font-size: 0.9rem;
+    border-top: none;
+}
 
-
+/* Stile cookie banner */
 .cookie-banner {
     position: fixed;
     bottom: 0;
