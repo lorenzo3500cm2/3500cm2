@@ -1,8 +1,8 @@
-/* Importa il font Libre Baskerville */
+/* Importa il font */
 @import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&display=swap');
 
-/* Applica il font Libre Baskerville a tutto il sito */
-body, h1, h2, h3, h4, h5, h6, .artist-name, .header, .title {
+/* Applica il font a tutto il sito */
+body, h1, h2, h3, h4, h5, h6, .artist-name, .header, .title, .description {
     font-family: 'Libre Baskerville', serif !important;
 }
 
