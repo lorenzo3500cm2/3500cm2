@@ -33,13 +33,18 @@
             text-decoration: none;
             color: #000;
         }
-        .menu-icon {
-            display: flex;
-            flex-direction: column;
-            justify-content: space-around;
-            width: 25px;
-            height: 15px;
-            cursor: pointer;
+     .menu-icon {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 20px;
+    z-index: 1100; /* Assicura che il menu rimanga sopra il contenuto */
+}
         }
         .menu-icon div {
             background-color: #000;
@@ -47,16 +52,17 @@
             width: 100%;
             border-radius: 1px;
         }
-        .menu {
-            display: none;
-            position: absolute;
-            top: 60px;
-            right: 20px;
-            background: white;
-            padding: 10px;
-            border: 1px solid #ddd;
-            z-index: 1000;
-        }
+       .menu {
+    display: none;
+    position: fixed; /* Fissa il menu sulla pagina */
+    top: 20px; /* Distanza dalla cima */
+    right: 20px; /* Allinea il menu a destra */
+    background: white;
+    padding: 10px 20px;
+    border: 1px solid #ddd;
+    z-index: 1000;
+    text-align: right; /* Testo allineato a destra */
+}
         .menu.open {
             display: block;
         }
