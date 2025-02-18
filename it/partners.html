@@ -31,19 +31,27 @@
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
-            gap: 20px;
+            gap: 40px;
             padding: 40px 20px;
         }
-        .logo-container img {
+        .logo-box {
+            text-align: center;
+        }
+        .logo-box img {
             max-width: 200px;
             height: auto;
-            border: 1px solid #ddd;
-            padding: 10px;
-            background: #f9f9f9;
-            border-radius: 5px;
+            display: block;
+            margin: 0 auto;
+            border: none; /* Rimuove il bordo */
+            background: none; /* Rimuove lo sfondo */
+        }
+        .logo-box span {
+            display: block;
+            font-size: 1rem;
+            margin-top: 10px;
         }
         @media (max-width: 768px) {
-            .logo-container img {
+            .logo-box img {
                 max-width: 150px;
             }
         }
@@ -55,12 +63,30 @@
     </div>
 
     <div class="logo-container">
-        <img src="Logo Accademia_COLORE.eps" alt="Accademia di Romania in Roma">
-        <img src="logo-accademia-san-luca.jpg" alt="accademia 2">
-        <img src="partner3.png" alt="Partner 3">
-        <img src="partner4.png" alt="Partner 4">
-        <img src="partner5.png" alt="Partner 5">
-        <img src="partner6.png" alt="Partner 6">
+        <div class="logo-box">
+            <img src="Logo Accademia_COLORE.png" alt="Accademia di Romania in Roma">
+            <span>Accademia di Romania in Roma</span>
+        </div>
+        <div class="logo-box">
+            <img src="logo-accademia-san-luca.jpg" alt="Accademia Nazionale di San Luca">
+            <span>Accademia Nazionale di San Luca</span>
+        </div>
+        <div class="logo-box">
+            <img src="partner3.png" alt="Partner 3">
+            <span>Nome Partner 3</span>
+        </div>
+        <div class="logo-box">
+            <img src="partner4.png" alt="Partner 4">
+            <span>Nome Partner 4</span>
+        </div>
+        <div class="logo-box">
+            <img src="partner5.png" alt="Partner 5">
+            <span>Nome Partner 5</span>
+        </div>
+        <div class="logo-box">
+            <img src="partner6.png" alt="Partner 6">
+            <span>Nome Partner 6</span>
+        </div>
     </div>
 </body>
 </html>
