@@ -9,6 +9,21 @@
     <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet">
 
     <style>
+	    .page-title {
+    font-size: 3rem; /* Ingrandisce il titolo */
+    font-weight: bold;
+    margin: 0;
+    text-align: left; /* Mantiene l'allineamento */
+}
+
+.page-title a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.page-title a:hover {
+    color: blue; /* Cambia il colore in blu quando si passa sopra con il mouse */
+}
         body {
             margin: 0;
             padding: 20px;
@@ -129,14 +144,16 @@
     </style>
 </head>
 <body>
-    <div class="header">
-        <a href="pagina.html" class="back-link">News</a>
-        <div class="menu-icon" onclick="toggleMenu()">
-            <div></div>
-            <div></div>
-            <div></div>
-        </div>
+  <div class="header">
+    <h1 class="page-title">
+        <a href="pagina.html">News</a>
+    </h1>
+    <div class="menu-icon" onclick="toggleMenu()">
+        <div></div>
+        <div></div>
+        <div></div>
     </div>
+</div>
 
     <!-- Menu nascosto -->
     <div class="menu" id="menu">
