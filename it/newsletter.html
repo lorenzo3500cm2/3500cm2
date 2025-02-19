@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Newsletter</title>
+    <link rel="stylesheet" href="css/stile.css">
+    <style>
+        body {
+            font-family: 'Libre Baskerville', serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #ffffff;
+            color: #000;
+            text-align: center;
+        }
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            border-bottom: 1px solid #ddd;
+        }
+        .back-link {
+            font-size: 1.5rem;
+            font-weight: bold;
+            text-decoration: none;
+            color: #000;
+        }
+        .newsletter-container {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background: #f9f9f9;
+        }
+        .newsletter-container h2 {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+        .newsletter-container p {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+        }
+        .newsletter-container input[type="email"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+        .newsletter-container button {
+            width: 100%;
+            padding: 10px;
+            background-color: #000;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            cursor: pointer;
+        }
+        .newsletter-container button:hover {
+            background-color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <a href="index.html" class="back-link">Newsletter</a>
+    </div>
+
+    <div class="newsletter-container">
+        <h2>Iscriviti alla nostra Newsletter</h2>
+        <p>Ricevi aggiornamenti su progetti, mostre e iniziative di 3500 cm².</p>
+        <form action="newsletter-signup.php" method="POST">
+            <input type="email" name="email" placeholder="Inserisci la tua email" required>
+            <button type="submit">Iscriviti</button>
+        </form>
+    </div>
+</body>
+</html>
