@@ -9,11 +9,13 @@
     <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet">
 
     <style>
-	    .page-title {
-    font-size: 3rem; /* Ingrandisce il titolo */
+	/* Stile per il titolo della pagina */
+.page-title {
+    font-size: 3rem; /* Stessa grandezza della pagina 3500 cm² */
     font-weight: bold;
-    margin: 0;
-    text-align: left; /* Mantiene l'allineamento */
+    margin: 20px 0;
+    text-align: left; /* Allinea il titolo a sinistra */
+    padding-left: 20px; /* Mantiene il margine sinistro coerente */
 }
 
 .page-title a {
@@ -22,7 +24,26 @@
 }
 
 .page-title a:hover {
-    color: blue; /* Cambia il colore in blu quando si passa sopra con il mouse */
+    color: blue; /* Cambia il colore in blu al passaggio del mouse */
+}
+
+/* Stile per il testo principale */
+.text-section {
+    font-size: 2rem; /* Stessa grandezza del testo della pagina 3500 cm² */
+    line-height: 1.4;
+    text-align: left;
+    max-width: 800px;
+    padding-left: 20px; /* Mantiene il margine sinistro */
+}
+
+/* Stile per le descrizioni */
+.description {
+    font-size: 2rem; /* Ingrandisce il testo delle descrizioni */
+    font-weight: bold;
+    margin-top: 40px;
+    text-align: left;
+    max-width: 800px;
+    padding-left: 20px;
 }
         body {
             margin: 0;
@@ -144,7 +165,7 @@
     </style>
 </head>
 <body>
-  <div class="header">
+ <div class="header">
     <h1 class="page-title">
         <a href="pagina.html">News</a>
     </h1>
@@ -155,24 +176,21 @@
     </div>
 </div>
 
-    <!-- Menu nascosto -->
-    <div class="menu" id="menu">
-        <a href="index.html">home</a>
-        <a href="pagina.html">artisti</a>
-        <a href="3500cm2.html">3500 cm²</a>
-        <a href="luoghi.html">luoghi</a>
-        <a href="contatti.html">contatti</a>
-    </div>
+<div class="menu" id="menu">
+    <a href="index.html">home</a>
+    <a href="pagina.html">artisti</a>
+    <a href="3500cm2.html">3500 cm²</a>
+    <a href="luoghi.html">luoghi</a>
+    <a href="contatti.html">contatti</a>
+</div>
 
-    <div class="content">
-	    
-        <!-- Sezione Parigi -->
-        <div class="description"><strong>Parigi 2024</strong><br></div>
-        <div class="text-section">
-            <strong>3500 cm²</strong><br>
-            <strong>XX Giornata del Contemporaneo</strong><br><br>
-            <strong>Consolato d’Italia a Parigi</strong><br><br>
-		<strong>CONTEMPORALIS</strong><br><br>
+<div class="content">
+    <div class="description"><strong>Parigi 2024</strong></div>
+    <div class="text-section">
+        <strong>3500 cm²</strong><br>
+        <strong>XX Giornata del Contemporaneo</strong><br><br>
+        <strong>Consolato d’Italia a Parigi</strong><br><br>
+        <strong>CONTEMPORALIS</strong><br><br>
 		
            CONTEMPORALIS partecipa alla Giornata del Contemporaneo, la giornata italiana dedicata all’arte contemporanea.
 
