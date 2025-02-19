@@ -15,13 +15,19 @@
             background-color: #fff;
             color: #000;
         }
-        .header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px;
-            border-bottom: 1px solid #ddd;
-        }
+     .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    border-bottom: 1px solid #ddd;
+    position: fixed; /* Il menu rimane fisso in alto */
+    top: 0;
+    left: 0;
+    right: 0;
+    background: white;
+    z-index: 1000;
+}
   /* Stile del titolo "Luoghi" */
         .title {
             font-size: 2rem; /* Ingrandisce il titolo */
@@ -30,34 +36,54 @@
             color: #000;
             margin: 0;
         }
-        .menu-icon {
-            display: flex;
-            flex-direction: column;
-            justify-content: space-around;
-            width: 25px;
-            height: 15px;
-            cursor: pointer;
+       .menu-icon {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 25px;
+    cursor: pointer;
+    position: relative;
+}
+
+.menu-icon div {
+    background-color: #000;
+    height: 3px;
+    width: 100%;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+}
+
+/* Modifica le barre per creare una "X" quando il menu è aperto */
+.menu-icon.open div:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.menu-icon.open div:nth-child(2) {
+    opacity: 0; /* Nasconde la barra centrale */
+}
+
+.menu-icon.open div:nth-child(3) {
+    transform: rotate(-45deg) translate(6px, -6px);
+
         }
-        .menu-icon div {
-            background-color: #000;
-            height: 2px;
-            width: 100%;
-            border-radius: 1px;
-        }
-        .menu {
-            display: none;
-            position: absolute;
-            top: 60px;
-            right: 20px;
-            background: #f9f9f9;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            padding: 10px;
-            z-index: 1000;
-        }
-        .menu.active {
-            display: block;
-        }
+       .menu {
+    display: none;
+    position: absolute;
+    top: 60px;
+    right: 20px;
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 15px;
+    z-index: 1000;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: right;
+}
+
+.menu.active {
+    display: block; /* Il menu si espande quando viene cliccato */
+}
         .menu a {
             display: block;
             padding: 10px 0;
@@ -67,6 +93,11 @@
         }
         .menu a:hover {
             text-decoration: underline;
+        }
+          /* Contenuto */
+        .content {
+            margin-top: 80px; /* Margine per evitare sovrapposizione con il menu fisso */
+            padding: 20px;
         }
            /* Stile della lista dei luoghi */
         ul {
@@ -87,6 +118,7 @@
         }
         a:hover {
             color: #555;
+        
         }
         /* Stile per i nomi degli artisti */
         .artist-name {
@@ -421,10 +453,12 @@
 
         
     <script>
-        function toggleMenu() {
-            const menu = document.getElementById('menu');
-            menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
-        }
+     function toggleMenu() {
+    const menu = document.getElementById('menu');
+    const menuIcon = document.querySelector('.menu-icon');
+    menu.classList.toggle('active');
+    menuIcon.classList.toggle('open');
+}
     </script>
 </body>
 </html>
