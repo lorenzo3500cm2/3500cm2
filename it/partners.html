@@ -27,23 +27,28 @@
             text-decoration: none;
             color: #000;
         }
-       .logo-container {
+.logo-container {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    align-items: center; /* Allinea i loghi alla stessa altezza */
+    align-items: center;
     gap: 40px;
     padding: 40px 20px;
 }
+
 .logo-box {
     display: flex;
-    align-items: center; /* Allinea tutti i loghi alla stessa altezza */
+    align-items: center;
     justify-content: center;
-    min-height: 120px; /* Assicura che tutti abbiano la stessa altezza */
+    width: 200px; /* Larghezza uniforme */
+    height: 120px; /* Altezza uniforme */
+    background-color: transparent; /* Evita bordi visibili */
 }
-   .logo-box img {
-    height: 80px; /* Imposta la stessa altezza per tutti */
-    width: auto; /* Mantiene le proporzioni */
+
+.logo-box img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain; /* Mantiene le proporzioni senza tagliare */
     display: block;
 }
         .logo-box span {
