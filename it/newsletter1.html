@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Iscrizione Newsletter</title>
-    
-    <!-- Font e Stili di Brevo -->
+
+    <!-- Stili per la pagina -->
     <style>
         @font-face {
             font-display: block;
@@ -13,7 +13,7 @@
             src: url(https://assets.brevo.com/font/Roboto/Latin/normal/normal/7529907e9eaf8ebb5220c5f9850e3811.woff2) format("woff2"), 
                  url(https://assets.brevo.com/font/Roboto/Latin/normal/normal/25c678feafdc175a70922a116c9be3e7.woff) format("woff");
         }
-        
+
         /* Stile Generale */
         body {
             font-family: 'Roboto', sans-serif;
@@ -49,6 +49,38 @@
             margin-bottom: 20px;
         }
 
+        /* Stili per Brevo */
+        .sib-form {
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 8px;
+        }
+
+        .sib-container--large {
+            max-width: 100%;
+        }
+
+        /* Stile dell'input */
+        input[type="email"] {
+            width: 100%;
+            padding: 12px;
+            font-size: 16px;
+            border: 2px solid #fff;
+            border-radius: 5px;
+            background: rgba(255, 255, 255, 0.1);
+            color: #fff;
+            outline: none;
+        }
+
+        input[type="email"]::placeholder {
+            color: #ccc;
+        }
+
+        input[type="email"]:focus {
+            border-color: #2BB2FC;
+            background: rgba(255, 255, 255, 0.2);
+        }
+
         /* Pulsante */
         button {
             width: 100%;
@@ -65,18 +97,7 @@
         button:hover {
             background-color: #1a8ed8;
         }
-        
-        /* Stili per Brevo */
-        .sib-form {
-            background-color: rgba(255, 255, 255, 0.1);
-            padding: 20px;
-            border-radius: 8px;
-        }
 
-        .sib-container--large {
-            max-width: 100%;
-        }
-        
         /* Responsive */
         @media (max-width: 600px) {
             .newsletter-container {
@@ -103,7 +124,7 @@
                         
                         <div class="sib-form-block">
                             <label for="EMAIL" style="font-size:16px; font-weight:bold;">Inserisci il tuo indirizzo email</label>
-                            <input class="input" type="email" id="EMAIL" name="EMAIL" autocomplete="off" placeholder="Inserisci il tuo email" required>
+                            <input class="input" type="email" id="EMAIL" name="EMAIL" placeholder="Inserisci la tua email" required>
                         </div>
 
                         <div class="sib-optin sib-form-block">
