@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iscrizione Newsletter</title>
+    
+    <!-- Font e Stili di Brevo -->
+    <style>
+        @font-face {
+            font-display: block;
+            font-family: Roboto;
+            src: url(https://assets.brevo.com/font/Roboto/Latin/normal/normal/7529907e9eaf8ebb5220c5f9850e3811.woff2) format("woff2"), 
+                 url(https://assets.brevo.com/font/Roboto/Latin/normal/normal/25c678feafdc175a70922a116c9be3e7.woff) format("woff");
+        }
+        
+        /* Stile Generale */
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #000; /* Sfondo nero */
+            color: #fff; /* Testo bianco */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            text-align: center;
+        }
+
+        .newsletter-container {
+            background: rgba(255, 255, 255, 0.1); /* Box trasparente */
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(255, 255, 255, 0.2);
+            max-width: 600px;
+            width: 80%;
+        }
+
+        h2 {
+            font-size: 2rem;
+            color: #fff;
+            margin-bottom: 15px;
+        }
+
+        .left__text {
+            font-size: 1rem;
+            color: #ccc;
+            margin-bottom: 20px;
+        }
+
+        /* Pulsante */
+        button {
+            width: 100%;
+            padding: 12px;
+            background-color: #2BB2FC;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #1a8ed8;
+        }
+        
+        /* Stili per Brevo */
+        .sib-form {
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 8px;
+        }
+
+        .sib-container--large {
+            max-width: 100%;
+        }
+        
+        /* Responsive */
+        @media (max-width: 600px) {
+            .newsletter-container {
+                width: 95%;
+            }
+        }
+    </style>
+
+    <link rel="stylesheet" href="https://sibforms.com/forms/end-form/build/sib-styles.css">
+</head>
+<body>
+
+    <div class="newsletter-container">
+        <h2>Iscriviti alla Newsletter</h2>
+        <p class="left__text">Ricevi aggiornamenti esclusivi su eventi e mostre.</p>
+
+        <!-- Integrazione Modulo Brevo -->
+        <div class="sib-form">
+            <div id="sib-form-container" class="sib-form-container">
+                <div id="sib-container" class="sib-container--large sib-container--vertical">
+                    <form id="sib-form" method="POST" 
+                          action="https://5d9b6dd7.sibforms.com/serve/MUIFAIxpOuU_jBYidK7tXnLwTZD8eQf1wr92pZvsMdlQzhWegjAmsjo0XQr-SzX5Ckklngfz69jOtwgMsZlG6EdMkyqnmgL1E0X_u6o-0anJWrAfk8he40d5d3FVLJJ8wCdWvNdb4Pdvry1xlw7P3CHZA5xZiFawgMGuoZDfEmNwbZ35Fj_DZrkM85B5RQc8AqUooqaQxG8HpWXw" 
+                          data-type="subscription">
+                        
+                        <div class="sib-form-block">
+                            <label for="EMAIL" style="font-size:16px; font-weight:bold;">Inserisci il tuo indirizzo email</label>
+                            <input class="input" type="email" id="EMAIL" name="EMAIL" autocomplete="off" placeholder="Inserisci il tuo email" required>
+                        </div>
+
+                        <div class="sib-optin sib-form-block">
+                            <label>
+                                <input type="checkbox" value="1" id="OPT_IN" name="OPT_IN" required>
+                                <span>Accetto di ricevere la newsletter</span>
+                            </label>
+                        </div>
+
+                        <div class="sib-form-block">
+                            <button type="submit">Iscriviti</button>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Script di Brevo -->
+    <script>
+        window.REQUIRED_CODE_ERROR_MESSAGE = 'Scegli un prefisso paese';
+        window.LOCALE = 'it';
+        window.EMAIL_INVALID_MESSAGE = "Indirizzo email non valido.";
+        window.REQUIRED_ERROR_MESSAGE = "Questo campo è obbligatorio.";
+        window.GENERIC_INVALID_MESSAGE = "Controlla il formato e riprova.";
+    </script>
+    
+    <script defer src="https://sibforms.com/forms/end-form/build/main.js"></script>
+
+</body>
+</html>
