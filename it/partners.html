@@ -14,6 +14,7 @@
             color: #000;
             text-align: center;
         }
+
         .header {
             display: flex;
             justify-content: space-between;
@@ -21,44 +22,60 @@
             padding: 20px;
             border-bottom: 1px solid #ddd;
         }
+
         .back-link {
             font-size: 1.5rem;
             font-weight: bold;
             text-decoration: none;
             color: #000;
         }
-.logo-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    gap: 40px;
-    padding: 40px 20px;
-}
 
-.logo-box {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 200px; /* Larghezza uniforme */
-    height: 120px; /* Altezza uniforme */
-    background-color: transparent; /* Evita bordi visibili */
-}
+        /* Contenitore loghi */
+        .logo-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            gap: 40px;
+            padding: 40px 20px;
+            max-width: 1200px; /* Evita che si allarghi troppo su schermi grandi */
+            margin: 0 auto;
+        }
 
-.logo-box img {
-    max-width: 100%;
-    max-height: 100%;
-    object-fit: contain; /* Mantiene le proporzioni senza tagliare */
-    display: block;
-}
-        .logo-box span {
+        /* Box singolo logo */
+        .logo-box {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 200px; /* Larghezza uniforme */
+            height: 150px; /* Altezza uniforme */
+            background-color: transparent;
+        }
+
+        /* Immagini logo */
+        .logo-box img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
             display: block;
+        }
+
+        /* Testo sotto i loghi */
+        .logo-box span {
             font-size: 1rem;
             margin-top: 10px;
+            display: block;
         }
+
+        /* Adattabilità su schermi piccoli */
         @media (max-width: 768px) {
-            .logo-box img {
-                max-width: 150px;
+            .logo-container {
+                gap: 20px;
+            }
+            .logo-box {
+                width: 150px;
+                height: 100px;
             }
         }
     </style>
@@ -71,62 +88,37 @@
     <div class="logo-container">
         <div class="logo-box">
             <img src="Logo-Accademia-COLORE.png" alt="Accademia di Belle Arti Roma">
-            
         </div>
         <div class="logo-box">
             <img src="logo-accademia-san-luca.jpg" alt="Accademia Nazionale di San Luca">
             <span>Accademia Nazionale di San Luca</span>
         </div>
-
-          
         <div class="logo-box">
             <img src="logo-accademia-virtuosi-pantheon.jpg" alt="Accademia dei Virtuosi al Pantheon">
-            <span></span>
         </div>
-       
-
         <div class="logo-box">
             <img src="LogoCasaDiGoethe.png" alt="Casa di Goethe">
-            <span></span>
         </div>
-
-
-        
         <div class="logo-box">
-            <img src="logo-neerlandese.jpg" alt="Partner 3">
-            <span></span>
+            <img src="logo-neerlandese.jpg" alt="Reale Istituto Neerlandese">
         </div>
-
-             <div class="logo-box">
+        <div class="logo-box">
             <img src="logo-pastificio.png" alt="Pastificio Cerere">
-            <span></span>
         </div>
-        
         <div class="logo-box">
             <img src="RAM-logo.png" alt="RAM">
-      
-            
         </div>
         <div class="logo-box">
             <img src="Vleeshal-logo.jpg" alt="Vleeshal">
-
-  </div>
+        </div>
         <div class="logo-box">
             <img src="logo-villa-medici.png" alt="Villa Medici">
-
-           
-           
         </div>
-        
         <div class="logo-box">
             <img src="Logo-volume.png" alt="Volume">
-          
-      
-
-                </div>
+        </div>
         <div class="logo-box">
             <img src="ZERYNTHIA-logo.png" alt="Zerynthia">
-           
         </div>
     </div>
 </body>
