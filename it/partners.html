@@ -35,10 +35,10 @@
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
-            align-items: center;
+            align-items: flex-start;
             gap: 40px;
             padding: 40px 20px;
-            max-width: 1200px; /* Evita che si allarghi troppo su schermi grandi */
+            max-width: 1200px;
             margin: 0 auto;
         }
 
@@ -47,16 +47,15 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center;
-            width: 200px; /* Larghezza uniforme */
-            height: 150px; /* Altezza uniforme */
-            background-color: transparent;
+            justify-content: space-between;
+            width: 200px; /* Dimensione uniforme */
+            height: 180px; /* Altezza sufficiente per testo */
         }
 
         /* Immagini logo */
         .logo-box img {
             max-width: 100%;
-            max-height: 100%;
+            max-height: 100px; /* Imposta altezza massima per uniformità */
             object-fit: contain;
             display: block;
         }
@@ -66,6 +65,8 @@
             font-size: 1rem;
             margin-top: 10px;
             display: block;
+            height: 40px; /* Altezza fissa per uniformare */
+            text-align: center;
         }
 
         /* Adattabilità su schermi piccoli */
@@ -75,7 +76,10 @@
             }
             .logo-box {
                 width: 150px;
-                height: 100px;
+                height: 140px;
+            }
+            .logo-box img {
+                max-height: 80px;
             }
         }
     </style>
@@ -95,45 +99,51 @@
             <span>Accademia Nazionale di San Luca</span>
         </div>
         
- <div class="logo-box">
-            <img src="RAER-LOGO-2024_3.jpg" alt="Real Academia de Espana a Roma ">
+        <div class="logo-box">
+            <img src="RAER-LOGO-2024_3.jpg" alt="Real Academia de España a Roma">
             <span>Real Academia de España a Roma</span>
         </div>
 
         <div class="logo-box">
             <img src="logo-accademia-virtuosi-pantheon.jpg" alt="Accademia dei Virtuosi al Pantheon">
         </div>
+        
         <div class="logo-box">
             <img src="LogoCasaDiGoethe.png" alt="Casa di Goethe">
         </div>
 
- <div class="logo-box">
-            <img src="ARR-lung-text-lung.png" alt="Accademia di Romania>
+        <div class="logo-box">
+            <img src="ARR-lung-text-lung.png" alt="Accademia di Romania">
         </div>
                 
         <div class="logo-box">
-            <img src="consolato-generale-italia-logo.png" alt="Consolato italiano a Parigi>
+            <img src="consolato-generale-italia-logo.png" alt="Consolato italiano a Parigi">
         </div>
 
-        
         <div class="logo-box">
             <img src="logo-neerlandese.jpg" alt="Reale Istituto Neerlandese">
         </div>
+        
         <div class="logo-box">
             <img src="logo-pastificio.png" alt="Pastificio Cerere">
         </div>
+        
         <div class="logo-box">
             <img src="RAM-logo.png" alt="RAM">
         </div>
+        
         <div class="logo-box">
             <img src="Vleeshal-logo.jpg" alt="Vleeshal">
         </div>
+        
         <div class="logo-box">
             <img src="logo-villa-medici.png" alt="Villa Medici">
         </div>
+        
         <div class="logo-box">
             <img src="Logo-volume.png" alt="Volume">
         </div>
+        
         <div class="logo-box">
             <img src="ZERYNTHIA-logo.png" alt="Zerynthia">
         </div>
