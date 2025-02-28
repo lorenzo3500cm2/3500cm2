@@ -130,9 +130,10 @@
             flex-wrap: wrap;
         }
 .image-container img {
-    width: 270px; /* Aumenta leggermente le dimensioni */
-    height: 320px;
-    object-fit: cover; /* Mantiene la proporzione ritagliando l'immagine */
+    width: 270px; /* Larghezza uguale per tutte */
+    height: 320px; /* Altezza uguale per tutte */
+    object-fit: cover; /* Assicura che l'immagine si adatti senza distorsioni */
+    display: block; /* Evita spazi indesiderati */
 }
         .image-container a {
             text-align: center;
