@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paolo Icaro</title>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            font-family:  'Libre Baskerville', serif;
+            margin: 0;
+            padding: 0;
+            background-color: #fff;
+            color: #000;
+            position: relative;
+        }
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            border-bottom: 1px solid #ddd;
+        }
+        .back-link {
+            font-size: 1.5rem;
+            font-weight: bold;
+            text-decoration: none;
+            color: #333;
+        }
+        .menu-icon {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            width: 25px;
+            height: 15px;
+            cursor: pointer;
+        }
+        .menu-icon div {
+            background-color: #000;
+            height: 2px;
+            width: 100%;
+            border-radius: 1px;
+        }
+        .menu {
+            display: none; /* Nasconde il menu di default */
+            position: absolute;
+            top: 60px;
+            right: 20px;
+            padding: 0;
+        }
+        .menu a {
+            display: block;
+            padding: 10px 0;
+            text-decoration: none;
+            color: #000; /* Scritte nere */
+            font-size: 1rem;
+        }
+        .menu a:hover {
+            text-decoration: underline;
+        }
+        img {
+            width: 100%;
+            max-height: 90vh;
+            object-fit: contain;
+            display: block;
+            margin: 20px auto;
+        }
+        .description {
+            font-family:  'Libre Baskerville', serif;
+            font-size: 1rem;
+            text-align: left;
+            margin: 20px;
+            color: #333;
+        }
+        .prev-artist, .next-artist {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 2.5rem;
+            color: gray;
+            text-decoration: none;
+            z-index: 1000;
+        }
+        .prev-artist {
+            left: 10px;
+        }
+        .next-artist {
+            right: 10px;
+        }
+        .prev-artist:hover, .next-artist:hover {
+            color: black;
+        }
+    </style>
+    <script src="menu.js" defer></script> <!-- Includi menu.js -->
+    <script src="analytics.js"></script>
+</head>
+<body>
+    <div class="header">
+        <a href="pagina.html" class="back-link">#29 Carla Accardi</a>
+        <div class="menu-icon" onclick="toggleMenu()">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+
+    <!-- Menu nascosto -->
+    <div class="menu" id="menu">
+        <a href="pagina.html">Lista Artisti</a>
+        <a href="luoghi.html">Luoghi</a>
+        <a href="contatti.html">Contatti</a>
+    </div>
+
+    <img src="Paolo-Icaro.jpg" alt="Carla Accardi">
+
+    <div class="description">
+       <i>Trattoria ideale</i> 2025, Fondazione VOLUME! Roma
+    </div>
+
+    <!-- Frecce per navigare tra le pagine -->
+    <a href="heidrun-holzfeind.html" class="prev-artist">&#8592;</a>
+    <a href="silvia-iorio.html" class="next-artist">&#8594;</a>
+
+    <script>
+        function toggleMenu() {
+            const menu = document.getElementById('menu');
+            menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
+        }
+    </script>
+</body>
+</html>
