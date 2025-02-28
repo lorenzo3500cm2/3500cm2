@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Partner</title>
+    <link rel="stylesheet" href="css/stile.css">
+    <style>
+        body {
+            font-family: 'Libre Baskerville', serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #fff;
+            color: #000;
+            text-align: center;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .back-link {
+            font-size: 1.5rem;
+            font-weight: bold;
+            text-decoration: none;
+            color: #000;
+        }
+
+        /* Contenitore loghi */
+        .logo-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: flex-start;
+            gap: 40px;
+            padding: 40px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Box singolo logo */
+        .logo-box {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 220px; /* Dimensione più grande */
+            height: 200px; /* Più spazio */
+        }
+
+        /* Immagini logo */
+        .logo-box img {
+            max-width: 100%;
+            max-height: 130px; /* Aumentato per rendere i loghi più grandi */
+            object-fit: contain;
+            display: block;
+        }
+
+        /* Testo sotto i loghi */
+        .logo-box span {
+            font-size: 1rem;
+            margin-top: 5px; /* Ridotto per avvicinare la didascalia al logo */
+            display: block;
+            text-align: center;
+        }
+
+        /* Adattabilità su schermi piccoli */
+        @media (max-width: 768px) {
+            .logo-container {
+                gap: 20px;
+            }
+            .logo-box {
+                width: 180px;
+                height: 160px;
+            }
+            .logo-box img {
+                max-height: 100px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <a href="index.html" class="back-link">Partner</a>
+    </div>
+
+    <div class="logo-container">
+        <div class="logo-box">
+            <img src="Logo-Accademia-COLORE.png" alt="Accademia di Belle Arti Roma">
+        </div>
+        
+        <div class="logo-box">
+            <img src="logo-accademia-san-luca.jpg" alt="Accademia Nazionale di San Luca">
+            <span>Accademia Nazionale di San Luca</span>
+        </div>
+        
+        <div class="logo-box">
+            <img src="RAER-LOGO-2024_3.jpg" alt="Real Academia de España a Roma">
+            <span>Real Academia de España a Roma</span>
+        </div>
+
+        <div class="logo-box">
+            <img src="logo-accademia-virtuosi-pantheon.jpg" alt="Accademia dei Virtuosi al Pantheon">
+        </div>
+        
+        <div class="logo-box">
+            <img src="LogoCasaDiGoethe.png" alt="Casa di Goethe">
+        </div>
+
+        <div class="logo-box">
+            <img src="ARR-lung-text-lung.png" alt="Accademia di Romania">
+        </div>
+                
+        <div class="logo-box">
+            <img src="consolato-generale-italia-logo.png" alt="Consolato italiano a Parigi">
+        </div>
+        
+        <div class="logo-box">
+            <img src="logo-pastificio.png" alt="Pastificio Cerere">
+        </div>
+        
+        <div class="logo-box">
+            <img src="RAM-logo.png" alt="RAM">
+        </div>
+        
+        <div class="logo-box">
+            <img src="Vleeshal-logo.jpg" alt="Vleeshal">
+        </div>
+        
+        <div class="logo-box">
+            <img src="logo-villa-medici.png" alt="Villa Medici">
+        </div>
+        
+        <div class="logo-box">
+            <img src="Logo-volume.png" alt="Volume">
+        </div>
+        
+        <div class="logo-box">
+            <img src="ZERYNTHIA-logo.png" alt="Zerynthia">
+        </div>
+    </div>
+</body>
+</html>
