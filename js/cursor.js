@@ -1,18 +1,12 @@
+// Creazione del cursore personalizzato
 document.addEventListener("DOMContentLoaded", function () {
-    let cursor = document.createElement("div");
-    cursor.classList.add("custom-cursor");
+    const cursor = document.createElement("div");
+    cursor.classList.add("cursor");
     document.body.appendChild(cursor);
 
+    // Muove il cursore personalizzato in base al movimento del mouse
     document.addEventListener("mousemove", (e) => {
-        cursor.style.left = e.clientX + "px";
-        cursor.style.top = e.clientY + "px";
-    });
-
-    document.addEventListener("mousedown", () => {
-        cursor.style.transform = "translate(-50%, -50%) scale(0.8)";
-    });
-
-    document.addEventListener("mouseup", () => {
-        cursor.style.transform = "translate(-50%, -50%) scale(1)";
+        cursor.style.left = `${e.clientX}px`;
+        cursor.style.top = `${e.clientY}px`;
     });
 });
