@@ -83,3 +83,18 @@ footer {
 .artist-list a:last-child::after {
     content: ""; /* Rimuove la virgola dall'ultimo artista */
 }
+
+body {
+    cursor: none; /* Nasconde il cursore predefinito */
+}
+
+.custom-cursor {
+    position: fixed;
+    width: 20px; /* Larghezza del rettangolo */
+    height: 10px; /* Altezza del rettangolo */
+    background-color: orange; /* Colore arancione */
+    pointer-events: none; /* Evita che interferisca con i click */
+    z-index: 10000;
+    transform: translate(-50%, -50%);
+    border-radius: 2px; /* Per angoli leggermente arrotondati */
+}
