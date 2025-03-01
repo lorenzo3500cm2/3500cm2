@@ -1,0 +1,16 @@
+/* Stile per il cursore personalizzato */
+body, * {
+    cursor: none; /* Nasconde il cursore predefinito */
+}
+
+.cursor {
+    width: 20px; /* Dimensioni del rettangolo */
+    height: 10px;
+    background-color: orange; /* Colore del rettangolo */
+    position: fixed;
+    top: 0;
+    left: 0;
+    pointer-events: none; /* Evita che il cursore interferisca con altri elementi */
+    transform: translate(-50%, -50%);
+    z-index: 9999; /* Assicura che il cursore sia sempre visibile */
+}
