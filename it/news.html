@@ -130,20 +130,39 @@
             flex-wrap: wrap;
         }
 .image-container img {
-    width: 3000px; /* Larghezza uguale per tutte */
-    height: 350px; /* Altezza uguale per tutte */
-    object-fit: cover; /* Assicura che l'immagine si adatti senza distorsioni */
-    display: block; /* Evita spazi indesiderati */
+    width: 250px; /* Imposta una larghezza adeguata */
+    height: auto; /* Mantiene le proporzioni originali */
+    max-height: 300px; /* Limita l'altezza massima */
+    object-fit: contain; /* Evita tagli dell'immagine */
+    display: block;
+    border: 1px solid #ddd; /* Aggiunge un bordo leggero */
+    padding: 5px; /* Spazio attorno all'immagine */
+    background: white; /* Sfondo neutro */
 }
         .image-container a {
             text-align: center;
             text-decoration: none;
             color: #000;
+
+		/* Migliora l'organizzazione del contenitore */
+.image-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: center; /* Centra le immagini */
+    align-items: center;
+    margin: 20px auto;
+    max-width: 1200px; /* Evita che le immagini si allarghino troppo */
+}
+		
         }
-        .image-container span {
-            display: block;
-            margin-top: 10px;
-            font-size: 1rem;
+ /* Stile per le didascalie sotto le immagini */
+.image-container span {
+    display: block;
+    font-size: 1rem;
+    text-align: center;
+    margin-top: 5px; /* Avvicina la didascalia all'immagine */
+    color: #333;
         }
         .text-section, .description {
             text-align: left;
