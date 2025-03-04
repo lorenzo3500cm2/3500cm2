@@ -137,6 +137,7 @@
     display: block;
     border: 2px solid black; /* Bordo aderente e più visibile */
     margin: 0; /* Nessuno spazio attorno */
+    padding: 0; /* Elimina qualsiasi spazio attorno */
     background: white;
 }
         .image-container a {
@@ -148,11 +149,11 @@
 .image-container {
     display: flex;
     flex-wrap: wrap;
-    gap: 20px;
-    justify-content: center; /* Centra le immagini */
+    gap: 0; /* Elimina lo spazio tra le immagini */
+    justify-content: center;
     align-items: center;
     margin: 30px auto;
-    max-width: 1400px; /* Evita che le immagini si allarghino troppo */
+    max-width: 1400px;
 }
 		
         }
