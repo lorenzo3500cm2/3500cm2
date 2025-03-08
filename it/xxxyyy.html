@@ -12,6 +12,7 @@
             align-items: center;
             height: 100vh;
             margin: 0;
+            position: relative;
         }
         #logo {
             width: 80%;
@@ -27,7 +28,7 @@
                 opacity: 1;
             }
         }
-             .menu {
+        .menu {
             position: absolute;
             top: 20px;
             right: 20px;
@@ -60,7 +61,7 @@
             background: lightgray;
         }
     </style>
-        <script>
+    <script>
         function toggleMenu() {
             var menu = document.getElementById("menu-content");
             menu.style.display = menu.style.display === "block" ? "none" : "block";
@@ -68,6 +69,20 @@
     </script>
 </head>
 <body>
-    <img id="logo" src="Logo-volume.png" alt="Fondazione Volume">
+    <div class="menu" onclick="toggleMenu()">
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+    <div id="menu-content" class="menu-content">
+        <a href="#about">About</a>
+        <a href="#mostre">Mostre</a>
+        <a href="#pubblicazioni">Pubblicazioni</a>
+        <a href="#news">News</a>
+        <a href="#contatti">Contatti</a>
+        <a href="#iscriviti">Iscriviti</a>
+    </div>
+    <img id="logo" src="Logo-volune.png" alt="Fondazione Volume">
 </body>
 </html>
+
