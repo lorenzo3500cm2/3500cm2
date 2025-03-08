@@ -51,7 +51,6 @@
             height: 100%;
             background: white;
             z-index: 15;
-            display: flex;
             flex-direction: column;
             justify-content: center;
             padding-left: 40px;
@@ -79,7 +78,11 @@
     <script>
         function toggleMenu() {
             var menu = document.getElementById("menu-overlay");
-            menu.style.display = menu.style.display === "flex" ? "none" : "flex";
+            if (menu.style.display === "flex") {
+                menu.style.display = "none";
+            } else {
+                menu.style.display = "flex";
+            }
         }
     </script>
 </head>
@@ -89,7 +92,7 @@
         <div></div>
         <div></div>
     </div>
-    <div id="menu-overlay" class="menu-overlay">
+    <div id="menu-overlay" class="menu-overlay" style="display: none;">
         <span class="close" onclick="toggleMenu()">&times;</span>
         <a href="#about">About</a>
         <a href="#mostre">Mostre</a>
