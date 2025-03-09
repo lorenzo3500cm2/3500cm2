@@ -73,7 +73,7 @@
         }
         .submenu {
             display: none;
-            flex-direction: row;
+            flex-wrap: wrap;
             gap: 20px;
             margin-left: 20px;
         }
@@ -86,11 +86,8 @@
             font-weight: bold;
             transition: color 0.3s ease;
         }
-        .submenu a:nth-child(1) { color: #FF0000; }
-        .submenu a:nth-child(2) { color: #0000FF; }
-        .submenu a:nth-child(3) { color: #00FF00; }
-        .submenu a:nth-child(4) { color: #FFA500; }
-        .submenu a:nth-child(5) { color: #800080; }
+        .submenu a:nth-child(odd) { color: #FF0000; }
+        .submenu a:nth-child(even) { color: #0000FF; }
     </style>
     <script>
         function toggleMenu() {
@@ -121,7 +118,12 @@
                 <a href="#comitato">Comitato Scientifico</a>
             </div>
         </div>
-        <a href="#mostre" class="menu-item">Mostre</a>
+        <div class="menu-item">
+            Mostre
+            <div class="submenu">
+                " + "".join([f'<a href="#anno{year}">{year}</a>' for year in range(2025, 1996, -1)]) + "
+            </div>
+        </div>
         <a href="#pubblicazioni" class="menu-item">Pubblicazioni</a>
         <a href="#news" class="menu-item">News</a>
         <a href="#contatti" class="menu-item">Contatti</a>
