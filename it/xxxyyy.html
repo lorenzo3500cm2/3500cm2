@@ -86,8 +86,14 @@
             font-weight: bold;
             transition: color 0.3s ease;
         }
-        .submenu a:nth-child(odd) { color: #FF0000; }
-        .submenu a:nth-child(even) { color: #0000FF; }
+        .submenu a:nth-child(1) { color: #FF0000; }
+        .submenu a:nth-child(2) { color: #0000FF; }
+        .submenu a:nth-child(3) { color: #00FF00; }
+        .submenu a:nth-child(4) { color: #FFA500; }
+        .submenu a:nth-child(5) { color: #800080; }
+        .submenu a:nth-child(6) { color: #FF1493; }
+        .submenu a:nth-child(7) { color: #008080; }
+        .submenu a:nth-child(8) { color: #FFD700; }
     </style>
     <script>
         function toggleMenu() {
@@ -121,7 +127,7 @@
         <div class="menu-item">
             Mostre
             <div class="submenu">
-                " + "".join([f'<a href="#anno{year}">{len(range(2025, year, -1)) + 1}. {year}</a>' for year in range(2025, 1996, -1)]) + "
+                " + "".join([f'<a href="#anno{year}" style="color: hsl({(year-1997)*10}, 100%, 50%)">{year}</a>' for year in range(2025, 1996, -1)]) + "
             </div>
         </div>
         <a href="#pubblicazioni" class="menu-item">Pubblicazioni</a>
