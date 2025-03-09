@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fondazione Volume</title>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&display=swap');
+        
         body {
             background-color: white;
             display: flex;
@@ -14,6 +16,7 @@
             margin: 0;
             position: relative;
             flex-direction: column;
+            font-family: 'Libre Baskerville', serif;
         }
         #logo {
             width: 80%;
@@ -56,14 +59,23 @@
             padding-left: 40px;
         }
         .menu-overlay a {
-            font-size: 32px;
+            font-size: 36px;
+            font-weight: bold;
             color: black;
             text-decoration: none;
             padding: 20px 0;
             width: 100%;
             text-align: left;
             border-bottom: 1px solid black;
+            transition: color 0.3s ease;
         }
+        .menu-overlay a:nth-child(2):hover { color: #FF0000; } /* Rosso */
+        .menu-overlay a:nth-child(3):hover { color: #0000FF; } /* Blu */
+        .menu-overlay a:nth-child(4):hover { color: #00FF00; } /* Verde */
+        .menu-overlay a:nth-child(5):hover { color: #FFA500; } /* Arancione */
+        .menu-overlay a:nth-child(6):hover { color: #800080; } /* Viola */
+        .menu-overlay a:nth-child(7):hover { color: #FF1493; } /* Rosa */
+        
         .menu-overlay a:last-child {
             border-bottom: none;
         }
