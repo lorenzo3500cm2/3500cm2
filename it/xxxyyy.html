@@ -69,12 +69,13 @@
             border-bottom: 1px solid black;
             display: flex;
             align-items: center;
+            position: relative;
         }
         .submenu {
             display: none;
-            margin-left: 40px;
-            display: flex;
+            flex-direction: row;
             gap: 20px;
+            margin-left: 20px;
         }
         .menu-item:hover .submenu {
             display: flex;
@@ -111,7 +112,7 @@
     <div id="menu-overlay" class="menu-overlay" style="display: none;">
         <span class="close" onclick="toggleMenu()">&times;</span>
         <div class="menu-item">
-            <a href="#fondazione">Fondazione</a>
+            Fondazione
             <div class="submenu">
                 <a href="#fondazione">Fondazione</a>
                 <a href="#missione">Missione</a>
