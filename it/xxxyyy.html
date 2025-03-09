@@ -68,24 +68,31 @@
             text-align: left;
             border-bottom: 1px solid black;
             transition: color 0.3s ease;
+            position: relative;
         }
-        .menu-overlay a:nth-child(2):hover { color: #FF0000; } /* Rosso */
-        .menu-overlay a:nth-child(3):hover { color: #0000FF; } /* Blu */
-        .menu-overlay a:nth-child(4):hover { color: #00FF00; } /* Verde */
-        .menu-overlay a:nth-child(5):hover { color: #FFA500; } /* Arancione */
-        .menu-overlay a:nth-child(6):hover { color: #800080; } /* Viola */
-        .menu-overlay a:nth-child(7):hover { color: #FF1493; } /* Rosa */
-        
-        .menu-overlay a:last-child {
-            border-bottom: none;
-        }
-        .menu-overlay .close {
+        .submenu {
+            display: none;
             position: absolute;
-            top: 20px;
-            right: 20px;
-            font-size: 40px;
-            cursor: pointer;
+            left: 300px;
+            top: 0;
+            background: white;
+            border-left: 2px solid black;
+            padding-left: 20px;
         }
+        .menu-overlay a:hover + .submenu,
+        .submenu:hover {
+            display: block;
+        }
+        .submenu a {
+            display: block;
+            font-size: 30px;
+            padding: 10px 0;
+        }
+        .submenu a:nth-child(1) { color: #FF0000; }
+        .submenu a:nth-child(2) { color: #0000FF; }
+        .submenu a:nth-child(3) { color: #00FF00; }
+        .submenu a:nth-child(4) { color: #FFA500; }
+        .submenu a:nth-child(5) { color: #800080; }
     </style>
     <script>
         function toggleMenu() {
@@ -107,11 +114,15 @@
     <div id="menu-overlay" class="menu-overlay" style="display: none;">
         <span class="close" onclick="toggleMenu()">&times;</span>
         <a href="#fondazione">Fondazione</a>
-        <a href="#fondazione">Artisti</a>
+        <div class="submenu">
+            <a href="#fondazione">Fondazione</a>
+            <a href="#missione">Missione</a>
+            <a href="#spazio">Lo Spazio</a>
+            <a href="#organigramma">Organigramma</a>
+            <a href="#comitato">Comitato Scientifico</a>
+        </div>
         <a href="#mostre">Mostre</a>
         <a href="#pubblicazioni">Pubblicazioni</a>
-        <a href="#fondazione">Biblioteca</a>
-        <a href="#fondazione">Edizioni</a>
         <a href="#news">News</a>
         <a href="#contatti">Contatti</a>
         <a href="#iscriviti">Iscriviti</a>
