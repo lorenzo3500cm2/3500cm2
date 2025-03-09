@@ -121,7 +121,7 @@
         <div class="menu-item">
             Mostre
             <div class="submenu">
-                " + "".join([f'<a href="#anno{year}">{year}</a>' for year in range(2025, 1996, -1)]) + "
+                " + "".join([f'<a href="#anno{year}">{len(range(2025, year, -1)) + 1}. {year}</a>' for year in range(2025, 1996, -1)]) + "
             </div>
         </div>
         <a href="#pubblicazioni" class="menu-item">Pubblicazioni</a>
