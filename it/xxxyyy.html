@@ -58,7 +58,7 @@
             justify-content: center;
             padding-left: 40px;
         }
-        .menu-overlay a {
+        .menu-overlay .menu-item {
             font-size: 36px;
             font-weight: bold;
             color: black;
@@ -67,26 +67,23 @@
             width: 100%;
             text-align: left;
             border-bottom: 1px solid black;
-            transition: color 0.3s ease;
-            position: relative;
+            display: flex;
+            align-items: center;
         }
         .submenu {
             display: none;
-            position: absolute;
-            left: 300px;
-            top: 0;
-            background: white;
-            border-left: 2px solid black;
-            padding-left: 20px;
+            margin-left: 40px;
+            display: flex;
+            gap: 20px;
         }
-        .menu-overlay a:hover + .submenu,
-        .submenu:hover {
-            display: block;
+        .menu-item:hover .submenu {
+            display: flex;
         }
         .submenu a {
-            display: block;
             font-size: 30px;
-            padding: 10px 0;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s ease;
         }
         .submenu a:nth-child(1) { color: #FF0000; }
         .submenu a:nth-child(2) { color: #0000FF; }
@@ -113,19 +110,21 @@
     </div>
     <div id="menu-overlay" class="menu-overlay" style="display: none;">
         <span class="close" onclick="toggleMenu()">&times;</span>
-        <a href="#fondazione">Fondazione</a>
-        <div class="submenu">
+        <div class="menu-item">
             <a href="#fondazione">Fondazione</a>
-            <a href="#missione">Missione</a>
-            <a href="#spazio">Lo Spazio</a>
-            <a href="#organigramma">Organigramma</a>
-            <a href="#comitato">Comitato Scientifico</a>
+            <div class="submenu">
+                <a href="#fondazione">Fondazione</a>
+                <a href="#missione">Missione</a>
+                <a href="#spazio">Lo Spazio</a>
+                <a href="#organigramma">Organigramma</a>
+                <a href="#comitato">Comitato Scientifico</a>
+            </div>
         </div>
-        <a href="#mostre">Mostre</a>
-        <a href="#pubblicazioni">Pubblicazioni</a>
-        <a href="#news">News</a>
-        <a href="#contatti">Contatti</a>
-        <a href="#iscriviti">Iscriviti</a>
+        <a href="#mostre" class="menu-item">Mostre</a>
+        <a href="#pubblicazioni" class="menu-item">Pubblicazioni</a>
+        <a href="#news" class="menu-item">News</a>
+        <a href="#contatti" class="menu-item">Contatti</a>
+        <a href="#iscriviti" class="menu-item">Iscriviti</a>
     </div>
     <img id="logo" src="Logo-volume.png" alt="Fondazione Volume">
 </body>
