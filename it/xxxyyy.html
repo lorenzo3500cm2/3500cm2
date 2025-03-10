@@ -86,11 +86,6 @@
             text-decoration: none;
             transition: color 0.3s ease;
         }
-        .submenu a {
-            display: inline-block;
-            margin-right: 10px;
-        }
-        " + "".join([f'.submenu a:nth-child({i+1}) {{ color: hsl({i * 15}, 100%, 50%); }}\n' for i in range(29)]) + "
     </style>
     <script>
         function toggleMenu() {
@@ -101,6 +96,24 @@
                 menu.style.display = "flex";
             }
         }
+
+        // Generazione dinamica degli anni con colori
+        window.onload = function() {
+            const submenu = document.querySelector('.menu-item:nth-child(2) .submenu');
+            const totalYears = 2025 - 1997 + 1;
+            
+            for(let year = 2025; year >= 1997; year--) {
+                const link = document.createElement('a');
+                link.href = `#anno${year}`;
+                link.textContent = year;
+                
+                // Calcolo colore HSL
+                const hue = ((2025 - year) * 360 / totalYears) % 360;
+                link.style.color = `hsl(${hue}, 100%, 50%)`;
+                
+                submenu.appendChild(link);
+            }
+        };
     </script>
 </head>
 <body>
@@ -123,9 +136,7 @@
         </div>
         <div class="menu-item">
             Mostre
-            <div class="submenu">
-                " + "".join([f'<a href="#anno{year}">{year}</a>' for year in range(2025, 1996, -1)]) + "
-            </div>
+            <div class="submenu"></div> <!-- Qui verranno inseriti gli anni -->
         </div>
         <a href="#pubblicazioni" class="menu-item">Pubblicazioni</a>
         <a href="#news" class="menu-item">News</a>
