@@ -82,9 +82,13 @@
         }
         .submenu a {
             font-size: 30px;
-            text-decoration: none;
             font-weight: bold;
+            text-decoration: none;
             transition: color 0.3s ease;
+        }
+        .submenu a {
+            display: inline-block;
+            margin-right: 10px;
         }
         " + "".join([f'.submenu a:nth-child({i+1}) {{ color: hsl({i * 15}, 100%, 50%); }}\n' for i in range(29)]) + "
     </style>
