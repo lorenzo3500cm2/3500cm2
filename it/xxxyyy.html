@@ -87,34 +87,35 @@
             transition: color 0.3s ease;
         }
     </style>
-    <script>
-        function toggleMenu() {
-            var menu = document.getElementById("menu-overlay");
-            if (menu.style.display === "flex") {
-                menu.style.display = "none";
-            } else {
-                menu.style.display = "flex";
-            }
+  <script>
+    function toggleMenu() {
+        var menu = document.getElementById("menu-overlay");
+        if (menu.style.display === "flex") {
+            menu.style.display = "none";
+        } else {
+            menu.style.display = "flex";
         }
+    }
 
-        // Generazione dinamica degli anni con colori
-        window.onload = function() {
-            const submenu = document.querySelector('.menu-item:nth-child(2) .submenu');
-            const totalYears = 2025 - 1997 + 1;
+    // Generazione dinamica degli anni con colori
+    window.onload = function() {
+        // Modificato il selettore per puntare al sottomenu corretto
+        const submenu = document.querySelector('#menu-overlay > .menu-item:nth-child(3) .submenu');
+        const totalYears = 2025 - 1997 + 1;
+        
+        for(let year = 2025; year >= 1997; year--) {
+            const link = document.createElement('a');
+            link.href = `#anno${year}`;
+            link.textContent = year;
             
-            for(let year = 2025; year >= 1997; year--) {
-                const link = document.createElement('a');
-                link.href = `#anno${year}`;
-                link.textContent = year;
-                
-                // Calcolo colore HSL
-                const hue = ((2025 - year) * 360 / totalYears) % 360;
-                link.style.color = `hsl(${hue}, 100%, 50%)`;
-                
-                submenu.appendChild(link);
-            }
-        };
-    </script>
+            // Calcolo colore HSL
+            const hue = ((2025 - year) * 360 / totalYears) % 360;
+            link.style.color = `hsl(${hue}, 100%, 50%)`;
+            
+            submenu.appendChild(link);
+        }
+    };
+</script>
 </head>
 <body>
     <div class="menu" onclick="toggleMenu()">
