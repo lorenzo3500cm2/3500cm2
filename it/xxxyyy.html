@@ -96,7 +96,16 @@
             menu.style.display = "flex";
         }
     }
+  window.onload = function() {
+        // Colorazione voci Fondazione
+        const fondazioneSubmenu = document.querySelector('#menu-overlay > .menu-item:nth-child(1) .submenu');
+        const fondazioneLinks = fondazioneSubmenu.querySelectorAll('a');
+        const totalFoundationLinks = fondazioneLinks.length;
 
+        fondazioneLinks.forEach((link, index) => {
+            const hue = (index * 360) / totalFoundationLinks; // Distribuzione uniforme dei colori
+            link.style.color = `hsl(${hue}, 100%, 50%)`;
+        });
     // Generazione dinamica degli anni con colori
     window.onload = function() {
         // Modificato il selettore per puntare al sottomenu corretto
