@@ -87,7 +87,7 @@
             transition: color 0.3s ease;
         }
     </style>
-  <script>
+ <script>
     function toggleMenu() {
         var menu = document.getElementById("menu-overlay");
         if (menu.style.display === "flex") {
@@ -96,19 +96,19 @@
             menu.style.display = "flex";
         }
     }
-  window.onload = function() {
+
+    window.onload = function() {
         // Colorazione voci Fondazione
         const fondazioneSubmenu = document.querySelector('#menu-overlay > .menu-item:nth-child(1) .submenu');
         const fondazioneLinks = fondazioneSubmenu.querySelectorAll('a');
         const totalFoundationLinks = fondazioneLinks.length;
 
         fondazioneLinks.forEach((link, index) => {
-            const hue = (index * 360) / totalFoundationLinks; // Distribuzione uniforme dei colori
+            const hue = (index * 360) / totalFoundationLinks;
             link.style.color = `hsl(${hue}, 100%, 50%)`;
         });
-    // Generazione dinamica degli anni con colori
-    window.onload = function() {
-        // Modificato il selettore per puntare al sottomenu corretto
+
+        // Generazione dinamica degli anni con colori
         const submenu = document.querySelector('#menu-overlay > .menu-item:nth-child(3) .submenu');
         const totalYears = 2025 - 1997 + 1;
         
@@ -116,11 +116,8 @@
             const link = document.createElement('a');
             link.href = `#anno${year}`;
             link.textContent = year;
-            
-            // Calcolo colore HSL
             const hue = ((2025 - year) * 360 / totalYears) % 360;
             link.style.color = `hsl(${hue}, 100%, 50%)`;
-            
             submenu.appendChild(link);
         }
     };
