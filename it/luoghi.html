@@ -79,9 +79,9 @@
         }
             
   .menu {
-    display: none;
+    display: none; /* Nasconde il menu inizialmente */
     position: absolute;
-    top: 80px; /* Modificato per stare sotto l'header */
+    top: 80px;
     right: 20px;
     background: white;
     border: 1px solid #ddd;
@@ -90,19 +90,17 @@
     z-index: 1000;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
     text-align: right;
-
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    opacity: 0;
+    visibility: hidden;
 }
 
+/* Mostra il menu quando è attivo */
 .menu.active {
-    display: block; /* Il menu si espande quando viene cliccato */
+    display: block; /* Rende visibile il menu */
+    opacity: 1;
+    visibility: visible;
 }
-        .menu a {
-            display: block;
-            padding: 10px 0;
-            text-decoration: none;
-            color: #000;
-            font-size: 0.9rem;
-        }
         .menu a:hover {
             text-decoration: underline;
         }
