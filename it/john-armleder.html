@@ -4,13 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>John Armleder</title>
+      <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet">
+
     <style>
         body {
-            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            font-family:  'Libre Baskerville', serif;
             margin: 0;
             padding: 0;
             background-color: #fff;
             color: #000;
+            position: relative;
         }
         .header {
             display: flex;
@@ -18,38 +22,45 @@
             align-items: center;
             padding: 20px;
             border-bottom: 1px solid #ddd;
-        }
-        .artist-name {
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: #333;
+            position: relative;
         }
         .back-link {
-            font-size: 1.2rem;
+            font-size: 1.5rem;
             font-weight: bold;
             text-decoration: none;
-            color: #0077cc;
+            color: #333;
         }
-        .back-link:hover {
-            color: #005499;
+        .menu-icon {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            width: 25px;
+            height: 15px;
+            cursor: pointer;
         }
-        .prev-artist, .next-artist {
+        .menu-icon div {
+            background-color: #000;
+            height: 2px;
+            width: 100%;
+            border-radius: 1px;
+        }
+        .menu {
+            display: none; /* Nasconde il menu di default */
             position: absolute;
-            top: 50%;
-            font-size: 2rem;
-            text-decoration: none;
-            transform: translateY(-50%);
-        }
-        .prev-artist {
-            left: 20px;
-            color: #bbb;
-        }
-        .next-artist {
+            top: 60px;
             right: 20px;
-            color: #bbb;
+            padding: 0;
         }
-        .prev-artist:hover, .next-artist:hover {
-            color: #0077cc;
+        .menu a {
+            display: block;
+            padding: 10px 0;
+            text-decoration: none;
+            color: #000; /* Scritte nere */
+            font-size: 1rem;
+        }
+        .menu a:hover {
+            background-color: transparent; /* Nessun colore di sfondo al hover */
+            text-decoration: underline; /* Sottolinea al passaggio del mouse */
         }
         img {
             width: 100%;
@@ -58,19 +69,70 @@
             display: block;
             margin: 20px auto;
         }
+        .description {
+            font-family:  'Libre Baskerville', serif;
+            font-size: 1rem;
+            text-align: left;
+            margin: 20px;
+            color: #333;
+        }
+        .prev-artist, .next-artist {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 2rem;
+            color: gray;
+            text-decoration: none;
+            z-index: 1000;
+        }
+        .prev-artist {
+            left: 20px;
+        }
+        .next-artist {
+            right: 20px;
+        }
+        .prev-artist:hover, .next-artist:hover {
+            color: black;
+        }
     </style>
     <script src="analytics.js"></script>
 </head>
 <body>
     <div class="header">
-        <div class="artist-name">#45 John Armleder</div>
-        <a href="pagina.html" class="back-link">3500 cm²</a>
+        <a href="pagina.html" class="back-link">#45 John Armleder</a>
+        <div class="menu-icon" onclick="toggleMenu()">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
     </div>
 
-    <img src="john-armleder.jpg" alt="John Armleder">
+    <!-- Menu nascosto -->
+    <div class="menu" id="menu">
+        <a href="pagina.html">Artisti</a>
+        <a href="3500cm2.html">3500cm2</a>
+        <a href="luoghi.html">Luoghi</a>
+        <a href="contatti.html">Contatti</a>
+    </div>
+
+    <img src="john-armleder.jpg" alt="Jimmie Durham">
+
+    <div class="description">
+          #63 Jimmie Durham, <i><Enough rope /i>, 2007, Blueroom, rialtosantambrogio, Roma
+    </div>
 
     <!-- Frecce per navigare tra le pagine -->
-    <a href="maria-thereza-alves.html" class="prev-artist">&#8592;</a>
+   <a href="maria-thereza-alves.html" class="prev-artist">&#8592;</a>
     <a href="francesco-arena.html" class="next-artist">&#8594;</a>
+  <script src="analytics.js"></script>
+    <script>
+        function toggleMenu() {
+            const menu = document.getElementById('menu');
+            menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
+        }
+    </script>
 </body>
 </html>
+   
+          
+        
