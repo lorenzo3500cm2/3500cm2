@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1ZDKD18HZM"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-1ZDKD18HZM');
+    </script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3500 cm²</title>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Libre Baskerville', serif;
+            background-color: #ffffff;
+            color: #000;
+            text-align: center;
+        }
+
+        /* Stile del menu orizzontale */
+        .menu {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: white;
+            padding: 15px 0;
+            font-size: 1.5rem;
+            font-weight: bold;
+            border-bottom: 1px solid #ddd;
+            z-index: 1000;
+        }
+
+        .menu a {
+            text-decoration: none;
+            color: #000;
+            padding: 10px 20px;
+            flex-grow: 1;
+            text-align: center;
+        }
+
+        .menu a:hover {
+            background-color: #f0f0f0;
+        }
+
+        /* Stile del titolo */
+        .title {
+            font-size: 8rem;
+            font-weight: bold;
+            margin-top: 100px; /* Distanza dal menu */
+        }
+
+        .title a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* Footer */
+        footer {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            font-size: 1rem;
+        }
+    </style>
+
+    <script src="analytics.js"></script>
+</head>
+<body>
+
+    <!-- Menu orizzontale -->
+    <div class="menu">
+        <a href="news.html">News</a>
+        <a href="3500cm2.html">3500cm²</a>
+        <a href="pagina.html">Artisti</a>
+        <a href="luoghi.html">Luoghi</a>
+        <a href="mostre.html">Mostre</a>
+        <a href="partner.html">Partner</a>
+        <a href="contatti.html">Contatti</a>
+    </div>
+
+    <!-- Titolo principale -->
+    <div class="title">
+        <a href="3500cm2.html">3500 cm²</a>
+    </div>
+
+    <!-- Audio -->
+    <audio id="flipSound" src="suono.wav" preload="auto"></audio>
+
+    <script>
+        // Riproduci il suono al click sul titolo
+        const flipSound = document.getElementById('flipSound');
+        const title = document.querySelector('.title a');
+        title.addEventListener('click', () => {
+            flipSound.currentTime = 0; // Riavvia il suono
+            flipSound.play();
+        });
+
+        // Riproduci il suono ogni 3 secondi
+        setInterval(() => {
+            flipSound.currentTime = 0;
+            flipSound.play();
+        }, 3000);
+    </script>
+
+    <footer>
+        &copy; 3500cm² <span id="year"></span>
+    </footer>
+
+    <script>
+        // Aggiorna automaticamente l'anno nel copyright
+        document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
+
+</body>
+</html>
