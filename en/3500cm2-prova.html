@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3500 cm²</title>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            background-color: #ffffff;
+            color: #000;
+            font-family: 'Libre Baskerville', serif;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start; /* Allinea a sinistra */
+            min-height: 100vh;
+        }
+
+        .title {
+            font-size: 8rem;
+            font-weight: bold;
+            text-align: left;
+            min-height: 140px; /* Altezza minima per evitare il movimento */
+            margin-bottom: 180px; /* Maggiore spazio tra titolo e testo */
+            display: flex;
+            align-items: center;
+        }
+
+        .title a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .text {
+            font-size: 2rem;
+            max-width: 800px;
+            text-align: left;
+            margin-bottom: 20px;
+        }
+
+        .menu-icon {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 30px;
+            height: 20px;
+        }
+
+        .bar {
+            width: 100%;
+            height: 2.4px;
+            background-color: #000;
+            border-radius: 2px;
+        }
+
+        .menu {
+            display: none;
+            position: absolute;
+            top: 60px;
+            right: 20px;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .menu.active {
+            display: flex;
+        }
+
+        .menu a {
+            text-decoration: none;
+            color: #000;
+            font-size: 1rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Aggiungi ombra sfumata */
+        }
+
+        .menu a:hover {
+            text-decoration: underline;
+        }
+
+        .language-switch {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-size: 1rem;
+        }
+
+        .language-switch a {
+            text-decoration: none;
+            color: #000;
+        }
+
+        .language-switch a:hover {
+            text-decoration: underline;
+        }
+
+        /* Adattamenti per schermi piccoli */
+        @media screen and (max-width: 768px) {
+            .title {
+                font-size: 4rem;
+                min-height: 80px; /* Altezza ridotta per mobile */
+                margin-bottom: 40px;
+            }
+
+            .text {
+                font-size: 1.6rem;
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            .title {
+                font-size: 3rem;
+                min-height: 60px;
+                margin-bottom: 30px;
+            }
+
+            .text {
+                font-size: 1.4rem;
+            }
+        }
+    </style>
+</head>
+<body>
+      
+    <!-- Language Switch -->
+    <div class="language-switch"> 
+        <a href="../it/3500cm2.html">IT</a>
+    </div>
+
+    <!-- Titolo -->
+    <div class="title">
+        <a href="pagina.html" id="changing-title">3500 cm²</a>
+    </div>
+
+    <!-- Menu Icon -->
+    <div class="menu-icon" onclick="toggleMenu()">
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+    </div>
+
+    <!-- Menu -->
+    <div class="menu" id="menu">
+        <a href="index.html">Home</a>
+        <a href="news.html">News</a>
+        <a href="3500cm2.html">3500cm²</a>
+        <a href="pagina.html">Artists</a>
+        <a href="locations.html">Locations</a>
+        <a href="exhibitions.html">Exhibitions</a>
+        <a href="contact.html">Contact</a>
+    </div>
+
+    <!-- Testo introduttivo -->
+    <div class="text">
+        3500 cm² is a project dedicated to the dissemination of contemporary artworks, conceived and curated by Lorenzo Benedetti in 2004. 
+        <p>3500 cm² is the space available to each artist to create a 50×70 cm poster, with the aim of bringing contemporary art closer to a wide and diverse audience, beyond the traditional boundaries of exhibitions.</p>
+        The posters, distributed free of charge, are designed to be spread across the territory in an open and democratic manner, making art accessible and inclusive.
+    </div>
+
+    <script>
+        function toggleMenu() {
+            const menu = document.getElementById('menu');
+            menu.classList.toggle('active');
+        }
+
+        const texts = [
+                   "3500 cm²",
+        "𓂋𓏤𓈖𓏥𓄿𓂻",
+        "τρισχίλιοι πεντακόσιοι τετραγωνικά εκατοστά",
+        "MMMD centimetra quadrata",
+        "३५०० वर्ग सेंटीमीटर",
+        "𓆼𓆼𓆼 𓍢𓍢𓍢𓍢𓍢 𓌹𓏤𓐍𓏏𓏤",
+        "ᨕᨑᨒ ᨔᨙᨕᨊ",
+        "৩৫০০ চে.মি",
+        "𐂆𐂏 𐀂𐀗",
+        "٣٥٠٠ سم²",
+        "⊕⊕⊕ 𐌗 𐌉𐌀𐌔𐌉𐌀",
+        "3500 சதுர செ.மீ.",
+        "𒐐 𒌚 𒐕 𒋞",
+        "3500 সেমি²",
+        "3500 చదరపు సెం.మీ",
+        "৩৫০০ বর্গ সেন্টিমিটার",
+        "𐤋𐤌𐤄 𐤒𐤌𐤄",
+        "3500 ಚದರ ಸೆ.ಮೀ",
+        "3500 平方厘米",
+        "𒁹𒑏𒌋 𒀀𒇽", 
+        "3500 ตารางเซนติเมตร",
+        "ᛏᚱᛁᚢ ᚦᚢᛋᚢᚾᛏ ᚠᛁᛘᛘ ᚼᚢᚾᛏᚱᚢᚦ ᚠᛁᚱᛘᛖᛏᚱ",
+        "3500 cm²",
+        "3500厘米2",
+        "3500 sm²",
+        "߃߅߀߀ ߛߊ߲ߕߋߡߕߙߌ",
+        "꯳꯵꯰꯰ ꯁꯦ.ꯃꯤ",
+        "3500 ሴ.ሜ ",
+        "3500 cm2 ཡིན།",
+        "ᚃᚂᚂᚂᚂ ᚄᚆᚐᚃ",
+        "3500 ตร.ซม",
+        "3500 సెం.మీ",
+        "3500 செமீ²",
+        "꯳꯵꯰꯰ ꯁꯦ.ꯃꯤ.",
+        "𒐊 𒐕 𒆠𒆠",
+        "३५०० सिएम२",
+        "3500平方センチメートル",
+        "3500 ၸိၼ်ႇတီႇမီႇတႃႇ2",
+        "3500 សង់ទីម៉ែត្រ",
+        "3500 см2 ыджда",
+        "3500ຊມ",
+        "३५०० सेंमी",
+        "3500 सेमी2",
+        "3500 സെ.മീ",
+        " سم2",
+        "3500 სმ²",
+        "3500 ސެންޓިމީޓަރެވެ",
+        "𐦠𐦢 𐦴𐦵",
+        "𑁛𑁘 𑀲𑀼𑀯𑀯𑀲𑀺",
+        "ⲗⲅⲑ ⲥⲟⲩⲛ",
+        "3500 सेमी2 के बा ",
+        "३५०० से.मी ",
+        "ⵣⴰⴼ ⵙⴰⵎⵙ"
+        ];
+
+        let index = 0;
+        function changeText() {
+            const titleElement = document.getElementById('changing-title');
+            titleElement.textContent = texts[index];
+            index = (index + 1) % texts.length;
+        }
+
+        setInterval(changeText, 2000); // Cambia il testo ogni 2 secondi
+    </script>
+</body>
+</html>
