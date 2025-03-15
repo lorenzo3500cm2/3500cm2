@@ -69,6 +69,10 @@
             right: 20px;
             flex-direction: column;
             gap: 10px;
+            background-color: rgba(255, 255, 255, 0.95); /* Sfondo semi-trasparente */
+            padding: 15px; /* Padding per migliorare la spaziatura */
+            border-radius: 8px; /* Bordi arrotondati */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Ombreggiatura */
         }
 
         .menu.active {
@@ -113,6 +117,12 @@
             .text {
                 font-size: 1.6rem;
             }
+
+            .menu {
+                top: 50px; /* Posizione leggermente più alta */
+                right: 10px; /* Allineamento migliorato */
+                padding: 10px; /* Padding ridotto per schermi piccoli */
+            }
         }
 
         @media screen and (max-width: 480px) {
@@ -124,6 +134,12 @@
 
             .text {
                 font-size: 1.4rem;
+            }
+
+            .menu {
+                top: 40px; /* Posizione ulteriormente regolata */
+                right: 5px; /* Allineamento migliorato */
+                padding: 8px; /* Padding ridotto per schermi molto piccoli */
             }
         }
     </style>
