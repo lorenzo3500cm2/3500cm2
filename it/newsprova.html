@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News</title>
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            background-color: #ffffff;
+            color: #000;
+            font-family: 'Libre Baskerville', serif;
+        }
+        .content {
+            max-width: 900px;
+            margin: auto;
+        }
+        .description {
+            font-size: 1.6rem;
+            font-weight: bold;
+            margin-top: 40px;
+        }
+        .text-section {
+            margin-top: 20px;
+            line-height: 1.6;
+        }
+        .text-section.collapsed {
+            max-height: 150px;
+            overflow: hidden;
+        }
+        .read-more {
+            text-align: center;
+            margin-top: 10px;
+            color: blue;
+            cursor: pointer;
+            text-decoration: underline;
+        }
+        .image-container {
+            margin-top: 20px;
+            text-align: center;
+        }
+        .image-container img {
+            max-width: 100%;
+            height: auto;
+            border: 2px solid black;
+        }
+        hr {
+            border: none;
+            height: 1px;
+            background-color: #ddd;
+            margin: 40px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="content">
+        <div class="description">ROMA 2025</div>
+        <div class="image-container">
+            <img src="Paolo-Icaro.jpg" alt="Paolo Icaro">
+        </div>
+        <div class="text-section collapsed" id="section1">
+            <p>Fondazione VOLUME! presenta Trattoria ideale, un progetto di Paolo Icaro, curato da Lorenzo Benedetti. L’opera trasforma gli spazi in un luogo di condivisione e relazione, ispirato alle tipiche osterie di Trastevere.</p>
+        </div>
+        <div class="read-more" onclick="toggleText('section1')">Leggi di più</div>
+        <hr>
+
+        <div class="description">PARIGI 2024</div>
+        <div class="image-container">
+            <img src="diego-cibelli.jpg" alt="Diego Cibelli">
+        </div>
+        <div class="text-section collapsed" id="section2">
+            <p>CONTEMPORALIS partecipa alla Giornata del Contemporaneo con un progetto curato da Lorenzo Benedetti. L’evento include conferenze e distribuzione gratuita di poster d’artista.</p>
+        </div>
+        <div class="read-more" onclick="toggleText('section2')">Leggi di più</div>
+        <hr>
+
+        <div class="description">ROMA 2024</div>
+        <div class="image-container">
+            <img src="matt-mullican.jpg" alt="Matt Mullican">
+        </div>
+        <div class="text-section collapsed" id="section3">
+            <p>EXPODEMIC - Festival delle Accademie e degli Istituti di Cultura stranieri a Roma, promosso dall’Assessorato alla Cultura di Roma Capitale e Azienda Speciale Palaexpo. Mostra senza confini che coinvolge vari artisti e istituzioni culturali.</p>
+        </div>
+        <div class="read-more" onclick="toggleText('section3')">Leggi di più</div>
+    </div>
+
+    <script>
+        function toggleText(id) {
+            const textSection = document.getElementById(id);
+            if (textSection.classList.contains('collapsed')) {
+                textSection.classList.remove('collapsed');
+            } else {
+                textSection.classList.add('collapsed');
+            }
+        }
+    </script>
+</body>
+</html>
