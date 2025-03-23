@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>News</title>
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1ZDKD18HZM"></script>
+	    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1ZDKD18HZM"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
@@ -16,18 +16,53 @@
     <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet">
 
     <style>
+	/* Stile per il titolo della pagina */
+.page-title {
+    font-size: 3rem; /* Stessa grandezza della pagina 3500 cm² */
+    font-weight: bold;
+    margin: 20px 0;
+    text-align: left; /* Allinea il titolo a sinistra */
+    padding-left: 20px; /* Mantiene il margine sinistro coerente */
+}
+
+.page-title a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.page-title a:hover {
+    color: blue; /* Cambia il colore in blu al passaggio del mouse */
+}
+
+/* Stile per il testo principale */
+.text-section {
+    font-size: 2rem; /* Stessa grandezza del testo della pagina 3500 cm² */
+    line-height: 1.4;
+    text-align: left;
+    max-width: 800px;
+    padding-left: 20px; /* Mantiene il margine sinistro */
+}
+
+/* Stile per le descrizioni */
+.description {
+    font-size: 1.6rem; /* Ingrandisce il testo delle descrizioni */
+    font-weight: bold;
+    margin-top: 40px;
+    text-align: left;
+    max-width: 800px;
+    padding-left: 20px;
+}
         body {
             margin: 0;
             padding: 20px;
             background-color: #ffffff;
             color: #000;
-            font-family: 'Libre Baskerville', serif; /* Applica il font su tutto il sito */
+            font-family: 'Libre Baskerville', serif;
             display: flex;
             flex-direction: column;
             align-items: flex-start;
             min-height: 100vh;
         }
-
         .header {
             display: flex;
             justify-content: space-between;
@@ -35,61 +70,65 @@
             padding: 20px;
             border-bottom: 1px solid #ddd;
             width: 100%;
-        }
-
-        .page-title {
-            font-size: 3rem;
+ }
+		 .page-title {
+            font-size: 2.5rem;
             font-weight: bold;
             margin: 0;
-            text-align: left;
         }
-
-        .page-title a {
+        .back-link {
+            font-size: 1.5rem;
+            font-weight: bold;
             text-decoration: none;
-            color: inherit;
+            color: #000;
         }
-
-        .page-title a:hover {
-            color: blue;
+        .menu-icon {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 30px;
+            height: 20px;
+            z-index: 1100;
         }
-
+        .menu-icon div {
+            background-color: #000;
+            height: 2px;
+            width: 100%;
+            border-radius: 1px;
+        }
+        .menu {
+            display: none;
+            position: fixed;
+            top: 50px;
+            right: 20px;
+            background: white;
+            padding: 10px 20px;
+            border: 1px solid #ddd;
+            z-index: 1000;
+            text-align: right;
+        }
+        .menu.open {
+            display: block;
+        }
+        .menu a {
+            display: block;
+            padding: 10px 0;
+            text-decoration: none;
+            color: #000;
+            font-size: 1rem;
+        }
+        .menu a:hover {
+            text-decoration: underline;
+        }
         .content {
             padding: 20px;
             text-align: left;
             max-width: 800px;
         }
-
-        .text-section {
-            font-size: 2rem;
-            line-height: 1.4;
-            text-align: left;
-            max-width: 800px;
-        }
-
-        .description {
-            font-size: 1.6rem;
-            font-weight: bold;
-            margin-top: 40px;
-        }
-
-        .text-section.collapsed {
-            max-height: 150px;
-            overflow: hidden;
-        }
-
-        .text-section.expanded {
-            max-height: none;
-        }
-
-        .read-more {
-            display: block;
-            text-align: center;
-            margin-top: 10px;
-            color: blue;
-            cursor: pointer;
-            text-decoration: underline;
-        }
-
         .image-container {
             display: flex;
             gap: 20px;
@@ -97,58 +136,363 @@
             margin: 20px 0;
             flex-wrap: wrap;
         }
-
-        .image-container img {
-            width: 100%;
-            max-width: 600px;
-            height: auto;
-            object-fit: cover;
-            border: 2px solid black;
-            margin: 0;
-            padding: 0;
-            background: transparent;
-        }
-
-        .image-container span {
-            display: block;
-            font-size: 1.2rem;
+.image-container img {
+    width: 100%; /* L'immagine occuperà tutto lo spazio disponibile nel contenitore */
+    max-width: 600px; /* Mantiene una larghezza massima */
+    height: auto;
+    object-fit: cover; /* Fa sì che l'immagine si adatti senza lasciare spazio */
+    display: block;
+    border: 2px solid black; /* Bordo aderente senza margini */
+    margin: 0;
+    padding: 0;
+    background: transparent; /* Rimuove eventuale sfondo bianco */
+}
+        .image-container a {
             text-align: center;
-            margin-top: 5px;
-            color: #333;
+            text-decoration: none;
+            color: #000;
+
+		/* Migliora l'organizzazione del contenitore */
+.image-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0; /* Nessuno spazio tra le immagini */
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto; /* Nessuno spazio in alto e in basso */
+    max-width: 100%; /* Si adatta al layout */
+}
+		
         }
+ /* Stile per le didascalie sotto le immagini */
+.image-container span {
+    display: block;
+    font-size: 1.2rem;
+    text-align: center;
+    margin-top: 5px;
+    color: #333;
+}
+        }
+        .text-section, .description {
+            text-align: left;
+            max-width: 800px;
+            padding: 0 20px;
+        }
+        .description {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-top: 40px;
+        }
+        hr {
+            border: none;
+            height: 1px;
+            background-color: #ddd;
+            margin: 40px 0;
+        }
+	    /* Stile per il contenuto ridotto */
+.text-section.collapsed {
+    max-height: 100px; /* Altezza massima per mostrare solo alcune righe */
+    overflow: hidden;
+    position: relative;
+}
+
+/* Stile per il pulsante "Leggi di più" */
+.read-more {
+    display: block;
+    text-align: center;
+    margin-top: 10px;
+    color: blue;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+/* Stile per il contenuto espanso */
+.text-section.expanded {
+    max-height: none;
+}
     </style>
 </head>
 <body>
-    <div class="header">
-        <h1 class="page-title">
-            <a href="pagina.html">News</a>
-        </h1>
+ <div class="header">
+    <h1 class="page-title">
+        <a href="pagina.html">News</a>
+    </h1>
+    <div class="menu-icon" onclick="toggleMenu()">
+        <div></div>
+        <div></div>
+        <div></div>
     </div>
+</div>
 
-    <div class="content">
-        <div class="description"><strong>ROMA 2025</strong></div>
-        <div class="text-section collapsed" id="text-section-1">
-            <strong>3500 cm²</strong><br>
-            <strong>Paolo Icaro</strong><br><br>
-            <strong>Trattoria ideale</strong><br><br>
-            <strong>Fondazione VOLUME!</strong><br><br>
+<div class="menu" id="menu">
+    <a href="index.html">home</a>
+    <a href="pagina.html">artisti</a>
+    <a href="3500cm2.html">3500 cm²</a>
+    <a href="luoghi.html">luoghi</a>
+    <a href="contatti.html">contatti</a>
+</div>
 
-            <div class="image-container">
-                <a href="paolo-icaro.html">
-                    <img src="immagini/Paolo-Icaro.jpg" alt="Paolo Icaro">
-                    <span>Paolo Icaro</span>
-                </a>
-            </div>
+<div class="content">
+    <div class="description"><strong>ROMA 2025</strong></div>
+    <div class="text-section">
+        <strong>3500 cm²</strong><br>
+        <strong>Paolo Icaro</strong><br><br>
+        <strong>Trattoria ideale</strong><br><br>
+        <strong>Fondazione VOLUME!</strong><br><br>
 
-            <p>Fondazione VOLUME! Via di San Francesco di Sales 86/88, Roma</p>
-            <p>Il 9 marzo 2025 dalle 12:00 alle 20:00 la Fondazione VOLUME! presenta Trattoria ideale, un lavoro di Paolo Icaro (Torino, 1936), a cura di Lorenzo Benedetti. L’artista trasforma gli ambienti di VOLUME! in un luogo di condivisione e relazione, ispirato all'accoglienza delle tipiche osterie di Trastevere...</p>
+	    	    <div class="image-container">
+    <a href="paolo-icaro.html">
+        <img src="Paolo-Icaro.jpg" alt="Paolo Icaro">
+        <span>Paolo Icaro</span>
+    </a>
+</div>
+	  	       </div>
+    <div class="read-more" onclick="toggleText('text-section-1')">Leggi di più</div>
+</div>
+
+<p>Fondazione VOLUME! Via di San Francesco di Sales 86/88, Roma</p>
+Il 9 marzo 2025 dalle 12:00 alle 20:00 la Fondazione VOLUME! presenta Trattoria ideale, un lavoro di Paolo Icaro (Torino, 1936), a cura di Lorenzo Benedetti. L’artista, che ha con la Fondazione una collaborazione consolidata, ha pensato in questa occasione di trasformare gli ambienti di VOLUME! in un luogo di condivisione e relazione.
+Trattoria ideale vuole, infatti, ricreare all’interno degli spazi di via San Francesco di Sales un ambiente conviviale ispirato all'accoglienza delle tipiche osterie di Trastevere. VOLUME! viene ripensato come un luogo di scambio, dove parole, immagini e suoni si intrecciano per stimolare i sensi e il dialogo.
+Icaro espande il concetto di nutrimento oltre il cibo, proponendo l'arte come alimento essenziale per la crescita individuale e collettiva. Invita i visitatori a "mangiare con gli occhi", trasformando la lettura e l'osservazione in un'esperienza di nutrizione intellettuale e sensoriale.
+Trattoria ideale diventa un luogo di scambio, fondendo dimensione estetica e relazionale in un dialogo continuo tra corpo, spazio e pensiero. Superando i confini della mostra tradizionale, evolve in un'esperienza partecipativa e multisensoriale, dove il visitatore è invitato a nutrirsi di arte, parole e idee, rendendo la fruizione artistica una vera e propria esperienza vitale.
+Con questo intervento Paolo Icaro azzera la distanza tra l’opera e il visitatore, invitandolo a toccare, modificare e portare dentro di sé l’esperienza artistica. In questo spazio conviviale, si mangia guardando e vedendo, si legge divorando con gli occhi e ci si sazia utilizzando la mente. L’azione culmina, infine, in un momento trascendente: oltrepassato un filtro trasparente, il visitatore si trova immerso nell’immensità della luce dove voci sussurrano parole intrecciate ai suoni evocativi della musica di Alessandro Petrolati.
+Un’esperienza sensoriale e intellettuale che supera i confini tradizionali dell’esposizione artistica.
+	    
+<p>Per l’occasione Paolo Icaro ha realizzato il nuovo progetto 3500 cm2 #106 “Trattoria ideale”: www.3500cm2.org</p>
+   
+Biografia:
+Paolo Icaro (Torino, 1936) è uno dei protagonisti delle ricerche artistiche degli anni Sessanta. Ha iniziato la sua carriera studiando scultura nello studio di Umberto Mastroianni. Dopo una prima mostra personale a Roma nel 1962, si avvicina all’esperienza dell’Arte Povera, sperimentando, sin dagli esordi, il divenire dell’azione scultorea in relazione alla forma e allo spazio, utilizzando materiali elementari e duttili come cemento, argilla, carta, legno e gesso. Fra il 1968 e il 1969 partecipa alle principali rassegne dell’avanguardia artistica internazionale che sanciscono l’affermazione di tendenze come l’arte povera, l’arte concettuale e la process art. Realizza infatti azioni al Teatro delle mostre, Galleria La Tartaruga, Roma (1968); a Arte povera più azioni povere, Amalfi (1968); è invitato a Op Losse Schroeven. Situaties en cryptostructuren, Stedelijk Museum, Amsterdam (1969); e a When Attitudes Become Form, curata da Harald Szeemann presso la Kunsthalle di Berna (1969). Nel 1971 si trasferisce nuovamente negli Stati Uniti (vi aveva già soggiornato tra il ’66 e il ’68), nel Connecticut, dove rimarrà per tutto il decennio. Tornato in Italia all’inizio degli anni Ottanta, espone nei più importanti musei e gallerie europee e statunitensi, continuando ad esplorare materiali come il gesso e lavorando attorno ai concetti di corpo e di spazio.
+Vive e lavora a Tavullia, in provincia di Pesaro.
+
+    
+	
+<div class="content">
+    <div class="description"><strong>Parigi 2024</strong></div>
+    <div class="text-section">
+        <strong>3500 cm²</strong><br>
+        <strong>XX Giornata del Contemporaneo</strong><br><br>
+        <strong>Consolato d’Italia a Parigi</strong><br><br>
+        <strong>CONTEMPORALIS</strong><br><br>
+		
+           CONTEMPORALIS partecipa alla Giornata del Contemporaneo, la giornata italiana dedicata all’arte contemporanea.
+
+In occasione della ventesima edizione della GDC, CONTEMPORALIS presenta 3500 cm², un progetto che quest’anno festeggia il suo ventesimo anniversario. 3500 cm² è un progetto di diffusione di opere d’arte contemporanea curato da Lorenzo Benedetti. 3500 cm² sono i centimetri quadrati messi a disposizione di un artista per realizzare un poster di 50×70cm, la cui missione è diffondere il linguaggio dell’arte contemporanea a un pubblico più ampio ed eterogeneo di quello dell’arte contemporanea.
+
+Martedì 15 ottobre, CONTEMPORALIS ha inoltre organizzato una conferenza sull’arte contemporanea organizzata da presso il Consolato d’Italia a Parigi, moderata da Maddalena Labricciosa, giornalista RAI, esperta d’arte – TG1, con la partecipazione di Lorenzo Benedetti, condirettore della Fondazione Ratti Art-Lab e ideatore e curatore del progetto 3500cm², Marinella Senatore, artista e Diego Cibelli, artista in diretta streaming da Napoli. Per l’occasione sono stati distribuiti gratuitamente i manifesti degli artisti italiani Marinella Senatore e Diego Cibelli.        </div>
+        <div class="image-container">
+            <a href="diego-cibelli.html">
+                <img src="diego-cibelli.jpg" alt="Diego Cibelli">
+                <span>Diego Cibelli</span>
+            </a>
+            <a href="marinella-senatore.html">
+                <img src="marinella-senatore.jpg" alt="Marinella Senatore">
+                <span>Marinella Senatore</span>
+            </a>
         </div>
-        <div class="read-more" onclick="toggleText('text-section-1')">Leggi di più</div>
+<hr>
+        <!-- Sezione Roma -->
+        <div class="description"><strong>Roma 2024</strong><br></div>
+         <div class="text-section">
+            <strong>3500 cm²</strong><br>
+            <strong>EXPODEMIC - Festival of Foreign Academies and Cultural Institutes</strong><br><br>
+           
+<strong>Curated by Lorenzo Benedetti in collaboration with Francesca Campana</strong><br>
+
+		 <strong>Palazzo Esposizioni Roma - 07.05 - 25.08.2024</strong><br><br>
+ 
+
+<p>Mostra promossa dall’Assessorato alla Cultura di Roma Capitale e Azienda Speciale Palaexpo</p>
+
+<p>Artisti 3500 cm²: John Armleder, Elisabetta Benassi, Attila Csörgő, Simon Dybbroe Møller, Robert Kusmirowski, Cristina Lucas, Jochen Lempert, Domenico Mangano & Marieke van Rooy, Matt Mullican, Ciprian Mureşan, Tura Oliveira, Giulio Paolini, Fernando Sánchez Castillo, Hans Schabus, Sarina Scheidegger, Nil Yalter, Nicole Wermers, sono inoltre riproposti due poster realizzati con opere di Carla Accardi e Vladimir Radunsky.</p>
+ 
+
+<p>Organizzata da Azienda Speciale Palaexpo con la collaborazione di 
+Accademia di Belle Arti di Roma, Accademia di Danimarca, Académie de France à Rome – Villa Médicis, Accademia Nazionale di San Luca, Accademia di Romania in Roma, Accademia Tedesca Roma Villa Massimo, Accademia d'Ungheria in Roma, Accademia dei Virtuosi al Pantheon, American Academy in Rome, British School at Rome, Circolo Scandinavo, Complesso monumentale di San Salvatore in Lauro, Forum Austriaco di Cultura, Institutum Romanum Finlandiae, Istituto Culturale Coreano, Istituto Giapponese di Cultura, Istituto Polacco di Roma, Istituto Svizzero, Museo Casa di Goethe, Reale Istituto Neerlandese di Roma, Real Academia de España en Roma.</p>
+  
+<p>Artisti mostra Expodemic: Kamrooz Aram, Ane Rodriguez Armendariz, Séverine Ballon, Jacopo Belloni, Alix Boillot, Susanne Brorson, Fatma Bucak, Pedro Luis Cembranos, Zachary Fabri, Hamedine Kane, Kapwani Kiwanga, Bjørn Melhus, Marko Nikodijevic, Tura Oliveira, Estefania Puerta Grisales, Chloé Quenum, Marie Robert, Sarina Scheidegger. </p>
+
+Expodemic è la seconda edizione del Festival delle Accademie e degli Istituti di Cultura stranieri a Roma, che a partire dal Palazzo Esposizioni Roma si diffonde nel tessuto della città.
+La mostra racconta lo stretto legame tra la nascita e lo sviluppo delle esposizioni e la storia delle accademie, sia attraverso il coinvolgimento di artisti stranieri attualmente residenti sia con documenti storici.
+Roma non solo ospita il più alto numero di centri culturali internazionali, le cui vicende si intrecciano e si sviluppano fin dal 1666 con la fondazione dell’Accademia di Francia, ma è anche il luogo in cui sono state inventate le esposizioni moderne. Per oltre 40 anni, tra il 1680 e 1720, il pittore, segretario dell’Accademia di San Luca e reggente della Congregazione dei Virtuosi al Pantheon, Giuseppe Ghezzi, organizza nel Complesso monumentale di San Salvatore in Lauro una serie di mostre di importanti opere presenti nelle collezioni delle famiglie aristocratiche romane, dando così avvio al concetto di esposizione moderna. Grazie alla capacità di capire il proprio periodo storico, Ghezzi, con questa serie di esposizioni, rende pubblica l’arte, proponendo un’idea moderna e democratica della cultura e agendo così come primo curatore della storia.
+
+<p>Expodemic, a partire dalla mostra a Palazzo Esposizioni, si diffonde nella città con una serie di poster realizzati appositamente per l’occasione e in distribuzione gratuita nelle varie sedi dei partner culturali. Un percorso che illustra l’importanza del rapporto rizomatico tra il Palazzo Esposizioni e le Accademie e Istituti di Cultura stranieri a Roma, mettendone in evidenza la ricchezza e la diversità, nonché l’assoluta attualità di questo arcipelago culturale.
+La mostra è arricchita anche da un programma pubblico di incontri, performance e proiezioni ospitato a Palazzo Esposizioni e dalle numerose mostre ed eventi organizzati nelle Accademie e Istituti di Cultura.</p>
+
+3500 cm²
+Progetto di poster d’artista
+3500 cm² sono i centimetri quadrati a disposizione di un artista per realizzare un manifesto 50x70 cm, a cui è affidato il compito di diffondere il linguaggio dell’arte contemporanea a un pubblico più vasto e più eterogeneo di quello che abitualmente visita le mostre. I poster sono distribuiti gratuitamente, in diverse centinaia di copie, a tutti i visitatori di Expodemic, il Festival delle Accademie e degli Istituti di Cultura stranieri, che ha la mostra a Palazzo Esposizioni ma si diffonde attraverso la fitta rete di Accademie e Istituti a Roma.
+3500 cm² è una mostra senza confini spaziali e temporali che si sviluppa nel tessuto urbano in un modo inedito e con l’intento di costruire una piattaforma culturale che amplifica le possibilità comunicative dell’arte in una forma alternativa di interazione tra artista, istituzione e pubblico. Il percorso si sviluppa su due coordinate: l’unicità (l’opera originale creata dall’artista che aderisce al progetto) e la ripetizione (la moltiplicazione dell’opera per tutte le persone che visitano il luogo). 3500 cm2 dialoga con un pubblico vasto conservando un’alta qualità artistica e creando costantemente nuovi “visitatori/collezionisti” sensibili al linguaggio dell’arte.
+        </div>
+        <div class="image-container">
+            <a href="matt-mullican.html">
+                <img src="matt-mullican.jpg" alt="Matt Mullican">
+                <span>Matt Mullican</span>
+            </a>
+            <a href="giulio-paolini.html">
+                <img src="giulio-paolini.jpg" alt="Giulio Paolini">
+                <span>Giulio Paolini</span>
+            </a>
+               <a href="nil-yalter.html">
+                <img src="nil-yalter.jpg" alt="Nil Yalter">
+                <span>Nil Yalter</span>
+            </a>
+
+               </a>
+               <a href="cristina-lucas.html">
+                <img src="cristina-lucas.jpg" alt="Cristina Lucas">
+                <span>Cristina Lucas</span>
+            </a>
+            
+     <a href="carla-accardi.html">
+        <img src="carla-accardi.jpg" alt="Carla Accardi">
+        <span>Carla Accardi</span>
+    </a>
+
+		  <a href="john-armleder.html">
+        <img src="john-armleder.jpg" alt="John Armleder">
+        <span>John Armleder</span>
+	</a>
+		
+	<a href="elisabetta-benassi-1.html">
+        <img src="elisabetta-benassi-1.jpg" alt="Elisabetta Benassi">
+        <span>Elisabetta Benassi</span>
+    </a>
+    <a href="attila-csorgo.html">
+        <img src="attila-csorgo.jpg" alt="Attila Csörgő">
+        <span>Attila Csörgő</span>
+    </a>
+    <a href="simon-dybbroe-moller.html">
+        <img src="simon-dybbroe-moller.jpg" alt="Simon Dybbroe Møller">
+        <span>Simon Dybbroe Møller</span>
+    </a>
+    <a href="robert-kusmirowski.html">
+        <img src="robert-kusmirowski.jpg" alt="Robert Kusmirowski">
+        <span>Robert Kusmirowski</span>
+    </a>
+ 
+    <a href="jochen-lempert.html">
+        <img src="jochen-lempert.jpg" alt="Jochen Lempert">
+        <span>Jochen Lempert</span>
+    </a>
+    <a href="domenico-mangano-marieke-van-rooy.html">
+        <img src="mangano-van-rooy.jpg" alt="Domenico Mangano & Marieke van Rooy">
+        <span>Domenico Mangano & Marieke van Rooy</span>
+    </a>
+  
+    <a href="ciprian-muresan.html">
+        <img src="ciprian-muresan.jpg" alt="Ciprian Mureşan">
+        <span>Ciprian Mureşan</span>
+    </a>
+    <a href="tura-oliveira.html">
+        <img src="tura-oliveira.jpg" alt="Tura Oliveira">
+        <span>Tura Oliveira</span>
+    </a>
+   
+    <a href="fernando-sanchez-castillo.html">
+        <img src="fernando-sanchez-castillo.jpg" alt="Fernando Sánchez Castillo">
+        <span>Fernando Sánchez Castillo</span>
+    </a>
+    <a href="hans-schabus.html">
+        <img src="hans-schabus.jpg" alt="Hans Schabus">
+        <span>Hans Schabus</span>
+    </a>
+    <a href="sarina-scheidegger.html">
+        <img src="sarina-scheidegger.jpg" alt="Sarina Scheidegger">
+        <span>Sarina Scheidegger</span>
+    </a>
+  
+    <a href="nicole-wermers.html">
+        <img src="nicole-wermers.jpg" alt="Nicole Wermers">
+        <span>Nicole Wermers</span>
+    </a>
+   
+    <a href="vladimir-radunsky.html">
+        <img src="vladimir-radunsky.jpg" alt="Vladimir Radunsky">
+        <span>Vladimir Radunsky</span>
+    </a>
+        </div>
+
+<hr>	
+	<!-- Sezione Roma incotra il mondo -->
+
+	
+        <div class="description"><strong>Roma 2016</strong><br></div>
+         <div class="text-section">
+            <strong>3500 cm²</strong><br>
+            <strong>Roma incontra il mondo - Villa Ada - Fondazione Volume! - Roma</strong><br><br>
+        
+
+		 <strong>Villa Ada Roma 2016</strong><br><br>
+ 
+
+<p>Artisti 3500 cm²: Francesco Arena, Marc Nachtzaam, Batia Suter, Mandla Reuter.</p>
+ 
+
+<p>Progetto ospitato da Villa Ada Roma incontra il mondo è 3500 cm², progetto a cura di Fondazione VOLUME! x Crosswise, nato nel 2004 da un’idea di Lorenzo Benedetti.   3500 cm² sono i centimetri quadrati a disposizione di un artista per realizzare un manifesto 50 x 70, ma è anche l’arte che vive in un luogo urbano, che esce da suoi spazi per raggiungere un pubblico eterogeneo e più vasto di quello che è solito visitare musei e gallerie: una mostra senza conﬁni spaziali e temporali che si sviluppa nel tempo e si diffonde senza controllo, un modo inedito di costruire una piattaforma culturale che ampliﬁca le possibilità comunicative dell’arte, una forma possibile di interazione tra artista e pubblico. </p>
+  
+    </div>
+        <div class="image-container">
+            <a href="francesco-arena.html">
+                <img src="francesco-arena.jpg" alt="Francesco Arena">
+                <span>Francesco Arena</span>
+            </a>
+            <a href="marc-nagtzaam.html">
+                <img src="marc-nagtzaam.jpg" alt="Marc Nagtzaam">
+                <span>Marc Nagtzaam</span>
+            </a>
+               <a href="batia-suter.html">
+                <img src="batia-suter.jpeg" alt="Batia Suter">
+                <span>Batia Suter</span>
+            </a>
+
+               </a>
+               <a href="mandla-reuter.html">
+                <img src="mandla-reuter.jpg" alt="Mandla Reuters">
+                <span>Mandla Reuter</span>
+            </a>
+ </div>
+        <hr>
+  <!-- Sezione de Vleeshal Middelburg -->
+        <div class="description"><strong>Middelburg 2009-2013</strong><br></div>
+        <div class="text-section">
+            <strong>3500 cm²</strong><br>
+            <strong>De Vleeshal en de Kabinetten van de Vleeshal</strong><br><br>
+
+            <h3>Artisti 3500 cm²</h3>
+            <ul class="inline-list">
+                <li><a href="https://vleeshal.nl/archive/the-object-lessons" class="blue">Nina Beier & Marie Lund</a></li>
+                <li><a href="https://vleeshal.nl/en/archive/the-sound-of-distance" class="orange">Katinka Bock</a></li>
+                <li><a href="https://vleeshal.nl/nl/archief/persoon/benoit-maire" class="green">Benoît Maire</a></li>
+                <li><a href="https://vleeshal.nl/archive/person/kelly-schacht" class="purple">Kelly Schacht</a></li>
+            </ul>
+
+<p>In occasione di alcune mostre realizzate tra il 2009 e il 2013 sono stati realizzate delle edizioni di 3500 cm² che spesso si integravano direttamente all'interno della mostra.  </p>
+  
+    <div class="image-container">
+            <a href="beier-lund.html">
+                <img src="beier-lund.jpg" alt="Nina Beier & Marie Lund">
+                <span>Nina Beier & Marie Lund</span>
+            </a>
+            <a href="kelly-schacht.html">
+                <img src="kelly-schacht.jpg" alt="Kelly Schacht">
+                <span>Kelly Schacht</span>
+            </a>
+        </div>
     </div>
 
     <script>
-        function toggleText(sectionId) {
-            const textSection = document.getElementById(sectionId);
+        function toggleMenu() {
+            const menu = document.getElementById('menu');
+            menu.classList.toggle('open');
+        }
+    </script>
+
+	    <!-- Altri script o contenuti -->
+
+    <script>
+        // Funzione per gestire l'apertura/chiusura del testo
+        function toggleText(id) {
+            const textSection = document.getElementById(id);
             if (textSection.classList.contains('collapsed')) {
                 textSection.classList.remove('collapsed');
                 textSection.classList.add('expanded');
@@ -158,5 +502,6 @@
             }
         }
     </script>
+</body>
 </body>
 </html>
