@@ -29,13 +29,51 @@
             align-items: center;
             padding: 20px;
             border-bottom: 1px solid #ddd;
+            position: relative;
         }
 
-        .back-link {
-            font-size: 1.5rem;
-            font-weight: bold;
+        .menu-icon {
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 30px;
+            height: 20px;
+        }
+
+        .menu-icon div {
+            background-color: #000;
+            height: 2px;
+            width: 100%;
+            border-radius: 1px;
+        }
+
+        .menu {
+            display: none;
+            position: absolute;
+            top: 60px;
+            right: 20px;
+            background: white;
+            padding: 10px 20px;
+            border: 1px solid #ddd;
+            z-index: 1000;
+            text-align: right;
+        }
+
+        .menu.open {
+            display: block;
+        }
+
+        .menu a {
+            display: block;
+            padding: 10px 0;
             text-decoration: none;
             color: #000;
+            font-size: 1rem;
+        }
+
+        .menu a:hover {
+            text-decoration: underline;
         }
 
         /* Contenitore loghi */
@@ -63,7 +101,7 @@
         /* Immagini logo */
         .logo-box img {
             max-width: 100%;
-            max-height: 130px; /* Aumentato per rendere i loghi più grandi */
+            max-height: 130px;
             object-fit: contain;
             display: block;
         }
@@ -71,7 +109,7 @@
         /* Testo sotto i loghi */
         .logo-box span {
             font-size: 1rem;
-            margin-top: 5px; /* Ridotto per avvicinare la didascalia al logo */
+            margin-top: 5px;
             display: block;
             text-align: center;
         }
@@ -94,6 +132,24 @@
 <body>
     <div class="header">
         <a href="index.html" class="back-link">Partner</a>
+        
+        <!-- Icona Menu -->
+        <div class="menu-icon" onclick="toggleMenu()">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        
+        <!-- Menu -->
+        <div class="menu" id="menu">
+            <a href="index.html">Home</a>
+            <a href="news.html">News</a>
+            <a href="3500cm2.html">3500 cm²</a>
+            <a href="pagina.html">Artisti</a>
+            <a href="luoghi.html">Luoghi</a>
+            <a href="partner.html">Partner</a>
+            <a href="contatti.html">Contatti</a>
+        </div>
     </div>
 
     <div class="logo-container">
