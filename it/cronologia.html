@@ -21,6 +21,11 @@
       100% {background-position: 0% 50%;}
     }
 
+    .scroll-wrapper {
+      overflow: hidden;
+      width: 100%;
+    }
+
     .scroll-container {
       display: flex;
       animation: scrollLeft 120s linear infinite;
@@ -29,7 +34,7 @@
     }
 
     @keyframes scrollLeft {
-      0% { transform: translateX(100%); }
+      0% { transform: translateX(0%); }
       100% { transform: translateX(-100%); }
     }
 
@@ -60,9 +65,9 @@
     }
 
     .poster-description {
-      font-size: 2rem;
+      font-size: 1.1rem;
       color: #333;
-      margin-top: 9px;
+      margin-top: 6px;
     }
 
     .poster:nth-child(2n) {
@@ -77,86 +82,87 @@
       transform: translateY(10px);
     }
 
-    /* Spazi extra per separare gruppi di poster */
     .spacer {
       width: 80px;
     }
   </style>
 </head>
 <body>
-  <div class="scroll-container">
-    
-    <!-- Paolo Icaro -->
-    <div class="poster">
-      <a href="paolo-icaro.html">
-        <img src="Paolo-Icaro.jpg" alt="Paolo Icaro">
-      </a>
-      <div class="poster-text">Paolo Icaro, *Trattoria ideale*, 2025 — #106</div>
-      <div class="poster-description">presentato a VOLUME! per la mostra <em>Trattoria ideale</em></div>
+  <div class="scroll-wrapper">
+    <div class="scroll-container">
+
+      <!-- Paolo Icaro -->
+      <div class="poster">
+        <a href="paolo-icaro.html">
+          <img src="Paolo-Icaro.jpg" alt="Paolo Icaro">
+        </a>
+        <div class="poster-text">Paolo Icaro, *Trattoria ideale*, 2025 — #106</div>
+        <div class="poster-description">presentato a VOLUME! per la mostra <em>Trattoria ideale</em></div>
+      </div>
+
+      <div class="spacer"></div>
+
+      <!-- Cibelli -->
+      <div class="poster">
+        <a href="diego-cibelli.html">
+          <img src="diego-cibelli.jpg" alt="Diego Cibelli">
+        </a>
+        <div class="poster-text">Diego Cibelli, 2024 — #105</div>
+        <div class="poster-description">presentato al Consolato d’Italia a Parigi e CONTEMPORALIS per la Giornata del Contemporaneo</div>
+      </div>
+
+      <!-- Senatore -->
+      <div class="poster">
+        <a href="marinella-senatore.html">
+          <img src="marinella-senatore.jpg" alt="Marinella Senatore">
+        </a>
+        <div class="poster-text">Marinella Senatore, 2024 — #104</div>
+        <div class="poster-description">presentato al Consolato d’Italia a Parigi e CONTEMPORALIS per la Giornata del Contemporaneo</div>
+      </div>
+
+      <div class="spacer"></div>
+
+      <!-- Altri poster -->
+      <div class="poster">
+        <a href="matt-mullican.html">
+          <img src="matt-mullican.jpg" alt="Matt Mullican">
+        </a>
+        <div class="poster-text">Matt Mullican, 2024 — #103</div>
+      </div>
+
+      <div class="poster">
+        <a href="giulio-paolini.html">
+          <img src="giulio-paolini.jpg" alt="Giulio Paolini">
+        </a>
+        <div class="poster-text">Giulio Paolini, 2024 — #102</div>
+      </div>
+
+      <div class="poster">
+        <a href="nil-yalter.html">
+          <img src="nil-yalter.jpg" alt="Nil Yalter">
+        </a>
+        <div class="poster-text">Nil Yalter, 2024 — #101</div>
+      </div>
+
+      <div class="poster">
+        <a href="elisabetta-benassi-1.html">
+          <img src="elisabetta-benassi-1.jpg" alt="Elisabetta Benassi">
+        </a>
+        <div class="poster-text">Elisabetta Benassi, 2024 — #100</div>
+      </div>
+
+      <div class="spacer"></div>
+
+      <div class="poster">
+        <a href="carla-accardi.html">
+          <img src="carla-accardi.jpg" alt="Carla Accardi">
+        </a>
+        <div class="poster-text">Carla Accardi — #99</div>
+      </div>
+
+      <!-- Continua con altri... -->
+
     </div>
-
-    <div class="spacer"></div>
-
-    <!-- Cibelli -->
-    <div class="poster">
-      <a href="diego-cibelli.html">
-        <img src="diego-cibelli.jpg" alt="Diego Cibelli">
-      </a>
-      <div class="poster-text">Diego Cibelli, 2024 — #105</div>
-      <div class="poster-description">presentato al Consolato d’Italia a Parigi e CONTEMPORALIS per la Giornata del Contemporaneo</div>
-    </div>
-
-    <!-- Senatore -->
-    <div class="poster">
-      <a href="marinella-senatore.html">
-        <img src="marinella-senatore.jpg" alt="Marinella Senatore">
-      </a>
-      <div class="poster-text">Marinella Senatore, 2024 — #104</div>
-      <div class="poster-description">presentato al Consolato d’Italia a Parigi e CONTEMPORALIS per la Giornata del Contemporaneo</div>
-    </div>
-
-    <div class="spacer"></div>
-
-    <!-- Poster seguenti -->
-    <div class="poster">
-      <a href="matt-mullican.html">
-        <img src="matt-mullican.jpg" alt="Matt Mullican">
-      </a>
-      <div class="poster-text">Matt Mullican, 2024 — #103</div>
-    </div>
-
-    <div class="poster">
-      <a href="giulio-paolini.html">
-        <img src="giulio-paolini.jpg" alt="Giulio Paolini">
-      </a>
-      <div class="poster-text">Giulio Paolini, 2024 — #102</div>
-    </div>
-
-    <div class="poster">
-      <a href="nil-yalter.html">
-        <img src="nil-yalter.jpg" alt="Nil Yalter">
-      </a>
-      <div class="poster-text">Nil Yalter, 2024 — #101</div>
-    </div>
-
-    <div class="poster">
-      <a href="elisabetta-benassi-1.html">
-        <img src="elisabetta-benassi-1.jpg" alt="Elisabetta Benassi">
-      </a>
-      <div class="poster-text">Elisabetta Benassi, 2024 — #100</div>
-    </div>
-
-    <div class="spacer"></div>
-
-    <!-- Poster precedenti, es. Carla Accardi -->
-    <div class="poster">
-      <a href="carla-accardi.html">
-        <img src="carla-accardi.jpg" alt="Carla Accardi">
-      </a>
-      <div class="poster-text">Carla Accardi — #99</div>
-    </div>
-
-    <!-- Continua con gli altri poster in questo formato... -->
   </div>
 </body>
 </html>
