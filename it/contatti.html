@@ -12,6 +12,13 @@
         gtag('config', 'G-1ZDKD18HZM');
     </script>
     <style>
+        footer {
+    position: fixed;
+    bottom: 10px;
+    left: 20px;
+    font-size: 0.9rem;
+    color: #000;
+}
         body {
             font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
             margin: 0;
@@ -108,5 +115,8 @@
     <footer>
     &copy; 3500cm² <span id="year"></span>
 </footer>
+    <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+</script>
 </body>
 </html>
