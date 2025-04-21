@@ -34,6 +34,16 @@
         .title a {
             text-decoration: none;
             color: inherit;
+
+            
+            .gradient-text {
+  background: linear-gradient(270deg, #fbeec1, #f5cac3, #cce3de, #e0c3fc);
+  background-size: 800% 800%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: backgroundShift 20s ease infinite;
+}
+            
         }
 
         .text {
@@ -149,7 +159,7 @@
 
     <!-- Titolo -->
     <div class="title">
-        <a href="pagina.html" id="changing-title">3500 cm²</a>
+        <a href="pagina.html" id="changing-title" class="gradient-text">3500 cm²</a>
     </div>
 
     <!-- Menu Icon -->
