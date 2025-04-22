@@ -21,19 +21,23 @@
             min-height: 100vh;
         }
 
-        .title {
-            font-size: 8rem;
-            font-weight: bold;
-            text-align: left;
-            min-height: 140px; /* Altezza minima per evitare il movimento */
-            margin-bottom: 180px; /* Maggiore spazio tra titolo e testo */
-            display: flex;
-            align-items: center;
-        }
+      .title {
+    font-size: 8rem;
+    font-weight: bold;
+    text-align: left;
+    min-height: 140px;
+    width: 100%;           /* Mantiene stabile la larghezza */
+    margin-bottom: 180px;
+    display: flex;
+    align-items: center;
+}
 
-        .title a {
-            text-decoration: none;
-            color: inherit;
+.title a {
+    text-decoration: none;
+    display: inline-block;
+    min-width: 600px;     /* Imposta una larghezza minima per evitare "salti" */
+    text-align: left;
+}
 
             
        
