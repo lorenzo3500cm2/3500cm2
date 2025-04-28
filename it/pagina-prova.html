@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Artisti - 3500 cm²</title>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1ZDKD18HZM"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-1ZDKD18HZM');
+    </script>
+    <!-- Importazione font -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400&display=swap');
+
+        /* Stile generale del corpo della pagina */
+        body {
+            margin: 0;
+            padding: 20px;
+            font-family: 'Libre Baskerville', serif;
+            background-color: #ffffff;
+            color: #000;
+            position: relative;
+            min-height: 100vh; /* Assicura che la pagina possa scorrere */
+        }
+
+        /* MENU */
+        .menu-icon {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 30px;
+            height: 20px;
+            z-index: 1001; /* Assicura che il menu rimanga sopra gli altri elementi */
+        }
+
+        /* Stile delle tre barre del menu hamburger */
+        .bar {
+            width: 100%;
+            height: 3px;
+            background-color: #000;
+            border-radius: 2px;
+        }
+
+        /* Stile del menu nascosto */
+        .menu {
+            display: none;
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: 200px;
+            height: 100vh;
+            background-color: #fff;
+            box-shadow: -2px 0 5px rgba(0, 0, 0, 0.2);
+            z-index: 1002; /* Assicura che il menu sia sopra gli altri elementi */
+            flex-direction: column;
+            padding: 20px;
+        }
+
+        /* Mostra il menu quando attivato */
+        .menu.active {
+            display: flex;
+        }
+
+        /* Stile dei link nel menu */
+        .menu a {
+            text-decoration: none;
+            color: #000;
+            font-size: 1rem;
+            margin-bottom: 10px;
+        }
+
+        /* Cambia stile al passaggio del mouse */
+        .menu a:hover {
+            text-decoration: underline;
+        }
+
+        /* LISTA ARTISTI */
+        .artists-list {
+            font-size: 2rem;
+            line-height: 1.8;
+            margin-top: 60px;
+            position: relative;
+            z-index: 2; /* Testo sopra i loghi */
+        }
+
+        /* Stile per i link degli artisti */
+        .artists-list a {
+            text-decoration: none;
+            color: #000;
+            display: block;
+        }
+
+        /* Effetto hover sui link */
+        .artists-list a:hover {
+            text-decoration: underline;
+        }
+      .artist-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #eee;  /* linea sottile opzionale */
+    padding: 5px 0;
+}
+
+.artist-item a {
+    text-decoration: none;
+    color: #000;
+    font-size: 2rem;
+}
+
+.artist-item span {
+    font-size: 1.5rem;
+    color: #888;
+}
+
+        /* LOGHI ANIMATI */
+        .logo {
+            position: absolute;
+            width: 80px; /* Loghi leggermente più grandi */
+            height: 80px;
+            opacity: 0.6; /* Semi-trasparente */
+            pointer-events: none; /* Evita interferenze con il testo */
+            z-index: 1; /* Dietro il testo */
+        }
+
+        /* Dimensione forzata per i loghi */
+        .logo img {
+            width: 120%;
+            height: 120%;
+            object-fit: contain; /* Mantiene le proporzioni originali */
+        }
+
+        /* Colorazione dei loghi */
+        .logo:nth-child(1) img { filter: invert(17%) sepia(94%) saturate(744%) hue-rotate(350deg) brightness(95%) contrast(108%); }
+        .logo:nth-child(2) img { filter: invert(43%) sepia(90%) saturate(437%) hue-rotate(85deg) brightness(92%) contrast(103%); }
+        .logo:nth-child(3) img { filter: invert(60%) sepia(34%) saturate(600%) hue-rotate(190deg) brightness(96%) contrast(88%); }
+        .logo:nth-child(4) img { filter: invert(80%) sepia(92%) saturate(532%) hue-rotate(45deg) brightness(105%) contrast(92%); }
+        .logo:nth-child(5) img { filter: invert(90%) sepia(34%) saturate(800%) hue-rotate(320deg) brightness(95%) contrast(95%); }
+        .logo:nth-child(6) img { filter: invert(20%) sepia(100%) saturate(800%) hue-rotate(210deg) brightness(90%) contrast(100%); }
+
+    </style>
+
+    <!-- Libreria GSAP per l'animazione -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+
+</head>
+<body>
+
+    <!-- Menu hamburger -->
+    <div class="menu-icon" onclick="toggleMenu()">
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+    </div>
+
+    <!-- Menu nascosto -->
+    <div class="menu" id="menu">
+        <a href="index.html">home</a>
+        <a href="news.html">news</a>
+        <a href="3500cm2.html">3500 cm²</a>
+        <a href="luoghi.html">luoghi</a>
+        <a href="mostre.html">mostre</a>
+        <a href="partner.html">partner</a>
+        <a href="contatti.html">contatti</a>
+    </div>
+
+    <!-- Loghi -->
+    <div class="logo"><img src="LOGO-3500cm2.png" alt="Logo 1"></div>
+    <div class="logo"><img src="LOGO-3500cm2.png" alt="Logo 2"></div>
+    <div class="logo"><img src="LOGO-3500cm2.png" alt="Logo 3"></div>
+    <div class="logo"><img src="LOGO-3500cm2.png" alt="Logo 4"></div>
+    <div class="logo"><img src="LOGO-3500cm2.png" alt="Logo 5"></div>
+    <div class="logo"><img src="LOGO-3500cm2.png" alt="Logo 6"></div>
+    
+    <!-- Lista Artisti -->
+    <div class="artists-list">
+      <div class="artists-list">
+    <div class="artist-item">
+        <a href="carla-accardi.html">Carla Accardi</a>
+        <span>#29</span>
+    </div>
+    <div class="artist-item">
+        <a href="nicoletta-agostini.html">Nicoletta Agostini</a>
+        <span>#3</span>
+    </div>
+    <div class="artist-item">
+        <a href="maria-thereza-alves.html">Maria Thereza Alves</a>
+        <span>#12</span>
+    </div>
+    <div class="artist-item">
+        <a href="john-armleder.html">John Armleder</a>
+        <span>#107</span>
+    </div>
+    <div class="artist-item">
+        <a href="francesco-arena.html">Francesco Arena</a>
+        <span>#45</span>
+    </div>
+    <div class="artist-item">
+        <a href="mark-bain.html">Mark Bain</a>
+        <span>#18</span>
+    </div>
+    <div class="artist-item">
+        <a href="kuba-bakowski.html">Kuba Bakowski</a>
+        <span>#22</span>
+    </div>
+    <div class="artist-item">
+        <a href="massimo-bartolini.html">Massimo Bartolini</a>
+        <span>#35</span>
+    </div>
+    <div class="artist-item">
+        <a href="beier-lund.html">Nina Beier & Marie Lund</a>
+        <span>#51</span>
+    </div>
+    <div class="artist-item">
+        <a href="elisabetta-benassi.html">Elisabetta Benassi</a>
+        <span>#64</span>
+    </div>
+        <a href="carla-accardi.html">Carla Accardi</a>
+        <a href="nicoletta-agostini.html">Nicoletta Agostini</a>
+        <a href="maria-thereza-alves.html">Maria Thereza Alves</a>
+        <a href="john-armleder.html">John Armleder</a>
+        <a href="francesco-arena.html">Francesco Arena</a>
+        <a href="mark-bain.html">Mark Bain</a>
+        <a href="kuba-bakowski.html">Kuba Bakowski</a>
+        <a href="massimo-bartolini.html">Massimo Bartolini</a>
+        <a href="beier-lund.html">Nina Beier & Marie Lund</a>
+        <a href="elisabetta-benassi.html">Elisabetta Benassi</a> 
+        <a href="wolfgang-berkowski.html">Wolfgang Berkowski</a>
+        <a href="dafne-boggeri.html">Dafne Boggeri</a>
+        <a href="katinka-bock.html">Katinka Bock</a>
+        <a href="brill-graziani.html">Sarra Brill / Chiara Graziani</a> 
+        <a href="alessandro-bulgini.html">Alessandro Bulgini</a> 
+        <a href="pedro-cabrita-reis.html">Pedro Cabrita Reis</a>
+        <a href="paolo-chiasera.html">Paolo Chiasera</a>
+        <a href="diego-cibelli.html">Diego Cibelli</a>
+        <a href="attila-csorgo.html">Attila Csörgő</a>
+        <a href="flavio-de-marco.html">Flavio de Marco</a>
+        <a href="stanislao-di-giugno.html">Stanislao Di Giugno</a>
+        <a href="ra-di-martino.html">Rä di Martino</a>
+        <a href="davide-d'elia.html">Davide D’Elia</a>
+        <a href="jimmie-durham.html">Jimmie Durham</a>
+        <a href="simon-dybbroe-moller.html">Simon Dybbroe Møller</a>
+        <a href="marco-fedele-di-catrano.html">Marco Fedele di Catrano</a>
+        <a href="vadim-fishkin.html">Vadim Fishkin</a>
+        <a href="parastou-forouhar.html">Parastou Forouhar</a>
+        <a href="stefania-galegati.html">Stefania Galegati</a>
+        <a href="rainer-ganahl.html">Rainer Ganahl</a>
+        <a href="max-gansberger.html">Max Gansberger</a>
+        <a href="mario-garcia-torres.html">Mario Garcia Torres</a>
+        <a href="christoph-girardet.html">Christoph Girardet</a>
+        <a href="globalgroove.html">Globalgroove</a>
+        <a href="luis-gonzales-palma.html">Luis Gonzales Palma</a> 
+        <a href="laurent-grasso.html">Laurent Grasso</a>
+        <a href="heidrun-holzfeind.html">Heidrun Holzfeind</a>
+        <a href="paolo-icaro.html">Paolo Icaro</a>
+        <a href="silvia-iorio.html">Silvia Iorio</a>
+        <a href="yun-fei-ji.html">Yun-Fei Ji</a>
+        <a href="rob-johannesma.html">Rob Johannesma</a>
+        <a href="marco-klefisch.html">Marco Klefisch</a>
+        <a href="robert-kusmirowski.html">Robert Kuśmirowski</a>
+        <a href="jochen-lempert.html">Jochen Lempert</a>
+        <a href="chi-wo-leung.html">Chi Wo Leung</a>
+        <a href="alon-levin.html">Alon Levin</a>
+        <a href="gabriel-lester.html">Gabriel Lester</a>
+        <a href="h-h-lim.html">H.H. Lim</a>
+        <a href="robert-lippok.html">Robert Lippok</a>
+        <a href="giuliano-lombardo.html">Giuliano Lombardo</a>
+        <a href="cristina-lucas.html">Cristina Lucas</a>
+        <a href="benoit-maire.html">Benoit Maire</a>
+        <a href="domenico-mangano-marieke-van-rooy.html">Domenico Mangano & Marieke van Rooy</a>
+        <a href="jeanette-montgomery-barron.html">Jeanette Montgomery Barron</a>
+        <a href="liliana-moro.html">Liliana Moro</a>
+        <a href="matt-mullican.html">Matt Mullican</a>
+        <a href="ciprian-muresan.html">Ciprian Muresan</a>
+        <a href="marc-nagtzaam.html">Marc Nagtzaam</a>
+        <a href="vlad-nanca.html">Vlad Nanca</a>
+        <a href="elena-nemkova.html">Elena Nemkova</a>
+        <a href="carsten-nicolai.html">Carsten Nicolai</a>
+        <a href="olaf-nicolai.html">Olaf Nicolai</a>
+        <a href="tura-oliveira.html">Tura Oliveira</a>
+        <a href="dennis-oppenheim.html">Dennis Oppenheim</a>
+        <a href="paananen-tallroth.html">Mikael Paananen & Linda Tallroth</a>
+        <a href="laura-palmieri.html">Laura Palmieri</a>
+        <a href="giulio-paolini.html">Giulio Paolini</a>
+        <a href="ph.on.html">PH.ON</a>
+        <a href="alessandro-piangiamore.html">Alessandro Piangiamore</a>
+        <a href="federico-pietrella.html">Federico Pietrella</a> 
+        <a href="cesare-pietroiusti.html">Cesare Pietroiusti</a>
+        <a href="giuseppe-pietroniro.html">Giuseppe Pietroniro</a>
+        <a href="riccardo-previdi.html">Riccardo Previdi</a>
+        <a href="emilio-prini.html">Emilio Prini</a>
+        <a href="vladimir-radunsky.html">Vladimir Radunsky</a>
+        <a href="philippe-rahm.html">Philippe Rahm</a>
+        <a href="marco-raparelli.html">Marco Raparelli</a>
+        <a href="annie-ratti.html">Annie Ratti</a>
+        <a href="max-renkel.html">Max Renkel</a>
+        <a href="mandla-reuter.html">Mandla Reuter</a> 
+        <a href="luigi-rizzo.html">Luigi Rizzo</a>
+        <a href="guendalina-salini.html">Guendalina Salini</a>
+        <a href="andrea-salvino.html">Andrea Salvino</a>
+        <a href="fernando-sanchez-castillo.html">Fernando Sánchez Castillo</a>
+        <a href="corrado-sassi.html">Corrado Sassi</a>
+        <a href="maurizio-savini.html">Maurizio Savini</a>
+        <a href="hans-schabus.html">Hans Schabus</a>
+        <a href="sarina-scheidegger.html">Sarina Scheidegger</a>
+        <a href="kelly-schacht.html">Kelly Schacht</a>
+        <a href="marinella-senatore.html">Marinella Senatore</a> 
+        <a href="donatella-spaziani.html">Donatella Spaziani</a> 
+        <a href="batia-suter.html">Batia Suter</a> 
+        <a href="paolo-william-tamburella.html">Paolo William Tamburella</a>
+        <a href="mathilde-ter-hijne.html">Mathilde ter Hijne</a> 
+        <a href="luca-trevisani.html">Luca Trevisani</a> 
+        <a href="thomas-tsang.html">Thomas Tsang</a> 
+        <a href="costa-vece.html">Costa Vece</a>
+        <a href="luca-vitone.html">Luca Vitone</a> 
+        <a href="nicole-wermers.html">Nicole Wermers</a>
+        <a href="nil-yalter.html">Nil Yalter</a>
+        <a href="emiliano-zelada.html">Emiliano Zelada</a>
+        <a href="italo-zuffi.html">Italo Zuffi</a>
+        <!-- Continua con gli altri artisti -->
+    </div>
+
+<script>
+        // Funzione per aprire e chiudere il menu
+        function toggleMenu() {
+            const menu = document.getElementById('menu');
+            menu.classList.toggle('active');
+        }
+
+        // ANIMAZIONE RANDOM DEI LOGHI
+        function animateLogos() {
+            const logos = document.querySelectorAll(".logo");
+
+            logos.forEach((logo) => {
+                gsap.to(logo, {
+                    x: () => Math.random() * (window.innerWidth - 100), // Movimento su tutta la larghezza
+                    y: () => Math.random() * (document.body.scrollHeight - 100), // Movimento su tutta l'altezza
+                    duration: Math.random() * 18 + 15, // Durata tra 8 e 18 secondi (più lento)
+                    repeat: -1, // Movimento continuo
+                    yoyo: true, // Movimento avanti e indietro
+                    ease: "power1.inOut"
+                });
+            });
+        }
+
+        // Avvia l'animazione dei loghi
+        animateLogos();
+
+        // Effetto hover colorato sui nomi degli artisti
+        const colors = ["#FF595E", "#FF924C", "#FFCA3A", "#8AC926", "#1982C4", "#6A4C93"];
+        const artistLinks = document.querySelectorAll(".artists-list a");
+
+        artistLinks.forEach((link, index) => {
+            const originalColor = window.getComputedStyle(link).color;
+            const colorIndex = index % colors.length;
+
+            link.addEventListener("mouseenter", () => {
+                link.style.color = colors[colorIndex];
+            });
+
+            link.addEventListener("mouseleave", () => {
+                link.style.color = originalColor;
+            });
+        });
+    </script>
+
+</body>
+</html>
