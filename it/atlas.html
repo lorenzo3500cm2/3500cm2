@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>3500 cm² - Posters</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      margin: 0;
+      overflow: hidden;
+      background: #fff;
+    }
+    .poster {
+      position: absolute;
+      width: 200px;
+      cursor: grab;
+      transition: transform 0.1s;
+      z-index: 1;
+    }
+    .poster:active {
+      cursor: grabbing;
+      z-index: 1000;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Esempio poster -->
+  <img src="poster1.jpg" class="poster">
+  <img src="poster2.jpg" class="poster">
+  <img src="poster3.jpg" class="poster">
+  <img src="poster4.jpg" class="poster">
+  <img src="poster5.jpg" class="poster">
+  <!-- Aggiungi qui tutti gli altri poster -->
+
+  <script>
+    const posters = document.querySelectorAll('.poster');
+
+    posters.forEach(poster => {
+      // Posizione iniziale casuale
+      poster.style.left = Math.random() * (window.innerWidth - 200) + 'px';
+      poster.style.top = Math.random() * (window.innerHeight - 300) + 'px';
+
+      // Drag & Drop
+      let isDragging = false, offsetX, offsetY;
+
+      const startDrag = (e) => {
+        isDragging = true;
+        poster.style.zIndex = 1000;
+
+        const rect = poster.getBoundingClientRect();
+        offsetX = (e.touches ? e.touches[0].clientX : e.clientX) - rect.left;
+        offsetY = (e.touches ? e.touches[0].clientY : e.clientY) - rect.top;
+      };
+
+      const moveDrag = (e) => {
+        if (!isDragging) return;
+        const x = (e.touches ? e.touches[0].clientX : e.clientX) - offsetX;
+        const y = (e.touches ? e.touches[0].clientY : e.clientY) - offsetY;
+        poster.style.left = x + 'px';
+        poster.style.top = y + 'px';
+      };
+
+      const stopDrag = () => {
+        isDragging = false;
+        poster.style.zIndex = 1;
+      };
+
+      poster.addEventListener('mousedown', startDrag);
+      poster.addEventListener('touchstart', startDrag);
+
+      window.addEventListener('mousemove', moveDrag);
+      window.addEventListener('touchmove', moveDrag, { passive: false });
+
+      window.addEventListener('mouseup', stopDrag);
+      window.addEventListener('touchend', stopDrag);
+    });
+  </script>
+</body>
+</html>
