@@ -594,6 +594,21 @@ Progetto di poster d’artista
             }
         }
     </script>
+	<script>
+    document.querySelectorAll('.read-more').forEach(button => {
+        button.addEventListener('click', () => {
+            const text = button.previousElementSibling;
+            if (text.style.display === "block") {
+                text.style.display = "none";
+                button.textContent = "Leggi di più";
+            } else {
+                text.style.display = "block";
+                button.textContent = "Leggi di meno";
+            }
+        });
+    });
+</script>
+
 </body>
 	<script>
     function toggleMenu() {
