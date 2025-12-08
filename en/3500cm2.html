@@ -1,14 +1,19 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="it">
 <head>
+
+    <link rel="stylesheet" href="css/cursor.css">
+    <script defer src="js/cursor.js"></script>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>3500 cm²</title>
-    
+
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet">
 
     <style>
+        /* Stili generali */
         body {
             margin: 0;
             padding: 20px;
@@ -17,18 +22,30 @@
             font-family: 'Libre Baskerville', serif;
             display: flex;
             flex-direction: column;
-            align-items: flex-start; /* Allinea a sinistra */
+            align-items: flex-start; /* Allinea il testo a sinistra */
             min-height: 100vh;
+            position: relative;
+        }
+
+        .title-container {
+            position: fixed;
+            top: 100px; /* Maggiore distanza dal bordo superiore */
+            left: 20px;
+            right: 20px;
+            text-align: left;
+            z-index: 0; /* Rimane dietro il testo */
+            opacity: 0.3; /* Trasparente per non coprire il contenuto */
+            pointer-events: none; /* Evita interferenze con il testo */
+            max-width: 90%; /* Evita che il titolo superi i margini */
         }
 
         .title {
             font-size: 8rem;
             font-weight: bold;
             text-align: left;
-            min-height: 140px; /* Altezza minima per evitare il movimento */
-            margin-bottom: 180px; /* Maggiore spazio tra titolo e testo */
-            display: flex;
-            align-items: center;
+            word-wrap: break-word; /* Permette il ritorno a capo */
+            overflow-wrap: break-word; /* Assicura il comportamento su tutti i browser */
+            display: block; /* Evita problemi con gli inline elements */
         }
 
         .title a {
@@ -36,13 +53,23 @@
             color: inherit;
         }
 
+        /* TESTO CHE CAMBIA COLORE */
+        #changing-title {
+            /* transizione morbida del colore in 2 secondi */
+            transition: color 2s linear;
+        }
+
+        /* Testo principale */
         .text {
             font-size: 2rem;
             max-width: 800px;
             text-align: left;
-            margin-bottom: 20px;
+            position: relative;
+            z-index: 1; /* Il testo rimane sopra il titolo */
+            margin-top: 450px; /* Aumentato per più distanza dal titolo */
         }
 
+        /* Menu */
         .menu-icon {
             position: absolute;
             top: 20px;
@@ -85,6 +112,7 @@
             text-decoration: underline;
         }
 
+        /* Language Switch */
         .language-switch {
             position: absolute;
             top: 20px;
@@ -101,12 +129,20 @@
             text-decoration: underline;
         }
 
+        /* Footer */
+        footer {
+            position: absolute;
+            bottom: 10px;
+            left: 20px;
+            font-size: 1rem;
+            color: #000;
+        }
+
         /* Adattamenti per schermi piccoli */
         @media screen and (max-width: 768px) {
             .title {
                 font-size: 4rem;
-                min-height: 80px; /* Altezza ridotta per mobile */
-                margin-bottom: 40px;
+                height: 80px;
             }
 
             .text {
@@ -117,8 +153,7 @@
         @media screen and (max-width: 480px) {
             .title {
                 font-size: 3rem;
-                min-height: 60px;
-                margin-bottom: 30px;
+                height: 60px;
             }
 
             .text {
@@ -128,15 +163,17 @@
     </style>
 </head>
 <body>
-      
+
     <!-- Language Switch -->
     <div class="language-switch"> 
-        <a href="../it/3500cm2.html">IT</a>
+        <a href="../en/3500cm2.html">EN</a>
     </div>
 
-    <!-- Titolo -->
-    <div class="title">
-        <a href="pagina.html" id="changing-title">3500 cm²</a>
+    <!-- Titolo con animazione -->
+    <div class="title-container">
+        <div class="title">
+            <a href="pagina.html" id="changing-title">3500 cm²</a>
+        </div>
     </div>
 
     <!-- Menu Icon -->
@@ -151,20 +188,41 @@
         <a href="index.html">Home</a>
         <a href="news.html">News</a>
         <a href="3500cm2.html">3500cm²</a>
-        <a href="pagina.html">Artists</a>
-        <a href="locations.html">Venues</a>
-        <a href="exhibitions.html">Exhibitions</a>
-        <a href="contact.html">Contact</a>
+        <a href="pagina.html">Artisti</a>
+        <a href="luoghi.html">Luoghi</a>
+        <a href="mostre.html">Mostre</a>
+        <a href="partner.html">Partner</a>
+        <a href="contatti.html">Contatti</a>
     </div>
 
     <!-- Testo introduttivo -->
     <div class="text">
-<p> "Without the public these works are nothing. I need the public to complete the work. I ask the public to help me, to take responsibility, to become part of my work, to join in".</p> <p>Felix
-Gonzalez Torres</p>
-        
-        3500 cm² is a project dedicated to the dissemination of contemporary artworks, conceived and curated by Lorenzo Benedetti in 2004. 
-        <p>3500 cm² is the space available to each artist to create a 50×70 cm poster, with the aim of bringing contemporary art closer to a wide and diverse audience, beyond the traditional boundaries of exhibitions.</p>
-        The posters, distributed free of charge, are designed to be spread across the territory in an open and democratic manner, making art accessible and inclusive.
+
+        <p>"Senza il pubblico queste opere non sono nulla. Ho bisogno del pubblico per completare il lavoro. Chiedo al pubblico di aiutarmi, di assumersi una responsabilità, di diventare parte del mio lavoro, di partecipare"</p> <p>Felix Gonzalez Torres
+        </p>
+        3500 cm² è un progetto dedicato alla diffusione di opere d’arte contemporanea, ideato e curato da Lorenzo Benedetti. I 3500 cm² rappresentano lo spazio a disposizione di ogni artista per creare un manifesto di dimensioni 50×70 cm, con l’obiettivo di avvicinare l’arte contemporanea a un pubblico ampio e diversificato, oltre i confini tradizionali delle mostre.
+        I poster, distribuiti gratuitamente, sono pensati per essere diffusi sul territorio in modo aperto e democratico, rendendo l’arte accessibile e inclusiva.
+        <p>Storia di 3500 cm²</p>
+
+        <p>3500 cm² nasce a Roma nel 2004 all’interno del progetto BlueRoom a Rialto Sant’Ambrogio, uno spazio indipendente che ha rappresentato un importante punto di riferimento per la sperimentazione artistica sociale e culturale. L’idea alla base del progetto è semplice ma potente: utilizzare il formato del manifesto come spazio espositivo accessibile e diffuso, trasformando la città in una piattaforma per l’arte contemporanea.
+
+        Fin dall’inizio, 3500 cm² ha coinvolto artisti di diverse generazioni e provenienze, commissionando opere pensate per essere fruite nello spazio pubblico, aprendo le frontiere dell’arte oltre i vincoli della galleria o del museo.</p>
+        <p>Il progetto si è presto espanso oltre i confini di Roma, trovando accoglienza in istituzioni internazionali, tra cui musei, centri d’arte e biennali, che hanno riconosciuto nel formato del manifesto una modalità innovativa di diffusione dell’arte.
+
+        Negli anni, 3500 cm² si è diffusa in diversi luoghi, portando le sue affissioni in città come Ljubljana, Berlino, Parigi e molte altre. Questa espansione ha permesso di ampliare il dialogo tra artisti e pubblico, mantenendo sempre un forte legame con il contesto urbano e sociale in cui i manifesti vengono esposti.
+
+        Oggi, 3500 cm² continua a esistere come un progetto in evoluzione, adattandosi alle trasformazioni del panorama artistico e alle nuove modalità di fruizione dell’arte nello spazio pubblico.</p>
+
+        <p>Nei suoi sviluppi più recenti, 3500 cm² sta ampliando ulteriormente il suo raggio d’azione, portando l’arte in contesti non convenzionali di ampia diffusione pubblica. Questo nuovo capitolo del progetto nasce dalla volontà di raggiungere pubblici ancora più diversificati, intervenendo in luoghi dove l’arte può avere un impatto diretto sul quotidiano, offrendo momenti di riflessione, relazione e respiro visivo. 
+        L’espansione di 3500 cm² in luoghi pubblici diversificati risponde alla necessità di ripensare il ruolo dell’arte nei contesti più sensibili, trasformando il. Poster in dispositivi di incontro e stimolo percettivo. Parallelamente, l’inserimento in ambienti di grande passaggio consente al progetto di rafforzare il suo principio fondante: portare l’arte anche al di fuori dei circuiti tradizionali, rendendola accessibile a un pubblico ampio e trasversale. 
+        Questa nuova fase di 3500 cm² conferma la sua vocazione a essere un format aperto e adattabile, capace di confrontarsi con contesti sempre diversi, pur mantenendo intatta la sua essenza: quella di un’esposizione diffusa, gratuita e radicalmente pubblica.</p>
+
+        <p>3500 cm² si evolve verso l’idea di un museo diffuso, in cui l’arte non è più confinata a uno spazio istituzionale ma si distribuisce in modo permanente in diversi luoghi pubblici. Attraverso la distribuzione dei poster in contesti urbani molto diversi tra loro, il progetto trasforma la città in una piattaforma espositiva continua, accessibile a tutti senza barriere fisiche o economiche.
+
+        Questa modalità di presentazione permanente ribalta il concetto tradizionale di museo, rendendo l’esperienza artistica parte integrante del quotidiano. I poster non sono più eventi temporanei o iniziative sporadiche, ma elementi stabili che si integrano nell’ambiente, generando nuove relazioni con il pubblico e il territorio.
+
+        L’idea di museo diffuso di 3500 cm² si fonda sulla democratizzazione della fruizione artistica: ogni spazio può diventare un luogo espositivo, ogni passante un visitatore inconsapevole. L’arte, così, si inserisce nei flussi della vita urbana, creando un dialogo aperto e continuo tra opera, contesto e pubblico.</p>
+    
     </div>
 
     <script>
@@ -174,69 +232,74 @@ Gonzalez Torres</p>
         }
 
         const texts = [
-                   "3500 cm²",
-        "𓂋𓏤𓈖𓏥𓄿𓂻",
-        "τρισχίλιοι πεντακόσιοι τετραγωνικά εκατοστά",
-        "MMMD centimetra quadrata",
-        "३५०० वर्ग सेंटीमीटर",
-        "𓆼𓆼𓆼 𓍢𓍢𓍢𓍢𓍢 𓌹𓏤𓐍𓏏𓏤",
-        "ᨕᨑᨒ ᨔᨙᨕᨊ",
-        "৩৫০০ চে.মি",
-        "𐂆𐂏 𐀂𐀗",
-        "٣٥٠٠ سم²",
-        "⊕⊕⊕ 𐌗 𐌉𐌀𐌔𐌉𐌀",
-        "3500 சதுர செ.மீ.",
-        "𒐐 𒌚 𒐕 𒋞",
-        "3500 সেমি²",
-        "3500 చదరపు సెం.మీ",
-        "৩৫০০ বর্গ সেন্টিমিটার",
-        "𐤋𐤌𐤄 𐤒𐤌𐤄",
-        "3500 ಚದರ ಸೆ.ಮೀ",
-        "3500 平方厘米",
-        "𒁹𒑏𒌋 𒀀𒇽", 
-        "3500 ตารางเซนติเมตร",
-        "ᛏᚱᛁᚢ ᚦᚢᛋᚢᚾᛏ ᚠᛁᛘᛘ ᚼᚢᚾᛏᚱᚢᚦ ᚠᛁᚱᛘᛖᛏᚱ",
-        "3500 cm²",
-        "3500厘米2",
-        "3500 sm²",
-        "߃߅߀߀ ߛߊ߲ߕߋߡߕߙߌ",
-        "꯳꯵꯰꯰ ꯁꯦ.ꯃꯤ",
-        "3500 ሴ.ሜ ",
-        "3500 cm2 ཡིན།",
-        "ᚃᚂᚂᚂᚂ ᚄᚆᚐᚃ",
-        "3500 ตร.ซม",
-        "3500 సెం.మీ",
-        "3500 செமீ²",
-        "꯳꯵꯰꯰ ꯁꯦ.ꯃꯤ.",
-        "𒐊 𒐕 𒆠𒆠",
-        "३५०० सिएम२",
-        "3500平方センチメートル",
-        "3500 ၸိၼ်ႇတီႇမီႇတႃႇ2",
-        "3500 សង់ទីម៉ែត្រ",
-        "3500 см2 ыджда",
-        "3500ຊມ",
-        "३५०० सेंमी",
-        "3500 सेमी2",
-        "3500 സെ.മീ",
-        " سم2",
-        "3500 სმ²",
-        "3500 ސެންޓިމީޓަރެވެ",
-        "𐦠𐦢 𐦴𐦵",
-        "𑁛𑁘 𑀲𑀼𑀯𑀯𑀲𑀺",
-        "ⲗⲅⲑ ⲥⲟⲩⲛ",
-        "3500 सेमी2 के बा ",
-        "३५०० से.मी ",
-        "ⵣⴰⴼ ⵙⴰⵎⵙ"
+            "3500 cm²",
+            "𓂋𓏤𓈖𓏥𓄿𓂻",
+            "τρισχίλιοι πεντακόσιοι τετραγωνικά εκατοστά",
+            "MMMD centimetra quadrata",
+            "३५०० वर्ग सेंटीमीटर",
+            "𓆼𓆼𓆼 𓍢𓍢𓍢𓍢𓍢 𓌹𓏤𓐍𓏏𓏤",
+            "ᨕᨑᨒ ᨔᨙᨕᨊ",
+            "৩৫০০ চে.মি",
+            "𐂆𐂏 𐀂𐀗",
+            "٣٥٠٠ سم²",
+            "⊕⊕⊕ 𐌗 𐌉𐌀𐌔𐌉𐌀",
+            "3500 சதுர செ.மீ.",
+            "𒐐 𒌚 𒐕 𒋞",
+            "3500 সেমি²",
+            "3500 చదరపు సెం.మీ",
+            "৩৫০০ বর্গ সেন্টিমিটার",
+            "𐤋𐤌𐤄 𐤒𐤌𐤄",
+            "3500 ಚದರ ಸೆ.ಮೀ",
+            "3500 平方厘米",
+            "𒁹𒑏𒌋 𒀀𒇽", 
+            "3500 ตารางเซนติเมตร",
+            "ᛏᚱᛁᚢ ᚦᚢᛋᚢᚾᛏ ᚠᛁᛘᛘ ᚼᚢᚾᛏᚱᚢᚦ ᚠᛁᚱᛘᛖᛏᚱ",
+            "3500 cm²",
+            "3500厘米2",
+            "3500 sm²",
+            "3500 cm2 ཡིན།",
+            "3500 ሴ.ሜ ",
+            "3500 cm²"
+        ];
+
+        // Almeno 10 colori diversi che cambiano ogni 2 secondi
+        const colors = [
+            "#ff0000", // rosso
+            "#ff7f00", // arancione
+            "#ffff00", // giallo
+            "#7fff00", // verde chiaro
+            "#00ff7f", // verde acqua
+            "#00ffff", // ciano
+            "#007fff", // blu
+            "#8b00ff", // viola
+            "#ff1493", // fucsia
+            "#ff4500", // arancio/rosso
+            "#32cd32", // verde lime
+            "#1e90ff"  // blu chiaro
         ];
 
         let index = 0;
+
         function changeText() {
             const titleElement = document.getElementById('changing-title');
-            titleElement.textContent = texts[index];
-            index = (index + 1) % texts.length;
+            titleElement.textContent = texts[index % texts.length];
+            titleElement.style.color = colors[index % colors.length];
+            index++;
         }
 
-        setInterval(changeText, 2000); // Cambia il testo ogni 2 secondi
+        // cambia testo + colore ogni 2 secondi
+        setInterval(changeText, 2000);
+        // prima chiamata immediata
+        changeText();
+    </script>
+
+    <footer>
+        &copy; 3500cm² <span id="year"></span>
+    </footer>
+
+    <script>
+        // Aggiorna automaticamente l'anno nel copyright
+        document.getElementById("year").textContent = new Date().getFullYear();
     </script>
 </body>
 </html>
