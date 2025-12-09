@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3500 cm² – #</title>
+
+    <!-- Font usato sul resto del sito -->
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            /* Puoi cambiare questi colori come preferisci */
+            --color1: #d32f2f; /* rosso intenso */
+            --color2: #1976d2; /* blu */
+            --color3: #388e3c; /* verde */
+            --color4: #f9a825; /* giallo/ocra */
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            padding: 40px 20px;
+            background-color: #ffffff;
+            color: #000000;
+            font-family: 'Libre Baskerville', serif;
+            display: flex;
+            justify-content: center;
+        }
+
+        .stats-wrapper {
+            width: 100%;
+            max-width: 900px;
+        }
+
+        h1 {
+            margin: 0 0 40px 0;
+            font-size: clamp(32px, 5vw, 48px);
+            font-weight: 700;
+        }
+
+        .subtitle {
+            margin-bottom: 40px;
+            font-size: 16px;
+            line-height: 1.5;
+            max-width: 600px;
+        }
+
+        .counters {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 32px;
+        }
+
+        @media (max-width: 600px) {
+            .counters {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .counter-block {
+            border: 1px solid #000;
+            padding: 24px 20px;
+            min-height: 120px;
+        }
+
+        .counter-number {
+            font-size: clamp(32px, 4.5vw, 40px);
+            font-weight: 700;
+            line-height: 1;
+            margin-bottom: 8px;
+        }
+
+        .counter-label {
+            font-size: 14px;
+            line-height: 1.4;
+        }
+
+        /* Colori diversi per i numeri */
+        .c1 .counter-number { color: var(--color1); }
+        .c2 .counter-number { color: var(--color2); }
+        .c3 .counter-number { color: var(--color3); }
+        .c4 .counter-number { color: var(--color4); }
+    </style>
+</head>
+<body>
+
+<div class="stats-wrapper">
+    <!-- Titolo pagina, puoi tenerlo solo come # se preferisci -->
+    <h1>#</h1>
+    <p class="subtitle">
+        Alcuni dati essenziali di <strong>3500 cm²</strong>: numero di poster, copie stampate, luoghi e città
+        in cui il progetto è stato presente.
+    </p>
+
+    <div class="counters">
+        <div class="counter-block c1">
+            <div class="counter-number" data-target="109">0</div>
+            <div class="counter-label">
+                poster di artisti diversi
+            </div>
+        </div>
+
+        <div class="counter-block c2">
+            <div class="counter-number" data-target="120000">0</div>
+            <div class="counter-label">
+                copie stampate e distribuite
+            </div>
+        </div>
+
+        <div class="counter-block c3">
+            <div class="counter-number" data-target="55">0</div>
+            <div class="counter-label">
+                luoghi diversi
+            </div>
+        </div>
+
+        <div class="counter-block c4">
+            <div class="counter-number" data-target="22">0</div>
+            <div class="counter-label">
+                città
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Animazione dei numeri da 0 al valore finale in ~2 secondi
+    document.addEventListener('DOMContentLoaded', function () {
+        const counters = document.querySelectorAll('.counter-number');
+        const duration = 2000; // durata dell'animazione in millisecondi
+
+        counters.forEach(counter => {
+            const target = parseInt(counter.getAttribute('data-target'), 10);
+            const startTime = performance.now();
+
+            function update(now) {
+                const elapsed = now - startTime;
+                const progress = Math.min(elapsed / duration, 1); // da 0 a 1
+                const value = Math.floor(progress * target);
+
+                // Formattazione con separatore delle migliaia in stile italiano (es. 120.000)
+                counter.textContent = value.toLocaleString('it-IT');
+
+                if (progress < 1) {
+                    requestAnimationFrame(update);
+                } else {
+                    // assicura che il numero finale sia esattamente quello richiesto
+                    counter.textContent = target.toLocaleString('it-IT');
+                }
+            }
+
+            requestAnimationFrame(update);
+        });
+    });
+</script>
+
+</body>
+</html>
