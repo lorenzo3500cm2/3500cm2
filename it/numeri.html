@@ -35,42 +35,25 @@
 
         .stats-wrapper {
             width: 100%;
-            max-width: 1100px;
+            max-width: 900px;
             text-align: center;
         }
 
         h1 {
-            margin: 0 0 32px 0;
-            font-size: clamp(36px, 5vw, 54px);
+            margin: 0 0 40px 0;
+            font-size: clamp(40px, 6vw, 70px);
             font-weight: 700;
         }
 
-        .subtitle {
-            margin: 0 0 56px 0;
-            font-size: 18px;
-            line-height: 1.6;
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
         .counters {
-            display: grid;
-            grid-template-columns: repeat(4, minmax(0, 1fr));
-            gap: 32px;
-            align-items: flex-start;
-        }
-
-        @media (max-width: 900px) {
-            .counters {
-                grid-template-columns: repeat(2, minmax(0, 1fr));
-            }
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
         }
 
         @media (max-width: 600px) {
             .counters {
-                grid-template-columns: 1fr;
-                gap: 24px;
+                gap: 32px;
             }
         }
 
@@ -79,16 +62,16 @@
         }
 
         .counter-number {
-            font-size: clamp(48px, 8vw, 96px);
+            font-size: clamp(72px, 12vw, 160px);
             font-weight: 700;
-            line-height: 1.05;
+            line-height: 0.9;
             margin-bottom: 10px;
             white-space: nowrap;
         }
 
         .counter-label {
-            font-size: 16px;
-            line-height: 1.5;
+            font-size: 18px;
+            line-height: 1.6;
         }
 
         /* Colori diversi per i numeri */
@@ -102,9 +85,6 @@
 
 <div class="stats-wrapper">
     <h1>#</h1>
-    <p class="subtitle">
-        Alcuni dati essenziali di <strong>3500 cm²</strong>.
-    </p>
 
     <div class="counters">
         <div class="counter-block c1">
