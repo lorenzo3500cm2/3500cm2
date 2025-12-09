@@ -23,7 +23,7 @@
 
         body {
             margin: 0;
-            padding: 40px 20px;
+            padding: 60px 24px;
             background-color: #ffffff;
             color: #000000;
             font-family: 'Libre Baskerville', serif;
@@ -33,50 +33,48 @@
 
         .stats-wrapper {
             width: 100%;
-            max-width: 900px;
+            max-width: 1000px;
         }
 
         h1 {
             margin: 0 0 40px 0;
-            font-size: clamp(32px, 5vw, 48px);
+            font-size: clamp(40px, 6vw, 60px);
             font-weight: 700;
         }
 
         .subtitle {
-            margin-bottom: 40px;
-            font-size: 16px;
-            line-height: 1.5;
-            max-width: 600px;
+            margin-bottom: 48px;
+            font-size: 18px;
+            line-height: 1.6;
+            max-width: 650px;
         }
 
         .counters {
             display: grid;
             grid-template-columns: repeat(2, minmax(0, 1fr));
-            gap: 32px;
+            gap: 40px;
         }
 
-        @media (max-width: 600px) {
+        @media (max-width: 700px) {
             .counters {
                 grid-template-columns: 1fr;
             }
         }
 
         .counter-block {
-            border: 1px solid #000;
-            padding: 24px 20px;
-            min-height: 120px;
+            padding: 10px 0;
         }
 
         .counter-number {
-            font-size: clamp(32px, 4.5vw, 40px);
+            font-size: clamp(40px, 6vw, 56px);
             font-weight: 700;
-            line-height: 1;
+            line-height: 1.1;
             margin-bottom: 8px;
         }
 
         .counter-label {
-            font-size: 14px;
-            line-height: 1.4;
+            font-size: 16px;
+            line-height: 1.5;
         }
 
         /* Colori diversi per i numeri */
@@ -89,11 +87,10 @@
 <body>
 
 <div class="stats-wrapper">
-    <!-- Titolo pagina, puoi tenerlo solo come # se preferisci -->
     <h1>#</h1>
     <p class="subtitle">
         Alcuni dati essenziali di <strong>3500 cm²</strong>: numero di poster, copie stampate, luoghi e città
-        in cui il progetto è stato presente.
+        in cui l’iniziativa è stata presente.
     </p>
 
     <div class="counters">
@@ -148,7 +145,6 @@
                 if (progress < 1) {
                     requestAnimationFrame(update);
                 } else {
-                    // assicura che il numero finale sia esattamente quello richiesto
                     counter.textContent = target.toLocaleString('it-IT');
                 }
             }
