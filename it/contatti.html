@@ -3,120 +3,142 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contatti</title>
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-1ZDKD18HZM"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-1ZDKD18HZM');
-    </script>
+    <title>3500 cm² – #</title>
+
+    <!-- Font usato sul resto del sito -->
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet">
+
     <style>
-        footer {
-    position: fixed;
-    bottom: 10px;
-    left: 20px;
-    font-size: 0.9rem;
-    color: #000;
-}
+        :root {
+            --color1: #d32f2f; /* rosso intenso */
+            --color2: #1976d2; /* blu */
+            --color3: #388e3c; /* verde */
+            --color4: #f9a825; /* giallo/ocra */
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
         body {
-            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
             margin: 0;
-            padding: 0;
-            background-color: #fff;
-            color: #000;
+            background-color: #ffffff;
+            color: #000000;
+            font-family: 'Libre Baskerville', serif;
+            min-height: 100vh;
         }
-        .header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px;
+
+        /* contenitore dei numeri */
+        .stats-wrapper {
+            width: 100%;
+            max-width: 900px;
+            margin: 120px auto 40px; /* spazio dall’alto per non coprire il menu */
+            padding: 0 16px;
+            text-align: center;
         }
-        .email {
-            font-size: 1.2rem; /* Dimensione leggermente maggiore */
-            font-weight: bold;
-            color: #000; /* Colore nero */
+
+        h1 {
+            margin: 0 0 40px 0;
+            font-size: clamp(40px, 6vw, 70px);
+            font-weight: 700;
         }
-        .email a {
-            text-decoration: none;
-            color: #000;
-        }
-        .email a:hover {
-            text-decoration: underline;
-        }
-        .menu-icon {
+
+        .counters {
             display: flex;
             flex-direction: column;
-            justify-content: space-around;
-            width: 25px;
-            height: 15px;
-            cursor: pointer;
+            gap: 40px;
         }
-        .menu-icon div {
-            background-color: #000;
-            height: 2px;
-            width: 100%;
-            border-radius: 1px;
+
+        @media (max-width: 600px) {
+            .counters {
+                gap: 32px;
+            }
         }
-        .menu {
-            display: none; /* Nasconde il menu di default */
-            position: absolute;
-            top: 60px;
-            right: 20px;
+
+        .counter-block {
             padding: 0;
         }
-        .menu a {
-            display: block;
-            padding: 10px 0;
-            text-decoration: none;
-            color: #000; /* Scritte nere */
-            font-size: 1rem;
+
+        .counter-number {
+            font-size: clamp(72px, 12vw, 160px);
+            font-weight: 700;
+            line-height: 0.9;
+            margin-bottom: 10px;
+            white-space: nowrap;
         }
-        .menu a:hover {
-            text-decoration: underline; /* Sottolinea al passaggio del mouse */
+
+        .counter-label {
+            font-size: 18px;
+            line-height: 1.6;
         }
+
+        /* Colori diversi per i numeri */
+        .c1 .counter-number { color: var(--color1); }
+        .c2 .counter-number { color: var(--color2); }
+        .c3 .counter-number { color: var(--color3); }
+        .c4 .counter-number { color: var(--color4); }
     </style>
 </head>
 <body>
-   <div class="email">
-    <a href="mailto:info@3500cm2.org">info@3500cm2.org</a>
-    <br>
-    <a href="https://www.instagram.com/3500cm2/" target="_blank" rel="noopener noreferrer">instagram</a>
-    <br>
-    <a href="https://www.linkedin.com/company/3500cm2/" target="_blank" rel="noopener noreferrer">linkedin</a>
-</div>
 
-            
-        </div>
-        <div class="menu-icon" onclick="toggleMenu()">
-            <div></div>
-            <div></div>
-            <div></div>
-        </div>
-    </div>
+    <!-- QUI sopra puoi avere il tuo menu / header come nelle altre pagine -->
 
-    <!-- Menu nascosto -->
-    <div class="menu" id="menu">
-        <a href="index.html">home</a>
-        <a href="3500cm2.html">3500cm2</a>
-        <a href="pagina.html">artisti</a>
-        <a href="luoghi.html">luoghi</a>
-        <a href="partner.html">partner</a>
-       
+    <div class="stats-wrapper">
+        <h1>#</h1>
+
+        <div class="counters">
+            <div class="counter-block c1">
+                <div class="counter-number" data-target="109">0</div>
+                <div class="counter-label">
+                    poster di artisti diversi
+                </div>
+            </div>
+
+            <div class="counter-block c2">
+                <div class="counter-number" data-target="120000">0</div>
+                <div class="counter-label">
+                    copie stampate e distribuite
+                </div>
+            </div>
+
+            <div class="counter-block c3">
+                <div class="counter-number" data-target="33">0</div>
+                <div class="counter-label">
+                    luoghi diversi
+                </div>
+            </div>
+        </div>
     </div>
 
     <script>
-        function toggleMenu() {
-            const menu = document.getElementById('menu');
-            menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
-        }
+        // Animazione dei numeri da 0 al valore finale in ~2 secondi
+        document.addEventListener('DOMContentLoaded', function () {
+            const counters = document.querySelectorAll('.counter-number');
+            const duration = 2000; // durata dell'animazione in millisecondi
+
+            counters.forEach(counter => {
+                const target = parseInt(counter.getAttribute('data-target'), 10);
+                const startTime = performance.now();
+
+                function update(now) {
+                    const elapsed = now - startTime;
+                    const progress = Math.min(elapsed / duration, 1); // da 0 a 1
+                    const value = Math.floor(progress * target);
+
+                    // Formattazione con separatore delle migliaia in stile italiano (es. 120.000)
+                    counter.textContent = value.toLocaleString('it-IT');
+
+                    if (progress < 1) {
+                        requestAnimationFrame(update);
+                    } else {
+                        counter.textContent = target.toLocaleString('it-IT');
+                    }
+                }
+
+                requestAnimationFrame(update);
+            });
+        });
     </script>
 
-    <footer>
-    &copy; 3500cm² <span id="year"></span>
-</footer>
-    <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-</script>
 </body>
 </html>
