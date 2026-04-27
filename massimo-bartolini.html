@@ -126,5 +126,34 @@
             menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
         }
     </script>
+    <script>
+    let touchStartX = 0;
+    let touchEndX = 0;
+
+    document.addEventListener('touchstart', function(event) {
+        touchStartX = event.changedTouches[0].screenX;
+    }, false);
+
+    document.addEventListener('touchend', function(event) {
+        touchEndX = event.changedTouches[0].screenX;
+        handleSwipe();
+    }, false);
+
+    function handleSwipe() {
+        const swipeDistance = touchEndX - touchStartX;
+        const minSwipeDistance = 80;
+
+        const prevArtist = document.querySelector('.prev-artist');
+        const nextArtist = document.querySelector('.next-artist');
+
+        if (swipeDistance < -minSwipeDistance && nextArtist) {
+            window.location.href = nextArtist.href;
+        }
+
+        if (swipeDistance > minSwipeDistance && prevArtist) {
+            window.location.href = prevArtist.href;
+        }
+    }
+</script>
 </body>
 </html>
