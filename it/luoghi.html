@@ -45,61 +45,47 @@
     color: blue; /* Cambia il colore in blu al passaggio del mouse */
 }
             
-.menu-icon {
+.header {
     display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    width: 30px;
-    height: 25px;
-    cursor: pointer;
-    position: relative;
-    margin-right: 10px; /* Aggiunto spazio dal bordo destro */
-}
-
-
-.menu-icon div {
-    background-color: #000;
-    height: 3px;
-    width: 100%;
-    border-radius: 2px;
-    transition: all 0.3s ease;
-}
-
-/* Modifica le barre per creare una "X" quando il menu è aperto */
-.menu-icon.open div:nth-child(1) {
-    transform: rotate(45deg) translate(1px, 5px);
-}
-
-.menu-icon.open div:nth-child(2) {
-    opacity: 0; /* Nasconde la barra centrale */
-}
-
-.menu-icon.open div:nth-child(3) {
-    transform: rotate(-45deg) translate(1px, -6px);
-        }
-            
-  .menu {
-    display: none; /* Nasconde il menu inizialmente */
-    position: absolute;
-    top: 80px;
-    right: 20px;
+    justify-content: flex-start;
+    align-items: baseline;
+    gap: 35px;
+    padding: 20px;
+    border-bottom: 1px solid #ddd;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
     background: white;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    padding: 15px;
     z-index: 1000;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-    text-align: right;
-    transition: opacity 0.3s ease, visibility 0.3s ease;
-    opacity: 0;
-    visibility: hidden;
+    height: 70px;
 }
 
-/* Mostra il menu quando è attivo */
-.menu.active {
-    display: block; /* Rende visibile il menu */
-    opacity: 1;
-    visibility: visible;
+.title {
+    font-size: 3rem;
+    font-weight: bold;
+    font-family: 'Libre Baskerville', serif;
+    color: #000;
+    margin: 0;
+}
+
+.menu {
+    display: flex;
+    flex-direction: row;
+    gap: 18px;
+    align-items: center;
+    font-size: 1rem;
+    font-family: 'Libre Baskerville', serif;
+}
+
+.menu a {
+    text-decoration: none;
+    color: #000;
+    white-space: nowrap;
+}
+
+.menu a:hover {
+    text-decoration: underline;
 }
         .menu a:hover {
             text-decoration: underline;
@@ -197,22 +183,39 @@ ul {
         .midnightblue { color: #191970; } /* Blu notte */
         .seagreen { color: #2e8b57; }   /* Verde mare */
         .lightcoral { color: #f08080; } /* Corallo chiaro */
+
+
+    @media screen and (max-width: 768px) {
+    .header {
+        flex-direction: column;
+        align-items: flex-start;
+        height: auto;
+        gap: 10px;
+    }
+
+    .title {
+        font-size: 2.5rem;
+    }
+
+    .menu {
+        flex-wrap: wrap;
+        gap: 10px 16px;
+        font-size: 0.95rem;
+    }
+
+    .content {
+        margin-top: 150px;
+    }
+}
     </style>
     <script src="analytics.js"></script>
 </head>
 <body>
     <!-- Header con menu -->
     <div class="header">
-        <a href="pagina.html" class="title">Luoghi</a>
-        <div class="menu-icon" onclick="toggleMenu()">
-            <div></div>
-            <div></div>
-            <div></div>
-        </div>
-    </div>
+    <a href="pagina.html" class="title">Luoghi</a>
 
-    <!-- Menu a scomparsa -->
-    <div class="menu" id="menu">
+    <nav class="menu">
         <a href="index.html">Home</a>
         <a href="news.html">News</a>
         <a href="3500cm2.html">3500cm²</a>
@@ -220,7 +223,8 @@ ul {
         <a href="mostre.html">Mostre</a>
         <a href="partner.html">Partner</a>
         <a href="contatti.html">Contatti</a>
-    </div>
+    </nav>
+</div>
 
 
 
@@ -511,20 +515,6 @@ ul {
     <div class="copyright">© 2025 3500 cm². Tutti i diritti riservati.</div>
 
         
-   <script>
-    function toggleMenu() {
-        const menu = document.getElementById('menu');
-        const menuIcon = document.querySelector('.menu-icon');
-        menu.classList.toggle('active');
-        menuIcon.classList.toggle('open');
 
-        // Controlla se il menu è attivo e regola la visibilità
-        if (menu.classList.contains('active')) {
-            menu.style.display = "block";
-        } else {
-            menu.style.display = "none";
-        }
-    }
-</script>
 </body>
 </html>
