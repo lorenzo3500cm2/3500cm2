@@ -12,7 +12,7 @@
         body {
             font-family: 'Libre Baskerville', serif;
             margin: 0;
-            padding: 20px;
+            padding: 0;
             background-color: #ffffff;
             color: #000;
         }
@@ -103,8 +103,22 @@
     display: flex;
     justify-content: space-between;
     align-items: baseline;
+    gap: 40px;
     padding: 20px 40px;
-    margin-bottom: 40px;
+    border-bottom: 1px solid #ddd;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: white;
+    z-index: 1000;
+    min-height: 70px;
+    box-sizing: border-box;
+}
+		.content-item:first-of-type {
+
+    margin-top: 120px;
+
 }
 
 .page-title {
@@ -114,6 +128,7 @@
     text-align: left;
     text-decoration: none;
     color: black;
+	white-space: nowrap;
 }
 
 .menu {
@@ -152,12 +167,13 @@
             text-decoration: underline;
         }
 
-		@media screen and (max-width: 768px) {
+	@media screen and (max-width: 768px) {
     .header {
         flex-direction: column;
         align-items: flex-start;
         gap: 10px;
         padding: 20px;
+        min-height: auto;
     }
 
     .page-title {
@@ -172,6 +188,10 @@
 
     .menu a {
         font-size: 1.05rem;
+    }
+
+    .content-item:first-of-type {
+        margin-top: 170px;
     }
 }
     </style>
