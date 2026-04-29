@@ -102,9 +102,9 @@
 .header {
     display: flex;
     justify-content: space-between;
-    align-items: baseline;
+    align-items: flex-start;
     gap: 40px;
-    padding: 20px 40px;
+    padding: 24px 40px 18px 40px;
     border-bottom: 1px solid #ddd;
     position: fixed;
     top: 0;
@@ -112,32 +112,40 @@
     right: 0;
     background: white;
     z-index: 1000;
-    min-height: 70px;
     box-sizing: border-box;
-}
-		.content-item:first-of-type {
-
-    margin-top: 220px;
-
 }
 
 .page-title {
+    display: block;
     font-size: 3rem;
+    line-height: 1;
     font-weight: bold;
     margin: 0;
+    padding: 0;
     text-align: left;
     text-decoration: none;
     color: black;
-	white-space: nowrap;
+    white-space: nowrap;
+    flex-shrink: 0;
 }
 
 .menu {
     display: flex;
     flex-direction: row;
     justify-content: flex-end;
-    align-items: baseline;
+    align-items: flex-start;
     gap: 22px;
     text-align: right;
+    flex-wrap: wrap;
+    padding-top: 6px;
+}
+
+body {
+    padding-top: 130px;
+}
+
+.content-item:first-of-type {
+    margin-top: 90px;
 }
 
 .menu a {
@@ -170,24 +178,27 @@
 	@media screen and (max-width: 768px) {
     body {
         overflow-x: hidden;
+        padding-top: 190px;
     }
 
     .header {
         flex-direction: column;
         align-items: flex-start;
-        gap: 10px;
+        gap: 12px;
         padding: 20px;
-        min-height: auto;
     }
 
     .page-title {
         font-size: 2.5rem;
+        line-height: 1;
+        flex-shrink: 0;
     }
 
     .menu {
         justify-content: flex-start;
         flex-wrap: wrap;
         gap: 10px 18px;
+        padding-top: 0;
     }
 
     .menu a {
@@ -195,7 +206,7 @@
     }
 
     .content-item:first-of-type {
-        margin-top: 210px;
+        margin-top: 60px;
     }
 
     .content-item,
@@ -234,6 +245,7 @@
         max-width: 100%;
         height: auto;
     }
+
 }
     </style>
 </head>
