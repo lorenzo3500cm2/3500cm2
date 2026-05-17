@@ -125,24 +125,54 @@ body {
     padding-top: 80px;
 }
 
-@media (max-width: 768px) {
+@media screen and (max-width: 480px) {
     .site-header {
-        padding: 14px 16px;
+        padding: 12px 14px;
     }
 
     .site-title {
-        font-size: 1.2rem;
+        font-size: 1rem;
     }
 
     .site-nav {
-        gap: 14px;
-        font-size: 0.85rem;
-        overflow-x: auto;
-        padding-bottom: 4px;
+        gap: 12px;
+        font-size: 0.8rem;
+        max-width: 68vw;
     }
 
     body {
-        padding-top: 75px;
+        padding-top: 70px;
+    }
+
+    .title-container {
+        top: 85px;
+    }
+
+    .title {
+        font-size: 3rem;
+        height: auto;
+    }
+
+    .text {
+        font-size: 1.35rem;
+        margin-top: 300px;
+    }
+}
+
+    .title-container {
+        top: 90px;
+        left: 20px;
+        right: 20px;
+    }
+
+    .title {
+        font-size: 4rem;
+        height: auto;
+    }
+
+    .text {
+        font-size: 1.6rem;
+        margin-top: 350px;
     }
 }
         /* Footer */
@@ -180,10 +210,7 @@ body {
 </head>
 <body>
 
-    <!-- Language Switch -->
-    <div class="language-switch"> 
-        <a href="../en/3500cm2.html">EN</a>
-    </div>
+
 
     <!-- Titolo con animazione -->
     <div class="title-container">
@@ -192,12 +219,7 @@ body {
         </div>
     </div>
 
-    <!-- Menu Icon -->
-    <div class="menu-icon" onclick="toggleMenu()">
-        <div class="bar"></div>
-        <div class="bar"></div>
-        <div class="bar"></div>
-    </div>
+
 
     <!-- Menu -->
 <header class="site-header">
@@ -248,10 +270,7 @@ L’idea di museo diffuso di 3500 cm² si fonda sulla democratizzazione della fr
     
     </div>
 <script>
-        function toggleMenu() {
-            const menu = document.getElementById('menu');
-            menu.classList.toggle('active');
-        }
+      
 
         const texts = [
             "3500 cm²",
@@ -295,7 +314,7 @@ L’idea di museo diffuso di 3500 cm² si fonda sulla democratizzazione della fr
 
 
 
-    </script>
+
 
         </script>
 <footer>
