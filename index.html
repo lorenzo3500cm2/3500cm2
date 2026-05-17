@@ -10,21 +10,21 @@
       const savedLanguage = localStorage.getItem("siteLanguage");
 
       if (savedLanguage === "it") {
-        window.location.replace("/it/");
+        window.location.replace("/it/3500-cm2.html");
         return;
       }
 
       if (savedLanguage === "en") {
-        window.location.replace("/en/");
+        window.location.replace("/en/3500-cm2.html");
         return;
       }
 
       const browserLanguage = navigator.language || navigator.userLanguage;
 
       if (browserLanguage && browserLanguage.toLowerCase().startsWith("it")) {
-        window.location.replace("/it/");
+        window.location.replace("/it/3500-cm2.html");
       } else {
-        window.location.replace("/en/");
+        window.location.replace("/en/3500-cm2.html");
       }
     })();
   </script>
@@ -33,7 +33,8 @@
 <body>
   <noscript>
     <p>
-      <a href="/it/">Italiano</a> / <a href="/en/">English</a>
+      <a href="/it/3500-cm2.html">Italiano</a> /
+      <a href="/en/3500-cm2.html">English</a>
     </p>
   </noscript>
 </body>
