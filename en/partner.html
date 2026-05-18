@@ -15,36 +15,123 @@
     </script>
     <style>
 
-
-        /* Menu */
-.menu-icon {
-    cursor: pointer;
+/* Header con titolo e menu sempre visibile */
+.header {
     display: flex;
-    flex-direction: column;
-    gap: 5px;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    border-bottom: 2px solid #000;
+    text-align: left;
 }
 
-.menu-icon .bar {
-    width: 28px;
-    height: 3px;
-    background-color: #000;
+.back-link {
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-decoration: none;
+    color: #000;
 }
 
+.back-link:hover {
+    color: blue;
+}
+
+/* Menu orizzontale */
 .menu {
-    display: none;
-    flex-direction: column;
-    gap: 10px;
-    position: absolute;
-    top: 70px;
-    right: 20px;
-    background: #fff;
-    border: 1px solid #ddd;
-    padding: 15px;
-    z-index: 1000;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 18px;
 }
 
-.menu.active {
+.menu a {
+    text-decoration: none;
+    color: #000;
+    font-size: 1rem;
+    white-space: nowrap;
+}
+
+.menu a:hover {
+    color: blue;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+
+    .menu {
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        gap: 10px 16px;
+    }
+
+    .menu a {
+        font-size: 0.85rem;
+    }
+}
+/* Header con titolo e menu sempre visibile */
+.header {
     display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    border-bottom: 2px solid #000;
+    text-align: left;
+}
+
+.back-link {
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-decoration: none;
+    color: #000;
+}
+
+.back-link:hover {
+    color: blue;
+}
+
+/* Menu orizzontale */
+.menu {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 18px;
+}
+
+.menu a {
+    text-decoration: none;
+    color: #000;
+    font-size: 1rem;
+    white-space: nowrap;
+}
+
+.menu a:hover {
+    color: blue;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+
+    .menu {
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        gap: 10px 16px;
+    }
+
+    .menu a {
+        font-size: 0.85rem;
+    }
 }
 
 .menu a {
@@ -137,15 +224,12 @@
 </head>
 <body>
 
-  <!-- Menu Icon -->
-    <div class="menu-icon" onclick="toggleMenu()">
-        <div class="bar"></div>
-        <div class="bar"></div>
-        <div class="bar"></div>
-    </div>
 
-    <!-- Menu -->
-    <div class="menu" id="menu">
+
+<div class="header">
+    <a href="index.html" class="back-link">Partner</a>
+
+    <div class="menu">
         <a href="index.html">Home</a>
         <a href="news.html">News</a>
         <a href="3500cm2.html">3500cm²</a>
@@ -154,10 +238,7 @@
         <a href="exhibitions.html">Exhibitions</a>
         <a href="contact.html">Contact</a>
     </div>
-    
-    <div class="header">
-        <a href="index.html" class="back-link">Partner</a>
-    </div>
+</div>
 
 <div class="logo-row">
 
@@ -297,7 +378,7 @@
     <span>Zerynthia</span>
   </div>
 
-</div>
+
     </div>
 </body>
 </html>
