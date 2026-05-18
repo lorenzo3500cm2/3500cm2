@@ -16,23 +16,46 @@
     <style>
 
 
-          <!-- Menu Icon -->
-    <div class="menu-icon" onclick="toggleMenu()">
-        <div class="bar"></div>
-        <div class="bar"></div>
-        <div class="bar"></div>
-    </div>
+        /* Menu */
+.menu-icon {
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
 
-    <!-- Menu -->
-    <div class="menu" id="menu">
-        <a href="index.html">Home</a>
-        <a href="news.html">News</a>
-        <a href="3500cm2.html">3500cm²</a>
-        <a href="pagina.html">Artists</a>
-        <a href="locations.html">Locations</a>
-        <a href="exhibitions.html">Exhibitions</a>
-        <a href="contact.html">Contact</a>
-    </div>
+.menu-icon .bar {
+    width: 28px;
+    height: 3px;
+    background-color: #000;
+}
+
+.menu {
+    display: none;
+    flex-direction: column;
+    gap: 10px;
+    position: absolute;
+    top: 70px;
+    right: 20px;
+    background: #fff;
+    border: 1px solid #ddd;
+    padding: 15px;
+    z-index: 1000;
+}
+
+.menu.active {
+    display: flex;
+}
+
+.menu a {
+    text-decoration: none;
+    color: #000;
+    font-size: 1rem;
+}
+
+.menu a:hover {
+    color: blue;
+}
 
         
         body {
@@ -113,6 +136,25 @@
     </style>
 </head>
 <body>
+
+  <!-- Menu Icon -->
+    <div class="menu-icon" onclick="toggleMenu()">
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+    </div>
+
+    <!-- Menu -->
+    <div class="menu" id="menu">
+        <a href="index.html">Home</a>
+        <a href="news.html">News</a>
+        <a href="3500cm2.html">3500cm²</a>
+        <a href="pagina.html">Artists</a>
+        <a href="locations.html">Locations</a>
+        <a href="exhibitions.html">Exhibitions</a>
+        <a href="contact.html">Contact</a>
+    </div>
+    
     <div class="header">
         <a href="index.html" class="back-link">Partner</a>
     </div>
