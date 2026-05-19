@@ -11,19 +11,20 @@
         gtag('js', new Date());
         gtag('config', 'G-1ZDKD18HZM');
     </script>
-   <style>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&display=swap');
+
     body {
-        font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        font-family: 'Libre Baskerville', serif;
         margin: 0;
         padding: 0;
-        padding-top: 78px; /* spazio per la barra fissa */
+        padding-top: 78px;
         background-color: #fff;
         color: #000;
         position: relative;
         overflow-x: hidden;
     }
 
-    /* Barra fissa bianca */
     .header {
         position: fixed;
         top: 0;
@@ -58,7 +59,6 @@
         color: blue;
     }
 
-    /* Menu sempre visibile */
     .menu {
         display: flex;
         flex-direction: row;
@@ -70,6 +70,7 @@
     }
 
     .menu a {
+        display: inline-block;
         text-decoration: none;
         color: #000;
         font-size: 1.18rem;
@@ -81,7 +82,6 @@
         color: blue;
     }
 
-    /* Nasconde il vecchio hamburger */
     .menu-icon {
         display: none;
     }
@@ -117,7 +117,6 @@
         }
     }
 
-    /* Mobile */
     @media (max-width: 768px) {
         body {
             padding-top: 125px;
@@ -163,15 +162,19 @@
     </div>
 </div>
 
-<!-- Menu nascosto -->
-<div class="menu" id="menu">
-    <a href="3500cm2.html">3500cm2</a>
-    <a href="pagina.html">artists</a>
-    <a href="locations.html">venues</a>
-    <a href="news.html">news</a>
-      <a href="mostre.html">Exhibitions</a>
-        <a href="partner.html">Partner</a>
-        <a href=".../it/contatti.html">IT</a>
+<div class="header">
+    <div class="email">
+        <a href="mailto:info@3500cm2.org">info@3500cm2.org</a>
+    </div>
+
+    <nav class="menu">
+     <a href="news.html">news</a>
+       
+        <a href="pagina.html">artists</a>
+        <a href="locations.html">venues</a>
+        <a href="3500cm2.html">3500cm²</a>
+        <a href="../it/contatti.html">IT</a>
+    </nav>
 </div>
 
     <!-- Link di Instagram fluttuante -->
