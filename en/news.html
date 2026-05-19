@@ -11,101 +11,136 @@
         gtag('js', new Date());
         gtag('config', 'G-1ZDKD18HZM');
     </script>
-    <style>
-	    @import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&display=swap');
-        body {
-            font-family:  'Libre Baskerville', serif;
-            margin: 0;
-            padding: 0;
-            background-color: #fff;
-            color: #000;
-        }
-        .header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px;
-            border-bottom: 1px solid #ddd;
-        }
-        .back-link {
-            font-size: 1.5rem;
-            font-weight: bold;
-            text-decoration: none;
-            color: #000;
-        }
-        .menu-icon {
-            display: flex;
-            flex-direction: column;
-            justify-content: space-around;
-            width: 25px;
-            height: 15px;
-            cursor: pointer;
-        }
-        .menu-icon div {
-            background-color: #000;
-            height: 2px;
-            width: 100%;
-            border-radius: 1px;
-        }
-        .menu {
-            display: none;
-            position: absolute;
-            top: 60px;
-            right: 20px;
-            padding: 0;
-        }
-        .menu a {
-            display: block;
-            padding: 10px 0;
-            text-decoration: none;
-            color: #000;
-            font-size: 1rem;
-        }
-        .menu a:hover {
-            text-decoration: underline;
-        }
-        .content {
-            padding: 20px;
-        }
-        .image-container {
-            display: flex;
-            gap: 20px;
-            justify-content: flex-start; /* Align images to the left */
-            margin: 20px 0;
-            flex-wrap: wrap;
-        }
-        .image-container img {
-            width: 100%;
-            max-width: 300px;
-            height: auto;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-        }
-        .image-container a {
-            text-align: center;
-            text-decoration: none;
-            color: #000;
-        }
-        .image-container span {
-            display: block;
-            margin-top: 10px;
-            font-size: 1rem;
-        }
-       .text-section {
-    margin: 20px 0;
-    font-size: 1rem;
-    line-height: 1.6;
-    column-count: 2; /* Divide il testo in 2 colonne */
-    column-gap: 20px; /* Spazio tra le colonne */
-}
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&display=swap');
 
-@media (max-width: 768px) { /* Per dispositivi mobili */
-    .text-section {
-        column-count: 1; /* Ritorna a una colonna */
+    body {
+        font-family: 'Libre Baskerville', serif;
+        margin: 0;
+        padding: 0;
+        background-color: #fff;
+        color: #000;
+        padding-top: 75px; /* spazio per la barra fissa */
     }
-}
-        
-    </style>
+
+    .header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px;
+        border-bottom: 1px solid #ddd;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        box-sizing: border-box;
+        background-color: #fff;
+        z-index: 1000;
+    }
+
+    .back-link {
+        font-size: 1.5rem;
+        font-weight: bold;
+        text-decoration: none;
+        color: #000;
+        white-space: nowrap;
+    }
+
+    .menu-icon {
+        display: none;
+    }
+
+    .menu {
+        display: flex;
+        gap: 20px;
+        justify-content: flex-end;
+        align-items: center;
+        position: static;
+        padding: 0;
+    }
+
+    .menu a {
+        display: inline-block;
+        padding: 0;
+        text-decoration: none;
+        color: #000;
+        font-size: 1rem;
+        white-space: nowrap;
+    }
+
+    .menu a:hover {
+        text-decoration: underline;
+    }
+
+    .content {
+        padding: 20px;
+    }
+
+    .image-container {
+        display: flex;
+        gap: 20px;
+        justify-content: flex-start;
+        margin: 20px 0;
+        flex-wrap: wrap;
+    }
+
+    .image-container img {
+        width: 100%;
+        max-width: 300px;
+        height: auto;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+    }
+
+    .image-container a {
+        text-align: center;
+        text-decoration: none;
+        color: #000;
+    }
+
+    .image-container span {
+        display: block;
+        margin-top: 10px;
+        font-size: 1rem;
+    }
+
+    .text-section {
+        margin: 20px 0;
+        font-size: 1rem;
+        line-height: 1.6;
+        column-count: 2;
+        column-gap: 20px;
+    }
+
+    @media (max-width: 768px) {
+        body {
+            padding-top: 110px;
+        }
+
+        .header {
+            align-items: flex-start;
+            gap: 15px;
+        }
+
+        .back-link {
+            font-size: 1.3rem;
+        }
+
+        .menu {
+            flex-wrap: wrap;
+            gap: 10px 14px;
+            justify-content: flex-end;
+        }
+
+        .menu a {
+            font-size: 0.85rem;
+        }
+
+        .text-section {
+            column-count: 1;
+        }
+    }
+</style>
 	 <script src="analytics.js"></script>
 </head>
 <body>
