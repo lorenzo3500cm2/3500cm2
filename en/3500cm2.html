@@ -73,10 +73,7 @@
         /* Blocco citazione con spazio sotto */
         .quote-block {
             margin-bottom: 3rem; /* 2–3 righe circa */
-        }
-
-       /* Barra fissa bianca */
-.header {
+        }.header {
     position: fixed;
     top: 0;
     left: 0;
@@ -88,13 +85,13 @@
     justify-content: space-between;
     align-items: center;
 
-    padding: 20px;
+    padding: 20px 30px;
     background-color: #fff;
     border-bottom: 1px solid #ddd;
 }
 
 .back-link {
-    font-size: 1.5rem;
+    font-size: 1.6rem;
     font-weight: bold;
     text-decoration: none;
     color: #000;
@@ -105,21 +102,21 @@
     color: blue;
 }
 
-/* Menu visibile */
 .menu {
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: flex-end;
-    gap: 32px;
-    margin: 0;
+    gap: 36px;
+    margin: 0 0 0 auto;
     padding: 0;
+    text-align: right;
 }
 
 .menu a {
     text-decoration: none;
     color: #000;
-    font-size: 1.18rem;
+    font-size: 1.22rem;
     white-space: nowrap;
 }
 
@@ -142,36 +139,40 @@
             color: #000;
         }
 
-        /* Adattamenti per schermi piccoli */
-        @media screen and (max-width: 768px) {
-            .title {
-                font-size: 4rem;
-                height: 80px;
-            }
+    @media screen and (max-width: 768px) {
+    body {
+        padding-top: 125px;
+    }
 
-            .text {
-                font-size: 1.6rem;
-            }
-        }
-        body {
-    padding-top: 125px;
-}
+    .header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+        padding: 18px 20px;
+    }
 
-.header {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 15px;
-}
+    .menu {
+        width: 100%;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        gap: 12px 22px;
+        text-align: left;
+    }
 
-.menu {
-    flex-wrap: wrap;
-    justify-content: flex-start;
-    gap: 12px 22px;
-}
+    .menu a {
+        font-size: 1rem;
+    }
 
-.menu a {
-    font-size: 1rem;
+    .title {
+        font-size: 4rem;
+        height: 80px;
+    }
+
+    .text {
+        font-size: 1.6rem;
+    }
 }
+      
 
         @media screen and (max-width: 480px) {
             .title {
