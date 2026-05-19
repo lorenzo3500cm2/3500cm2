@@ -188,15 +188,10 @@
 </head>
 <body>
 
-    <!-- Menu hamburger -->
-    <div class="menu-icon" onclick="toggleMenu()">
-        <div class="bar"></div>
-        <div class="bar"></div>
-        <div class="bar"></div>
-    </div>
+    <div class="header">
+    <a href="index.html" class="back-link">Artists</a>
 
-    <!-- Menu nascosto -->
-    <div class="menu" id="menu">
+    <nav class="menu">
         <a href="index.html">home</a>
         <a href="news.html">news</a>
         <a href="3500cm2.html">3500 cm²</a>
@@ -204,7 +199,9 @@
         <a href="mostre.html">mostre</a>
         <a href="partner.html">partner</a>
         <a href="contatti.html">contatti</a>
-    </div>
+          <a href="en/pagina.html">EN</a>
+    </nav>
+</div>
 
     <!-- Loghi -->
     <div class="logo"><img src="LOGO-3500cm2.png" alt="Logo 1"></div>
@@ -331,11 +328,7 @@
     </div>
 
 <script>
-        // Funzione per aprire e chiudere il menu
-        function toggleMenu() {
-            const menu = document.getElementById('menu');
-            menu.classList.toggle('active');
-        }
+      
 
         // ANIMAZIONE RANDOM DEI LOGHI
         function animateLogos() {
