@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mostre</title>
+
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&display=swap');
 
@@ -11,24 +12,34 @@
             font-family: 'Libre Baskerville', serif;
             margin: 0;
             padding: 0;
+            padding-top: 86px;
             background-color: #fff;
             font-size: 1.5rem;
             color: #000;
+            overflow-x: hidden;
         }
 
+        /* Barra fissa in alto */
         .header {
             display: flex;
             justify-content: space-between;
             align-items: center;
             padding: 20px;
             border-bottom: 1px solid #ddd;
-            position: relative;
+            background-color: #fff;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            box-sizing: border-box;
         }
 
         .page-title {
             font-size: 2.5rem;
             font-weight: bold;
             margin: 0;
+            line-height: 1;
         }
 
         .page-title a {
@@ -37,49 +48,26 @@
         }
 
         .page-title a:hover {
-            color: blue; /* Cambia il colore in blu */
+            color: blue;
         }
 
-        .menu-icon {
-            display: flex;
-            flex-direction: column;
-            justify-content: space-around;
-            width: 25px;
-            height: 15px;
-            cursor: pointer;
-        }
-
-        .menu-icon div {
-            background-color: #000;
-            height: 2px;
-            width: 100%;
-            border-radius: 1px;
-        }
-
+        /* Menu sempre visibile */
         .menu {
-            display: none;
-            position: absolute;
-            top: 60px;
-            right: 20px;
-            background: white;
-            padding: 10px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-        }
-
-        .menu a {
-            display: block;
-            padding: 10px 0;
-            text-decoration: none;
-            color: #000;
+            display: flex;
+            gap: 22px;
+            align-items: center;
+            justify-content: flex-end;
             font-size: 1rem;
         }
 
-        .menu a:hover {
-            text-decoration: red;
+        .menu a {
+            text-decoration: none;
+            color: #000;
+            white-space: nowrap;
         }
 
-        .content {
-            padding: 20px;
+        .menu a:hover {
+            color: red;
         }
 
         .exhibitions-list {
@@ -98,7 +86,7 @@
         }
 
         .exhibition a:hover {
-             color: red; /* Cambia colore in rosso acceso */
+            color: red;
         }
 
         .exhibition span {
@@ -107,91 +95,105 @@
             color: #555;
             margin-top: 5px;
         }
+
+        /* Mobile */
+        @media (max-width: 768px) {
+            body {
+                padding-top: 120px;
+            }
+
+            .header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 14px;
+                padding: 18px 20px;
+            }
+
+            .page-title {
+                font-size: 2.2rem;
+            }
+
+            .menu {
+                width: 100%;
+                justify-content: flex-start;
+                gap: 14px;
+                flex-wrap: wrap;
+                font-size: 0.9rem;
+            }
+
+            .exhibition {
+                font-size: 1.4rem;
+            }
+        }
     </style>
+
     <script src="analytics.js"></script>
 </head>
+
 <body>
 
     <div class="header">
         <h1 class="page-title">
             <a href="pagina.html">Mostre</a>
         </h1>
-        <div class="menu-icon" onclick="toggleMenu()">
-            <div></div>
-            <div></div>
-            <div></div>
-        </div>
+
+        <nav class="menu">
+            <a href="index.html">Home</a>
+            <a href="3500cm2.html">3500cm²</a>
+            <a href="pagina.html">Lista Artisti</a>
+            <a href="luoghi.html">Luoghi</a>
+            <a href="contatti.html">Contatti</a>
+        </nav>
     </div>
-
-   <!-- Menu nascosto -->
-    <div class="menu" id="menu">
-        <a href="index.html">Home</a>
-        <a href="3500cm2.html">3500cm²</a>
-        <a href="pagina.html">Lista Artisti</a>
-        <a href="luoghi.html">Luoghi</a>
-        <a href="contatti.html">Contatti</a>
-    </div>
-
-  <!-- Lista Mostre -->
-
 
     <div class="exhibitions-list">
-    <div class="exhibition">
-        <a href="https://www.palazzoesposizioniroma.it/mostra/expodemic-festival-of-foreign-academies-and-cultural-institutes" target="_blank" rel="noopener noreferrer">
-            Palazzo Esposizioni Roma, Roma
-        </a>
-        
-    </div>
-<div class="exhibitions-list">
-    <div class="exhibition">
-        <a href="https://fondoambiente.it/luoghi/villa-genoese-zerbi?ldc=" target="_blank" rel="noopener noreferrer">
-            Palazzo Genoese Zerbi, Reggio Calabria
-        </a>
-        
-    </div>
 
-    <div class="exhibition">
-        <a href="http://projectspace.uqbar-ev.de/index.php?mact=News,cntnt01,detail,0&cntnt01articleid=22&cntnt01returnid=56" target="_blank" rel="noopener noreferrer">
-            Uqbar, Berlino
-        </a>
-        <span></span>
-    </div>
+        <div class="exhibition">
+            <a href="https://www.palazzoesposizioniroma.it/mostra/expodemic-festival-of-foreign-academies-and-cultural-institutes" target="_blank" rel="noopener noreferrer">
+                Palazzo Esposizioni Roma, Roma
+            </a>
+        </div>
 
-     <div class="exhibition">
-        <a href="https://bienale.si/en/exhibition/from-the-sternens-to-the-comic-strip/">
-            27th Biennale of Graphic Arts, Ljubljana
-        </a>
-        <span></span>
-    </div>
+        <div class="exhibition">
+            <a href="https://fondoambiente.it/luoghi/villa-genoese-zerbi?ldc=" target="_blank" rel="noopener noreferrer">
+                Palazzo Genoese Zerbi, Reggio Calabria
+            </a>
+        </div>
 
-    <div class="exhibition">
-        <a href="https://www.palazzo-lantieri.com/it/arte" target="_blank" rel="noopener noreferrer">
-            Palazzo Lantieri, Gorizia
-        </a>
-        <span></span>
-    </div>
+        <div class="exhibition">
+            <a href="http://projectspace.uqbar-ev.de/index.php?mact=News,cntnt01,detail,0&cntnt01articleid=22&cntnt01returnid=56" target="_blank" rel="noopener noreferrer">
+                Uqbar, Berlino
+            </a>
+            <span></span>
+        </div>
 
-    <div class="exhibition">
-        <a href="https://www.assab-one.org/en/exhibition-event/3500-cm%C2%B2-at-assab-one/" target="_blank" rel="noopener noreferrer">
-            Assab One, Milano
-        </a>
-       
-    </div>
+        <div class="exhibition">
+            <a href="https://bienale.si/en/exhibition/from-the-sternens-to-the-comic-strip/" target="_blank" rel="noopener noreferrer">
+                27th Biennale of Graphic Arts, Ljubljana
+            </a>
+            <span></span>
+        </div>
 
-    <div class="exhibition">
-        <a href="https://aarome.org/" target="_blank" rel="noopener noreferrer">
-            American Academy in Rome, Roma
-        </a>
-        
-    </div>
-</div>
+        <div class="exhibition">
+            <a href="https://www.palazzo-lantieri.com/it/arte" target="_blank" rel="noopener noreferrer">
+                Palazzo Lantieri, Gorizia
+            </a>
+            <span></span>
+        </div>
 
-    <script>
-        function toggleMenu() {
-            const menu = document.getElementById('menu');
-            menu.style.display = (menu.style.display === 'block') ? 'none' : 'block';
-        }
-    </script>
+        <div class="exhibition">
+            <a href="https://www.assab-one.org/en/exhibition-event/3500-cm%C2%B2-at-assab-one/" target="_blank" rel="noopener noreferrer">
+                Assab One, Milano
+            </a>
+        </div>
+
+        <div class="exhibition">
+            <a href="https://aarome.org/" target="_blank" rel="noopener noreferrer">
+                American Academy in Rome, Roma
+            </a>
+        </div>
+
+    </div>
 
 </body>
 </html>
