@@ -42,40 +42,100 @@
         .page-title a:hover {
             color: blue; /* Cambia il colore in blu */
         }
-        .menu-icon {
-            display: flex;
-            flex-direction: column;
-            justify-content: space-around;
-            width: 25px;
-            height: 15px;
-            cursor: pointer;
-        }
-        .menu-icon div {
-            background-color: #000;
-            height: 2px;
-            width: 100%;
-            border-radius: 1px;
-        }
-        .menu {
-            display: none; /* Nasconde il menu di default */
-            position: absolute;
-            top: 60px;
-            right: 20px;
-            background: #f9f9f9;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            padding: 10px;
-        }
-        .menu a {
-            display: block;
-            padding: 10px 0;
-            text-decoration: none;
-            color: #000;
-            font-size: 0.9rem;
-        }
-        .menu a:hover {
-            text-decoration: underline;
-        }
+   /* Barra fissa con menu visibile */
+body {
+    padding-top: 92px;
+}
+
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 2000;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 22px 30px;
+    border-bottom: 1px solid #ddd;
+    background-color: #fff;
+    box-sizing: border-box;
+}
+
+.page-title {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin: 0;
+    white-space: nowrap;
+}
+
+.page-title a {
+    text-decoration: none;
+    color: #000;
+}
+
+.page-title a:hover {
+    color: blue;
+}
+
+.menu-icon {
+    display: none;
+}
+
+.menu {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 32px;
+    margin: 0;
+    padding: 0;
+    background: transparent;
+    border: none;
+}
+
+.menu a {
+    display: inline-block;
+    padding: 0;
+    text-decoration: none;
+    color: #000;
+    font-size: 1.15rem;
+    white-space: nowrap;
+}
+
+.menu a:hover {
+    text-decoration: underline;
+    color: blue;
+}
+
+@media screen and (max-width: 768px) {
+    body {
+        padding-top: 145px;
+    }
+
+    .header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 14px;
+        padding: 18px 20px;
+    }
+
+    .page-title {
+        font-size: 2rem;
+    }
+
+    .menu {
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        gap: 12px 22px;
+    }
+
+    .menu a {
+        font-size: 1rem;
+    }
+}
         ul {
             list-style-type: none;
             padding: 20px;
@@ -130,29 +190,26 @@
         .seagreen { color: #2e8b57; }   /* Verde mare */
         .lightcoral { color: #f08080; } /* Corallo chiaro */
     </style>
-      <script src="menu.js" defer></script> <!-- Includi menu.js -->
+   <!-- Includi menu.js -->
      <script src="analytics.js"></script>
 </head>
 <body>
 
 
-  <div class="header">
-     <h1 class="page-title">
-         <a href="pagina.html">Venues</a>
-        </h1>
-    <div class="menu-icon" onclick="toggleMenu()">
-        <div></div>
-        <div></div>
-        <div></div>
-    </div>
-</div>
-    <div class="menu" id="menu">
-    <a href="index.html">Home</a>
-    <a href="news.html">News</a>
-    <a href="3500cm2.html">3500cm²</a>
-    <a href="pagina.html">Artisti</a>
-    <a href="mostre.html">Mostre</a>
-    <a href="contatti.html">Contatti</a>
+<div class="header">
+    <h1 class="page-title">
+        <a href="pagina.html">Venues</a>
+    </h1>
+
+    <nav class="menu">
+    
+        <a href="news.html">News</a>
+        <a href="3500cm2.html">3500 cm²</a>
+        <a href="pagina.html">Artists</a>
+        <a href="mostre.html">Exhibitions</a>
+        <a href="partner.html">Partner</a>
+        <a href="contatti.html">Contact</a>
+    </nav>
 </div>
 
     <ul>
@@ -394,11 +451,6 @@
 
      
         
-    <script>
-        function toggleMenu() {
-            const menu = document.getElementById('menu');
-            menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
-        }
-    </script>
+   
 </body>
 </html>
