@@ -11,109 +11,164 @@
         gtag('js', new Date());
         gtag('config', 'G-1ZDKD18HZM');
     </script>
-    <style>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&display=swap');
+
+    body {
+        font-family: 'Libre Baskerville', serif;
+        margin: 0;
+        padding: 0;
+        padding-top: 86px;
+        background-color: #fff;
+        color: #000;
+        position: relative;
+        overflow-x: hidden;
+    }
+
+    /* Barra fissa bianca */
+    .header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 2000;
+
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        padding: 22px 30px;
+        background-color: #fff;
+        border-bottom: 1px solid #ddd;
+        box-sizing: border-box;
+    }
+
+    .email {
+        font-size: 1.35rem;
+        font-weight: bold;
+        color: #000;
+        white-space: nowrap;
+    }
+
+    .email a {
+        text-decoration: none;
+        color: #000;
+    }
+
+    .email a:hover {
+        color: blue;
+        text-decoration: underline;
+    }
+
+    /* Nasconde il vecchio hamburger */
+    .menu-icon {
+        display: none;
+    }
+
+    /* Menu sempre visibile */
+    .menu {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+        align-items: center;
+        gap: 32px;
+
+        position: static;
+        margin: 0;
+        padding: 0;
+        background: transparent;
+        border: none;
+    }
+
+    .menu a {
+        display: inline-block;
+        padding: 0;
+        text-decoration: none;
+        color: #000;
+        font-size: 1.15rem;
+        white-space: nowrap;
+    }
+
+    .menu a:hover {
+        color: blue;
+        text-decoration: underline;
+    }
+
+    .floating-instagram {
+        position: absolute;
+        left: 20px;
+        top: 120px;
+        font-size: 1.2rem;
+        font-weight: bold;
+        animation: moveDown 10s infinite linear;
+    }
+
+    .floating-instagram a {
+        color: #000;
+        text-decoration: none;
+    }
+
+    .floating-instagram a:hover {
+        color: blue;
+        text-decoration: underline;
+    }
+
+    /* Mobile */
+    @media screen and (max-width: 768px) {
         body {
-            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #fff;
-            color: #000;
-            position: relative;
-            overflow-x: hidden; /* Evita lo scrolling orizzontale */
+            padding-top: 145px;
         }
+
         .header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 14px;
+            padding: 18px 20px;
         }
+
         .email {
             font-size: 1.2rem;
-            font-weight: bold;
-            color: #000;
         }
-        .email a {
-            text-decoration: none;
-            color: #000;
-            margin-right: 10px;
-        }
-        .email a:hover {
-            text-decoration: underline;
-        }
-        .menu-icon {
-            display: flex;
-            flex-direction: column;
-            justify-content: space-around;
-            width: 25px;
-            height: 15px;
-            cursor: pointer;
-        }
-        .menu-icon div {
-            background-color: #000;
-            height: 2px;
-            width: 100%;
-            border-radius: 1px;
-        }
+
         .menu {
-            display: none;
-            position: absolute;
-            top: 60px;
-            right: 20px;
-            padding: 0;
+            flex-wrap: wrap;
+            justify-content: flex-start;
+            gap: 12px 22px;
         }
+
         .menu a {
-            display: block;
-            padding: 10px 0;
-            text-decoration: none;
-            color: #000;
             font-size: 1rem;
         }
-        .menu a:hover {
-            text-decoration: underline;
-        }
+
         .floating-instagram {
-            position: absolute;
+            top: 175px;
             left: 20px;
-            top: 0;
-            font-size: 1.2rem;
-            font-weight: bold;
-            animation: moveDown 10s infinite linear;
-      
         }
-    </style>
+    }
+</style>
     <script src="analytics.js"></script>
 </head>
 <body>
-    <div class="header">
-        <div class="email">
-            <a href="mailto:info@3500cm2.org">info@3500cm2.org</a>
-        </div>
-        <div class="menu-icon" onclick="toggleMenu()">
-            <div></div>
-            <div></div>
-            <div></div>
-        </div>
+   <div class="header">
+    <div class="email">
+        <a href="mailto:info@3500cm2.org">info@3500cm2.org</a>
     </div>
 
-    <!-- Menu nascosto -->
-    <div class="menu" id="menu">
-        <a href="index.html">Home</a>
-        <a href="3500cm2.html">3500cm2</a>
-        <a href="pagina.html">artists</a>
-        <a href="locations.html">venues</a>
-        <a href="news.html">news</a>
-    </div>
+    <nav class="menu">
+       
+        <a href="news.html">News</a>
+        <a href="3500cm2.html">3500 cm²</a>
+        <a href="pagina.html">Artists</a>
+        <a href="locations.html">Venues</a>
+         <a href="locations.html">NL</a>
+    </nav>
+</div>
+
 
     <!-- Link di Instagram fluttuante -->
     <div class="floating-instagram">
         <a href="https://www.instagram.com/3500cm2/" target="_blank">Instagram</a>
     </div>
 
-    <script>
-        function toggleMenu() {
-            const menu = document.getElementById('menu');
-            menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
-        }
-    </script>
 </body>
 </html>
