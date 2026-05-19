@@ -14,18 +14,19 @@
 
     <style>
         /* Stili generali */
-        body {
-            margin: 0;
-            padding: 20px;
-            background-color: #ffffff;
-            color: #000;
-            font-family: 'Libre Baskerville', serif;
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start; /* Allinea il testo a sinistra */
-            min-height: 100vh;
-            position: relative;
-        }
+       body {
+    margin: 0;
+    padding: 0;
+    padding-top: 78px;
+    background-color: #ffffff;
+    color: #000;
+    font-family: 'Libre Baskerville', serif;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    min-height: 100vh;
+    position: relative;
+}
 
         .title-container {
             position: fixed;
@@ -74,66 +75,64 @@
             margin-bottom: 3rem; /* 2–3 righe circa */
         }
 
-        /* Menu */
-        .menu-icon {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            cursor: pointer;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            width: 30px;
-            height: 20px;
-        }
+       /* Barra fissa bianca */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    box-sizing: border-box;
+    z-index: 3000;
 
-        .bar {
-            width: 100%;
-            height: 2.4px;
-            background-color: #000;
-            border-radius: 2px;
-        }
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 
-        .menu {
-            display: none;
-            position: absolute;
-            top: 60px;
-            right: 20px;
-            flex-direction: column;
-            gap: 10px;
-        }
+    padding: 20px;
+    background-color: #fff;
+    border-bottom: 1px solid #ddd;
+}
 
-        .menu.active {
-            display: flex;
-        }
+.back-link {
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-decoration: none;
+    color: #000;
+    white-space: nowrap;
+}
 
-        .menu a {
-            text-decoration: none;
-            color: #000;
-            font-size: 1rem;
-        }
+.back-link:hover {
+    color: blue;
+}
 
-        .menu a:hover {
-            text-decoration: underline;
-        }
+/* Menu visibile */
+.menu {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 32px;
+    margin: 0;
+    padding: 0;
+}
 
-        /* Language Switch */
-        .language-switch {
-            position: absolute;
-            top: 20px;
-            left: 20px;
-            font-size: 1rem;
-        }
+.menu a {
+    text-decoration: none;
+    color: #000;
+    font-size: 1.18rem;
+    white-space: nowrap;
+}
 
-        .language-switch a {
-            text-decoration: none;
-            color: #000;
-        }
+.menu a:hover {
+    text-decoration: underline;
+    color: blue;
+}
 
-        .language-switch a:hover {
-            text-decoration: underline;
-        }
-
+.menu-icon,
+.bar,
+.language-switch {
+    display: none;
+}
         /* Footer */
         footer {
             position: absolute;
@@ -154,6 +153,25 @@
                 font-size: 1.6rem;
             }
         }
+        body {
+    padding-top: 125px;
+}
+
+.header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+}
+
+.menu {
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 12px 22px;
+}
+
+.menu a {
+    font-size: 1rem;
+}
 
         @media screen and (max-width: 480px) {
             .title {
@@ -168,11 +186,20 @@
     </style>
 </head>
 <body>
+<div class="header">
+    <a href="3500cm2.html" class="back-link">3500 cm²</a>
 
-    <!-- Language Switch -->
-    <div class="language-switch"> 
+    <nav class="menu">
+        <a href="index.html">Home</a>
+        <a href="news.html">News</a>
+        <a href="pagina.html">Artists</a>
+        <a href="luoghi.html">Venues</a>
+        <a href="mostre.html">Exhibitions</a>
+        <a href="partner.html">Partner</a>
+        <a href="contact.html">Contacts</a>
         <a href="../it/3500cm2.html">IT</a>
-    </div>
+    </nav>
+</div>
 
     <!-- Titolo con animazione -->
     <div class="title-container">
@@ -181,25 +208,7 @@
         </div>
     </div>
 
-    <!-- Menu Icon -->
-    <div class="menu-icon" onclick="toggleMenu()">
-        <div class="bar"></div>
-        <div class="bar"></div>
-        <div class="bar"></div>
-    </div>
-
-    <!-- Menu -->
-    <div class="menu" id="menu">
-        <a href="index.html">Home</a>
-        <a href="news.html">News</a>
-        <a href="3500cm2.html">3500cm²</a>
-        <a href="pagina.html">Artists</a>
-        <a href="luoghi.html">Venues</a>
-        <a href="mostre.html">Exhibitions</a>
-        <a href="partner.html">Partner</a>
-        <a href="contact.html">Contacts</a>
-        <a href="/it/3500-cm2.html" onclick="localStorage.setItem('siteLanguage', 'it')">IT</a>
-    </div>
+ 
 
     <!-- Testo introduttivo -->
     <div class="text">
@@ -224,10 +233,7 @@
     </div>
 
     <script>
-        function toggleMenu() {
-            const menu = document.getElementById('menu');
-            menu.classList.toggle('active');
-        }
+      
 
         const texts = [
             "3500 cm²",
