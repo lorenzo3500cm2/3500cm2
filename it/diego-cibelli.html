@@ -10,67 +10,84 @@
 
     <style>
         body {
-            font-family:'Libre Baskerville', serif;
+            font-family: 'Libre Baskerville', serif;
             margin: 0;
             padding: 0;
+            padding-top: 76px;
             background-color: #000;
             color: #fff;
             position: relative;
+            overflow-x: hidden;
         }
+
         .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 2000;
+
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 20px;
-            border-bottom: 1px solid #ddd;
-            position: relative;
+
+            padding: 18px 30px;
+            background-color: #000;
+            border-bottom: 1px solid #fff;
+            box-sizing: border-box;
         }
+
         .back-link {
             font-size: 1.5rem;
             font-weight: bold;
             text-decoration: none;
             color: #fff;
+            white-space: nowrap;
         }
+
+        .back-link:hover {
+            color: #ccc;
+        }
+
         .menu-icon {
-            display: flex;
-            flex-direction: column;
-            justify-content: space-around;
-            width: 25px;
-            height: 15px;
-            cursor: pointer;
+            display: none;
         }
-        .menu-icon div {
-            background-color: #fff; /* Cambiato in bianco */
-            height: 2px;
-            width: 100%;
-            border-radius: 1px;
-        }
+
         .menu {
-            display: none; /* Nasconde il menu di default */
-            position: absolute;
-            top: 60px;
-            right: 20px;
-            padding: 10px;
-            background-color: rgba(255, 255, 255, 0.1);
-            border-radius: 5px;
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-end;
+            align-items: center;
+            gap: 28px;
+
+            position: static;
+            padding: 0;
+            margin: 0;
+            background: transparent;
         }
+
         .menu a {
-            display: block;
-            padding: 10px 0;
+            display: inline-block;
+            padding: 0;
             text-decoration: none;
-            color: #fff; /* Testo bianco */
+            color: #fff;
             font-size: 1rem;
+            white-space: nowrap;
         }
+
         .menu a:hover {
+            color: #ccc;
             text-decoration: underline;
         }
+
         img {
             width: 100%;
-            max-height: 90vh;
+            max-height: 84vh;
             object-fit: contain;
             display: block;
             margin: 20px auto;
         }
+
         .description {
             font-family: 'Libre Baskerville', serif;
             font-size: 1rem;
@@ -78,8 +95,10 @@
             margin: 20px;
             color: #fff;
         }
-        .prev-artist, .next-artist {
-            position: absolute;
+
+        .prev-artist,
+        .next-artist {
+            position: fixed;
             top: 50%;
             transform: translateY(-50%);
             font-size: 2rem;
@@ -87,51 +106,83 @@
             text-decoration: none;
             z-index: 1000;
         }
+
         .prev-artist {
             left: 20px;
         }
+
         .next-artist {
             right: 20px;
         }
-        .prev-artist:hover, .next-artist:hover {
+
+        .prev-artist:hover,
+        .next-artist:hover {
             color: white;
         }
+
+        @media screen and (max-width: 768px) {
+            body {
+                padding-top: 125px;
+            }
+
+            .header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 14px;
+                padding: 16px 20px;
+            }
+
+            .back-link {
+                font-size: 1.25rem;
+                white-space: normal;
+            }
+
+            .menu {
+                flex-wrap: wrap;
+                justify-content: flex-start;
+                gap: 10px 18px;
+            }
+
+            .menu a {
+                font-size: 0.9rem;
+            }
+
+            img {
+                max-height: 76vh;
+                margin-top: 15px;
+            }
+        }
     </style>
+
     <script src="analytics.js"></script>
 </head>
+
 <body>
+
     <div class="header">
         <a href="pagina.html" class="back-link">#105 Diego Cibelli</a>
-        <div class="menu-icon" onclick="toggleMenu()">
-            <div></div>
-            <div></div>
-            <div></div>
-        </div>
-    </div>
 
-    <!-- Menu nascosto -->
-    <div class="menu" id="menu">
-        <a href="pagina.html">Artisti</a>
-        <a href="3500cm2.html">3500cm2</a>
-        <a href="luoghi.html">Luoghi</a>
-        <a href="contatti.html">Contatti</a>
+        <nav class="menu">
+            <a href="news.html">news</a>
+            <a href="3500cm2.html">3500 cm²</a>
+            <a href="pagina.html">artisti</a>
+            <a href="luoghi.html">luoghi</a>
+            <a href="mostre.html">mostre</a>
+            <a href="partner.html">partner</a>
+            <a href="contatti.html">contatti</a>
+            <a href="../en/diego-cibelli.html">EN</a>
+        </nav>
     </div>
 
     <img src="diego-cibelli.jpg" alt="Diego Cibelli">
 
     <div class="description">
-        #105 Diego Cibelli, <i>The Art of Dancing Together</i>, 2024, CONTEMPORALIS, XX Giornata del contemporaneo, Consolato Generale d’Italia a Parigi
+        #105 Diego Cibelli, <i>The Art of Dancing Together</i>, 2024, CONTEMPORALIS, XX Giornata del contemporaneo, Consolato Generale d’Italia a Parigi
     </div>
 
     <!-- Frecce per navigare tra le pagine -->
     <a href="paolo-chiasera.html" class="prev-artist">&#8592;</a>
     <a href="fabrizio-cotognini.html" class="next-artist">&#8594;</a>
 
-    <script>
-        function toggleMenu() {
-            const menu = document.getElementById('menu');
-            menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
-        }
-    </script>
 </body>
 </html>
