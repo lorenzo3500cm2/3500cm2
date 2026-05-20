@@ -12,72 +12,90 @@
     <link rel="shortcut icon" href="/3500cm2.org/favicon.ico" />
     <link rel="apple-touch-icon" sizes="180x180" href="/3500cm2.org/apple-touch-icon.png" />
     <link rel="manifest" href="/3500cm2.org/site.webmanifest" />
-    
-     <!-- Google Fonts -->
+
+    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet">
 
     <style>
         body {
-            font-family:  'Libre Baskerville', serif;
+            font-family: 'Libre Baskerville', serif;
             margin: 0;
             padding: 0;
+            padding-top: 76px;
             background-color: #fff;
             color: #000;
             position: relative;
+            overflow-x: hidden;
         }
+
         .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 2000;
+
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 20px;
+
+            padding: 18px 30px;
+            background-color: #fff;
             border-bottom: 1px solid #ddd;
-            position: relative;
+            box-sizing: border-box;
         }
+
         .back-link {
             font-size: 1.5rem;
             font-weight: bold;
             text-decoration: none;
             color: #333;
+            white-space: nowrap;
         }
+
+        .back-link:hover {
+            color: blue;
+        }
+
         .menu-icon {
-            display: flex;
-            flex-direction: column;
-            justify-content: space-around;
-            width: 25px;
-            height: 15px;
-            cursor: pointer;
+            display: none;
         }
-        .menu-icon div {
-            background-color: #000;
-            height: 2px;
-            width: 100%;
-            border-radius: 1px;
-        }
+
         .menu {
-            display: none; /* Nasconde il menu di default */
-            position: absolute;
-            top: 60px;
-            right: 20px;
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-end;
+            align-items: center;
+            gap: 28px;
+
+            position: static;
             padding: 0;
+            margin: 0;
+            background: transparent;
         }
+
         .menu a {
-            display: block;
-            padding: 10px 0;
+            display: inline-block;
+            padding: 0;
             text-decoration: none;
-            color: #000; /* Scritte nere */
+            color: #000;
             font-size: 1rem;
+            white-space: nowrap;
         }
+
         .menu a:hover {
-            background-color: transparent; /* Nessun colore di sfondo al hover */
-            text-decoration: underline; /* Sottolinea al passaggio del mouse */
+            color: blue;
+            text-decoration: underline;
         }
+
         img {
             width: 100%;
-            max-height: 90vh;
+            max-height: 84vh;
             object-fit: contain;
             display: block;
             margin: 20px auto;
         }
+
         .description {
             font-family: 'Libre Baskerville', serif;
             font-size: 1rem;
@@ -85,8 +103,10 @@
             margin: 20px;
             color: #333;
         }
-        .prev-artist, .next-artist {
-            position: absolute;
+
+        .prev-artist,
+        .next-artist {
+            position: fixed;
             top: 50%;
             transform: translateY(-50%);
             font-size: 2rem;
@@ -94,52 +114,140 @@
             text-decoration: none;
             z-index: 1000;
         }
+
         .prev-artist {
             left: 20px;
         }
+
         .next-artist {
             right: 20px;
         }
-        .prev-artist:hover, .next-artist:hover {
+
+        .prev-artist:hover,
+        .next-artist:hover {
             color: black;
         }
+
+        @media screen and (max-width: 768px) {
+            body {
+                padding-top: 125px;
+            }
+
+            .header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 14px;
+                padding: 16px 20px;
+            }
+
+            .back-link {
+                font-size: 1.25rem;
+                white-space: normal;
+            }
+
+            .menu {
+                flex-wrap: wrap;
+                justify-content: flex-start;
+                gap: 10px 18px;
+            }
+
+            .menu a {
+                font-size: 0.9rem;
+            }
+
+            img {
+                max-height: 76vh;
+                margin-top: 15px;
+            }
+
+            .prev-artist,
+            .next-artist {
+                font-size: 1.8rem;
+            }
+
+            .prev-artist {
+                left: 12px;
+            }
+
+            .next-artist {
+                right: 12px;
+            }
+        }
     </style>
-    <script src="menu.js" defer></script> <!-- Includi menu.js -->
+
     <script src="analytics.js"></script>
 </head>
+
 <body>
+
     <div class="header">
         <a href="pagina.html" class="back-link">#36 Carsten Nicolai</a>
-        <div class="menu-icon" onclick="toggleMenu()">
-            <div></div>
-            <div></div>
-            <div></div>
-        </div>
-    </div>
 
-    <!-- Menu nascosto -->
-    <div class="menu" id="menu">
-        <a href="pagina.html">Artisti</a>
-        <a href="3500cm2.html">3500cm2</a>
-        <a href="luoghi.html">Luoghi</a>
-        <a href="contatti.html">Contatti</a>
+        <nav class="menu">
+            <a href="news.html">news</a>
+            <a href="3500cm2.html">3500 cm²</a>
+            <a href="pagina.html">artisti</a>
+            <a href="luoghi.html">luoghi</a>
+            <a href="mostre.html">mostre</a>
+            <a href="partner.html">partner</a>
+            <a href="contatti.html">contatti</a>
+            <a href="../en/carsten-nicolai.html">EN</a>
+        </nav>
     </div>
 
     <img src="carsten-nicolai.jpg" alt="Carsten Nicolai">
 
     <div class="description">
-        2006, Blueroom Rialtosantambrogio, Roma
+        #36 Carsten Nicolai, 2006, Blueroom Rialtosantambrogio, Roma
     </div>
 
     <!-- Frecce per navigare tra le pagine -->
     <a href="elena-nemkova.html" class="prev-artist">&#8592;</a>
     <a href="olaf-nicolai.html" class="next-artist">&#8594;</a>
 
+    <!-- Swipe mobile -->
     <script>
-        function toggleMenu() {
-            const menu = document.getElementById('menu');
-            menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
+        let touchStartX = 0;
+        let touchStartY = 0;
+        let touchEndX = 0;
+        let touchEndY = 0;
+
+        const previousPage = "elena-nemkova.html";
+        const nextPage = "olaf-nicolai.html";
+
+        document.addEventListener("touchstart", function(event) {
+            touchStartX = event.changedTouches[0].screenX;
+            touchStartY = event.changedTouches[0].screenY;
+        }, false);
+
+        document.addEventListener("touchend", function(event) {
+            touchEndX = event.changedTouches[0].screenX;
+            touchEndY = event.changedTouches[0].screenY;
+            handleSwipe();
+        }, false);
+
+        function handleSwipe() {
+            const swipeDistanceX = touchEndX - touchStartX;
+            const swipeDistanceY = touchEndY - touchStartY;
+            const minimumSwipe = 70;
+
+            if (Math.abs(swipeDistanceY) > Math.abs(swipeDistanceX)) {
+                return;
+            }
+
+            if (Math.abs(swipeDistanceX) < minimumSwipe) {
+                return;
+            }
+
+            if (swipeDistanceX > 0) {
+                window.location.href = previousPage;
+            }
+
+            if (swipeDistanceX < 0) {
+                window.location.href = nextPage;
+            }
         }
     </script>
+
 </body>
 </html>
