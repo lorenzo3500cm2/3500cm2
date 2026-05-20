@@ -48,10 +48,6 @@
             color: #ccc;
         }
 
-        .menu-icon {
-            display: none;
-        }
-
         .menu {
             display: flex;
             flex-direction: row;
@@ -151,6 +147,19 @@
                 max-height: 76vh;
                 margin-top: 15px;
             }
+
+            .prev-artist,
+            .next-artist {
+                font-size: 1.8rem;
+            }
+
+            .prev-artist {
+                left: 12px;
+            }
+
+            .next-artist {
+                right: 12px;
+            }
         }
     </style>
 
@@ -183,6 +192,53 @@
     <!-- Frecce per navigare tra le pagine -->
     <a href="fernando-sanchez-castillo.html" class="prev-artist">&#8592;</a>
     <a href="maurizio-savini.html" class="next-artist">&#8594;</a>
+
+    <!-- Swipe mobile -->
+    <script>
+        let touchStartX = 0;
+        let touchStartY = 0;
+        let touchEndX = 0;
+        let touchEndY = 0;
+
+        const previousPage = "fernando-sanchez-castillo.html";
+        const nextPage = "maurizio-savini.html";
+
+        document.addEventListener("touchstart", function(event) {
+            touchStartX = event.changedTouches[0].screenX;
+            touchStartY = event.changedTouches[0].screenY;
+        }, false);
+
+        document.addEventListener("touchend", function(event) {
+            touchEndX = event.changedTouches[0].screenX;
+            touchEndY = event.changedTouches[0].screenY;
+            handleSwipe();
+        }, false);
+
+        function handleSwipe() {
+            const swipeDistanceX = touchEndX - touchStartX;
+            const swipeDistanceY = touchEndY - touchStartY;
+            const minimumSwipe = 70;
+
+            /* Evita che lo scroll verticale venga interpretato come swipe */
+            if (Math.abs(swipeDistanceY) > Math.abs(swipeDistanceX)) {
+                return;
+            }
+
+            if (Math.abs(swipeDistanceX) < minimumSwipe) {
+                return;
+            }
+
+            /* Swipe verso destra: artista precedente */
+            if (swipeDistanceX > 0) {
+                window.location.href = previousPage;
+            }
+
+            /* Swipe verso sinistra: artista successivo */
+            if (swipeDistanceX < 0) {
+                window.location.href = nextPage;
+            }
+        }
+    </script>
 
 </body>
 </html>
