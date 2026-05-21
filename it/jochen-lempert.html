@@ -4,62 +4,69 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jochen Lempert</title>
-  <!-- Google Fonts -->
+
+    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet">
 
     <style>
         body {
-            font-family:  'Libre Baskerville', serif;
+            font-family: 'Libre Baskerville', serif;
             margin: 0;
             padding: 0;
+            padding-top: 86px;
             background-color: #fff;
             color: #000;
             position: relative;
+            overflow-x: hidden;
         }
+
         .header {
             display: flex;
             justify-content: space-between;
             align-items: center;
             padding: 20px;
             border-bottom: 1px solid #ddd;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background-color: #fff;
+            z-index: 3000;
+            box-sizing: border-box;
         }
+
         .back-link {
             font-size: 1.5rem;
             font-weight: bold;
             text-decoration: none;
             color: #333;
+            white-space: nowrap;
         }
-        .menu-icon {
-            display: flex;
-            flex-direction: column;
-            justify-content: space-around;
-            width: 25px;
-            height: 15px;
-            cursor: pointer;
+
+        .back-link:hover {
+            color: blue;
         }
-        .menu-icon div {
-            background-color: #000;
-            height: 2px;
-            width: 100%;
-            border-radius: 1px;
-        }
+
         .menu {
-            display: none;
-            position: absolute;
-            top: 60px;
-            right: 20px;
-            padding: 0;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            gap: 18px;
+            flex-wrap: wrap;
         }
+
         .menu a {
-            display: block;
-            padding: 10px 0;
             text-decoration: none;
             color: #000;
             font-size: 1rem;
+            white-space: nowrap;
         }
+
         .menu a:hover {
             text-decoration: underline;
+            color: blue;
         }
+
         img {
             width: 100%;
             max-height: 90vh;
@@ -69,6 +76,7 @@
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             border-radius: 5px;
         }
+
         .description {
             font-family: 'Libre Baskerville', serif;
             font-size: 1rem;
@@ -76,61 +84,89 @@
             margin: 20px;
             color: #333;
         }
+
         .prev-artist, .next-artist {
-            position: absolute;
+            position: fixed;
             top: 50%;
             transform: translateY(-50%);
             font-size: 2rem;
             color: gray;
             text-decoration: none;
-            z-index: 1000;
+            z-index: 2000;
         }
+
         .prev-artist {
             left: 20px;
         }
+
         .next-artist {
             right: 20px;
         }
+
         .prev-artist:hover, .next-artist:hover {
             color: black;
         }
+
+        @media (max-width: 768px) {
+            body {
+                padding-top: 145px;
+            }
+
+            .header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 12px;
+                padding: 16px 20px;
+            }
+
+            .back-link {
+                font-size: 1.3rem;
+            }
+
+            .menu {
+                width: 100%;
+                justify-content: flex-start;
+                flex-wrap: wrap;
+                gap: 10px 14px;
+            }
+
+            .menu a {
+                font-size: 0.9rem;
+            }
+
+            .prev-artist, .next-artist {
+                font-size: 2rem;
+            }
+        }
     </style>
+
     <script src="analytics.js"></script>
 </head>
+
 <body>
     <div class="header">
         <a href="pagina.html" class="back-link">#86 Jochen Lempert</a>
-        <div class="menu-icon" onclick="toggleMenu()">
-            <div></div>
-            <div></div>
-            <div></div>
-        </div>
-    </div>
 
-    <!-- Menu nascosto -->
-    <div class="menu" id="menu">
-        <a href="pagina.html">Artisti</a>
-        <a href="3500cm2.html">3500cm2</a>
-        <a href="luoghi.html">Luoghi</a>
-        <a href="contatti.html">Contatti</a>
+        <div class="menu">
+            <a href="index.html">Home</a>
+            <a href="pagina.html">Artisti</a>
+            <a href="3500cm2.html">3500cm²</a>
+            <a href="mostre.html">Mostre</a>
+            <a href="luoghi.html">Luoghi</a>
+            <a href="cronologia.html">Cronologia</a>
+            <a href="contatti.html">Contatti</a>
+            <a href="en/jochen-lempert.html">EN</a>
+        </div>
     </div>
 
     <img src="jochen-lempert.jpg" alt="Jochen Lempert">
 
     <div class="description">
-   #86 Jochem Lempert, Podalirio, 2016-2024, Expodemic, Festival delle Accademie e degli Istituti di Cultura stranieri 2024 - 
-    Palazzo Esposizioni Roma – Museo Casa di Goethe, Roma © JOCHEN LEMPERT by SIAE 2024    </div>
-
+        #86 Jochen Lempert, <i>Podalirio</i>, 2016–2024, Expodemic, Festival delle Accademie e degli Istituti di Cultura stranieri 2024 – Palazzo Esposizioni Roma – Museo Casa di Goethe, Roma © JOCHEN LEMPERT by SIAE 2024
+    </div>
 
     <!-- Frecce per navigare tra le pagine -->
     <a href="robert-kusmirowski.html" class="prev-artist">&#8592;</a>
     <a href="chi-wo-leung.html" class="next-artist">&#8594;</a>
-
-    <script>
-        function toggleMenu() {
-            const menu = document.getElementById('menu');
-            menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
-        }
-    </script>
 </body>
 </html>
