@@ -9,25 +9,23 @@
     <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet">
 
     <style>
-        /* Stili generali */
         body {
             font-family: 'Libre Baskerville', serif;
             margin: 0;
             padding: 0;
-            padding-top: 78px;
+            padding-top: 86px;
             background-color: #000;
             color: #fff;
             position: relative;
             overflow-x: hidden;
         }
 
-        /* Header fisso con nome dell'artista e menu */
         .header {
             position: fixed;
             top: 0;
             left: 0;
             right: 0;
-            height: 38px;
+            height: 46px;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -37,82 +35,56 @@
             z-index: 2000;
         }
 
-        /* Link di ritorno alla pagina principale */
         .back-link {
             font-size: 1.5rem;
             font-weight: bold;
             text-decoration: none;
             color: #fff;
+            white-space: nowrap;
         }
 
-        /* Menu hamburger */
-        .menu-icon {
-            display: flex;
-            flex-direction: column;
-            justify-content: space-around;
-            width: 25px;
-            height: 15px;
-            cursor: pointer;
-        }
-
-        .menu-icon div {
-            background-color: #fff;
-            height: 2px;
-            width: 100%;
-            border-radius: 1px;
-        }
-
-        /* Menu nascosto */
         .menu {
-            display: none;
-            position: fixed;
-            top: 78px;
-            right: 20px;
-            background: #fff;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            padding: 10px;
-            z-index: 3000;
+            display: flex;
+            align-items: center;
+            gap: 18px;
         }
 
         .menu a {
-            display: block;
-            padding: 10px 0;
             text-decoration: none;
-            color: #000;
+            color: #fff;
             font-size: 1rem;
+            white-space: nowrap;
         }
 
         .menu a:hover {
             text-decoration: underline;
         }
 
-        /* Immagine */
         img {
             width: 100%;
-            max-height: calc(100vh - 120px);
+            max-height: calc(100vh - 130px);
             object-fit: contain;
             display: block;
             margin: 20px auto;
         }
 
-        /* Descrizione opera */
         .description {
             font-family: 'Libre Baskerville', serif;
             font-size: 1rem;
+            line-height: 1.5;
             text-align: left;
             margin: 20px;
             color: #fff;
+            max-width: 900px;
         }
 
-        /* Frecce di navigazione tra gli artisti */
         .prev-artist, 
         .next-artist {
             position: fixed;
             top: 50%;
             transform: translateY(-50%);
             font-size: 2.5rem;
-            color: gray;
+            color: #aaa;
             text-decoration: none;
             z-index: 1500;
         }
@@ -130,30 +102,36 @@
             color: #fff;
         }
 
-        /* Mobile */
         @media (max-width: 768px) {
             body {
-                padding-top: 72px;
+                padding-top: 120px;
             }
 
             .header {
-                height: 32px;
-                padding: 20px;
+                height: auto;
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 12px;
+                padding: 16px 20px;
             }
 
             .back-link {
                 font-size: 1.1rem;
-                max-width: 80%;
                 line-height: 1.25;
             }
 
             .menu {
-                top: 72px;
-                right: 15px;
+                display: flex;
+                flex-wrap: wrap;
+                gap: 8px 14px;
+            }
+
+            .menu a {
+                font-size: 0.85rem;
             }
 
             img {
-                max-height: calc(100vh - 130px);
+                max-height: calc(100vh - 160px);
                 margin: 15px auto;
             }
 
@@ -174,43 +152,29 @@
 
 <body>
 
-    <!-- Header con titolo e menu -->
     <div class="header">
         <a href="pagina.html" class="back-link">#3 Nicoletta Agostini</a>
 
-        <div class="menu-icon" onclick="toggleMenu()">
-            <div></div>
-            <div></div>
-            <div></div>
-        </div>
+        <nav class="menu">
+            <a href="pagina.html">artisti</a>
+            <a href="3500cm2.html">3500 cm²</a>
+            <a href="luoghi.html">luoghi</a>
+            <a href="mostre.html">mostre</a>
+            <a href="news.html">news</a>
+            <a href="partner.html">partner</a>
+            <a href="en.html">en</a>
+            <a href="contatti.html">contatti</a>
+        </nav>
     </div>
 
-    <!-- Menu nascosto -->
-    <div class="menu" id="menu">
-        <a href="pagina.html">artisti</a>
-        <a href="3500cm2.html">3500 cm²</a>
-        <a href="luoghi.html">luoghi</a>
-        <a href="contatti.html">contatti</a>
-    </div>
-
-    <!-- Immagine dell'opera -->
     <img src="nicoletta-agostini.jpg" alt="Nicoletta Agostini">
 
-    <!-- Descrizione dell'opera -->
     <div class="description">
         #3 Nicoletta Agostini, <em>100% originale 2005</em>, 2004, Blueroom, rialtosantambrogio, Roma
     </div>
 
-    <!-- Frecce di navigazione tra artisti -->
     <a href="carla-accardi.html" class="prev-artist">&#8592;</a>
     <a href="maria-thereza-alves.html" class="next-artist">&#8594;</a>
-
-    <script>
-        function toggleMenu() {
-            const menu = document.getElementById('menu');
-            menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
-        }
-    </script>
 
 </body>
 </html>
