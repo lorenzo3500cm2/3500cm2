@@ -10,141 +10,141 @@
 
     <style>
         body {
-            font-family: 'Libre Baskerville', serif;
-            margin: 0;
-            padding: 0;
-            padding-top: 86px;
-            background-color: #000 ;
-            color: #fff;
-            position: relative;
-            overflow-x: hidden;
-        }
+    font-family: 'Libre Baskerville', serif;
+    margin: 0;
+    padding: 0;
+    padding-top: 86px;
+    background-color: #000;
+    color: #fff;
+    position: relative;
+    overflow-x: hidden;
+}
 
-        .header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 46px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px;
-            border-bottom: 1px solid #ddd;
-            background-color: #fff;
-            z-index: 2000;
-        }
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 46px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    border-bottom: 1px solid #333;
+    background-color: #000;
+    z-index: 2000;
+}
 
-        .back-link {
-            font-size: 1.5rem;
-            font-weight: bold;
-            text-decoration: none;
-            color: #333;
-            white-space: nowrap;
-        }
+.back-link {
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-decoration: none;
+    color: #fff;
+    white-space: nowrap;
+}
 
-        .menu {
-            display: flex;
-            align-items: center;
-            gap: 18px;
-        }
+.menu {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+}
 
-        .menu a {
-            text-decoration: none;
-            color: #000;
-            font-size: 1rem;
-            white-space: nowrap;
-        }
+.menu a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 1rem;
+    white-space: nowrap;
+}
 
-        .menu a:hover {
-            text-decoration: underline;
-        }
+.menu a:hover {
+    text-decoration: underline;
+}
 
-        img {
-            width: 100%;
-            max-height: calc(100vh - 130px);
-            object-fit: contain;
-            display: block;
-            margin: 20px auto;
-        }
+img {
+    width: 100%;
+    max-height: calc(100vh - 130px);
+    object-fit: contain;
+    display: block;
+    margin: 20px auto;
+}
 
-        .description {
-            font-family: 'Libre Baskerville', serif;
-            font-size: 1rem;
-            line-height: 1.5;
-            text-align: left;
-            margin: 20px;
-            color: #333;
-            max-width: 900px;
-        }
+.description {
+    font-family: 'Libre Baskerville', serif;
+    font-size: 1rem;
+    line-height: 1.5;
+    text-align: left;
+    margin: 20px;
+    color: #fff;
+    max-width: 900px;
+}
 
-        .prev-artist, 
-        .next-artist {
-            position: fixed;
-            top: 50%;
-            transform: translateY(-50%);
-            font-size: 2.5rem;
-            color: gray;
-            text-decoration: none;
-            z-index: 1500;
-        }
+.prev-artist, 
+.next-artist {
+    position: fixed;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 2.5rem;
+    color: #aaa;
+    text-decoration: none;
+    z-index: 1500;
+}
 
-        .prev-artist {
-            left: 10px;
-        }
+.prev-artist {
+    left: 10px;
+}
 
-        .next-artist {
-            right: 10px;
-        }
+.next-artist {
+    right: 10px;
+}
 
-        .prev-artist:hover, 
-        .next-artist:hover {
-            color: black;
-        }
+.prev-artist:hover, 
+.next-artist:hover {
+    color: #fff;
+}
 
-        @media (max-width: 768px) {
-            body {
-                padding-top: 120px;
-            }
+@media (max-width: 768px) {
+    body {
+        padding-top: 120px;
+    }
 
-            .header {
-                height: auto;
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 12px;
-                padding: 16px 20px;
-            }
+    .header {
+        height: auto;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+        padding: 16px 20px;
+    }
 
-            .back-link {
-                font-size: 1.1rem;
-                line-height: 1.25;
-            }
+    .back-link {
+        font-size: 1.1rem;
+        line-height: 1.25;
+    }
 
-            .menu {
-                display: flex;
-                flex-wrap: wrap;
-                gap: 8px 14px;
-            }
+    .menu {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px 14px;
+    }
 
-            .menu a {
-                font-size: 0.85rem;
-            }
+    .menu a {
+        font-size: 0.85rem;
+    }
 
-            img {
-                max-height: calc(100vh - 160px);
-                margin: 15px auto;
-            }
+    img {
+        max-height: calc(100vh - 160px);
+        margin: 15px auto;
+    }
 
-            .description {
-                font-size: 0.85rem;
-                margin: 15px 20px 30px 20px;
-            }
+    .description {
+        font-size: 0.85rem;
+        margin: 15px 20px 30px 20px;
+    }
 
-            .prev-artist,
-            .next-artist {
-                font-size: 2rem;
-            }
-        }
+    .prev-artist,
+    .next-artist {
+        font-size: 2rem;
+    }
+}
     </style>
 
     <script src="analytics.js"></script>
