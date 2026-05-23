@@ -4,28 +4,37 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nicoletta Agostini</title>
- <!-- Google Fonts -->
+
+    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet">
 
-    
     <style>
         /* Stili generali */
         body {
-            font-family:  'Libre Baskerville', serif;
+            font-family: 'Libre Baskerville', serif;
             margin: 0;
             padding: 0;
-             background-color: #000;
-            color: #fff
+            padding-top: 78px;
+            background-color: #000;
+            color: #fff;
             position: relative;
+            overflow-x: hidden;
         }
 
-        /* Header con nome dell'artista e menu */
+        /* Header fisso con nome dell'artista e menu */
         .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 38px;
             display: flex;
             justify-content: space-between;
             align-items: center;
             padding: 20px;
-            border-bottom: 1px solid #ddd;
+            border-bottom: 1px solid #333;
+            background-color: #000;
+            z-index: 2000;
         }
 
         /* Link di ritorno alla pagina principale */
@@ -56,14 +65,14 @@
         /* Menu nascosto */
         .menu {
             display: none;
-            position: absolute;
-            top: 60px;
+            position: fixed;
+            top: 78px;
             right: 20px;
-            background: #f9f9f9;
+            background: #fff;
             border: 1px solid #ddd;
             border-radius: 5px;
             padding: 10px;
-            z-index: 1000;
+            z-index: 3000;
         }
 
         .menu a {
@@ -81,7 +90,7 @@
         /* Immagine */
         img {
             width: 100%;
-            max-height: 90vh;
+            max-height: calc(100vh - 120px);
             object-fit: contain;
             display: block;
             margin: 20px auto;
@@ -89,22 +98,23 @@
 
         /* Descrizione opera */
         .description {
-            font-family:  'Libre Baskerville', serif;
+            font-family: 'Libre Baskerville', serif;
             font-size: 1rem;
             text-align: left;
             margin: 20px;
-            color: #333;
+            color: #fff;
         }
 
         /* Frecce di navigazione tra gli artisti */
-        .prev-artist, .next-artist {
-            position: absolute;
+        .prev-artist, 
+        .next-artist {
+            position: fixed;
             top: 50%;
             transform: translateY(-50%);
             font-size: 2.5rem;
             color: gray;
             text-decoration: none;
-            z-index: 1000;
+            z-index: 1500;
         }
 
         .prev-artist {
@@ -115,17 +125,59 @@
             right: 10px;
         }
 
-        .prev-artist:hover, .next-artist:hover {
-            color: black;
+        .prev-artist:hover, 
+        .next-artist:hover {
+            color: #fff;
+        }
+
+        /* Mobile */
+        @media (max-width: 768px) {
+            body {
+                padding-top: 72px;
+            }
+
+            .header {
+                height: 32px;
+                padding: 20px;
+            }
+
+            .back-link {
+                font-size: 1.1rem;
+                max-width: 80%;
+                line-height: 1.25;
+            }
+
+            .menu {
+                top: 72px;
+                right: 15px;
+            }
+
+            img {
+                max-height: calc(100vh - 130px);
+                margin: 15px auto;
+            }
+
+            .description {
+                font-size: 0.85rem;
+                margin: 15px 20px 30px 20px;
+            }
+
+            .prev-artist,
+            .next-artist {
+                font-size: 2rem;
+            }
         }
     </style>
+
     <script src="analytics.js"></script>
 </head>
+
 <body>
 
     <!-- Header con titolo e menu -->
     <div class="header">
         <a href="pagina.html" class="back-link">#3 Nicoletta Agostini</a>
+
         <div class="menu-icon" onclick="toggleMenu()">
             <div></div>
             <div></div>
