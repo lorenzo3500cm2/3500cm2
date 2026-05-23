@@ -13,7 +13,7 @@
             font-family: 'Libre Baskerville', serif;
             margin: 0;
             padding: 0;
-            padding-top: 86px;
+            padding-top: 78px;
             background-color: #000;
             color: #fff;
             position: relative;
@@ -25,7 +25,7 @@
             top: 0;
             left: 0;
             right: 0;
-            height: 46px;
+            height: 38px;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -40,20 +40,42 @@
             font-weight: bold;
             text-decoration: none;
             color: #fff;
-            white-space: nowrap;
+        }
+
+        .menu-icon {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            width: 25px;
+            height: 15px;
+            cursor: pointer;
+        }
+
+        .menu-icon div {
+            background-color: #fff;
+            height: 2px;
+            width: 100%;
+            border-radius: 1px;
         }
 
         .menu {
-            display: flex;
-            align-items: center;
-            gap: 18px;
+            display: none;
+            position: fixed;
+            top: 78px;
+            right: 20px;
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 10px;
+            z-index: 3000;
         }
 
         .menu a {
+            display: block;
+            padding: 10px 0;
             text-decoration: none;
-            color: #fff;
+            color: #000;
             font-size: 1rem;
-            white-space: nowrap;
         }
 
         .menu a:hover {
@@ -62,7 +84,7 @@
 
         img {
             width: 100%;
-            max-height: calc(100vh - 130px);
+            max-height: calc(100vh - 120px);
             object-fit: contain;
             display: block;
             margin: 20px auto;
@@ -71,11 +93,9 @@
         .description {
             font-family: 'Libre Baskerville', serif;
             font-size: 1rem;
-            line-height: 1.5;
             text-align: left;
             margin: 20px;
             color: #fff;
-            max-width: 900px;
         }
 
         .prev-artist, 
@@ -84,7 +104,7 @@
             top: 50%;
             transform: translateY(-50%);
             font-size: 2.5rem;
-            color: #aaa;
+            color: gray;
             text-decoration: none;
             z-index: 1500;
         }
@@ -104,34 +124,27 @@
 
         @media (max-width: 768px) {
             body {
-                padding-top: 120px;
+                padding-top: 72px;
             }
 
             .header {
-                height: auto;
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 12px;
-                padding: 16px 20px;
+                height: 32px;
+                padding: 20px;
             }
 
             .back-link {
                 font-size: 1.1rem;
+                max-width: 80%;
                 line-height: 1.25;
             }
 
             .menu {
-                display: flex;
-                flex-wrap: wrap;
-                gap: 8px 14px;
-            }
-
-            .menu a {
-                font-size: 0.85rem;
+                top: 72px;
+                right: 15px;
             }
 
             img {
-                max-height: calc(100vh - 160px);
+                max-height: calc(100vh - 130px);
                 margin: 15px auto;
             }
 
@@ -155,16 +168,18 @@
     <div class="header">
         <a href="pagina.html" class="back-link">#3 Nicoletta Agostini</a>
 
-        <nav class="menu">
-            <a href="pagina.html">artisti</a>
-            <a href="3500cm2.html">3500 cm²</a>
-            <a href="luoghi.html">luoghi</a>
-            <a href="mostre.html">mostre</a>
-            <a href="news.html">news</a>
-            <a href="partner.html">partner</a>
-            <a href="en.html">en</a>
-            <a href="contatti.html">contatti</a>
-        </nav>
+        <div class="menu-icon" onclick="toggleMenu()">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+
+    <div class="menu" id="menu">
+        <a href="pagina.html">artisti</a>
+        <a href="3500cm2.html">3500 cm²</a>
+        <a href="luoghi.html">luoghi</a>
+        <a href="contatti.html">contatti</a>
     </div>
 
     <img src="nicoletta-agostini.jpg" alt="Nicoletta Agostini">
@@ -175,6 +190,48 @@
 
     <a href="carla-accardi.html" class="prev-artist">&#8592;</a>
     <a href="maria-thereza-alves.html" class="next-artist">&#8594;</a>
+
+    <script>
+        function toggleMenu() {
+            const menu = document.getElementById('menu');
+            menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
+        }
+
+        let touchStartX = 0;
+        let touchStartY = 0;
+        let touchEndX = 0;
+        let touchEndY = 0;
+
+        document.addEventListener("touchstart", function(event) {
+            touchStartX = event.changedTouches[0].screenX;
+            touchStartY = event.changedTouches[0].screenY;
+        }, false);
+
+        document.addEventListener("touchend", function(event) {
+            touchEndX = event.changedTouches[0].screenX;
+            touchEndY = event.changedTouches[0].screenY;
+            handleSwipe();
+        }, false);
+
+        function handleSwipe() {
+            const swipeX = touchEndX - touchStartX;
+            const swipeY = touchEndY - touchStartY;
+            const minSwipeDistance = 60;
+
+            if (Math.abs(swipeX) > Math.abs(swipeY) && Math.abs(swipeX) > minSwipeDistance) {
+                const prevLink = document.querySelector(".prev-artist");
+                const nextLink = document.querySelector(".next-artist");
+
+                if (swipeX > 0 && prevLink) {
+                    window.location.href = prevLink.href;
+                }
+
+                if (swipeX < 0 && nextLink) {
+                    window.location.href = nextLink.href;
+                }
+            }
+        }
+    </script>
 
 </body>
 </html>
