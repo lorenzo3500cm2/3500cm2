@@ -14,8 +14,8 @@
             margin: 0;
             padding: 0;
             padding-top: 86px;
-            background-color: #fff;
-            color: #000;
+            background-color: #000;
+            color: #fff;
             position: relative;
             overflow-x: hidden;
         }
@@ -30,8 +30,8 @@
             justify-content: space-between;
             align-items: center;
             padding: 20px;
-            border-bottom: 1px solid #ddd;
-            background-color: #fff;
+            border-bottom: 1px solid #333;
+            background-color: #000;
             z-index: 2000;
         }
 
@@ -39,7 +39,7 @@
             font-size: 1.5rem;
             font-weight: bold;
             text-decoration: none;
-            color: #333;
+            color: #fff;
             white-space: nowrap;
         }
 
@@ -51,7 +51,7 @@
 
         .menu a {
             text-decoration: none;
-            color: #000;
+            color: #fff;
             font-size: 1rem;
             white-space: nowrap;
         }
@@ -74,7 +74,7 @@
             line-height: 1.5;
             text-align: left;
             margin: 20px;
-            color: #333;
+            color: #fff;
             max-width: 900px;
         }
 
@@ -84,7 +84,7 @@
             top: 50%;
             transform: translateY(-50%);
             font-size: 2.5rem;
-            color: gray;
+            color: #aaa;
             text-decoration: none;
             z-index: 1500;
         }
@@ -99,7 +99,7 @@
 
         .prev-artist:hover, 
         .next-artist:hover {
-            color: black;
+            color: #fff;
         }
 
         @media (max-width: 768px) {
@@ -160,6 +160,7 @@
             <a href="mostre.html">mostre</a>
             <a href="news.html">news</a>
             <a href="partner.html">partner</a>
+            <a href="en.html">en</a>
             <a href="contatti.html">contatti</a>
         </nav>
     </div>
@@ -167,11 +168,50 @@
     <img src="stanislao-di-giugno.jpg" alt="Stanislao di Giugno">
 
     <div class="description">
-        #1 Stanislao di Giugno, Rialto Sant'Ambrogio, Roma, nel 2004
+        #1 Stanislao di Giugno, Rialto Sant'Ambrogio, Roma, 2004
     </div>
-
     <a href="flavio-de-marco.html" class="prev-artist">&#8592;</a>
     <a href="davide-d'elia.html" class="next-artist">&#8594;</a>
+
+    <script>
+        let touchStartX = 0;
+        let touchStartY = 0;
+        let touchEndX = 0;
+        let touchEndY = 0;
+
+        document.addEventListener("touchstart", function(event) {
+            touchStartX = event.changedTouches[0].screenX;
+            touchStartY = event.changedTouches[0].screenY;
+        }, false);
+
+        document.addEventListener("touchend", function(event) {
+            touchEndX = event.changedTouches[0].screenX;
+            touchEndY = event.changedTouches[0].screenY;
+            handleSwipe();
+        }, false);
+
+        function handleSwipe() {
+            const swipeX = touchEndX - touchStartX;
+            const swipeY = touchEndY - touchStartY;
+            const minSwipeDistance = 60;
+
+            if (Math.abs(swipeX) > Math.abs(swipeY) && Math.abs(swipeX) > minSwipeDistance) {
+                const prevLink = document.querySelector(".prev-artist");
+                const nextLink = document.querySelector(".next-artist");
+
+                if (swipeX > 0 && prevLink) {
+                    window.location.href = prevLink.href;
+                }
+
+                if (swipeX < 0 && nextLink) {
+                    window.location.href = nextLink.href;
+                }
+            }
+        }
+    </script>
+
+</body>
+</html>
 
 </body>
 </html>
