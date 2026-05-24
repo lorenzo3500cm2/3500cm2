@@ -4,145 +4,271 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Paolo Chiasera</title>
-     <!-- Google Fonts -->
+
+    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet">
 
     <style>
         body {
-            font-family:  'Libre Baskerville', serif;
+            font-family: 'Libre Baskerville', serif;
             margin: 0;
             padding: 0;
+            padding-top: 86px;
             background-color: #fff;
             color: #000;
             position: relative;
+            overflow-x: hidden;
         }
+
         .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 46px;
             display: flex;
             justify-content: space-between;
             align-items: center;
             padding: 20px;
             border-bottom: 1px solid #ddd;
-            position: relative;
+            background-color: #fff;
+            z-index: 2000;
         }
+
         .back-link {
             font-size: 1.5rem;
             font-weight: bold;
             text-decoration: none;
             color: #333;
+            white-space: nowrap;
         }
-        .menu-icon {
-            display: flex;
-            flex-direction: column;
-            justify-content: space-around;
-            width: 25px;
-            height: 15px;
-            cursor: pointer;
-        }
-        .menu-icon div {
-            background-color: #000;
-            height: 2px;
-            width: 100%;
-            border-radius: 1px;
-        }
+
         .menu {
-            display: none; /* Nasconde il menu di default */
-            position: absolute;
-            top: 60px;
-            right: 20px;
-            padding: 0;
+            display: flex;
+            align-items: center;
+            gap: 18px;
         }
+
         .menu a {
-            display: block;
-            padding: 10px 0;
             text-decoration: none;
-            color: #000; /* Scritte nere */
+            color: #000;
             font-size: 1rem;
+            white-space: nowrap;
         }
+
         .menu a:hover {
-            background-color: transparent; /* Nessun colore di sfondo al hover */
-            text-decoration: underline; /* Sottolinea al passaggio del mouse */
+            text-decoration: underline;
         }
-        img {
+
+        .image-wrapper {
+            position: relative;
             width: 100%;
-            max-height: 90vh;
-            object-fit: contain;
-            display: block;
             margin: 20px auto;
         }
-        .description {
-            font-family:'Libre Baskerville', serif;
-            font-size: 1rem;
-            text-align: left;
-            margin: 20px;
-            color: #000;
+
+        .image-wrapper img {
+            width: 100%;
+            max-height: calc(100vh - 130px);
+            object-fit: contain;
+            display: block;
+            margin: 0 auto;
         }
-        .prev-artist, .next-artist {
+
+        .prev-artist, 
+        .next-artist {
             position: absolute;
             top: 50%;
             transform: translateY(-50%);
-            font-size: 2rem;
+            font-size: 2.5rem;
             color: gray;
             text-decoration: none;
             z-index: 1000;
+            padding: 10px;
         }
+
         .prev-artist {
-            left: 20px;
+            left: 10px;
         }
+
         .next-artist {
-            right: 20px;
+            right: 10px;
         }
-        .prev-artist:hover, .next-artist:hover {
+
+        .prev-artist:hover, 
+        .next-artist:hover {
             color: black;
         }
+
+        .description {
+            font-family: 'Libre Baskerville', serif;
+            font-size: 1rem;
+            line-height: 1.55;
+            text-align: left;
+            margin: 20px;
+            color: #000;
+            max-width: 1000px;
+        }
+
+        .description a {
+            color: blue;
+            text-decoration: none;
+        }
+
+        .description a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding-top: 120px;
+            }
+
+            .header {
+                height: auto;
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 12px;
+                padding: 16px 20px;
+            }
+
+            .back-link {
+                font-size: 1.1rem;
+                line-height: 1.25;
+            }
+
+            .menu {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 8px 14px;
+            }
+
+            .menu a {
+                font-size: 0.85rem;
+            }
+
+            .image-wrapper {
+                margin: 15px auto;
+            }
+
+            .image-wrapper img {
+                max-height: calc(100vh - 160px);
+            }
+
+            .prev-artist,
+            .next-artist {
+                font-size: 2rem;
+                padding: 6px;
+            }
+
+            .prev-artist {
+                left: 4px;
+            }
+
+            .next-artist {
+                right: 4px;
+            }
+
+            .description {
+                font-size: 0.85rem;
+                margin: 15px 20px 30px 20px;
+            }
+        }
     </style>
+
     <script src="analytics.js"></script>
 </head>
+
 <body>
+
     <div class="header">
         <a href="pagina.html" class="back-link">#26 Paolo Chiasera</a>
-        <div class="menu-icon" onclick="toggleMenu()">
-            <div></div>
-            <div></div>
-            <div></div>
-        </div>
+
+        <nav class="menu">
+            <a href="pagina.html">artisti</a>
+            <a href="3500cm2.html">3500 cm²</a>
+            <a href="luoghi.html">luoghi</a>
+            <a href="mostre.html">mostre</a>
+            <a href="news.html">news</a>
+            <a href="partner.html">partner</a>
+            <a href="en.html">en</a>
+            <a href="contatti.html">contatti</a>
+        </nav>
     </div>
 
-    <!-- Menu nascosto -->
-    <div class="menu" id="menu">
-        <a href="pagina.html">Artisti</a>
-        <a href="3500cm2.html">3500cm2</a>
-        <a href="luoghi.html">Luoghi</a>
-        <a href="contatti.html">Contatti</a>
-    </div>
+    <div class="image-wrapper">
+        <a href="pedro-cabrita-reis.html" class="prev-artist">&#8592;</a>
 
-    <img src="paolo-chiasera.jpg" alt="Francesco Arena">
+        <img src="paolo-chiasera.jpg" alt="Paolo Chiasera">
+
+        <a href="diego-cibelli.html" class="next-artist">&#8594;</a>
+    </div>
 
     <div class="description">
-        
-    My sentence, 2005, Blueroom Rialtosantambrogio  <p></p>   Il progetto, ideato da Paolo Chiasera, musiche di DJ Shablo, narra la vita di Jota Castro attraverso una canzone multilingua (inglese, italiano, francese, arabo) cui hanno preso parte diverse figure di primo piano nel panorama della musica hip hop con featuring di Guè Pequeno e La Furia (Club Dogo), Weld Grira, Sean e Tek Money e contributi di Gianni KG, Royal Mehdi e Vincenzo Da Via Anfossi. Attraverso una canzone multilingua (inglese, italiano, francese, arabo) cui hanno preso parte diverse figure di primo piano nel panorama della musica hip pop.
+        #26 Paolo Chiasera, <em>My sentence</em>, 2005, Blueroom, Rialtosantambrogio, Roma.
 
-Ex diplomatico di origine peruviana, Jota Castro (Lima, 1969), artista celebre per le sue opere "politicamente scorrette" (quali la serie "Mother fuckers" oppure, per citarme una, "Mussolini non ha mai ammazzato nessuno", 2003) ha coniugato l'impegno politico e sociale con l' attività artistica. Fra le sue numerose partecipazioni le mostre di Parigi, la Biennale di Venezia e di Tirana, Biennale dell'Emergenza (di cui è uno dei promotori). E' stato il vincitore dell'ultima Biennale di Gwangju (2004 ) in Cina.
+        <p>
+            Il progetto, ideato da Paolo Chiasera, musiche di DJ Shablo, narra la vita di Jota Castro attraverso una canzone multilingua — inglese, italiano, francese, arabo — cui hanno preso parte diverse figure di primo piano nel panorama della musica hip hop, con featuring di Guè Pequeno e La Furia dei Club Dogo, Weld Grira, Sean e Tek Money, e contributi di Gianni KG, Royal Mehdi e Vincenzo Da Via Anfossi.
+        </p>
 
-<p></p>L'idea è nata durante l'esposizione «Hardcore, vers un nouvel activisme» (Parigi, Palais de Tokyo, 2003) interamente dedicata all'attivismo e all'impegno politico nell'arte contemporanea: Chiasera nota uno dei lavori di Castro "That's me in a sentence", un testo su parete, con il quale l'artista esponeva al pubblico la "propria vita" riassunta senza pudori e facili sentimentalismi. Chiasera rimane colpito dalle parole di Castro e pensa di utilizzarle per comporre un pezzo musicale; successivamente dopo aver incontrato Castro - che si è subito mostrato molto interessato al progetto - ha iniziato a dare vita al progetto.
+        <p>
+            Ex diplomatico di origine peruviana, Jota Castro — Lima, 1969 — artista celebre per le sue opere politicamente scorrette, ha coniugato l'impegno politico e sociale con l'attività artistica. Fra le sue numerose partecipazioni figurano mostre a Parigi, la Biennale di Venezia e di Tirana, la Biennale dell'Emergenza, di cui è uno dei promotori. È stato vincitore della Biennale di Gwangju nel 2004.
+        </p>
 
-Per creare il sound della canzone Chiasera ha pensato ad un genere musicale molto preciso: "Mi piaceva l'idea che dei ragazzi di quartiere cantassero la vita di Jota un po' come i cantastorie di una volta, e ho pensato che l'hip pop fosse il mezzo migliore per raggiungere questo scopo". Da qui è nata la collaborazione con DJ Shablo che ha curato l'opera fino alla sua realiazzazione finale.
+        <p>
+            L'idea è nata durante l'esposizione <em>Hardcore, vers un nouvel activisme</em>, presentata al Palais de Tokyo di Parigi nel 2003 e dedicata all'attivismo e all'impegno politico nell'arte contemporanea. Chiasera nota uno dei lavori di Castro, <em>That's me in a sentence</em>, un testo su parete con il quale l'artista esponeva al pubblico la propria vita riassunta senza pudori e facili sentimentalismi. Chiasera rimane colpito dalle parole di Castro e pensa di utilizzarle per comporre un pezzo musicale.
+        </p>
 
-Shablo, produttore musicale italo–argentino, ha curato la produzione musicale del progetto, costruendo atmosfere ed intrecci sonori che hanno accompagnato le liriche di Jota Castro nelle sue diverse interpretazioni linguistiche. "Appena Paolo mi ha proposto la sua idea ho accettato subito; nonostante un'apparente perdita di consapevolezza che sembra allontanare un certo rap dalle sue radici, credo che l'hip hop sia ancora nella sua forma originale, un validissimo mezzo per comunicare un sentimento di protesta per le cose non giuste."
+        <p>
+            Per creare il sound della canzone Chiasera ha pensato a un genere musicale preciso: l'hip hop, inteso come mezzo diretto per raccontare la vita di Jota Castro attraverso una forma contemporanea di narrazione popolare. Da qui è nata la collaborazione con DJ Shablo, che ha curato la realizzazione musicale dell'opera.
+        </p>
 
-        <p><a href="https://www.youtube.com/watch?v=_Yi9oa8GNf0" target="_blank" style="color: blue; text-decoration: none;">
-    Dj Shablo - My Sentence (feat. Club Dogo, Vincenzo, Sean, Tek Money, Weld Grira)
-</a></p>
+        <p>
+            Shablo, produttore musicale italo-argentino, ha costruito atmosfere e intrecci sonori che accompagnano le liriche di Jota Castro nelle diverse interpretazioni linguistiche.
+        </p>
+
+        <p>
+            <a href="https://www.youtube.com/watch?v=_Yi9oa8GNf0" target="_blank">
+                Dj Shablo - My Sentence (feat. Club Dogo, Vincenzo, Sean, Tek Money, Weld Grira)
+            </a>
+        </p>
     </div>
 
-    <!-- Frecce per navigare tra le pagine -->
-    <a href="pedro-cabrita-reis.html" class="prev-artist">&#8592;</a>
-    <a href="diego-cibelli.html" class="next-artist">&#8594;</a>
-
     <script>
-        function toggleMenu() {
-            const menu = document.getElementById('menu');
-            menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
+        let touchStartX = 0;
+        let touchStartY = 0;
+        let touchEndX = 0;
+        let touchEndY = 0;
+
+        document.addEventListener("touchstart", function(event) {
+            touchStartX = event.changedTouches[0].screenX;
+            touchStartY = event.changedTouches[0].screenY;
+        }, false);
+
+        document.addEventListener("touchend", function(event) {
+            touchEndX = event.changedTouches[0].screenX;
+            touchEndY = event.changedTouches[0].screenY;
+            handleSwipe();
+        }, false);
+
+        function handleSwipe() {
+            const swipeX = touchEndX - touchStartX;
+            const swipeY = touchEndY - touchStartY;
+            const minSwipeDistance = 60;
+
+            if (Math.abs(swipeX) > Math.abs(swipeY) && Math.abs(swipeX) > minSwipeDistance) {
+                const prevLink = document.querySelector(".prev-artist");
+                const nextLink = document.querySelector(".next-artist");
+
+                if (swipeX > 0 && prevLink) {
+                    window.location.href = prevLink.href;
+                }
+
+                if (swipeX < 0 && nextLink) {
+                    window.location.href = nextLink.href;
+                }
+            }
         }
     </script>
+
 </body>
 </html>
