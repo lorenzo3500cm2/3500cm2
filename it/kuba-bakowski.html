@@ -4,133 +4,214 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kuba Bakowski</title>
-      <!-- Google Fonts -->
+
+    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet">
 
-    
     <style>
         body {
             font-family: 'Libre Baskerville', serif;
             margin: 0;
             padding: 0;
+            padding-top: 86px;
             background-color: #fff;
             color: #000;
             position: relative;
+            overflow-x: hidden;
         }
+
         .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 46px;
             display: flex;
             justify-content: space-between;
             align-items: center;
             padding: 20px;
             border-bottom: 1px solid #ddd;
-            position: relative;
+            background-color: #fff;
+            z-index: 2000;
         }
+
         .back-link {
             font-size: 1.5rem;
             font-weight: bold;
             text-decoration: none;
             color: #333;
+            white-space: nowrap;
         }
-        .menu-icon {
-            display: flex;
-            flex-direction: column;
-            justify-content: space-around;
-            width: 25px;
-            height: 15px;
-            cursor: pointer;
-        }
-        .menu-icon div {
-            background-color: #000;
-            height: 2px;
-            width: 100%;
-            border-radius: 1px;
-        }
+
         .menu {
-            display: none; /* Nasconde il menu di default */
-            position: absolute;
-            top: 60px;
-            right: 20px;
-            padding: 0;
+            display: flex;
+            align-items: center;
+            gap: 18px;
         }
+
         .menu a {
-            display: block;
-            padding: 10px 0;
             text-decoration: none;
-            color: #000; /* Scritte nere */
+            color: #000;
             font-size: 1rem;
+            white-space: nowrap;
         }
+
         .menu a:hover {
-            background-color: transparent; /* Nessun colore di sfondo al hover */
-            text-decoration: underline; /* Sottolinea al passaggio del mouse */
+            text-decoration: underline;
         }
+
         img {
             width: 100%;
-            max-height: 90vh;
+            max-height: calc(100vh - 130px);
             object-fit: contain;
             display: block;
             margin: 20px auto;
         }
+
         .description {
             font-family: 'Libre Baskerville', serif;
             font-size: 1rem;
+            line-height: 1.5;
             text-align: left;
             margin: 20px;
             color: #333;
+            max-width: 900px;
         }
-        .prev-artist, .next-artist {
-            position: absolute;
+
+        .prev-artist, 
+        .next-artist {
+            position: fixed;
             top: 50%;
             transform: translateY(-50%);
-            font-size: 2rem;
+            font-size: 2.5rem;
             color: gray;
             text-decoration: none;
-            z-index: 1000;
+            z-index: 1500;
         }
+
         .prev-artist {
-            left: 20px;
+            left: 10px;
         }
+
         .next-artist {
-            right: 20px;
+            right: 10px;
         }
-        .prev-artist:hover, .next-artist:hover {
+
+        .prev-artist:hover, 
+        .next-artist:hover {
             color: black;
         }
+
+        @media (max-width: 768px) {
+            body {
+                padding-top: 120px;
+            }
+
+            .header {
+                height: auto;
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 12px;
+                padding: 16px 20px;
+            }
+
+            .back-link {
+                font-size: 1.1rem;
+                line-height: 1.25;
+            }
+
+            .menu {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 8px 14px;
+            }
+
+            .menu a {
+                font-size: 0.85rem;
+            }
+
+            img {
+                max-height: calc(100vh - 160px);
+                margin: 15px auto;
+            }
+
+            .description {
+                font-size: 0.85rem;
+                margin: 15px 20px 30px 20px;
+            }
+
+            .prev-artist,
+            .next-artist {
+                font-size: 2rem;
+            }
+        }
     </style>
+
     <script src="analytics.js"></script>
 </head>
+
 <body>
+
     <div class="header">
         <a href="pagina.html" class="back-link">#22 Kuba Bakowski</a>
-        <div class="menu-icon" onclick="toggleMenu()">
-            <div></div>
-            <div></div>
-            <div></div>
-        </div>
-    </div>
 
-    <!-- Menu nascosto -->
-    <div class="menu" id="menu">
-        <a href="pagina.html">Artisti</a>
-        <a href="3500cm2.html">Artisti</a>
-        <a href="luoghi.html">Luoghi</a>
-        <a href="contatti.html">Contatti</a>
+        <nav class="menu">
+            <a href="pagina.html">artisti</a>
+            <a href="3500cm2.html">3500 cm²</a>
+            <a href="luoghi.html">luoghi</a>
+            <a href="mostre.html">mostre</a>
+            <a href="news.html">news</a>
+            <a href="partner.html">partner</a>
+            <a href="en.html">en</a>
+            <a href="contatti.html">contatti</a>
+        </nav>
     </div>
 
     <img src="kuba-bakowski.jpg" alt="Kuba Bakowski">
 
     <div class="description">
-        2005 Rialtosantambrogio - Blueroom - Roma
+        #22 Kuba Bakowski, 2005, Rialtosantambrogio – Blueroom, Roma
     </div>
 
-    <!-- Frecce per navigare tra le pagine -->
     <a href="mark-bain.html" class="prev-artist">&#8592;</a>
     <a href="massimo-bartolini.html" class="next-artist">&#8594;</a>
 
     <script>
-        function toggleMenu() {
-            const menu = document.getElementById('menu');
-            menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
+        let touchStartX = 0;
+        let touchStartY = 0;
+        let touchEndX = 0;
+        let touchEndY = 0;
+
+        document.addEventListener("touchstart", function(event) {
+            touchStartX = event.changedTouches[0].screenX;
+            touchStartY = event.changedTouches[0].screenY;
+        }, false);
+
+        document.addEventListener("touchend", function(event) {
+            touchEndX = event.changedTouches[0].screenX;
+            touchEndY = event.changedTouches[0].screenY;
+            handleSwipe();
+        }, false);
+
+        function handleSwipe() {
+            const swipeX = touchEndX - touchStartX;
+            const swipeY = touchEndY - touchStartY;
+            const minSwipeDistance = 60;
+
+            if (Math.abs(swipeX) > Math.abs(swipeY) && Math.abs(swipeX) > minSwipeDistance) {
+                const prevLink = document.querySelector(".prev-artist");
+                const nextLink = document.querySelector(".next-artist");
+
+                if (swipeX > 0 && prevLink) {
+                    window.location.href = prevLink.href;
+                }
+
+                if (swipeX < 0 && nextLink) {
+                    window.location.href = nextLink.href;
+                }
+            }
         }
     </script>
+
 </body>
 </html>
