@@ -13,7 +13,7 @@
             font-family: 'Libre Baskerville', serif;
             margin: 0;
             padding: 0;
-            padding-top: 120px;
+            padding-top: 250px;
             background-color: #fff;
             color: #000;
             position: relative;
@@ -35,16 +35,24 @@
     box-sizing: border-box;
 }
 
-.site-title {
+.left-header {
     justify-self: start;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.site-title {
     font-size: 1.5rem;
     font-weight: bold;
     text-decoration: none;
     color: #000;
     white-space: nowrap;
+    margin-bottom: 14px;
 }
 
 .artist-title {
+    grid-column: 2;
     justify-self: center;
     font-size: 1.5rem;
     font-weight: bold;
@@ -65,22 +73,19 @@
 }
 
 .menu {
-    justify-self: end;
     display: flex;
-    flex-direction: row;
-    gap: 22px;
-    align-items: center;
-    justify-content: flex-end;
-    flex-wrap: wrap;
-    padding-top: 4px;
+    flex-direction: column;
+    gap: 8px;
+    align-items: flex-start;
 }
 
 .menu a {
-    display: inline-block;
+    display: block;
     padding: 0;
     text-decoration: none;
     color: #000;
     font-size: 1rem;
+    line-height: 1.25;
     white-space: nowrap;
 }
 
@@ -198,17 +203,21 @@
             }
         }
 
-      @media screen and (max-width: 768px) {
+  @media screen and (max-width: 768px) {
     body {
-        padding-top: 210px;
+        padding-top: 310px;
     }
 
     .header {
         display: flex;
         flex-direction: column;
         align-items: flex-start;
-        gap: 12px;
+        gap: 18px;
         padding: 20px;
+    }
+
+    .left-header {
+        width: 100%;
     }
 
     .site-title,
@@ -216,24 +225,29 @@
         font-size: 1.35rem;
         line-height: 1.2;
         white-space: normal;
-        justify-self: auto;
         text-align: left;
     }
 
+    .site-title {
+        margin-bottom: 12px;
+    }
+
+    .artist-title {
+        order: 2;
+    }
+
     .menu {
-        justify-content: flex-start;
-        flex-wrap: wrap;
-        gap: 10px 18px;
-        padding-top: 0;
+        order: 1;
+        gap: 7px;
     }
 
     .menu a {
-        font-size: 1.05rem;
+        font-size: 1rem;
     }
 
     img {
         margin-top: 10px;
-        max-height: 70vh;
+        max-height: 65vh;
     }
 }
     </style>
@@ -243,19 +257,21 @@
 
 <body>
 
-   <div class="header">
-    <a href="3500cm2.html" class="site-title">3500 cm²</a>
+<div class="header">
+    <div class="left-header">
+        <a href="3500cm2.html" class="site-title">3500 cm²</a>
+
+        <nav class="menu">
+            <a href="pagina.html">Artisti</a>
+            <a href="3500cm2.html">3500 cm²</a>
+            <a href="luoghi.html">Luoghi</a>
+            <a href="mostre.html">Mostre</a>
+            <a href="partner.html">Partner</a>
+            <a href="contatti.html">Contatti</a>
+        </nav>
+    </div>
 
     <a href="pagina.html" class="artist-title">#99 Hans Schabus</a>
-
-    <nav class="menu">
-        <a href="pagina.html">Artisti</a>
-        <a href="3500cm2.html">3500 cm²</a>
-        <a href="luoghi.html">Luoghi</a>
-        <a href="mostre.html">Mostre</a>
-        <a href="partner.html">Partner</a>
-        <a href="contatti.html">Contatti</a>
-    </nav>
 </div>
 
     <img src="hans-schabus.jpg" alt="Hans Schabus">
