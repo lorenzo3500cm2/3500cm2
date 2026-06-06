@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nedko Solakov</title>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Libre Baskerville', serif;
+            margin: 0;
+            padding: 0;
+            padding-top: 86px;
+            background-color: #fff;
+            color: #000;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            border-bottom: 1px solid #ddd;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background-color: #fff;
+            z-index: 3000;
+            box-sizing: border-box;
+        }
+
+        .back-link {
+            font-size: 1.5rem;
+            font-weight: bold;
+            text-decoration: none;
+            color: #333;
+            white-space: nowrap;
+        }
+
+        .back-link:hover {
+            color: blue;
+        }
+
+        .menu {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            gap: 18px;
+            flex-wrap: wrap;
+        }
+
+        .menu a {
+            text-decoration: none;
+            color: #000;
+            font-size: 1rem;
+            white-space: nowrap;
+        }
+
+        .menu a:hover {
+            text-decoration: underline;
+            color: blue;
+        }
+
+        img {
+            width: 100%;
+            max-height: 90vh;
+            object-fit: contain;
+            display: block;
+            margin: 20px auto;
+        }
+
+        .description {
+            font-family: 'Libre Baskerville', serif;
+            font-size: 1rem;
+            text-align: left;
+            margin: 20px;
+            color: #333;
+        }
+
+        .prev-artist, .next-artist {
+            position: fixed;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 2rem;
+            color: gray;
+            text-decoration: none;
+            z-index: 2000;
+        }
+
+        .prev-artist {
+            left: 20px;
+        }
+
+        .next-artist {
+            right: 20px;
+        }
+
+        .prev-artist:hover, .next-artist:hover {
+            color: black;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding-top: 145px;
+            }
+
+            .header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 12px;
+                padding: 16px 20px;
+            }
+
+            .back-link {
+                font-size: 1.3rem;
+            }
+
+            .menu {
+                width: 100%;
+                justify-content: flex-start;
+                flex-wrap: wrap;
+                gap: 10px 14px;
+            }
+
+            .menu a {
+                font-size: 0.9rem;
+            }
+
+            .prev-artist, .next-artist {
+                font-size: 2rem;
+            }
+        }
+    </style>
+
+    <script src="../analytics.js"></script>
+</head>
+
+<body>
+    <div class="header">
+        <a href="pagina.html" class="back-link">#116 Nedko Solakov</a>
+
+        <div class="menu">
+            <a href="news.html">news</a>
+            <a href="pagina.html">Artisti</a>
+            <a href="3500cm2.html">3500cm²</a>
+            <a href="mostre.html">Mostre</a>
+            <a href="luoghi.html">Luoghi</a>
+            <a href="contatti.html">Contatti</a>
+            <a href="../en/nedko-solakov.html">EN</a>
+        </div>
+    </div>
+
+    <img src="../img/nedko-solakov.jpg" alt="Nedko Solakov, You Can’t">
+
+    <div class="description">
+        #116 Nedko Solakov <i>You Can’t</i>, 2026<br>
+        3500 cm², Expositio Mundi, Musei Civici di Palazzo Buonaccorsi, Macerata
+    </div>
+
+    <!-- Frecce per navigare tra le pagine -->
+    <a href="marinella-senatore.html" class="prev-artist">&#8592;</a>
+    <a href="donatella-spaziani.html" class="next-artist">&#8594;</a>
+</body>
+</html>
