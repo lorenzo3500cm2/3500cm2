@@ -13,7 +13,7 @@
             font-family: 'Libre Baskerville', serif;
             margin: 0;
             padding: 0;
-            padding-top: 86px;
+            padding-top: 76px;
             background-color: #fff;
             color: #000;
             position: relative;
@@ -21,145 +21,235 @@
         }
 
         .header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px 28px;
-            border-bottom: 1px solid #ddd;
             position: fixed;
             top: 0;
             left: 0;
-            width: calc(100% - 56px);
-            background: #fff;
-            z-index: 1000;
+            right: 0;
+            z-index: 2000;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            padding: 18px 30px;
+            background-color: #fff;
+            border-bottom: 1px solid #ddd;
+            box-sizing: border-box;
         }
 
-        .back-link,
-        .next-link {
-            font-size: 1rem;
+        .back-link {
+            font-size: 1.5rem;
+            font-weight: bold;
             text-decoration: none;
-            color: #000;
-        }
-
-        .back-link:hover,
-        .next-link:hover {
-            text-decoration: underline;
-        }
-
-        .artist-title {
-            position: absolute;
-            left: 50%;
-            transform: translateX(-50%);
-            font-size: 1.2rem;
-            font-weight: 700;
-            text-align: center;
+            color: #333;
             white-space: nowrap;
         }
 
-        .container {
-            max-width: 980px;
-            margin: 0 auto;
-            padding: 60px 28px 80px 28px;
+        .back-link:hover {
+            color: blue;
         }
 
-        .image-container {
-            width: 100%;
+        .menu-icon {
+            display: none;
+        }
+
+        .menu {
             display: flex;
-            justify-content: center;
-            margin-bottom: 30px;
+            flex-direction: row;
+            justify-content: flex-end;
+            align-items: center;
+            gap: 28px;
+
+            position: static;
+            padding: 0;
+            margin: 0;
+            background: transparent;
         }
 
-        .image-container img {
-            max-width: 100%;
-            max-height: 78vh;
-            height: auto;
+        .menu a {
+            display: inline-block;
+            padding: 0;
+            text-decoration: none;
+            color: #000;
+            font-size: 1rem;
+            white-space: nowrap;
+        }
+
+        .menu a:hover {
+            color: blue;
+            text-decoration: underline;
+        }
+
+        img {
+            width: 100%;
+            max-height: 84vh;
+            object-fit: contain;
             display: block;
+            margin: 20px auto;
         }
 
-        .caption {
-            max-width: 760px;
-            margin: 0 auto;
-            font-size: 0.95rem;
-            line-height: 1.55;
-            text-align: center;
+        .description {
+            font-family: 'Libre Baskerville', serif;
+            font-size: 1rem;
+            line-height: 1.5;
+            text-align: left;
+            margin: 20px;
+            color: #333;
         }
 
-        .caption em {
+        .description em {
             font-style: italic;
         }
 
-        .text {
-            max-width: 760px;
-            margin: 42px auto 0 auto;
-            font-size: 0.95rem;
-            line-height: 1.65;
-            text-align: left;
+        .prev-artist,
+        .next-artist {
+            position: fixed;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 2rem;
+            color: gray;
+            text-decoration: none;
+            z-index: 1000;
         }
 
-        @media (max-width: 768px) {
+        .prev-artist {
+            left: 20px;
+        }
+
+        .next-artist {
+            right: 20px;
+        }
+
+        .prev-artist:hover,
+        .next-artist:hover {
+            color: black;
+        }
+
+        @media screen and (max-width: 768px) {
             body {
-                padding-top: 82px;
+                padding-top: 125px;
             }
 
             .header {
-                padding: 18px 18px;
-                width: calc(100% - 36px);
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 14px;
+                padding: 16px 20px;
             }
 
-            .artist-title {
-                font-size: 1rem;
+            .back-link {
+                font-size: 1.25rem;
+                white-space: normal;
             }
 
-            .back-link,
-            .next-link {
-                font-size: 0.82rem;
+            .menu {
+                flex-wrap: wrap;
+                justify-content: flex-start;
+                gap: 10px 18px;
             }
 
-            .container {
-                padding: 40px 18px 70px 18px;
+            .menu a {
+                font-size: 0.9rem;
             }
 
-            .caption,
-            .text {
-                font-size: 0.88rem;
+            img {
+                max-height: 76vh;
+                margin-top: 15px;
+            }
+
+            .description {
+                font-size: 0.9rem;
+                margin: 18px 20px 30px 20px;
+            }
+
+            .prev-artist,
+            .next-artist {
+                font-size: 1.8rem;
+            }
+
+            .prev-artist {
+                left: 12px;
+            }
+
+            .next-artist {
+                right: 12px;
             }
         }
     </style>
+
+    <script src="../analytics.js"></script>
 </head>
 
 <body>
 
-    <header class="header">
-        <a class="back-link" href="robert-kusmirowski.html">← Robert Kuśmirowski</a>
-        <div class="artist-title">Oliver Laric</div>
-        <a class="next-link" href="jochen-lempert.html">Jochen Lempert →</a>
-    </header>
+    <div class="header">
+        <a href="pagina.html" class="back-link">#114 Oliver Laric</a>
 
-    <main class="container">
+        <nav class="menu">
+            <a href="news.html">news</a>
+            <a href="3500cm2.html">3500 cm²</a>
+            <a href="pagina.html">artists</a>
+            <a href="luoghi.html">places</a>
+            <a href="mostre.html">exhibitions</a>
+            <a href="partner.html">partners</a>
+            <a href="contatti.html">contacts</a>
+            <a href="../oliver-laric.html">IT</a>
+        </nav>
+    </div>
 
-        <div class="image-container">
-            <img src="images/oliver-laric_.jpg" alt="Oliver Laric, 3500 cm² #114">
-        </div>
+    <img src="../img/oliver-laric_.jpg" alt="Oliver Laric, 3500 cm² #114">
 
-        <div class="caption">
-            <strong>Oliver Laric</strong>, 2026<br>
-            <em>3500 cm² #114</em><br>
-            curated by Lorenzo Benedetti for <em>Expositio Mundi</em>, University of Macerata
-        </div>
+    <div class="description">
+        #114 Oliver Laric, produced in 2026 for 3500 cm² on the occasion of <em>Expositio Mundi</em>, University of Macerata
+    </div>
 
-        <div class="text">
-            <p>
-                Oliver Laric’s poster for <em>3500 cm²</em> is presented within
-                <em>Expositio Mundi</em> as a reflection on the circulation of images,
-                the transformation of forms, and the possibility for an artwork to exist
-                through copies, translations and variations. Laric’s practice questions
-                the relationship between original and reproduction, between digital image
-                and material presence, opening a broader reflection on the exhibition as
-                a device of transmission, accessibility and shared experience.
-            </p>
-        </div>
+    <!-- Arrows to navigate between artist pages -->
+    <a href="robert-kusmirowski.html" class="prev-artist">&#8592;</a>
+    <a href="jochen-lempert.html" class="next-artist">&#8594;</a>
 
-    </main>
+    <!-- Mobile swipe -->
+    <script>
+        let touchStartX = 0;
+        let touchStartY = 0;
+        let touchEndX = 0;
+        let touchEndY = 0;
+
+        const previousPage = "robert-kusmirowski.html";
+        const nextPage = "jochen-lempert.html";
+
+        document.addEventListener("touchstart", function(event) {
+            touchStartX = event.changedTouches[0].screenX;
+            touchStartY = event.changedTouches[0].screenY;
+        }, false);
+
+        document.addEventListener("touchend", function(event) {
+            touchEndX = event.changedTouches[0].screenX;
+            touchEndY = event.changedTouches[0].screenY;
+            handleSwipe();
+        }, false);
+
+        function handleSwipe() {
+            const swipeDistanceX = touchEndX - touchStartX;
+            const swipeDistanceY = touchEndY - touchStartY;
+            const minimumSwipe = 70;
+
+            if (Math.abs(swipeDistanceY) > Math.abs(swipeDistanceX)) {
+                return;
+            }
+
+            if (Math.abs(swipeDistanceX) < minimumSwipe) {
+                return;
+            }
+
+            if (swipeDistanceX > 0) {
+                window.location.href = previousPage;
+            }
+
+            if (swipeDistanceX < 0) {
+                window.location.href = nextPage;
+            }
+        }
+    </script>
 
 </body>
 </html>
