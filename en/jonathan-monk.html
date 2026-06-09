@@ -1,10 +1,11 @@
 <!DOCTYPE html>
-<html lang="it">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jonathan Monk</title>
 
+    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet">
 
     <style>
@@ -12,7 +13,7 @@
             font-family: 'Libre Baskerville', serif;
             margin: 0;
             padding: 0;
-            padding-top: 86px;
+            padding-top: 76px;
             background-color: #fff;
             color: #000;
             position: relative;
@@ -20,17 +21,20 @@
         }
 
         .header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px 40px;
-            border-bottom: 1px solid #ddd;
             position: fixed;
             top: 0;
             left: 0;
             right: 0;
+            z-index: 2000;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            padding: 18px 30px;
             background-color: #fff;
-            z-index: 1000;
+            border-bottom: 1px solid #ddd;
+            box-sizing: border-box;
         }
 
         .back-link {
@@ -38,245 +42,211 @@
             font-weight: bold;
             text-decoration: none;
             color: #333;
+            white-space: nowrap;
         }
 
-        .artist-name {
-            font-size: 1.2rem;
-            font-weight: bold;
-            text-align: center;
+        .back-link:hover {
+            color: blue;
         }
 
         .menu-icon {
-            display: flex;
-            flex-direction: column;
-            justify-content: space-around;
-            width: 25px;
-            height: 20px;
-            cursor: pointer;
-        }
-
-        .menu-icon div {
-            width: 100%;
-            height: 2px;
-            background-color: #333;
-        }
-
-        .dropdown-menu {
             display: none;
-            position: fixed;
-            top: 78px;
-            right: 40px;
-            background-color: #fff;
-            border: 1px solid #ddd;
-            z-index: 1001;
-            min-width: 180px;
         }
 
-        .dropdown-menu a {
-            display: block;
-            padding: 12px 18px;
-            text-decoration: none;
-            color: #333;
-            font-size: 0.9rem;
-            border-bottom: 1px solid #eee;
-        }
-
-        .dropdown-menu a:last-child {
-            border-bottom: none;
-        }
-
-        .dropdown-menu a:hover {
-            background-color: #f5f5f5;
-        }
-
-        .language-switch {
-            position: fixed;
-            top: 96px;
-            right: 40px;
-            font-size: 0.85rem;
-            z-index: 900;
-        }
-
-        .language-switch a {
-            color: #333;
-            text-decoration: none;
-        }
-
-        .language-switch a:hover {
-            text-decoration: underline;
-        }
-
-        .content {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 70px 40px 80px 40px;
-        }
-
-        .image-section {
+        .menu {
             display: flex;
-            flex-direction: column;
+            flex-direction: row;
+            justify-content: flex-end;
             align-items: center;
-            margin-bottom: 55px;
+            gap: 28px;
+
+            position: static;
+            padding: 0;
+            margin: 0;
+            background: transparent;
         }
 
-        .image-section img {
-            max-width: 520px;
-            width: 100%;
-            height: auto;
-            display: block;
-        }
-
-        .caption {
-            max-width: 520px;
-            width: 100%;
-            margin-top: 18px;
-            font-size: 0.8rem;
-            line-height: 1.5;
-            color: #333;
-        }
-
-        .text-section {
-            max-width: 720px;
-            margin: 0 auto;
-            font-size: 0.95rem;
-            line-height: 1.65;
-        }
-
-        .text-section h1 {
-            font-size: 1.2rem;
-            margin-top: 0;
-            margin-bottom: 28px;
-            font-weight: bold;
-        }
-
-        .text-section p {
-            margin-top: 0;
-            margin-bottom: 18px;
-        }
-
-        .navigation {
-            display: flex;
-            justify-content: space-between;
-            margin-top: 70px;
-            padding-top: 30px;
-            border-top: 1px solid #ddd;
-            font-size: 0.9rem;
-        }
-
-        .navigation a {
+        .menu a {
+            display: inline-block;
+            padding: 0;
             text-decoration: none;
-            color: #333;
+            color: #000;
+            font-size: 1rem;
+            white-space: nowrap;
         }
 
-        .navigation a:hover {
+        .menu a:hover {
+            color: blue;
             text-decoration: underline;
         }
 
-        @media (max-width: 768px) {
+        img {
+            width: 100%;
+            max-height: 84vh;
+            object-fit: contain;
+            display: block;
+            margin: 20px auto;
+        }
+
+        .description {
+            font-family: 'Libre Baskerville', serif;
+            font-size: 1rem;
+            line-height: 1.5;
+            text-align: left;
+            margin: 20px;
+            color: #333;
+        }
+
+        .description em {
+            font-style: italic;
+        }
+
+        .prev-artist,
+        .next-artist {
+            position: fixed;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 2rem;
+            color: gray;
+            text-decoration: none;
+            z-index: 1000;
+        }
+
+        .prev-artist {
+            left: 20px;
+        }
+
+        .next-artist {
+            right: 20px;
+        }
+
+        .prev-artist:hover,
+        .next-artist:hover {
+            color: black;
+        }
+
+        @media screen and (max-width: 768px) {
             body {
-                padding-top: 80px;
+                padding-top: 125px;
             }
 
             .header {
-                padding: 18px 20px;
-            }
-
-            .artist-name {
-                font-size: 1rem;
-            }
-
-            .language-switch {
-                top: 92px;
-                right: 22px;
-            }
-
-            .content {
-                padding: 60px 22px 60px 22px;
-            }
-
-            .navigation {
                 flex-direction: column;
-                gap: 18px;
+                align-items: flex-start;
+                gap: 14px;
+                padding: 16px 20px;
             }
 
-            .dropdown-menu {
-                right: 20px;
+            .back-link {
+                font-size: 1.25rem;
+                white-space: normal;
+            }
+
+            .menu {
+                flex-wrap: wrap;
+                justify-content: flex-start;
+                gap: 10px 18px;
+            }
+
+            .menu a {
+                font-size: 0.9rem;
+            }
+
+            img {
+                max-height: 76vh;
+                margin-top: 15px;
+            }
+
+            .description {
+                font-size: 0.9rem;
+                margin: 18px 20px 30px 20px;
+            }
+
+            .prev-artist,
+            .next-artist {
+                font-size: 1.8rem;
+            }
+
+            .prev-artist {
+                left: 12px;
+            }
+
+            .next-artist {
+                right: 12px;
             }
         }
     </style>
+
+    <script src="../analytics.js"></script>
 </head>
 
 <body>
 
-    <header class="header">
-        <a href="index.html" class="back-link">←</a>
-        <div class="artist-name">Jonathan Monk</div>
-        <div class="menu-icon" onclick="toggleMenu()">
-            <div></div>
-            <div></div>
-            <div></div>
-        </div>
-    </header>
+    <div class="header">
+        <a href="pagina.html" class="back-link">#115 Jonathan Monk</a>
 
-    <nav class="dropdown-menu" id="dropdownMenu">
-        <a href="index.html">Home</a>
-        <a href="pagina.html">Artists</a>
-        <a href="news.html">News</a>
-     
-    </nav>
-
-    <div class="language-switch">
-        <a href="jonathan-monk-en.html">EN</a>
+        <nav class="menu">
+            <a href="news.html">news</a>
+            <a href="3500cm2.html">3500 cm²</a>
+            <a href="pagina.html">artists</a>
+            <a href="luoghi.html">places</a>
+            <a href="mostre.html">exhibitions</a>
+            <a href="partner.html">partners</a>
+            <a href="contatti.html">contacts</a>
+            <a href="../jonathan-monk.html">IT</a>
+        </nav>
     </div>
 
-    <main class="content">
+    <img src="../img/jonathan-monk.jpg" alt="Jonathan Monk, Ruscha Collage (stretched to fit)">
 
-        <section class="image-section">
-            <img src="images/jonathan-monk.jpg" alt="Jonathan Monk, Ruscha Collage (stretched to fit)">
-            <div class="caption">
-                Jonathan Monk, <em>Ruscha Collage (stretched to fit)</em>, 2026 • 3500 cm² #115 per <em>Expositio Mundi</em>, Sferisterio, Macerata
-            </div>
-        </section>
+    <div class="description">
+        #115 Jonathan Monk, <em>Ruscha Collage (stretched to fit)</em>, 2026, produced for 3500 cm² on the occasion of <em>Expositio Mundi</em>, Sferisterio, Macerata
+    </div>
 
-        <section class="text-section">
-            <h1>Jonathan Monk</h1>
+    <!-- Arrows to navigate between artist pages -->
+    <a href="domenico-mangano-marieke-van-rooy.html" class="prev-artist">&#8592;</a>
+    <a href="jeanette-montgomery-barron.html" class="next-artist">&#8594;</a>
 
-            <p>
-                Il lavoro di Jonathan Monk si sviluppa attraverso una rilettura ironica, concettuale e personale della storia dell’arte recente. A partire da immagini, gesti, opere e dispositivi già esistenti, Monk costruisce un linguaggio fondato sulla ripetizione, sulla citazione e sullo slittamento di significato.
-            </p>
-
-            <p>
-                La sua pratica mette in discussione l’idea di originalità, il valore dell’autorialità e il modo in cui le opere circolano nel tempo. Ogni immagine può diventare una traccia, una memoria o una variazione: qualcosa che appartiene alla storia dell’arte ma anche alla dimensione quotidiana della visione.
-            </p>
-
-            <p>
-                Per 3500 cm², Jonathan Monk realizza <em>Ruscha Collage (stretched to fit)</em>, un poster prodotto in occasione di <em>Expositio Mundi</em> allo Sferisterio di Macerata. Il lavoro interviene nel formato del poster come in uno spazio aperto alla diffusione e alla trasformazione.
-            </p>
-
-            <p>
-                Il poster non è soltanto un supporto di comunicazione, ma diventa un’opera capace di circolare liberamente, raggiungere pubblici diversi e ridefinire il rapporto tra immagine, distribuzione e accessibilità. All’interno del progetto, il lavoro di Monk conferma la possibilità del poster di agire come dispositivo democratico: un’immagine moltiplicata, disponibile, trasportabile, capace di estendere l’esperienza dell’opera oltre i confini dello spazio espositivo.
-            </p>
-        </section>
-
-        <nav class="navigation">
-            <a href="domenico-mangano-marieke-van-rooy.html">← Domenico Mangano &amp; Marieke van Rooy</a>
-            <a href="jeanette-montgomery-barron.html">Jeanette Montgomery Barron →</a>
-        </nav>
-
-    </main>
-
+    <!-- Mobile swipe -->
     <script>
-        function toggleMenu() {
-            const menu = document.getElementById('dropdownMenu');
-            menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
-        }
+        let touchStartX = 0;
+        let touchStartY = 0;
+        let touchEndX = 0;
+        let touchEndY = 0;
 
-        window.onclick = function(event) {
-            if (!event.target.closest('.menu-icon')) {
-                const menu = document.getElementById('dropdownMenu');
-                if (menu.style.display === 'block') {
-                    menu.style.display = 'none';
-                }
+        const previousPage = "domenico-mangano-marieke-van-rooy.html";
+        const nextPage = "jeanette-montgomery-barron.html";
+
+        document.addEventListener("touchstart", function(event) {
+            touchStartX = event.changedTouches[0].screenX;
+            touchStartY = event.changedTouches[0].screenY;
+        }, false);
+
+        document.addEventListener("touchend", function(event) {
+            touchEndX = event.changedTouches[0].screenX;
+            touchEndY = event.changedTouches[0].screenY;
+            handleSwipe();
+        }, false);
+
+        function handleSwipe() {
+            const swipeDistanceX = touchEndX - touchStartX;
+            const swipeDistanceY = touchEndY - touchStartY;
+            const minimumSwipe = 70;
+
+            if (Math.abs(swipeDistanceY) > Math.abs(swipeDistanceX)) {
+                return;
+            }
+
+            if (Math.abs(swipeDistanceX) < minimumSwipe) {
+                return;
+            }
+
+            if (swipeDistanceX > 0) {
+                window.location.href = previousPage;
+            }
+
+            if (swipeDistanceX < 0) {
+                window.location.href = nextPage;
             }
         }
     </script>
