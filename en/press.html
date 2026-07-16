@@ -1,1 +1,456 @@
+Certo. Copia tutto questo codice in un file chiamato `articoli-stampa.html`:
 
+```html
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Articoli stampa — 3500 cm²</title>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Libre Baskerville', serif;
+            margin: 0;
+            padding: 0;
+            background-color: #fff;
+            color: #000;
+            position: relative;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .back-link {
+            font-size: 1.5rem;
+            font-weight: bold;
+            text-decoration: none;
+            color: #333;
+        }
+
+        .back-link:hover {
+            color: blue;
+        }
+
+        .menu-icon {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            width: 25px;
+            height: 15px;
+            cursor: pointer;
+        }
+
+        .menu-icon div {
+            background-color: #000;
+            height: 2px;
+            width: 100%;
+            border-radius: 1px;
+        }
+
+        .menu {
+            display: none;
+            position: absolute;
+            top: 60px;
+            right: 20px;
+            z-index: 1000;
+            min-width: 130px;
+            padding: 8px 14px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+        }
+
+        .menu a {
+            display: block;
+            padding: 10px 0;
+            text-decoration: none;
+            color: #000;
+            font-size: 1rem;
+        }
+
+        .menu a:hover {
+            color: blue;
+            text-decoration: underline;
+        }
+
+        .content {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 50px 20px 90px;
+        }
+
+        .intro {
+            max-width: 820px;
+            margin-bottom: 70px;
+        }
+
+        .intro h1 {
+            margin: 0 0 25px;
+            font-size: clamp(2.3rem, 6vw, 5rem);
+            font-weight: 400;
+            line-height: 1;
+        }
+
+        .intro p {
+            margin: 0;
+            color: #333;
+            font-size: 1rem;
+            line-height: 1.7;
+        }
+
+        .archive-year {
+            margin-top: 65px;
+        }
+
+        .year-title {
+            margin: 0;
+            padding-bottom: 14px;
+            border-bottom: 1px solid #000;
+            font-size: 2rem;
+            font-weight: 400;
+        }
+
+        .press-article {
+            display: grid;
+            grid-template-columns: 180px minmax(0, 1fr) 90px;
+            gap: 30px;
+            padding: 28px 0 32px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .press-meta {
+            color: #333;
+            font-size: 0.85rem;
+            line-height: 1.55;
+        }
+
+        .press-meta p {
+            margin: 0 0 6px;
+        }
+
+        .press-meta .publication {
+            color: #000;
+            font-weight: bold;
+        }
+
+        .press-text h2 {
+            margin: 0 0 12px;
+            font-size: 1.6rem;
+            font-weight: 400;
+            line-height: 1.25;
+        }
+
+        .press-text h2 a {
+            color: #000;
+            text-decoration: none;
+        }
+
+        .press-text h2 a:hover {
+            color: blue;
+            text-decoration: underline;
+        }
+
+        .press-text .author {
+            margin: 0 0 15px;
+            color: #666;
+            font-size: 0.85rem;
+        }
+
+        .press-text .description {
+            margin: 0;
+            color: #333;
+            font-size: 0.95rem;
+            line-height: 1.65;
+        }
+
+        .read-link {
+            justify-self: end;
+            color: #000;
+            font-size: 0.85rem;
+            text-decoration: none;
+        }
+
+        .read-link:hover {
+            color: blue;
+            text-decoration: underline;
+        }
+
+        .read-link::after {
+            content: ' ↗';
+        }
+
+        .page-note {
+            margin-top: 70px;
+            padding-top: 20px;
+            border-top: 1px solid #000;
+            color: #666;
+            font-size: 0.8rem;
+            line-height: 1.6;
+        }
+
+        @media (max-width: 700px) {
+            .content {
+                padding-top: 35px;
+            }
+
+            .intro {
+                margin-bottom: 50px;
+            }
+
+            .archive-year {
+                margin-top: 50px;
+            }
+
+            .press-article {
+                grid-template-columns: 1fr;
+                gap: 16px;
+            }
+
+            .press-meta {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 3px 14px;
+            }
+
+            .press-meta p {
+                margin: 0;
+            }
+
+            .read-link {
+                justify-self: start;
+            }
+        }
+    </style>
+
+    <script src="analytics.js"></script>
+</head>
+
+<body>
+    <div class="header">
+        <a href="pagina.html" class="back-link">Articoli stampa</a>
+
+        <div
+            class="menu-icon"
+            onclick="toggleMenu()"
+            role="button"
+            tabindex="0"
+            aria-label="Apri o chiudi il menu"
+        >
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+
+    <!-- Menu nascosto -->
+    <div class="menu" id="menu">
+        <a href="pagina.html">Artisti</a>
+        <a href="3500cm2.html">3500cm²</a>
+        <a href="locations.html">venues</a>
+        <a href="contatti.html">Contatti</a>
+    </div>
+
+    <main class="content">
+        <div class="intro">
+            <h1>Articoli stampa</h1>
+
+            <p>
+                Una selezione di articoli, recensioni e conversazioni dedicate a
+                <em>3500 cm²</em>, il progetto che dal 2004 porta l’arte
+                contemporanea fuori dagli spazi espositivi attraverso il
+                formato del poster.
+            </p>
+        </div>
+
+        <!-- ARTICOLI DEL 2026 -->
+
+        <section class="archive-year">
+            <h2 class="year-title">2026</h2>
+
+            <article class="press-article">
+                <div class="press-meta">
+                    <p class="publication">Nome testata</p>
+                    <p>15 giugno 2026</p>
+                    <p>Online</p>
+                </div>
+
+                <div class="press-text">
+                    <h2>
+                        <a href="#">
+                            L’arte che si prende: il progetto 3500 cm²
+                        </a>
+                    </h2>
+
+                    <p class="author">di Nome Cognome</p>
+
+                    <p class="description">
+                        Un progetto editoriale ed espositivo in cui il
+                        manifesto d’artista diventa un’opera accessibile,
+                        gratuita e capace di circolare oltre i confini
+                        tradizionali del museo.
+                    </p>
+                </div>
+
+                <a href="#" class="read-link">Leggi</a>
+            </article>
+
+            <article class="press-article">
+                <div class="press-meta">
+                    <p class="publication">Nome rivista</p>
+                    <p>26 maggio 2026</p>
+                    <p>Intervista</p>
+                </div>
+
+                <div class="press-text">
+                    <h2>
+                        <a href="#">
+                            Manifesti d’artista, una mostra senza confini
+                        </a>
+                    </h2>
+
+                    <p class="author">con Lorenzo Benedetti</p>
+
+                    <p class="description">
+                        Una conversazione sulla distribuzione come gesto
+                        curatoriale e sul poster come strumento diretto,
+                        democratico e condiviso per incontrare nuovi pubblici.
+                    </p>
+                </div>
+
+                <a href="#" class="read-link">Leggi</a>
+            </article>
+        </section>
+
+        <!-- ARTICOLI DEL 2025 -->
+
+        <section class="archive-year">
+            <h2 class="year-title">2025</h2>
+
+            <article class="press-article">
+                <div class="press-meta">
+                    <p class="publication">Nome quotidiano</p>
+                    <p>18 ottobre 2025</p>
+                    <p>Edizione stampa</p>
+                </div>
+
+                <div class="press-text">
+                    <h2>
+                        <a href="#">
+                            Quando l’arte entra nei luoghi della cura
+                        </a>
+                    </h2>
+
+                    <p class="author">di Nome Cognome</p>
+
+                    <p class="description">
+                        Il racconto del primo nucleo permanente di poster nei
+                        centri di salute mentale: opere in dialogo con pazienti,
+                        operatori e visitatori per rendere gli spazi più aperti
+                        e accoglienti.
+                    </p>
+                </div>
+
+                <a href="#" class="read-link">Leggi</a>
+            </article>
+        </section>
+
+        <!-- ARTICOLI DEL 2024 -->
+
+        <section class="archive-year">
+            <h2 class="year-title">2024</h2>
+
+            <article class="press-article">
+                <div class="press-meta">
+                    <p class="publication">Nome magazine</p>
+                    <p>15 ottobre 2024</p>
+                    <p>Approfondimento</p>
+                </div>
+
+                <div class="press-text">
+                    <h2>
+                        <a href="#">
+                            3500 cm²: vent’anni di arte in circolazione
+                        </a>
+                    </h2>
+
+                    <p class="author">di Nome Cognome</p>
+
+                    <p class="description">
+                        A vent’anni dalla nascita, il progetto continua a
+                        costruire una collezione diffusa: ogni edizione affida
+                        a un artista uno spazio preciso, 50 × 70 centimetri,
+                        da condividere liberamente.
+                    </p>
+                </div>
+
+                <a href="#" class="read-link">Leggi</a>
+            </article>
+
+            <article class="press-article">
+                <div class="press-meta">
+                    <p class="publication">Nome testata</p>
+                    <p>7 maggio 2024</p>
+                    <p>Recensione</p>
+                </div>
+
+                <div class="press-text">
+                    <h2>
+                        <a href="#">
+                            Il poster come spazio espositivo
+                        </a>
+                    </h2>
+
+                    <p class="author">di Nome Cognome</p>
+
+                    <p class="description">
+                        Tra immagine, testo e distribuzione, il formato
+                        tipografico si trasforma in un dispositivo espositivo
+                        mobile, capace di attraversare la città e diventare
+                        parte della vita quotidiana.
+                    </p>
+                </div>
+
+                <a href="#" class="read-link">Leggi</a>
+            </article>
+        </section>
+
+        <div class="page-note">
+            I contenuti di questa versione sono dimostrativi. Sostituisci
+            titoli, testate, date, descrizioni e collegamenti con i materiali
+            definitivi.
+        </div>
+    </main>
+
+    <script>
+        function toggleMenu() {
+            const menu = document.getElementById('menu');
+
+            menu.style.display =
+                menu.style.display === 'block' ? 'none' : 'block';
+        }
+
+        document
+            .querySelector('.menu-icon')
+            .addEventListener('keydown', function (event) {
+                if (event.key === 'Enter' || event.key === ' ') {
+                    event.preventDefault();
+                    toggleMenu();
+                }
+            });
+    </script>
+</body>
+</html>
+```
