@@ -13,8 +13,8 @@
             font-family: 'Libre Baskerville', serif;
             margin: 0;
             padding: 0;
-            background-color: #fff;
-            color: #000;
+            background-color: #000;
+            color: #fff;
             position: relative;
         }
         .header {
@@ -22,13 +22,13 @@
             justify-content: space-between;
             align-items: center;
             padding: 20px;
-            border-bottom: 1px solid #ddd;
+            border-bottom: 1px solid #444;
         }
         .back-link {
             font-size: 1.5rem;
             font-weight: bold;
             text-decoration: none;
-            color: #333;
+            color: #fff;
         }
         .menu-icon {
             display: flex;
@@ -39,23 +39,24 @@
             cursor: pointer;
         }
         .menu-icon div {
-            background-color: #000;
+            background-color: #fff;
             height: 2px;
             width: 100%;
             border-radius: 1px;
         }
-        .menu {
-            display: none; /* Nasconde il menu di default */
-            position: absolute;
-            top: 60px;
-            right: 20px;
-            padding: 0;
-        }
+       .menu {
+        display: none;
+        position: absolute;
+        top: 60px;
+        right: 20px;
+        padding: 0;
+        z-index: 2000;
+    }
         .menu a {
             display: block;
             padding: 10px 0;
             text-decoration: none;
-            color: #000; /* Scritte nere */
+            color: #fff; /* Scritte nere */
             font-size: 1rem;
         }
         .menu a:hover {
@@ -73,7 +74,7 @@
             font-size: 1rem;
             text-align: left;
             margin: 20px;
-            color: #333;
+            color: #fff;
         }
         .prev-artist, .next-artist {
             position: absolute;
@@ -91,7 +92,7 @@
             right: 10px;
         }
         .prev-artist:hover, .next-artist:hover {
-            color: black;
+            color: #fff;
         }
     </style>
     <script src="menu.js" defer></script> <!-- Includi menu.js -->
