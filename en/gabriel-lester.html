@@ -4,94 +4,106 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gabriel Lester</title>
-    <style>
-        body {
-            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #fff;
-            color: #000;
-            position: relative;
-        }
-        .header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px;
-            border-bottom: 1px solid #ddd;
-            position: relative;
-        }
-        .back-link {
-            font-size: 1.5rem;
-            font-weight: bold;
-            text-decoration: none;
-            color: #333;
-        }
-        .menu-icon {
-            display: flex;
-            flex-direction: column;
-            justify-content: space-around;
-            width: 25px;
-            height: 15px;
-            cursor: pointer;
-        }
-        .menu-icon div {
-            background-color: #000;
-            height: 2px;
-            width: 100%;
-            border-radius: 1px;
-        }
-        .menu {
-            display: none; /* Nasconde il menu di default */
-            position: absolute;
-            top: 60px;
-            right: 20px;
-            padding: 0;
-        }
-        .menu a {
-            display: block;
-            padding: 10px 0;
-            text-decoration: none;
-            color: #000; /* Scritte nere */
-            font-size: 1rem;
-        }
-        .menu a:hover {
-            background-color: transparent; /* Nessun colore di sfondo al hover */
-            text-decoration: underline; /* Sottolinea al passaggio del mouse */
-        }
-        img {
-            width: 100%;
-            max-height: 90vh;
-            object-fit: contain;
-            display: block;
-            margin: 20px auto;
-        }
-        .description {
-            font-family: 'Courier New', Courier, monospace;
-            font-size: 1rem;
-            text-align: left;
-            margin: 20px;
-            color: #333;
-        }
-        .prev-artist, .next-artist {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            font-size: 2rem;
-            color: gray;
-            text-decoration: none;
-            z-index: 1000;
-        }
-        .prev-artist {
-            left: 20px;
-        }
-        .next-artist {
-            right: 20px;
-        }
-        .prev-artist:hover, .next-artist:hover {
-            color: black;
-        }
-    </style>
+ <style>
+    body {
+        font-family: 'Libre Baskerville', serif;
+        margin: 0;
+        padding: 0;
+        background-color: #000;
+        color: #fff;
+        position: relative;
+    }
+
+    .header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px;
+        border-bottom: 1px solid #444;
+    }
+
+    .back-link {
+        font-size: 1.5rem;
+        font-weight: bold;
+        text-decoration: none;
+        color: #fff;
+    }
+
+    .menu-icon {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        width: 25px;
+        height: 15px;
+        cursor: pointer;
+    }
+
+    .menu-icon div {
+        background-color: #fff;
+        height: 2px;
+        width: 100%;
+        border-radius: 1px;
+    }
+
+    .menu {
+        display: none;
+        position: absolute;
+        top: 60px;
+        right: 20px;
+        padding: 0;
+        z-index: 2000;
+    }
+
+    .menu a {
+        display: block;
+        padding: 10px 0;
+        text-decoration: none;
+        color: #fff;
+        font-size: 1rem;
+    }
+
+    .menu a:hover {
+        text-decoration: underline;
+    }
+
+    img {
+        width: 100%;
+        max-height: 90vh;
+        object-fit: contain;
+        display: block;
+        margin: 20px auto;
+    }
+
+    .description {
+        font-family: 'Libre Baskerville', serif;
+        font-size: 1rem;
+        text-align: left;
+        margin: 20px;
+        color: #fff;
+    }
+
+    .prev-artist, .next-artist {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 2.5rem;
+        color: #aaa;
+        text-decoration: none;
+        z-index: 1000;
+    }
+
+    .prev-artist {
+        left: 10px;
+    }
+
+    .next-artist {
+        right: 10px;
+    }
+
+    .prev-artist:hover, .next-artist:hover {
+        color: #fff;
+    }
+</style>
     <script src="menu.js" defer></script> <!-- Includi menu.js -->
     <script src="analytics.js"></script>
 </head>
