@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Adelaide Cioni</title>
+
+    <title>Adelaide Cioni | 3500 cm²</title>
 
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet">
@@ -13,77 +14,102 @@
             font-family: 'Libre Baskerville', serif;
             margin: 0;
             padding: 0;
-            padding-top: 86px;
+            padding-top: 76px;
             background-color: #fff;
             color: #000;
             position: relative;
             overflow-x: hidden;
         }
 
+        /* HEADER */
         .header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px;
-            border-bottom: 1px solid #ddd;
             position: fixed;
             top: 0;
             left: 0;
             right: 0;
-            background-color: #fff;
             z-index: 3000;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            padding: 18px 30px;
+            background-color: #fff;
+            border-bottom: 1px solid #ddd;
             box-sizing: border-box;
         }
 
+        /* NOME ARTISTA */
         .back-link {
+            font-family: 'Libre Baskerville', serif;
             font-size: 1.5rem;
-            font-weight: bold;
+            font-weight: 700;
             text-decoration: none;
-            color: #333;
+            color: #000;
             white-space: nowrap;
+        }
+
+        .back-link:visited {
+            color: #000;
         }
 
         .back-link:hover {
             color: blue;
         }
 
+        /* MENU */
         .menu {
             display: flex;
+            flex-direction: row;
             justify-content: flex-end;
             align-items: center;
-            gap: 18px;
-            flex-wrap: wrap;
+            gap: 28px;
+
+            padding: 0;
+            margin: 0;
         }
 
         .menu a {
+            font-family: 'Libre Baskerville', serif;
+            font-size: 1rem;
+            font-weight: 400;
             text-decoration: none;
             color: #000;
-            font-size: 1rem;
             white-space: nowrap;
         }
 
-        .menu a:hover {
-            text-decoration: underline;
-            color: blue;
+        .menu a:visited {
+            color: #000;
         }
 
+        .menu a:hover {
+            color: blue;
+            text-decoration: underline;
+        }
+
+        /* IMMAGINE */
         img {
             width: 100%;
-            max-height: 90vh;
+            max-height: 84vh;
             object-fit: contain;
             display: block;
             margin: 20px auto;
         }
 
+        /* DIDASCALIA */
         .description {
             font-family: 'Libre Baskerville', serif;
             font-size: 1rem;
+            font-weight: 400;
+            line-height: 1.5;
             text-align: left;
             margin: 20px;
             color: #333;
         }
 
-        .prev-artist, .next-artist {
+        /* FRECCE */
+        .prev-artist,
+        .next-artist {
             position: fixed;
             top: 50%;
             transform: translateY(-50%);
@@ -101,39 +127,62 @@
             right: 20px;
         }
 
-        .prev-artist:hover, .next-artist:hover {
-            color: black;
+        .prev-artist:hover,
+        .next-artist:hover {
+            color: blue;
         }
 
-        @media (max-width: 768px) {
+        /* MOBILE */
+        @media screen and (max-width: 768px) {
+
             body {
-                padding-top: 145px;
+                padding-top: 125px;
             }
 
             .header {
                 flex-direction: column;
                 align-items: flex-start;
-                gap: 12px;
+                gap: 14px;
                 padding: 16px 20px;
             }
 
             .back-link {
-                font-size: 1.3rem;
+                font-size: 1.25rem;
+                white-space: normal;
             }
 
             .menu {
                 width: 100%;
-                justify-content: flex-start;
                 flex-wrap: wrap;
-                gap: 10px 14px;
+                justify-content: flex-start;
+                gap: 10px 18px;
             }
 
             .menu a {
                 font-size: 0.9rem;
             }
 
-            .prev-artist, .next-artist {
-                font-size: 2rem;
+            img {
+                max-height: 76vh;
+                margin-top: 15px;
+            }
+
+            .description {
+                font-size: 0.9rem;
+                margin: 20px;
+            }
+
+            .prev-artist,
+            .next-artist {
+                font-size: 1.8rem;
+            }
+
+            .prev-artist {
+                left: 12px;
+            }
+
+            .next-artist {
+                right: 12px;
             }
         }
     </style>
@@ -142,29 +191,104 @@
 </head>
 
 <body>
+
+    <!-- HEADER -->
     <div class="header">
-        <a href="pagina.html" class="back-link">#113 Adelaide Cioni</a>
 
-        <div class="menu">
+        <a href="pagina.html" class="back-link">
+            #113 Adelaide Cioni
+        </a>
+
+        <nav class="menu">
             <a href="news.html">news</a>
-            <a href="pagina.html">Artisti</a>
-            <a href="3500cm2.html">3500cm²</a>
-            <a href="mostre.html">Mostre</a>
-            <a href="luoghi.html">Luoghi</a>
-            <a href="contatti.html">Contatti</a>
+            <a href="3500cm2.html">3500 cm²</a>
+            <a href="pagina.html">artisti</a>
+            <a href="luoghi.html">luoghi</a>
+            <a href="mostre.html">mostre</a>
+            <a href="partner.html">partner</a>
+            <a href="contatti.html">contatti</a>
             <a href="../en/adelaide-cioni.html">EN</a>
-        </div>
+        </nav>
+
     </div>
 
-    <img src="../img/adelaide-cioni.jpg" alt="Adelaide Cioni, Miniature Works">
+    <!-- IMMAGINE -->
+    <img
+        src="../img/adelaide-cioni.jpg"
+        alt="Adelaide Cioni, Miniature Works"
+    >
 
+    <!-- DIDASCALIA -->
     <div class="description">
-        #113 Adelaide Cioni <i>Miniature Works</i>, 2026<br>
-        3500 cm², Expositio Mundi, Musei Civici di Palazzo Buonaccorsi, Biblioteca Comunale Mozzi Borgetti, Macerata
+        #113 Adelaide Cioni, <em>Miniature Works</em>, 2026<br>
+        3500 cm², Expositio Mundi, Musei Civici di Palazzo Buonaccorsi,
+        Biblioteca Comunale Mozzi Borgetti, Macerata
     </div>
 
-    <!-- Frecce per navigare tra le pagine -->
-    <a href="diego-cibelli.html" class="prev-artist">&#8592;</a>
-    <a href="claire-fontaine.html" class="next-artist">&#8594;</a>
+    <!-- NAVIGAZIONE ARTISTI -->
+    <a
+        href="diego-cibelli.html"
+        class="prev-artist"
+        aria-label="Artista precedente"
+    >&#8592;</a>
+
+    <a
+        href="claire-fontaine.html"
+        class="next-artist"
+        aria-label="Artista successivo"
+    >&#8594;</a>
+
+    <!-- SWIPE MOBILE -->
+    <script>
+        let touchStartX = 0;
+        let touchStartY = 0;
+        let touchEndX = 0;
+        let touchEndY = 0;
+
+        const previousPage = "diego-cibelli.html";
+        const nextPage = "claire-fontaine.html";
+
+        document.addEventListener("touchstart", function(event) {
+            touchStartX = event.changedTouches[0].screenX;
+            touchStartY = event.changedTouches[0].screenY;
+        }, { passive: true });
+
+        document.addEventListener("touchend", function(event) {
+            touchEndX = event.changedTouches[0].screenX;
+            touchEndY = event.changedTouches[0].screenY;
+
+            handleSwipe();
+        }, { passive: true });
+
+        function handleSwipe() {
+
+            const distanceX = touchEndX - touchStartX;
+            const distanceY = touchEndY - touchStartY;
+
+            const minimumSwipe = 70;
+
+            /* Se il movimento è soprattutto verticale,
+               lascia funzionare normalmente lo scroll */
+            if (Math.abs(distanceY) > Math.abs(distanceX)) {
+                return;
+            }
+
+            /* Ignora piccoli movimenti accidentali */
+            if (Math.abs(distanceX) < minimumSwipe) {
+                return;
+            }
+
+            /* Swipe verso destra = artista precedente */
+            if (distanceX > 0) {
+                window.location.href = previousPage;
+            }
+
+            /* Swipe verso sinistra = artista successivo */
+            if (distanceX < 0) {
+                window.location.href = nextPage;
+            }
+        }
+    </script>
+
 </body>
 </html>
