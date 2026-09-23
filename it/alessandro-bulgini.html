@@ -3,56 +3,68 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Alessandro Bulgini</title>
+
+    <title>Alessandro Bulgini | 3500 cm²</title>
 
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet">
 
     <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        html,
         body {
-            font-family: 'Libre Baskerville', serif;
             margin: 0;
             padding: 0;
-            padding-top: 76px;
+        }
+
+        body {
+            font-family: 'Libre Baskerville', serif;
             background-color: #fff;
             color: #000;
-            position: relative;
+            padding-top: 76px;
             overflow-x: hidden;
         }
 
+        /* HEADER */
         .header {
             position: fixed;
             top: 0;
             left: 0;
             right: 0;
-            z-index: 2000;
+            z-index: 3000;
 
             display: flex;
             justify-content: space-between;
             align-items: center;
 
             padding: 18px 30px;
+
             background-color: #fff;
             border-bottom: 1px solid #ddd;
-            box-sizing: border-box;
         }
 
+        /* NOME ARTISTA */
         .back-link {
+            font-family: 'Libre Baskerville', serif;
             font-size: 1.5rem;
-            font-weight: bold;
+            font-weight: 700;
             text-decoration: none;
-            color: #333;
+            color: #000;
             white-space: nowrap;
+        }
+
+        .back-link:visited {
+            color: #000;
         }
 
         .back-link:hover {
             color: blue;
         }
 
-        .menu-icon {
-            display: none;
-        }
-
+        /* MENU */
         .menu {
             display: flex;
             flex-direction: row;
@@ -60,19 +72,21 @@
             align-items: center;
             gap: 28px;
 
-            position: static;
-            padding: 0;
             margin: 0;
-            background: transparent;
+            padding: 0;
         }
 
         .menu a {
-            display: inline-block;
-            padding: 0;
+            font-family: 'Libre Baskerville', serif;
+            font-size: 1rem;
+            font-weight: 400;
             text-decoration: none;
             color: #000;
-            font-size: 1rem;
             white-space: nowrap;
+        }
+
+        .menu a:visited {
+            color: #000;
         }
 
         .menu a:hover {
@@ -80,31 +94,44 @@
             text-decoration: underline;
         }
 
-        img {
+        /* CONTENUTO */
+        .artwork {
             width: 100%;
-            max-height: 84vh;
-            object-fit: contain;
-            display: block;
-            margin: 20px auto;
         }
 
+        /* IMMAGINE */
+        .artwork img {
+            width: 100%;
+            height: calc(100vh - 190px);
+            object-fit: contain;
+            display: block;
+            margin: 10px auto 0 auto;
+        }
+
+        /* DIDASCALIA */
         .description {
             font-family: 'Libre Baskerville', serif;
             font-size: 1rem;
+            font-weight: 400;
+            line-height: 1.4;
             text-align: left;
-            margin: 20px;
+
+            margin: 10px 20px 20px 20px;
             color: #333;
         }
 
+        /* FRECCE */
         .prev-artist,
         .next-artist {
             position: fixed;
             top: 50%;
             transform: translateY(-50%);
+
             font-size: 2rem;
             color: gray;
             text-decoration: none;
-            z-index: 1000;
+
+            z-index: 2000;
         }
 
         .prev-artist {
@@ -117,10 +144,12 @@
 
         .prev-artist:hover,
         .next-artist:hover {
-            color: black;
+            color: blue;
         }
 
+        /* MOBILE */
         @media screen and (max-width: 768px) {
+
             body {
                 padding-top: 125px;
             }
@@ -138,6 +167,7 @@
             }
 
             .menu {
+                width: 100%;
                 flex-wrap: wrap;
                 justify-content: flex-start;
                 gap: 10px 18px;
@@ -147,9 +177,18 @@
                 font-size: 0.9rem;
             }
 
-            img {
-                max-height: 76vh;
-                margin-top: 15px;
+            .artwork img {
+                width: 100%;
+                height: calc(100vh - 245px);
+                max-height: none;
+                object-fit: contain;
+                margin: 10px auto 0 auto;
+            }
+
+            .description {
+                font-size: 0.9rem;
+                line-height: 1.4;
+                margin: 8px 20px 15px 20px;
             }
 
             .prev-artist,
@@ -165,6 +204,42 @@
                 right: 12px;
             }
         }
+
+        /* TELEFONI MOLTO PICCOLI */
+        @media screen and (max-width: 480px) {
+
+            body {
+                padding-top: 135px;
+            }
+
+            .header {
+                padding: 14px 16px;
+                gap: 12px;
+            }
+
+            .back-link {
+                font-size: 1.15rem;
+            }
+
+            .menu {
+                gap: 8px 13px;
+            }
+
+            .menu a {
+                font-size: 0.82rem;
+            }
+
+            .artwork img {
+                height: calc(100vh - 260px);
+                margin-top: 8px;
+            }
+
+            .description {
+                font-size: 0.85rem;
+                line-height: 1.35;
+                margin: 8px 16px 12px 16px;
+            }
+        }
     </style>
 
     <script src="analytics.js"></script>
@@ -172,8 +247,12 @@
 
 <body>
 
-    <div class="header">
-        <a href="pagina.html" class="back-link">#16 Alessandro Bulgini</a>
+    <!-- HEADER -->
+    <header class="header">
+
+        <a href="pagina.html" class="back-link">
+            #16 Alessandro Bulgini
+        </a>
 
         <nav class="menu">
             <a href="news.html">news</a>
@@ -185,19 +264,37 @@
             <a href="contatti.html">contatti</a>
             <a href="../en/alessandro-bulgini.html">EN</a>
         </nav>
-    </div>
 
-    <img src="alessandro-bulgini.jpg" alt="Alessandro Bulgini">
+    </header>
 
-    <div class="description">
-        #16 Alessandro Bulgini, <i>Hairatikos</i>, 2005, Fondazione Volume!, Roma
-    </div>
+    <!-- OPERA -->
+    <main class="artwork">
 
-    <!-- Frecce per navigare tra le pagine -->
-    <a href="brill-graziani.html" class="prev-artist">&#8592;</a>
-    <a href="pedro-cabrita-reis.html" class="next-artist">&#8594;</a>
+        <img
+            src="alessandro-bulgini.jpg"
+            alt="Alessandro Bulgini, Hairatikos"
+        >
 
-    <!-- Swipe mobile -->
+        <div class="description">
+            #16 Alessandro Bulgini, <em>Hairatikos</em>, 2005, Fondazione VOLUME!, Roma
+        </div>
+
+    </main>
+
+    <!-- FRECCE -->
+    <a
+        href="brill-graziani.html"
+        class="prev-artist"
+        aria-label="Artista precedente"
+    >&#8592;</a>
+
+    <a
+        href="pedro-cabrita-reis.html"
+        class="next-artist"
+        aria-label="Artista successivo"
+    >&#8594;</a>
+
+    <!-- SWIPE MOBILE -->
     <script>
         let touchStartX = 0;
         let touchStartY = 0;
@@ -210,32 +307,38 @@
         document.addEventListener("touchstart", function(event) {
             touchStartX = event.changedTouches[0].screenX;
             touchStartY = event.changedTouches[0].screenY;
-        }, false);
+        }, { passive: true });
 
         document.addEventListener("touchend", function(event) {
             touchEndX = event.changedTouches[0].screenX;
             touchEndY = event.changedTouches[0].screenY;
+
             handleSwipe();
-        }, false);
+        }, { passive: true });
 
         function handleSwipe() {
-            const swipeDistanceX = touchEndX - touchStartX;
-            const swipeDistanceY = touchEndY - touchStartY;
+
+            const distanceX = touchEndX - touchStartX;
+            const distanceY = touchEndY - touchStartY;
             const minimumSwipe = 70;
 
-            if (Math.abs(swipeDistanceY) > Math.abs(swipeDistanceX)) {
+            /* Non interferire con lo scroll verticale */
+            if (Math.abs(distanceY) > Math.abs(distanceX)) {
                 return;
             }
 
-            if (Math.abs(swipeDistanceX) < minimumSwipe) {
+            /* Ignora movimenti troppo piccoli */
+            if (Math.abs(distanceX) < minimumSwipe) {
                 return;
             }
 
-            if (swipeDistanceX > 0) {
+            /* Swipe verso destra = precedente */
+            if (distanceX > 0) {
                 window.location.href = previousPage;
             }
 
-            if (swipeDistanceX < 0) {
+            /* Swipe verso sinistra = successivo */
+            if (distanceX < 0) {
                 window.location.href = nextPage;
             }
         }
