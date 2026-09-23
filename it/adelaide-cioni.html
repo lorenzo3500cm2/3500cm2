@@ -10,14 +10,21 @@
     <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet">
 
     <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        html,
         body {
-            font-family: 'Libre Baskerville', serif;
             margin: 0;
             padding: 0;
-            padding-top: 76px;
+        }
+
+        body {
+            font-family: 'Libre Baskerville', serif;
             background-color: #fff;
             color: #000;
-            position: relative;
+            padding-top: 76px;
             overflow-x: hidden;
         }
 
@@ -34,9 +41,9 @@
             align-items: center;
 
             padding: 18px 30px;
+
             background-color: #fff;
             border-bottom: 1px solid #ddd;
-            box-sizing: border-box;
         }
 
         /* NOME ARTISTA */
@@ -65,8 +72,8 @@
             align-items: center;
             gap: 28px;
 
-            padding: 0;
             margin: 0;
+            padding: 0;
         }
 
         .menu a {
@@ -87,13 +94,21 @@
             text-decoration: underline;
         }
 
-        /* IMMAGINE */
-        img {
+        /* CONTENUTO */
+        .artwork {
             width: 100%;
-            max-height: 84vh;
+        }
+
+        /* 
+           Altezza calcolata per lasciare spazio
+           alla didascalia nella stessa schermata.
+        */
+        .artwork img {
+            width: 100%;
+            height: calc(100vh - 190px);
             object-fit: contain;
             display: block;
-            margin: 20px auto;
+            margin: 10px auto 0 auto;
         }
 
         /* DIDASCALIA */
@@ -101,9 +116,11 @@
             font-family: 'Libre Baskerville', serif;
             font-size: 1rem;
             font-weight: 400;
-            line-height: 1.5;
+            line-height: 1.4;
+
             text-align: left;
-            margin: 20px;
+            margin: 10px 20px 20px 20px;
+
             color: #333;
         }
 
@@ -113,9 +130,11 @@
             position: fixed;
             top: 50%;
             transform: translateY(-50%);
+
             font-size: 2rem;
             color: gray;
             text-decoration: none;
+
             z-index: 2000;
         }
 
@@ -143,6 +162,7 @@
                 flex-direction: column;
                 align-items: flex-start;
                 gap: 14px;
+
                 padding: 16px 20px;
             }
 
@@ -162,14 +182,22 @@
                 font-size: 0.9rem;
             }
 
-            img {
-                max-height: 76vh;
-                margin-top: 15px;
+            /*
+               Anche su mobile lasciamo lo spazio
+               necessario alla didascalia.
+            */
+            .artwork img {
+                width: 100%;
+                height: calc(100vh - 245px);
+                max-height: none;
+                object-fit: contain;
+                margin: 10px auto 0 auto;
             }
 
             .description {
                 font-size: 0.9rem;
-                margin: 20px;
+                line-height: 1.4;
+                margin: 8px 20px 15px 20px;
             }
 
             .prev-artist,
@@ -185,6 +213,42 @@
                 right: 12px;
             }
         }
+
+        /* TELEFONI MOLTO PICCOLI */
+        @media screen and (max-width: 480px) {
+
+            body {
+                padding-top: 135px;
+            }
+
+            .header {
+                padding: 14px 16px;
+                gap: 12px;
+            }
+
+            .back-link {
+                font-size: 1.15rem;
+            }
+
+            .menu {
+                gap: 8px 13px;
+            }
+
+            .menu a {
+                font-size: 0.82rem;
+            }
+
+            .artwork img {
+                height: calc(100vh - 260px);
+                margin-top: 8px;
+            }
+
+            .description {
+                font-size: 0.85rem;
+                line-height: 1.35;
+                margin: 8px 16px 12px 16px;
+            }
+        }
     </style>
 
     <script src="../analytics.js"></script>
@@ -193,7 +257,7 @@
 <body>
 
     <!-- HEADER -->
-    <div class="header">
+    <header class="header">
 
         <a href="pagina.html" class="back-link">
             #113 Adelaide Cioni
@@ -210,22 +274,25 @@
             <a href="../en/adelaide-cioni.html">EN</a>
         </nav>
 
-    </div>
+    </header>
 
-    <!-- IMMAGINE -->
-    <img
-        src="../img/adelaide-cioni.jpg"
-        alt="Adelaide Cioni, Miniature Works"
-    >
+    <!-- OPERA -->
+    <main class="artwork">
 
-    <!-- DIDASCALIA -->
-    <div class="description">
-        #113 Adelaide Cioni, <em>Miniature Works</em>, 2026<br>
-        3500 cm², Expositio Mundi, Musei Civici di Palazzo Buonaccorsi,
-        Biblioteca Comunale Mozzi Borgetti, Macerata
-    </div>
+        <img
+            src="../img/adelaide-cioni.jpg"
+            alt="Adelaide Cioni, Miniature Works"
+        >
 
-    <!-- NAVIGAZIONE ARTISTI -->
+        <div class="description">
+            #113 Adelaide Cioni, <em>Miniature Works</em>, 2026<br>
+            3500 cm², <em>Expositio Mundi</em>, Musei Civici di Palazzo Buonaccorsi,
+            Biblioteca Comunale Mozzi Borgetti, Macerata
+        </div>
+
+    </main>
+
+    <!-- FRECCE -->
     <a
         href="diego-cibelli.html"
         class="prev-artist"
@@ -267,23 +334,22 @@
 
             const minimumSwipe = 70;
 
-            /* Se il movimento è soprattutto verticale,
-               lascia funzionare normalmente lo scroll */
+            /* Non interferire con lo scroll verticale */
             if (Math.abs(distanceY) > Math.abs(distanceX)) {
                 return;
             }
 
-            /* Ignora piccoli movimenti accidentali */
+            /* Ignora movimenti troppo piccoli */
             if (Math.abs(distanceX) < minimumSwipe) {
                 return;
             }
 
-            /* Swipe verso destra = artista precedente */
+            /* Swipe verso destra = precedente */
             if (distanceX > 0) {
                 window.location.href = previousPage;
             }
 
-            /* Swipe verso sinistra = artista successivo */
+            /* Swipe verso sinistra = successivo */
             if (distanceX < 0) {
                 window.location.href = nextPage;
             }
