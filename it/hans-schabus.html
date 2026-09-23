@@ -8,215 +8,173 @@
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet">
 
-<style>
+body {
+    font-family: 'Libre Baskerville', serif;
+    margin: 0;
+    padding: 0;
+    padding-top: 76px;
+    background-color: #000;
+    color: #fff;
+    position: relative;
+    overflow-x: hidden;
+}
+
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 2000;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 18px 30px;
+    background-color: #000;
+    border-bottom: 1px solid #333;
+    box-sizing: border-box;
+}
+
+.back-link {
+    font-family: 'Libre Baskerville', serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    text-decoration: none;
+    color: #fff;
+    white-space: nowrap;
+}
+
+.back-link:visited {
+    color: #fff;
+}
+
+.back-link:hover {
+    color: blue;
+}
+
+.menu {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 28px;
+
+    padding: 0;
+    margin: 0;
+    background: transparent;
+}
+
+.menu a {
+    display: inline-block;
+    padding: 0;
+    text-decoration: none;
+    color: #fff;
+    font-size: 1rem;
+    white-space: nowrap;
+}
+
+.menu a:visited {
+    color: #fff;
+}
+
+.menu a:hover {
+    color: blue;
+    text-decoration: underline;
+}
+
+img {
+    width: 100%;
+    max-height: 84vh;
+    object-fit: contain;
+    display: block;
+    margin: 20px auto;
+}
+
+.description {
+    font-family: 'Libre Baskerville', serif;
+    font-size: 1rem;
+    line-height: 1.5;
+    text-align: left;
+    margin: 20px;
+    color: #fff;
+}
+
+.prev-artist,
+.next-artist {
+    position: fixed;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 2rem;
+    color: #aaa;
+    text-decoration: none;
+    z-index: 1000;
+}
+
+.prev-artist {
+    left: 20px;
+}
+
+.next-artist {
+    right: 20px;
+}
+
+.prev-artist:hover,
+.next-artist:hover {
+    color: #fff;
+}
+
+/* MOBILE */
+@media screen and (max-width: 768px) {
+
     body {
-        font-family: 'Libre Baskerville', serif;
-        margin: 0;
-        padding: 0;
-        padding-top: 245px;
-        background-color: #000;
-        color: #fff;
-        position: relative;
-        overflow-x: hidden;
+        padding-top: 125px;
     }
 
-    /* HEADER */
     .header {
-        display: grid;
-        grid-template-columns: 1fr auto 1fr;
-        align-items: start;
-
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        z-index: 2000;
-
-        padding: 24px 40px 20px 40px;
-        background-color: #000;
-        border-bottom: 1px solid #333;
-        box-sizing: border-box;
-    }
-
-    /* COLONNA SINISTRA */
-    .left-header {
-        grid-column: 1;
-        justify-self: start;
-
-        display: flex;
         flex-direction: column;
         align-items: flex-start;
+        gap: 14px;
+        padding: 16px 20px;
     }
 
-    .site-title {
-        font-size: 1.5rem;
-        font-weight: 700;
-        text-decoration: none;
-        color: #fff;
-        white-space: nowrap;
-        margin-bottom: 16px;
+    .back-link {
+        font-size: 1.25rem;
+        white-space: normal;
     }
 
-    /* TITOLO ARTISTA CENTRATO */
-    .artist-title {
-        grid-column: 2;
-        justify-self: center;
-
-        font-size: 1.5rem;
-        font-weight: 700;
-        text-decoration: none;
-        color: #fff;
-        white-space: nowrap;
-        text-align: center;
-    }
-
-    .site-title:visited,
-    .artist-title:visited {
-        color: #fff;
-    }
-
-    .site-title:hover,
-    .artist-title:hover {
-        color: blue;
-    }
-
-    /* MENU */
     .menu {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 7px;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        gap: 10px 18px;
     }
 
     .menu a {
-        display: block;
-        padding: 0;
-        margin: 0;
-
-        font-size: 1rem;
-        line-height: 1.25;
-
-        text-decoration: none;
-        color: #fff;
-        white-space: nowrap;
+        font-size: 0.9rem;
     }
 
-    .menu a:visited {
-        color: #fff;
-    }
-
-    .menu a:hover {
-        color: blue;
-        text-decoration: underline;
-    }
-
-    /* IMMAGINE */
     img {
-        width: 100%;
-        max-height: 90vh;
-        object-fit: contain;
-        display: block;
-        margin: 20px auto;
+        max-height: 76vh;
+        margin-top: 15px;
     }
 
-    /* DIDASCALIA */
     .description {
-        font-family: 'Libre Baskerville', serif;
-        font-size: 1rem;
-        line-height: 1.5;
-        text-align: left;
-        margin: 20px;
-        color: #fff;
+        font-size: 0.9rem;
     }
 
-    /* FRECCE */
     .prev-artist,
     .next-artist {
-        position: fixed;
-        top: 50%;
-        transform: translateY(-50%);
-        font-size: 2.5rem;
-        color: #aaa;
-        text-decoration: none;
-        z-index: 1500;
+        font-size: 1.8rem;
     }
 
     .prev-artist {
-        left: 10px;
+        left: 12px;
     }
 
     .next-artist {
-        right: 10px;
+        right: 12px;
     }
-
-    .prev-artist:hover,
-    .next-artist:hover {
-        color: #fff;
-    }
-
-    /* MOBILE */
-    @media screen and (max-width: 768px) {
-
-        body {
-            padding-top: 315px;
-        }
-
-        .header {
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-            gap: 18px;
-            padding: 20px;
-        }
-
-        .left-header {
-            width: 100%;
-        }
-
-        .site-title {
-            font-size: 1.35rem;
-            margin-bottom: 14px;
-        }
-
-        .artist-title {
-            font-size: 1.35rem;
-            line-height: 1.2;
-            white-space: normal;
-            text-align: left;
-        }
-
-        .menu {
-            gap: 7px;
-        }
-
-        .menu a {
-            font-size: 1rem;
-        }
-
-        img {
-            max-height: 65vh;
-            margin-top: 10px;
-        }
-
-        .description {
-            font-size: 0.9rem;
-            margin: 20px;
-        }
-
-        .prev-artist,
-        .next-artist {
-            font-size: 1.6rem;
-        }
-
-        .prev-artist {
-            left: 12px;
-        }
-
-        .next-artist {
-            right: 12px;
-        }
-    }
-</style>
+}
 
     <script src="analytics.js"></script>
 </head>
@@ -224,18 +182,18 @@
 <body>
 
 <div class="header">
-    <div class="left-header">
-        <a href="3500cm2.html" class="site-title">3500 cm²</a>
+    <a href="pagina.html" class="back-link">#99 Hans Schabus</a>
 
-        <nav class="menu">
-            <a href="pagina.html">Artisti</a>
-            <a href="3500cm2.html">3500 cm²</a>
-            <a href="luoghi.html">Luoghi</a>
-            <a href="mostre.html">Mostre</a>
-            <a href="partner.html">Partner</a>
-            <a href="contatti.html">Contatti</a>
-        </nav>
-    </div>
+    <nav class="menu">
+        <a href="news.html">news</a>
+        <a href="3500cm2.html">3500 cm²</a>
+        <a href="pagina.html">artisti</a>
+        <a href="luoghi.html">luoghi</a>
+        <a href="mostre.html">mostre</a>
+        <a href="partner.html">partner</a>
+        <a href="contatti.html">contatti</a>
+    </nav>
+</div>
 
     <a href="pagina.html" class="artist-title">#99 Hans Schabus</a>
 </div>
