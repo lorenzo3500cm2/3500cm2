@@ -1,889 +1,328 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>News</title>
-    
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet">
-
-    <style>
-    body {
-    font-family: 'Libre Baskerville', serif;
-    margin: 0;
-    padding: 0;
-    color: #000;
-
-    background: linear-gradient(
-        120deg,
-        #fff7f2,
-        #f5f8ff,
-        #f7fff8,
-        #fff8fc,
-        #fffdf3
-    );
-
-    background-size: 400% 400%;
-    animation: pastelBackground 28s ease infinite;
-}
-
-@keyframes pastelBackground {
-    0% {
-        background-position: 0% 50%;
-    }
-
-    50% {
-        background-position: 100% 50%;
-    }
-
-    100% {
-        background-position: 0% 50%;
-    }
-}
-
-        .page-title a {
-            text-decoration: none;
-            color: black;
-        }
-
-        .page-title a:visited {
-            color: black;
-        }
-
-        .page-title a:hover {
-            color: blue;
-        }
-
-   
-
-        .content-item {
-            margin-bottom: 70px;
-        }
-
-        .description {
-            font-size: 1.8rem;
-            font-weight: bold;
-            margin-top: 20px;
-            text-align: left;
-            padding-left: 20px;
-        }
-
-        .text-section {
-            display: none;
-            font-size: 1.2rem;
-            line-height: 1.4;
-            padding-left: 20px;
-            margin-top: 20px;
-        }
-
-        .text-section.two-columns {
-            column-count: 2;
-            column-gap: 40px;
-            padding-right: 20px;
-        }
-
-        @media screen and (max-width: 768px) {
-            .text-section.two-columns {
-                column-count: 1;
-            }
-        }
-
-        .image-container {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 30px;
-            justify-content: center;
-            margin-top: 20px;
-        }
-
-.image-container a {
-    width: 280px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-decoration: none;
-    color: inherit;
-}
-
-.image-container img {
-   width: 100%;
-   height: auto;
-   object-fit: contain;
-   border: 2px solid #b5b5b5;
-   display: block;
-   box-sizing: border-box;
-
-}
-
-.image-container a span {
-    text-decoration: none;
-    color: inherit;
-}
-
-.image-container span {
-    display: block;
-    font-size: 1.4rem;
-    margin-top: 10px;
-    margin-bottom: 20px;
-    color: #333;
-    text-align: center;
-}
-.header {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    gap: 40px;
-    padding: 24px 40px 18px 40px;
-    border-bottom: 1px solid #ddd;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    background: white;
-    z-index: 1000;
-    box-sizing: border-box;
-}
-
-.page-title {
-    display: block;
-    font-size: 3rem;
-    line-height: 1;
-    font-weight: bold;
-    margin: 0;
-    padding: 0;
-    text-align: left;
-    text-decoration: none;
-    color: black;
-    white-space: nowrap;
-    flex-shrink: 0;
-}
-
-.menu {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-end;
-    align-items: flex-start;
-    gap: 22px;
-    text-align: right;
-    flex-wrap: wrap;
-    padding-top: 6px;
-}
-
-body {
-    padding-top: 130px;
-}
-
-.content-item:first-of-type {
-    margin-top: 90px;
-}
-
-.menu a {
-    display: inline-block;
-    padding: 0;
-    text-decoration: none;
-    color: #000;
-    font-size: 1.15rem;
-    white-space: nowrap;
-}
-
-.menu a:hover {
-    text-decoration: underline;
-}
-
-        .menu a:hover {
-            text-decoration: underline;
-        }
-
-        .read-more {
-            display: block;
-            text-align: left;
-            padding-left: 20px;
-            margin-top: 10px;
-            color: black;
-            cursor: pointer;
-            text-decoration: underline;
-        }
-
-	@media screen and (max-width: 768px) {
-    body {
-        overflow-x: hidden;
-        padding-top: 190px;
-    }
-
-    .header {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 12px;
-        padding: 20px;
-    }
-
-    .page-title {
-        font-size: 2.5rem;
-        line-height: 1;
-        flex-shrink: 0;
-    }
-
-    .menu {
-        justify-content: flex-start;
-        flex-wrap: wrap;
-        gap: 10px 18px;
-        padding-top: 0;
-    }
-
-    .menu a {
-        font-size: 1.05rem;
-    }
-
-    .content-item:first-of-type {
-        margin-top: 60px;
-    }
-
-    .content-item,
-    .description,
-    .text-section,
-    .read-more {
-        box-sizing: border-box;
-        width: 100%;
-        padding-left: 20px;
-        padding-right: 20px;
-    }
-
-    .description {
-        font-size: 1.45rem;
-    }
-
-    .text-section {
-        font-size: 1.05rem;
-        line-height: 1.45;
-    }
-
-    .text-section.two-columns {
-        column-count: 1;
-        padding-right: 20px;
-    }
-
-    .image-container {
-        box-sizing: border-box;
-        width: 100%;
-        padding-left: 20px;
-        padding-right: 20px;
-        justify-content: center;
-    }
-
-.image-container a {
-    width: 100%;
-    max-width: 300px;
-}
-
-.image-container img {
-   width: 100%;
-   height: auto;
-   object-fit: contain;
-   border: 2px solid #b5b5b5;
-   display: block;
-   box-sizing: border-box;
-}
-}
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>News | 3500 cm²</title>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&amp;display=swap" rel="stylesheet">
+<style>
+:root { --header-height: 76px; }
+* { box-sizing: border-box; }
+body { margin: 0; padding-top: var(--header-height); font-family: 'Libre Baskerville', Georgia, serif; color: #000; background: linear-gradient(120deg, #fff7f2, #f5f8ff, #f7fff8, #fff8fc, #fffdf3); background-size: 400% 400%; animation: pastelBackground 28s ease infinite; }
+@keyframes pastelBackground { 0%, 100% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } }
+a { color: inherit; } a:hover { color: blue; }
+a:focus-visible, summary:focus-visible { outline: 2px solid blue; outline-offset: 5px; }
+.header { position: fixed; inset: 0 0 auto; z-index: 3000; display: flex; justify-content: space-between; align-items: center; gap: 24px; padding: 18px 30px; background: #fff; border-bottom: 1px solid #ddd; }
+.page-title { margin: 0; font-size: 1.5rem; font-weight: 700; line-height: 1.5; }
+.page-title a { text-decoration: none; }
+.menu { display: flex; flex-wrap: wrap; justify-content: flex-end; align-items: center; gap: 10px 28px; }
+.menu a { font-size: 1rem; white-space: nowrap; text-decoration: none; }
+.menu a:hover, .menu a[aria-current] { text-decoration: underline; text-underline-offset: 4px; }
+main { max-width: 1540px; margin: auto; padding: 0 30px; }
+.news-item { padding: 40px 0 50px; border-bottom: 1px solid #c9c9c9; }
+.news-heading { max-width: 1000px; }
+.news-heading p { margin: 0 0 12px; line-height: 1.65; }
+.news-date { font-size: .95rem; }
+h2 { font-size: clamp(1.35rem, 2.4vw, 2rem); line-height: 1.4; margin: 18px 0 12px; overflow-wrap: anywhere; }
+.news-subtitle { font-size: 1.15rem; }
+.news-artists { font-weight: 700; }
+.news-place, .news-posters { color: #333; }
+.image-container { display: flex; flex-wrap: wrap; align-items: flex-start; gap: 30px; margin: 30px 0 24px; }
+.image-container a { width: 280px; max-width: 100%; display: block; text-decoration: none; }
+.image-container img { display: block; width: 100%; height: auto; object-fit: contain; border: 1px solid #b5b5b5; }
+.image-container span { display: block; margin-top: 10px; font-size: 1rem; line-height: 1.5; }
+details { margin-top: 24px; }
+summary { width: fit-content; cursor: pointer; text-decoration: underline; text-underline-offset: 4px; line-height: 1.6; }
+.read-less, details[open] .read-more { display: none; }
+details[open] .read-less { display: inline; }
+.news-text { max-width: 78ch; line-height: 1.8; overflow-wrap: anywhere; margin-top: 24px; }
+.news-text p { margin: 0 0 1.2em; white-space: pre-line; }
+@media (max-width: 1000px) { :root { --header-height: 150px; } .header { flex-direction: column; align-items: flex-start; gap: 14px; padding: 16px 20px; } .page-title { font-size: 1.25rem; } .menu { justify-content: flex-start; gap: 10px 18px; } .menu a { font-size: .9rem; } }
+@media (max-width: 600px) { main { padding: 0 20px; } .news-item { padding: 30px 0 40px; } .image-container { gap: 24px; } .image-container a { width: 100%; max-width: 300px; } .news-subtitle { font-size: 1rem; } .news-text { font-size: .95rem; } }
+@media (prefers-reduced-motion: reduce) { body { animation: none; } }
+@media print { body { padding: 0; background: #fff; animation: none; } .header { position: static; } .menu, summary { display: none; } details::details-content { content-visibility: visible; } details > .news-text { display: block !important; } }
+</style>
 </head>
 <body>
-  <div class="header">
-    <a href="pagina.html" class="page-title">News</a>
-
-    <nav class="menu">
-    
-        <a href="pagina.html">Artisti</a>
-        <a href="3500cm2.html">3500 cm²</a>
-        <a href="luoghi.html">Luoghi</a>
-			<a href="mostre.html">Mostre</a>
-        <a href="partner.html">Partner</a>
-	
-        <a href="contatti.html">Contatti</a>
-		 <a href="../en/news.html">EN</a>
-    </nav>
-</div>
-
-    <!-- Primo articolo -->
-
-
-	<div class="content-item">
-  <div class="description">
-   <p> Adelaide Cioni, Oliver Laric, Jonathan Monk, Laura Paoletti, Nedko Solakov</p>
-  
- <p>Poster #112 e #116</p>
-
-<p>Expositio Mundi
-- La mostra come medium</p>
-
-	  
-  <p>i Musei Civici di Palazzo Buonaccorsi, lo Sferisterio, la Biblioteca Mozzi Borgetti, l’Università di Macerata, l’Accademia di Belle Arti</p>
-<p>10 luglio 2026 - 10 gennaio 2027  </p>
-
-<p>Macerata</p>
-   
-
-	  
- 
- </div>
-
-  </div>
-
+<header class="header">
+<h1 class="page-title"><a href="news.html">News</a></h1>
+<nav class="menu" aria-label="Navigazione principale">
+<a href="news.html" aria-current="page">news</a>
+<a href="3500cm2.html">3500 cm²</a>
+<a href="pagina.html">artisti</a>
+<a href="luoghi.html">luoghi</a>
+<a href="mostre.html">mostre</a>
+<a href="partner.html">partner</a>
+<a href="contatti.html">contatti</a>
+<a href="../en/news.html" lang="en" hreflang="en">EN</a>
+</nav>
+</header>
+<main>
+<article class="news-item">
+<header class="news-heading">
+<p class="news-date">10 luglio 2026 – 10 gennaio 2027</p>
+<h2>Expositio Mundi</h2>
+<p class="news-subtitle">La mostra come medium</p>
+<p class="news-artists">Adelaide Cioni, Oliver Laric, Jonathan Monk, Laura Paoletti, Nedko Solakov</p>
+<p class="news-posters">Poster #112 e #116</p>
+<p class="news-place">i Musei Civici di Palazzo Buonaccorsi, lo Sferisterio, la Biblioteca Mozzi Borgetti, l’Università di Macerata, l’Accademia di Belle Arti</p>
+<p class="news-city">Macerata</p>
+</header>
 <div class="image-container">
-    <a href="adelaide-cioni.html">
-        <img src="../img/adelaide-cioni.jpg" alt="Adelaide Cioni">
-        <span>Adelaide Cioni</span>
-    </a>
-
-    <a href="oliver-laric.html">
-        <img src="../img/oliver-laric_.jpg" alt="Oliver Laric">
-        <span>Oliver Laric</span>
-    </a>
-
-    <a href="jonathan-monk.html">
-        <img src="../img/jonathan-monk.jpg" alt="Jonathan Monk">
-        <span>Jonathan Monk</span>
-    </a>
-
-    <a href="laura-paoletti.html">
-        <img src="../img/laura-paoletti.jpg" alt="Laura Paoletti">
-        <span>Laura Paoletti</span>
-    </a>
-
-    <a href="nedko-solakov.html">
-        <img src="../img/nedko-solakov.jpg" alt="Nedko Solakov">
-        <span>Nedko Solakov</span>
-    </a>
+<a href="adelaide-cioni.html"><img src="../img/adelaide-cioni.jpg" alt="Adelaide Cioni" loading="lazy" decoding="async"><span>Adelaide Cioni</span></a>
+<a href="oliver-laric.html"><img src="../img/oliver-laric_.jpg" alt="Oliver Laric" loading="lazy" decoding="async"><span>Oliver Laric</span></a>
+<a href="jonathan-monk.html"><img src="../img/jonathan-monk.jpg" alt="Jonathan Monk" loading="lazy" decoding="async"><span>Jonathan Monk</span></a>
+<a href="laura-paoletti.html"><img src="../img/laura-paoletti.jpg" alt="Laura Paoletti" loading="lazy" decoding="async"><span>Laura Paoletti</span></a>
+<a href="nedko-solakov.html"><img src="../img/nedko-solakov.jpg" alt="Nedko Solakov" loading="lazy" decoding="async"><span>Nedko Solakov</span></a>
 </div>
-
-<div class="text-section two-columns">
-
-
-<p>
-Questi poster accompagnano e ampliano il percorso espositivo, diventando parte integrante del dispositivo della mostra. Non si tratta soltanto di immagini derivate o materiali di comunicazione, ma di opere pensate per circolare, essere distribuite gratuitamente e raggiungere il pubblico in una dimensione più aperta, mobile e democratica.
-</p>
-
-<p>All’interno di Expositio Mundi, la mostra è intesa come uno strumento culturale capace di attivare relazioni tra opere, spazi, istituzioni e cittadini. In questo senso, il progetto dei poster contribuisce a estendere la mostra oltre le sale espositive, diffondendosi nella città e nei luoghi fondamentali coinvolti dal progetto: i Musei Civici di Palazzo Buonaccorsi, lo Sferisterio, la Biblioteca Mozzi Borgetti, l’Università di Macerata, l’Accademia di Belle Arti e gli altri spazi partner. </p>
-
-<p>La presenza di 3500 cm² dialoga inoltre con il lavoro di Felix Gonzalez-Torres, la cui pratica ha spesso messo in discussione l’idea tradizionale di opera come oggetto stabile e unico, aprendo invece alla possibilità della distribuzione, della moltiplicazione e della partecipazione del pubblico. In questa prospettiva, il poster diventa un mezzo attraverso cui l’opera può uscire dal perimetro della mostra e trasformarsi in una forma di esperienza condivisa.
-
-</p>
-
-<p>La nuova serie di poster conferma quindi uno dei nuclei centrali di Expositio Mundi: la mostra come medium, come spazio pubblico e come sistema di diffusione dei valori culturali. Attraverso immagini accessibili, distribuite gratuitamente e presenti in diversi punti della città, 3500 cm² partecipa alla costruzione di una mostra diffusa, in cui l’arte contemporanea non è soltanto esposta, ma messa in circolazione.
-</p>
-	<p>
-leggi di più</div>
-
-<div class="content-item">
-  <div class="description">
-   <p> Claire Fontaine</p>  <p>Giovanni Giaretta</p>
-  
- <p>Poster #110 e #111</p>
-
-<p>Manifesti per la pace - 3500 cm²
-L’arte, uno strumento innovativo per far comprendere le migrazioni</p>
-
-	  
-  <p>Città per la pace</p>
-<p>Lunedì 25 maggio  2026 </p>
-<p>Polo Bibliotecario di Potenza </p>
-<p>Potenza</p>
-   
-
-	  
- 
- </div>
-
-  </div>
-
+<details>
+<summary><span class="read-more">Leggi di più</span><span class="read-less">Leggi di meno</span></summary>
+<div class="news-text">
+<p>Questi poster accompagnano e ampliano il percorso espositivo, diventando parte integrante del dispositivo della mostra. Non si tratta soltanto di immagini derivate o materiali di comunicazione, ma di opere pensate per circolare, essere distribuite gratuitamente e raggiungere il pubblico in una dimensione più aperta, mobile e democratica.</p>
+<p>All’interno di Expositio Mundi, la mostra è intesa come uno strumento culturale capace di attivare relazioni tra opere, spazi, istituzioni e cittadini. In questo senso, il progetto dei poster contribuisce a estendere la mostra oltre le sale espositive, diffondendosi nella città e nei luoghi fondamentali coinvolti dal progetto: i Musei Civici di Palazzo Buonaccorsi, lo Sferisterio, la Biblioteca Mozzi Borgetti, l’Università di Macerata, l’Accademia di Belle Arti e gli altri spazi partner.</p>
+<p>La presenza di 3500 cm² dialoga inoltre con il lavoro di Felix Gonzalez-Torres, la cui pratica ha spesso messo in discussione l’idea tradizionale di opera come oggetto stabile e unico, aprendo invece alla possibilità della distribuzione, della moltiplicazione e della partecipazione del pubblico. In questa prospettiva, il poster diventa un mezzo attraverso cui l’opera può uscire dal perimetro della mostra e trasformarsi in una forma di esperienza condivisa.</p>
+<p>La nuova serie di poster conferma quindi uno dei nuclei centrali di Expositio Mundi: la mostra come medium, come spazio pubblico e come sistema di diffusione dei valori culturali. Attraverso immagini accessibili, distribuite gratuitamente e presenti in diversi punti della città, 3500 cm² partecipa alla costruzione di una mostra diffusa, in cui l’arte contemporanea non è soltanto esposta, ma messa in circolazione.</p>
+</div>
+</details>
+</article>
+<article class="news-item">
+<header class="news-heading">
+<p class="news-date">26 maggio 2026</p>
+<h2>Manifesti per la pace – 3500 cm²</h2>
+<p class="news-subtitle">L’arte, uno strumento innovativo per far comprendere le migrazioni</p>
+<p class="news-artists">Claire Fontaine, Giovanni Giaretta</p>
+<p class="news-posters">Poster #110 e #111</p>
+<p class="news-place">Città per la pace · Polo Bibliotecario di Potenza</p>
+<p class="news-city">Potenza</p>
+</header>
 <div class="image-container">
-    <a href="claire-fontaine.html">
-        <img src="../img/claire-fontaine.jpg" alt="Claire Fontaine">
-        <span>Claire Fontaine</span>
-    </a>
-
-    <a href="giovanni-giaretta.html">
-        <img src="../img/giovanni-giaretta.jpeg" alt="Giovanni Giaretta">
-        <span>Giovanni Giaretta</span>
-    </a>
+<a href="claire-fontaine.html"><img src="../img/claire-fontaine.jpg" alt="Claire Fontaine" loading="lazy" decoding="async"><span>Claire Fontaine</span></a>
+<a href="giovanni-giaretta.html"><img src="../img/giovanni-giaretta.jpeg" alt="Giovanni Giaretta" loading="lazy" decoding="async"><span>Giovanni Giaretta</span></a>
 </div>
-
-<div class="text-section two-columns">
-
-
-<p>
-Sia a livello europeo che italiano le politiche migratorie sono focalizzate su un approccio securitario che, considerando le migrazioni come un problema di ordine pubblico più che come un fenomeno collegato a dinamiche economiche e sociali, sono votate al contrasto ancor prima che alla comprensione del fenomeno. Questo fa sì che le rilevanti opportunità demografiche ed economiche delle migrazioni passino in secondo piano o siano addirittura negate. 
-La necessità di trovare nuovi e più efficaci strumenti per raccontare e far comprendere le migrazioni non si può quindi più considerare solo una questione culturale e nemmeno umanitaria: appare piuttosto un argomento cruciale per un futuro prospero e pacifico del continente europeo.
-Prendendo atto di questa necessità la Fondazione Città della Pace negli scorsi dieci anni ha cercato di diffondere, sia presso le scuole che in iniziative pubbliche, i dati raccolti ed elaborati in studi e report ufficiali dall’ISTAT, da Eurostat, dalle agenzie ONU UNHCR e OIM ma anche dall’ IMF, dall’OCSE o da studi elaborati da Università italiane ed estere o da Organizzazioni Non Governative indipendenti ed autorevoli.
-Tuttavia sin dall’inizio della campagna ci è apparso evidente che non bastava riportare ed evidenziare i dati reali e che bisognava ricercare una chiave di lettura più efficace per avvicinare i giovani alla comprensione del fenomeno migratorio.
-Come fare a superare la narrazione prevalente bastata invece su una presunta ‘emergenza’ derivante da una improbabile ‘invasione’ riproposta in modo quasi ossessivo nei canali di comunicazione come nel dibattito politico? 
-L’arte contemporanea si è rivelata uno strumento efficace per conseguire questo obiettivo. 
-Specialmente l’arte pubblica che permette di sviluppare un nuovo modo di raccontare i motivi profondi delle migrazioni: il cambiamento climatico, l’aumento delle diseguaglianze, i diritti umani. Negli anni abbiamo realizzato alcuni esperimenti coinvolgendo artisti, rifugiati accolti neo progetti SAI e le persone delle comunità che accolgono in progetti artistici realizzando piccoli incubatori sociali in grado di far dialogare i partecipanti con il contesto di accoglienza e di fornire gli strumenti per la costruzione di un confronto costruttivo all’interno della società contemporanea per comprendere e rendere esplicite le cause delle migrazioni.
-</p>
-
-<p>Il progetto
-Nell’ambito delle attività di integrazione per il progetto SAI della Provincia di Potenza si propone il progetto 3500 cm², ideato e sviluppato dal curatore e critico d’arte Lorenzo Benedetti, Questo progetto infatti è nato per spostare l’arte fuori dai suoi contesti convenzionali e renderla disponibile in forma diretta, accessibile e condivisa.
-Il progetto prevede infatti di realizzare due nuovi poster realizzati da artisti contemporanei, nello specifico Giovanni Giaretta e dal duo Claire Fontaine, pensati come strumenti di diffusione culturale e di accesso pubblico all’arte contemporanea ed alle tematiche della pace e della sostenibilità. Più che una mostra in senso tradizionale, l’iniziativa si configura come una presentazione pubblica di due nuove edizioni che il pubblico potrà ritirare gratuitamente, portando con sé un’opera e facendola entrare nei luoghi della vita quotidiana.
-In questo caso, la distribuzione gratuita dei poster prodotti da artisti sui temi della pace assume un significato particolare, perché si inserisce nelle attività di sensibilizzazione del progetto di accoglienza SAI della Provincia di Potenza e nel contesto delle iniziative promosse della Città della pace, realtà che opera sui temi dell’accoglienza, dei diritti, dell’inclusione e della responsabilità collettiva. La Fondazione lega infatti l’idea di pace a pratiche concrete di rispetto dei diritti umani, superamento delle disuguaglianze e costruzione di comunità più aperte e solidali.
-La presenza di Giovanni Giaretta e di Claire Fontaine consente di articolare questo intervento attraverso due ricerche molto diverse ma ugualmente incisive. Giaretta, artista e filmmaker nato a Padova nel 1983 e attivo ad Amsterdam, sviluppa una pratica centrata soprattutto sulle immagini in movimento, intrecciando immagini, testi e suoni in lavori che introducono nel reale elementi sospesi, stranianti e visionari. Claire Fontaine, artista concettuale femminista fondata a Parigi nel 2004, costruisce invece una pratica che affronta i temi del linguaggio, del potere, dell’alienazione e della possibilità di emancipazione, ridefinendo l’opera come spazio critico e politico.
-Nel loro insieme, i due nuovi poster non illustrano la pace in modo retorico o celebrativo, ma ne interrogano la complessità, affidando all’immagine la possibilità di aprire uno spazio di riflessione e di presa di coscienza. </p>
-
-<p>Incontro pubblico di presentazione del progetto 
-A Potenza, il progetto 3500 cm² assume dunque la forma di un gesto semplice e radicale: mettere gratuitamente in circolazione due opere d’artista, affinché l’arte possa uscire dalla biblioteca, raggiungere nuovi contesti e continuare ad agire nello spazio sociale come esperienza condivisa, memoria visiva e occasione di pensiero.
-La scelta della Biblioteca Nazionale di Potenza per la presentazione del progetto, prevista il 26 maggio 2026, rafforza ulteriormente questa dimensione. Luogo dedicato alla conoscenza, alla formazione e alla consultazione pubblica, la biblioteca diventa qui uno spazio in cui l’arte non si limita a essere presentata, ma si mette in circolazione. Il poster, formato essenziale e democratico, si conferma così un dispositivo capace di ampliare il pubblico dell’arte e di trasformare un gesto semplice, prendere un’immagine, portarla con sé, mostrarla, conservarla, in una forma di partecipazione culturale.
-I manifesti realizzati specificamente per questa occasione nell’ambito del progetto SAI della Provincia di Potenza gestito da Arci Basilicata, saranno presentati nel corso di un incontro pubblico da Lorenzo Benedetti, critico d’arte e curatore con grande esperienza internazionale.
-Lorenzo benedetti dialogherà poi con la Professoressa Anna Lisa Tota, prorettrice vicaria dell’Università di Roma tre, che ha coordinato un progetto molto interessante dal titolo Tamigrart conclusosi nel febbraio 2026 con la conferenza dal titolo “Cartografie della speranza: arte, memorie e resilienza nei processi migratori”, ed al quale ha collaborato anche la Fondazione Città della Pace. 
-La professoressa Tota esporrà i risultati del progetto Tamigrat che ha esplorato le relazioni tra arte, eventi traumatici e resilienza, con particolare attenzione a due diversi tipi di memorie diasporiche: a) memorie individuali, collettive e pubbliche della migrazione forzata attraverso il Mediterraneo e b) memorie individuali, collettive e pubbliche dei migranti in fuga dalla guerra in Ucraina.L'idea principale del progetto Tramigrart è stata quella di studiare le relazioni tra rappresentazioni artistiche e articolazione politica, con l'obiettivo di aggiungere nuove dimensioni, in particolare per quanto riguarda la questione del raggiungimento della verità storica e della riconciliazione.
-
-</p>
-
-<p>Gli artisti ed i relatori
-</p>
-	<p>
-Claire Fontaine
-Claire Fontaine è un’artista concettuale femminista fondata a Parigi nel 2004. Fin dall’inizio, il progetto si è definito come una pratica collettiva e impersonale, assumendo il nome di un noto marchio di quaderni scolastici per interrogare in modo critico i rapporti tra soggettività, produzione, linguaggio e potere. Il lavoro di Claire Fontaine affronta temi come l’alienazione, la crisi politica, la condizione dell’individuo contemporaneo, le forme di violenza sistemica e la possibilità di emancipazione, attraverso un uso di testi, neon, sculture, installazioni, video e appropriazioni. La sua ricerca si fonda sull’idea che l’opera possa agire come dispositivo critico capace di rimettere in questione i codici simbolici e sociali che regolano la vita quotidiana. Nel corso degli anni, Claire Fontaine si è affermata come una delle presenze più riconoscibili dell’arte contemporanea internazionale, sviluppando una pratica che tiene insieme radicalità teorica, chiarezza formale e tensione politica.
-</p>
-	 
-
-
-	<p>
-Giovanni Giaretta
-Nato a Padova nel 1983, Giovanni Giaretta vive e lavora ad Amsterdam. La sua pratica si sviluppa soprattutto attraverso film, video, installazioni e scrittura, e nasce da un processo di ricerca che mette in relazione immagini, testi e suoni. I suoi lavori si muovono spesso sul confine tra osservazione del reale e slittamento immaginativo, introducendo elementi visionari, stranianti o sospesi che trasformano situazioni apparentemente ordinarie in esperienze percettive dense di ambiguità e attenzione.
-Dopo gli studi in Design e Produzione delle arti visive allo IUAV di Venezia, ha preso parte a programmi di residenza e formazione tra Venezia, Parigi, Amsterdam e New Orleans; dal 2019 insegna inoltre nei dipartimenti di Moving Image e Fine Art dell’AKI Academy of Art & Design di Enschede. Le sue opere e i suoi film sono stati presentati in istituzioni, festival e spazi espositivi internazionali, confermando una ricerca in cui il linguaggio delle immagini in movimento diventa strumento di ascolto, racconto e dislocazione del visibile.
-
-</p>
-
+<details>
+<summary><span class="read-more">Leggi di più</span><span class="read-less">Leggi di meno</span></summary>
+<div class="news-text">
+<p>Sia a livello europeo che italiano le politiche migratorie sono focalizzate su un approccio securitario che, considerando le migrazioni come un problema di ordine pubblico più che come un fenomeno collegato a dinamiche economiche e sociali, sono votate al contrasto ancor prima che alla comprensione del fenomeno. Questo fa sì che le rilevanti opportunità demografiche ed economiche delle migrazioni passino in secondo piano o siano addirittura negate. La necessità di trovare nuovi e più efficaci strumenti per raccontare e far comprendere le migrazioni non si può quindi più considerare solo una questione culturale e nemmeno umanitaria: appare piuttosto un argomento cruciale per un futuro prospero e pacifico del continente europeo. Prendendo atto di questa necessità la Fondazione Città della Pace negli scorsi dieci anni ha cercato di diffondere, sia presso le scuole che in iniziative pubbliche, i dati raccolti ed elaborati in studi e report ufficiali dall’ISTAT, da Eurostat, dalle agenzie ONU UNHCR e OIM ma anche dall’ IMF, dall’OCSE o da studi elaborati da Università italiane ed estere o da Organizzazioni Non Governative indipendenti ed autorevoli. Tuttavia sin dall’inizio della campagna ci è apparso evidente che non bastava riportare ed evidenziare i dati reali e che bisognava ricercare una chiave di lettura più efficace per avvicinare i giovani alla comprensione del fenomeno migratorio. Come fare a superare la narrazione prevalente bastata invece su una presunta ‘emergenza’ derivante da una improbabile ‘invasione’ riproposta in modo quasi ossessivo nei canali di comunicazione come nel dibattito politico? L’arte contemporanea si è rivelata uno strumento efficace per conseguire questo obiettivo. Specialmente l’arte pubblica che permette di sviluppare un nuovo modo di raccontare i motivi profondi delle migrazioni: il cambiamento climatico, l’aumento delle diseguaglianze, i diritti umani. Negli anni abbiamo realizzato alcuni esperimenti coinvolgendo artisti, rifugiati accolti neo progetti SAI e le persone delle comunità che accolgono in progetti artistici realizzando piccoli incubatori sociali in grado di far dialogare i partecipanti con il contesto di accoglienza e di fornire gli strumenti per la costruzione di un confronto costruttivo all’interno della società contemporanea per comprendere e rendere esplicite le cause delle migrazioni.</p>
+<p>Il progetto Nell’ambito delle attività di integrazione per il progetto SAI della Provincia di Potenza si propone il progetto 3500 cm², ideato e sviluppato dal curatore e critico d’arte Lorenzo Benedetti, Questo progetto infatti è nato per spostare l’arte fuori dai suoi contesti convenzionali e renderla disponibile in forma diretta, accessibile e condivisa. Il progetto prevede infatti di realizzare due nuovi poster realizzati da artisti contemporanei, nello specifico Giovanni Giaretta e dal duo Claire Fontaine, pensati come strumenti di diffusione culturale e di accesso pubblico all’arte contemporanea ed alle tematiche della pace e della sostenibilità. Più che una mostra in senso tradizionale, l’iniziativa si configura come una presentazione pubblica di due nuove edizioni che il pubblico potrà ritirare gratuitamente, portando con sé un’opera e facendola entrare nei luoghi della vita quotidiana. In questo caso, la distribuzione gratuita dei poster prodotti da artisti sui temi della pace assume un significato particolare, perché si inserisce nelle attività di sensibilizzazione del progetto di accoglienza SAI della Provincia di Potenza e nel contesto delle iniziative promosse della Città della pace, realtà che opera sui temi dell’accoglienza, dei diritti, dell’inclusione e della responsabilità collettiva. La Fondazione lega infatti l’idea di pace a pratiche concrete di rispetto dei diritti umani, superamento delle disuguaglianze e costruzione di comunità più aperte e solidali. La presenza di Giovanni Giaretta e di Claire Fontaine consente di articolare questo intervento attraverso due ricerche molto diverse ma ugualmente incisive. Giaretta, artista e filmmaker nato a Padova nel 1983 e attivo ad Amsterdam, sviluppa una pratica centrata soprattutto sulle immagini in movimento, intrecciando immagini, testi e suoni in lavori che introducono nel reale elementi sospesi, stranianti e visionari. Claire Fontaine, artista concettuale femminista fondata a Parigi nel 2004, costruisce invece una pratica che affronta i temi del linguaggio, del potere, dell’alienazione e della possibilità di emancipazione, ridefinendo l’opera come spazio critico e politico. Nel loro insieme, i due nuovi poster non illustrano la pace in modo retorico o celebrativo, ma ne interrogano la complessità, affidando all’immagine la possibilità di aprire uno spazio di riflessione e di presa di coscienza.</p>
+<p>Incontro pubblico di presentazione del progetto A Potenza, il progetto 3500 cm² assume dunque la forma di un gesto semplice e radicale: mettere gratuitamente in circolazione due opere d’artista, affinché l’arte possa uscire dalla biblioteca, raggiungere nuovi contesti e continuare ad agire nello spazio sociale come esperienza condivisa, memoria visiva e occasione di pensiero. La scelta della Biblioteca Nazionale di Potenza per la presentazione del progetto, prevista il 26 maggio 2026, rafforza ulteriormente questa dimensione. Luogo dedicato alla conoscenza, alla formazione e alla consultazione pubblica, la biblioteca diventa qui uno spazio in cui l’arte non si limita a essere presentata, ma si mette in circolazione. Il poster, formato essenziale e democratico, si conferma così un dispositivo capace di ampliare il pubblico dell’arte e di trasformare un gesto semplice, prendere un’immagine, portarla con sé, mostrarla, conservarla, in una forma di partecipazione culturale. I manifesti realizzati specificamente per questa occasione nell’ambito del progetto SAI della Provincia di Potenza gestito da Arci Basilicata, saranno presentati nel corso di un incontro pubblico da Lorenzo Benedetti, critico d’arte e curatore con grande esperienza internazionale. Lorenzo benedetti dialogherà poi con la Professoressa Anna Lisa Tota, prorettrice vicaria dell’Università di Roma tre, che ha coordinato un progetto molto interessante dal titolo Tamigrart conclusosi nel febbraio 2026 con la conferenza dal titolo “Cartografie della speranza: arte, memorie e resilienza nei processi migratori”, ed al quale ha collaborato anche la Fondazione Città della Pace. La professoressa Tota esporrà i risultati del progetto Tamigrat che ha esplorato le relazioni tra arte, eventi traumatici e resilienza, con particolare attenzione a due diversi tipi di memorie diasporiche: a) memorie individuali, collettive e pubbliche della migrazione forzata attraverso il Mediterraneo e b) memorie individuali, collettive e pubbliche dei migranti in fuga dalla guerra in Ucraina.L&#x27;idea principale del progetto Tramigrart è stata quella di studiare le relazioni tra rappresentazioni artistiche e articolazione politica, con l&#x27;obiettivo di aggiungere nuove dimensioni, in particolare per quanto riguarda la questione del raggiungimento della verità storica e della riconciliazione.</p>
+<p>Gli artisti ed i relatori</p>
+<p>Claire Fontaine Claire Fontaine è un’artista concettuale femminista fondata a Parigi nel 2004. Fin dall’inizio, il progetto si è definito come una pratica collettiva e impersonale, assumendo il nome di un noto marchio di quaderni scolastici per interrogare in modo critico i rapporti tra soggettività, produzione, linguaggio e potere. Il lavoro di Claire Fontaine affronta temi come l’alienazione, la crisi politica, la condizione dell’individuo contemporaneo, le forme di violenza sistemica e la possibilità di emancipazione, attraverso un uso di testi, neon, sculture, installazioni, video e appropriazioni. La sua ricerca si fonda sull’idea che l’opera possa agire come dispositivo critico capace di rimettere in questione i codici simbolici e sociali che regolano la vita quotidiana. Nel corso degli anni, Claire Fontaine si è affermata come una delle presenze più riconoscibili dell’arte contemporanea internazionale, sviluppando una pratica che tiene insieme radicalità teorica, chiarezza formale e tensione politica.</p>
+<p>Giovanni Giaretta Nato a Padova nel 1983, Giovanni Giaretta vive e lavora ad Amsterdam. La sua pratica si sviluppa soprattutto attraverso film, video, installazioni e scrittura, e nasce da un processo di ricerca che mette in relazione immagini, testi e suoni. I suoi lavori si muovono spesso sul confine tra osservazione del reale e slittamento immaginativo, introducendo elementi visionari, stranianti o sospesi che trasformano situazioni apparentemente ordinarie in esperienze percettive dense di ambiguità e attenzione. Dopo gli studi in Design e Produzione delle arti visive allo IUAV di Venezia, ha preso parte a programmi di residenza e formazione tra Venezia, Parigi, Amsterdam e New Orleans; dal 2019 insegna inoltre nei dipartimenti di Moving Image e Fine Art dell’AKI Academy of Art &amp; Design di Enschede. Le sue opere e i suoi film sono stati presentati in istituzioni, festival e spazi espositivi internazionali, confermando una ricerca in cui il linguaggio delle immagini in movimento diventa strumento di ascolto, racconto e dislocazione del visibile.</p>
 <p>Lorenzo Benedetti</p>
-Lorenzo Benedetti (1972, Roma) Curatore e storico d'arte attualmente curatore al Kunstmuseum San Gallo. Ha studiato storia dell’arte presso l’Università La Sapienza di Roma (1991-95), ha partecipato al Curatorial Training Programme De Appel Amsterdam (1999). Attualmente è visiting professor alla Rijksakademie di Amsterdam. Ha una rubrica sulla rivista Cura.magazine intitolata “Ritratti nello spazio espositivo. Ha diretto dal 2008 al 2014 il De Vleeshal Art Centre, Middelburg, Paesi Bassi. Nel 2013 ha curato il padiglione Olandese alla Biennale di Venezia. Nel 2005 ha fondato il Museo Sound Art, Roma. È stato direttore di Volume! a Roma, e curatore del Museo Marta Herford, Herford, Germania. È stato guest-curator presso la Kunsthalle di Mulhouse, Francia, e insegnante presso la Jan van Eyck Academy di Maastricht
-</p>
-</p>Anna Lisa Tota</p>
-Professoressa ordinaria di Sociologia dei processi culturali e comunicativi presso il Dipartimento di Filosofia, Comunicazione e Spettacolo dell’Università Roma Tre. Dal 2022 è Prorettrice Vicaria dell’Ateneo con la Delega al Coordinamento delle Attività di Terza Missione. 
-Corsi insegnati: “Sociologia della comunicazione”, “Sociologia della musica”, “Comunicazione artistica”, “Comunicazione visuale”. Gastprofessor, Universität St. Gallen, Hochschule für Wirtschafts, Rechts und Sozialwissenschaften, St. Gallen, Svizzera.
-Dal 30 maggio 2025, ha ricevuto la Delega alle Politiche di Genere. Inoltre, è Presidente del Consiglio di Amministrazione della Fondazione “Oscar, Bice e Giulio Cesare Castello” dell’Università Roma Tre.
-Membro del Senato Accademico dell’Università Roma Tre con afferenza alla Commissione Bilancio e Regolamenti.
-.</p>
-	
-
+<p>Lorenzo Benedetti (1972, Roma) Curatore e storico d&#x27;arte attualmente curatore al Kunstmuseum San Gallo. Ha studiato storia dell’arte presso l’Università La Sapienza di Roma (1991-95), ha partecipato al Curatorial Training Programme De Appel Amsterdam (1999). Attualmente è visiting professor alla Rijksakademie di Amsterdam. Ha una rubrica sulla rivista Cura.magazine intitolata “Ritratti nello spazio espositivo. Ha diretto dal 2008 al 2014 il De Vleeshal Art Centre, Middelburg, Paesi Bassi. Nel 2013 ha curato il padiglione Olandese alla Biennale di Venezia. Nel 2005 ha fondato il Museo Sound Art, Roma. È stato direttore di Volume! a Roma, e curatore del Museo Marta Herford, Herford, Germania. È stato guest-curator presso la Kunsthalle di Mulhouse, Francia, e insegnante presso la Jan van Eyck Academy di Maastricht</p>
+<p>Anna Lisa Tota</p>
+<p>Professoressa ordinaria di Sociologia dei processi culturali e comunicativi presso il Dipartimento di Filosofia, Comunicazione e Spettacolo dell’Università Roma Tre. Dal 2022 è Prorettrice Vicaria dell’Ateneo con la Delega al Coordinamento delle Attività di Terza Missione. Corsi insegnati: “Sociologia della comunicazione”, “Sociologia della musica”, “Comunicazione artistica”, “Comunicazione visuale”. Gastprofessor, Universität St. Gallen, Hochschule für Wirtschafts, Rechts und Sozialwissenschaften, St. Gallen, Svizzera. Dal 30 maggio 2025, ha ricevuto la Delega alle Politiche di Genere. Inoltre, è Presidente del Consiglio di Amministrazione della Fondazione “Oscar, Bice e Giulio Cesare Castello” dell’Università Roma Tre. Membro del Senato Accademico dell’Università Roma Tre con afferenza alla Commissione Bilancio e Regolamenti. .</p>
 </div>
-
-<div class="read-more">Leggi di più</div>
-
-
-				
-<div class="content-item">
-  <div class="description">
-    RÄ DI MARTINO — Kant Can’t  
-    <p>A-Head Project </p>
-
-
-<p>L’arte che incontra la cura: A-Head Project e 3500cm² inaugurano la prima collezione permanente nei centri di salute mentale </p>
-
-<p>Sabato 18 ottobre 2025, ore 11.00 </p>
-<p>Centro di Salute Mentale di Vetralla (DSM Viterbo Distretto C)</p>
-<p>Vetralla (VT), 18 ottobre 2025</p>
-   
- <p>#109</p>
- 
- </div>
-
-  <div class="text-section two-columns">
-
-<p>L’arte contemporanea entra nei luoghi della cura per trasformarli in spazi di incontro, inclusione e bellezza. Sabato 18 ottobre alle ore 11.00 verrà inaugurato, presso il Centro di Salute Mentale di Vetralla (DSM Viterbo Distretto C), il primo intervento del progetto 3500cm², curato da Lorenzo Benedetti in collaborazione con A-Head Project di Angelo Azzurro Onlus, con il sostegno della Presidente dott.ssa Stefania Calapai e del dott. Francesco Cro, responsabile della struttura.</p>
-
-<p>L’iniziativa segna l’avvio della collezione permanente delle opere di 3500cm² all’interno dei centri di salute mentale che partirà dal Lazio per diffondersi a livello nazionale in seguito, un modello innovativo che unisce arte e psichiatria per promuovere accessibilità, inclusione e benessere.
-La collezione permanente comprenderà opere di Nicole Werner, Vladimir Radunsky, Sarina Scheidegger, Giulio Paolini, John Armleder, Carla Accardi, Ciprian Muresan e Hans Schabus, artisti che con i loro linguaggi e visioni contribuiscono a definire un dialogo vitale tra arte contemporanea e cura.
-Il progetto nasce dal desiderio di portare l’arte contemporanea al di fuori dei musei e dei circuiti tradizionali, rendendola parte integrante dei luoghi della cura e della quotidianità.</p>
-
+</details>
+</article>
+<article class="news-item">
+<header class="news-heading">
+<p class="news-date">Sabato 18 ottobre 2025, ore 11.00</p>
+<h2><em>Kant Can’t</em></h2>
+<p class="news-subtitle">L’arte che incontra la cura: A-Head Project e 3500 cm² inaugurano la prima collezione permanente nei centri di salute mentale</p>
+<p class="news-artists">Rä di Martino</p>
+<p class="news-posters">Poster #109</p>
+<p class="news-place">A-Head Project · Centro di Salute Mentale di Vetralla (DSM Viterbo Distretto C)</p>
+<p class="news-city">Vetralla (VT)</p>
+</header>
+<div class="image-container">
+<a href="ra-di-martino-2.html"><img src="ra-di-martino-2.png" alt="Rä di Martino" loading="lazy" decoding="async"><span>Rä di Martino</span></a>
+</div>
+<details>
+<summary><span class="read-more">Leggi di più</span><span class="read-less">Leggi di meno</span></summary>
+<div class="news-text">
+<p>L’arte contemporanea entra nei luoghi della cura per trasformarli in spazi di incontro, inclusione e bellezza. Sabato 18 ottobre alle ore 11.00 verrà inaugurato, presso il Centro di Salute Mentale di Vetralla (DSM Viterbo Distretto C), il primo intervento del progetto 3500 cm², curato da Lorenzo Benedetti in collaborazione con A-Head Project di Angelo Azzurro Onlus, con il sostegno della Presidente dott.ssa Stefania Calapai e del dott. Francesco Cro, responsabile della struttura.</p>
+<p>L’iniziativa segna l’avvio della collezione permanente delle opere di 3500 cm² all’interno dei centri di salute mentale che partirà dal Lazio per diffondersi a livello nazionale in seguito, un modello innovativo che unisce arte e psichiatria per promuovere accessibilità, inclusione e benessere. La collezione permanente comprenderà opere di Nicole Werner, Vladimir Radunsky, Sarina Scheidegger, Giulio Paolini, John Armleder, Carla Accardi, Ciprian Muresan e Hans Schabus, artisti che con i loro linguaggi e visioni contribuiscono a definire un dialogo vitale tra arte contemporanea e cura. Il progetto nasce dal desiderio di portare l’arte contemporanea al di fuori dei musei e dei circuiti tradizionali, rendendola parte integrante dei luoghi della cura e della quotidianità.</p>
 <p>Ogni artista coinvolto dispone di 3500 centimetri quadrati, un poster di 50×70 cm, per raccontare la propria visione attraverso un linguaggio visivo diretto e universale. Le opere vengono installate negli spazi dei Centri di Salute Mentale, contribuendo a migliorare la qualità ambientale e relazionale dei contesti di cura, e sono anche distribuite gratuitamente a pazienti, operatori, visitatori e familiari, favorendo un’esperienza artistica diffusa e partecipata.</p>
-
-<p>L’appuntamento del 18 ottobre segna anche la distribuzione gratuita del nuovo poster di Rä di Martino, “Kant Can’t” (2025, #109 3500cm²), donato dall’artista ad A-Head Project di Angelo Azzurro Onlus. L’opera inaugura simbolicamente un nuovo capitolo del progetto, ponendo al centro il dialogo tra linguaggio artistico, percezione e salute mentale.
-Nel corso degli anni, A-Head Project ha costruito un percorso di cooperazione tra arte contemporanea e psichiatria, promuovendo la lotta allo stigma della malattia mentale e valorizzando la capacità dell’arte di stimolare riflessione, connessione e consapevolezza.
-La collaborazione con 3500cm² amplifica questa missione, diffondendo il linguaggio dell’arte in contesti non convenzionali e trasformando ospedali e centri di salute mentale in luoghi di ispirazione e apertura.</p>
-
+<p>L’appuntamento del 18 ottobre segna anche la distribuzione gratuita del nuovo poster di Rä di Martino, “Kant Can’t” (2025, #109 3500 cm²), donato dall’artista ad A-Head Project di Angelo Azzurro Onlus. L’opera inaugura simbolicamente un nuovo capitolo del progetto, ponendo al centro il dialogo tra linguaggio artistico, percezione e salute mentale. Nel corso degli anni, A-Head Project ha costruito un percorso di cooperazione tra arte contemporanea e psichiatria, promuovendo la lotta allo stigma della malattia mentale e valorizzando la capacità dell’arte di stimolare riflessione, connessione e consapevolezza. La collaborazione con 3500 cm² amplifica questa missione, diffondendo il linguaggio dell’arte in contesti non convenzionali e trasformando ospedali e centri di salute mentale in luoghi di ispirazione e apertura.</p>
 <p>Le prossime tappe del progetto coinvolgeranno altre strutture del Lazio con l’installazione permanente di 30 poster d’artista e la distribuzione libera delle opere al pubblico, creando una rete di spazi dedicati alla bellezza e al benessere condiviso.</p>
-
-<p>3500cm² è un progetto a cura di Lorenzo Benedetti, con il dott. Francesco Cro e la dott.ssa Stefania Calapai, realizzato in collaborazione con A-Head Project di Angelo Azzurro Onlus.
-Grafica a cura di Barbara Salvucci.</p>
-	
+<p>3500 cm² è un progetto a cura di Lorenzo Benedetti, con il dott. Francesco Cro e la dott.ssa Stefania Calapai, realizzato in collaborazione con A-Head Project di Angelo Azzurro Onlus. Grafica a cura di Barbara Salvucci.</p>
 <p>3500 cm² è un progetto ideato e curato da Lorenzo Benedetti, dedicato alla diffusione dell’arte contemporanea attraverso il formato del manifesto. Ogni artista dispone di 3500 centimetri quadrati (50×70 cm) per creare un’opera pensata per lo spazio pubblico, distribuita gratuitamente per rendere l’arte accessibile, inclusiva e democratica. Nato a Roma nel 2004 all’interno di BlueRoom – Rialto Sant’Ambrogio, il progetto utilizza il manifesto come spazio espositivo diffuso, trasformando la città in una piattaforma d’arte contemporanea. Nel tempo si è esteso a livello internazionale, da Ljubljana a Berlino, Parigi e altre città, collaborando con istituzioni, musei e biennali che ne hanno riconosciuto l’approccio innovativo. Oggi 3500 cm² continua a evolversi portando l’arte in contesti non convenzionali, come spazi pubblici e luoghi della cura, per creare momenti di incontro, riflessione e benessere visivo. Questa espansione rafforza la sua missione originaria: superare i confini del museo tradizionale e trasformare l’arte in una presenza quotidiana. Il progetto si configura così come un museo diffuso, in cui i poster diventano parte integrante dell’ambiente urbano, creando un dialogo continuo tra opera, pubblico e territorio. Ogni luogo può diventare uno spazio espositivo e ogni passante, un visitatore.</p>
-
-<p>Il progetto A-HEAD nasce nel 2017 per volere della famiglia Calapai per la lotta allo stigma dei disturbi mentali e dalla collaborazione tra l’Associazione Angelo Azzurro ONLUS ed artisti e dj di respiro internazionale: infatti con il progetto A-HEAD Angelo Azzurro, curato da Piero Gagliardi dal 2017 dino al 2022, mira a sviluppare un percorso conoscitivo delle malattie mentali attraverso l’arte, sostenendo in maniera attiva l’arte contemporanea e gli artisti che collaborano ai vari laboratori che da anni l’associazione svolge accanto alle attività di psicoterapia più tradizionali. Data la natura benefica del progetto, con A-HEAD la cultura, nell’accezione più ampia del termine, diviene un motore generatore di sanità, nella misura in cui i ricavati sono devoluti a favore di progetti riabilitativi della Onlus Angelo Azzurro, legati alla creatività, intesa come caratteristica prettamente umana, fondamentale per lo sviluppo di una sana interiorità. Lo scopo globale del progetto è quello di aiutare i giovani che hanno attraversato un periodo di difficoltà a reintegrarsi a pieno nella società, attraverso lo sviluppo di nuove capacità lavorative e creative. </p>
-
+<p>Il progetto A-HEAD nasce nel 2017 per volere della famiglia Calapai per la lotta allo stigma dei disturbi mentali e dalla collaborazione tra l’Associazione Angelo Azzurro ONLUS ed artisti e dj di respiro internazionale: infatti con il progetto A-HEAD Angelo Azzurro, curato da Piero Gagliardi dal 2017 dino al 2022, mira a sviluppare un percorso conoscitivo delle malattie mentali attraverso l’arte, sostenendo in maniera attiva l’arte contemporanea e gli artisti che collaborano ai vari laboratori che da anni l’associazione svolge accanto alle attività di psicoterapia più tradizionali. Data la natura benefica del progetto, con A-HEAD la cultura, nell’accezione più ampia del termine, diviene un motore generatore di sanità, nella misura in cui i ricavati sono devoluti a favore di progetti riabilitativi della Onlus Angelo Azzurro, legati alla creatività, intesa come caratteristica prettamente umana, fondamentale per lo sviluppo di una sana interiorità. Lo scopo globale del progetto è quello di aiutare i giovani che hanno attraversato un periodo di difficoltà a reintegrarsi a pieno nella società, attraverso lo sviluppo di nuove capacità lavorative e creative.</p>
 <p>Rä di Martino (Roma) ha studiato a Londra, conseguendo un MFA alla Slade School of Art, e ha proseguito la sua ricerca tra New York e l’Italia. La sua pratica indaga il passare del tempo e il divario tra narrazioni epiche e vissuto personale, combinando pathos e distacco attraverso film, video e fotografia.Ha esposto e presentato le sue opere in importanti istituzioni e festival internazionali, tra cui MoMA PS1, Tate Modern, Palazzo Grassi – Punta della Dogana, Museion, Manifesta e la Biennale di Busan.Nel 2014 ha presentato il documentario The Show MAS Go On alla Mostra del Cinema di Venezia, vincendo il Premio Gillo Pontecorvo, il Premio SIAE e un Nastro d’Argento. Il suo lungometraggio Controfigura (2018), premiato con l’Eurimages Lab Award, è stato anch’esso presentato a Venezia.Tra i progetti successivi: Afterall (premiato con l’Italian Council Award, 2018–19), l’installazione L’eccezione al Museo del Novecento di Firenze (Premio Lio Capital), e il documentario sperimentale Fuori dai teatri (2021). Nel 2022 ha realizzato mostre personali al Forte Belvedere di Firenze e alla Torre Matta di Otranto, con un nuovo lavoro dedicato a Carmelo Bene. Nel 2023 vince il PAC, Piano per l’Arte Contemporanea, per una nuova mostra Kant Can’t presentata al Polo Museale di Potenza e nel 2025 alla Fondazione Giuliani di Roma.</p>
- 
-<p>INFO
-Angelo Azzurro ONLUS infoangeloazzurro@gmail.com tel. 3386757976 https://associazioneangeloazzurro.it www.facebook.com/Aheadangeloazzurro www.instagram.com/angelo_azzurro_onlus
-Ufficio Stampa A-Head Project Angelo Azzurro
-Alessio Morganti alessio.mrg@hotmail.it tel. +393401472901
-</p>
+<p>INFO Angelo Azzurro ONLUS infoangeloazzurro@gmail.com tel. 3386757976 https://associazioneangeloazzurro.it www.facebook.com/Aheadangeloazzurro www.instagram.com/angelo_azzurro_onlus Ufficio Stampa A-Head Project Angelo Azzurro Alessio Morganti alessio.mrg@hotmail.it tel. +393401472901</p>
+<p>Portare l’arte contemporanea al di fuori dei musei e renderla accessibile a tutti, anche nei contesti di cura della mente per promuovere accessibilità e inclusione: è la nuova iniziativa di A-Head Project di Angelo Azzurro Onlus in collaborazione con il progetto “3500 cm²” a cura di Lorenzo Benedetti con il dottor Francesco Cro e la Presidente dott.ssa Stefania Calapai.</p>
+<p>3500 cm² sono i centimetri quadrati messi a disposizione di un artista per realizzare un poster di 50×70cm, la cui missione è diffondere il linguaggio dell’arte contemporanea a un pubblico più ampio ed eterogeneo, creando un museo diffuso per abbattere le barriere dello stigma della malattia mentale. Nasce dalla volontà di ripensare la fruizione dell’arte contemporanea al di fuori dei tradizionali spazi espositivi creando nuove connessioni tra le opere e chi le vive.</p>
+<p>E’ una nuova sfida per la sinergica cooperazione tra arte e psichiatria: infatti negli anni A-Head Project di Angelo Azzurro Onlus ha combinato l’arte contemporanea con la psichiatria per la lotta allo stigma della malattia mentale. Il progetto 3500 cm² vuole diffondere il linguaggio dell’arte contemporanea a un pubblico più ampio ed eterogeneo portandolo fuori dai classici luoghi di fruizione come i musei.</p>
+<p>Si tratta di un progetto innovativo che trasforma ospedali e centri di salute mentale in spazi più accoglienti e stimolanti attraverso la presenza di opere d’arte contemporanea: è questo l’obiettivo di 3500 cm² curato da Lorenzo Benedetti in collaborazione con A-Head Project e la Presidente la Dott. Stefania Calapai e il Dott. Francesco Cro. Il progetto 3500 cm² supportato da A-Head di Angelo Azzurro Onlus partirà a Maggio e interverrà in diverse strutture del Lazio, con un focus specifico su ambienti dedicati alla psichiatria e prevede due modalità di intervento complementari: • Un nucleo permanente di opere: 30 poster saranno collocate stabilmente all’interno delle strutture psichiatriche, contribuendo a migliorare la qualità degli spazi e offrendo ai pazienti e al personale sanitario un contatto quotidiano con l’arte. • Distribuzione gratuita di poster per ogni sede, permettendo a pazienti, familiari, visitatori e operatori sanitari di portare con sé un opera d’arte e avvicinarsi a nuovi linguaggi visivi. ​ Le opere saranno installate in diversi centri di salute mentale del Lazio, strutture Residenziali e Semiresidenziali sia Pubbliche che Convenzionate.</p>
+<p>Attraverso 3500 cm², l’arte non è solo elemento decorativo, ma diventa strumento di connessione, stimolo culturale e miglioramento degli ambienti. L’intervento mira a coinvolgere attivamente pazienti, personale sanitario e visitatori in un’esperienza artistica inclusiva; offrire nuovi stimoli visivi e culturali, contribuendo al benessere psicologico; valorizzare il ruolo sociale dell’arte contemporanea dimostrando la sua capacità di generare impatti positivi anche in contesti non convenzionali.</p>
+<p>3500 cm² rappresenta un modello innovativo di accessibilità artistica, un progetto che avvicina l’arte al pubblico e trasforma gli spazi della cura in luoghi di incontro e ispirazione.</p>
+<p>Gli artisti che collaboreranno con A-Head Project e 3500 cm² sono: Gisella Chaudry, Andreas Zampella, Camilla Gurgone, Lauren Hauge, Edson Luli, Alfredo Aceto, Maurizio Nannucci, Veit Stratman, Agnes Thurnaue, Rä di Martino.</p>
 </div>
-
-
- <div class="read-more">Leggi di più</div>
+</details>
+</article>
+<article class="news-item">
+<header class="news-heading">
+<p class="news-date">2025</p>
+<h2>ECOSISTEMI DELL&#x27;ARTE: CREARE, CONDIVIDERE, CUSTODIRE</h2>
+<p class="news-artists">Fabrizio Cotognini e Alfredo Pirri</p>
+<p class="news-posters">Poster #107 e #108</p>
+<p class="news-place">Villa Genoese Zerbi</p>
+<p class="news-city">Reggio Calabria</p>
+</header>
+<div class="image-container">
+<a href="fabrizio-cotognini.html"><img src="fabrizio-cotognini.png" alt="Fabrizio Cotognini" loading="lazy" decoding="async"><span>Fabrizio Cotognini</span></a>
+<a href="alfredo-pirri.html"><img src="alfredo-pirri.png" alt="Alfredo Pirri" loading="lazy" decoding="async"><span>Alfredo Pirri</span></a>
 </div>
-
-
-
-
-
-			
-			
-		
-   
+<details>
+<summary><span class="read-more">Leggi di più</span><span class="read-less">Leggi di meno</span></summary>
+<div class="news-text">
+<p>Il progetto espositivo per Palazzo Zerbi si propone come un modello in cui l&#x27;arte non è solo oggetto di consumo o di mercato ma parte di un sistema culturale sostenibile che coinvolge attivamente artisti, pubblico e istituzioni. L&#x27; idea di un&#x27;arte ecologica si fonda sulla necessità di creare circuiti virtuosi che favoriscano l&#x27;accessibilità, la condivisione e la durata delle opere nel tempo. Attraverso questa triplice articolazione la mostra intende sottolineare l&#x27;importanza di un ciclo completo per l&#x27;arte contemporanea: dalla produzione alla diffusione, fino alla conservazione e valorizzazione. Gli ambienti di Palazzo Zerbi accolgono e mettono in dialogo questi tre elementi, creando un percorso che evidenzia la complementarietà tra il lavoro degli artisti, la loro visibilità pubblica e la necessità di un impegno collezionistico, per garantire la permanenza delle opere nel tempo. La mostra si articola in tre sezioni interconnesse presentando artisti di Reggio Calabria, il progetto di &quot;poster 3500 cm²&quot; e una selezione di opere dalla collezione di Cataldo Colella. La sezione dedicata ad una selezione di artisti legati a Reggio Calabria rappresenta la vitalità della ricerca artistica nel territorio, con l&#x27;intenzione di valorizzare il loro contributo alla scena contemporanea. Un’altra sezione esplora il ruolo della diffusione nell&#x27;arte contemporanea attraverso 3500 cm², un progetto internazionale che utilizza il formato del poster per promuovere il lavoro degli artisti in uno spazio accessibile e democratico. Questa parte della mostra evidenzia l&#x27;importanza della divulgazione artistica e la possibilità di portare l&#x27;arte al di fuori delle istituzioni tradizionali. Una terza sezione, infine, presenta una selezione di opere dalla collezione di Cataldo Colella, offrendo una prospettiva sul collezionismo come strumento di conservazione e valorizzazione dell&#x27;arte contemporanea. La collezione rappresenta un archivio di esperienze artistiche, dimostrando il valore della raccolta privata nella costruzione della memoria culturale. Pertanto il progetto per Villa Zerbi si inserisce a pieno titolo in una riflessione più ampia sull&#x27;ecologia dell&#x27;arte contemporanea, intesa non solo come sostenibilità ambientale ma anche, come un ecosistema culturale, in cui la produzione, la diffusione e la conservazione dell&#x27;arte si influenzano reciprocamente.</p>
 </div>
-  <div id="text-section-1" class="text-section">
-
-Portare l’arte contemporanea al di fuori dei musei e renderla accessibile a tutti, anche nei contesti di cura della mente per promuovere accessibilità e inclusione: è la nuova iniziativa di A-Head Project di Angelo Azzurro Onlus in collaborazione con il progetto “3500cm2” a cura di Lorenzo Benedetti con il dottor Francesco Cro e la Presidente dott.ssa Stefania Calapai.
-
-3500cm2 sono i centimetri quadrati messi a disposizione di un artista per realizzare un poster di 50×70cm, la cui missione è diffondere il linguaggio dell’arte contemporanea a un pubblico più ampio ed eterogeneo, creando un museo diffuso per abbattere le barriere dello stigma della malattia mentale. Nasce dalla volontà di ripensare la fruizione dell’arte contemporanea al di fuori dei tradizionali spazi espositivi creando nuove connessioni tra le opere e chi le vive.
-
-E’ una nuova sfida per la sinergica cooperazione tra arte e psichiatria: infatti negli anni A-Head Project di Angelo Azzurro Onlus ha combinato l’arte contemporanea con la psichiatria per la lotta allo stigma della malattia mentale. Il progetto 3500cm2 vuole diffondere il linguaggio dell’arte contemporanea a un pubblico più ampio ed eterogeneo portandolo fuori dai classici luoghi di fruizione come i musei.
-
-Si tratta di un progetto innovativo che trasforma ospedali e centri di salute mentale in spazi più accoglienti e stimolanti attraverso la presenza di opere d’arte contemporanea: è questo l’obiettivo di 3500 cm2 curato da Lorenzo Benedetti in collaborazione con A-Head Project e la Presidente la Dott. Stefania Calapai e il Dott. Francesco Cro.
-Il progetto 3500 cm2 supportato da A-Head di Angelo Azzurro Onlus partirà a Maggio e interverrà in diverse strutture del Lazio, con un focus specifico su ambienti dedicati alla psichiatria e prevede due modalità di intervento complementari:
-• Un nucleo permanente di opere: 30 poster saranno collocate stabilmente all’interno delle strutture psichiatriche, contribuendo a migliorare la qualità degli spazi e offrendo ai pazienti e al personale sanitario un contatto quotidiano con l’arte.
-• Distribuzione gratuita di poster per ogni sede, permettendo a pazienti, familiari, visitatori e operatori sanitari di portare con sé un opera d’arte e avvicinarsi a nuovi linguaggi visivi.
-​
-Le opere saranno installate in diversi centri di salute mentale del Lazio, strutture Residenziali e Semiresidenziali sia Pubbliche che Convenzionate.
-
-Attraverso 3500 cm2, l’arte non è solo elemento decorativo, ma diventa strumento di connessione, stimolo culturale e miglioramento degli ambienti. L’intervento mira a coinvolgere attivamente pazienti, personale sanitario e visitatori in un’esperienza artistica inclusiva; offrire nuovi stimoli visivi e culturali, contribuendo al benessere psicologico; valorizzare il ruolo sociale dell’arte contemporanea dimostrando la sua capacità di generare impatti positivi anche in contesti non convenzionali.
-
-3500 cm2 rappresenta un modello innovativo di accessibilità artistica, un progetto che avvicina l’arte al pubblico e trasforma gli spazi della cura in luoghi di incontro e ispirazione.
-
-Gli artisti che collaboreranno con A-Head Project e 3500cm2 sono: Gisella Chaudry, Andreas Zampella, Camilla Gurgone, Lauren Hauge, Edson Luli, Alfredo Aceto, Maurizio Nannucci, Veit Stratman, Agnes Thurnaue, Rä di Martino.
-        </div>
-
-	     <div class="image-container">
-            <a href="ra-di-martino-2.html">
-                <img src="ra-di-martino-2.png" alt="Rä di Martino">
-                <span>Rä di Martino</span>
-            </a>
-
-   <div class="content-item">
-        <div class="description">ECOSISTEMI DELL'ARTE: CREARE, CONDIVIDERE, CUSTODIRE</i></p> <p>Villa Genoese Zerbi </p> <p>Reggio Calabria 2025 </p>
-		<p>#107 e #108</p>
-       <p> Fabrizio Cotognini e Alfredo Pirri</p></div>
-        
-  <div id="text-section-1" class="text-section">
-
-Il progetto espositivo per Palazzo Zerbi si propone come un modello in cui l'arte non è solo oggetto di consumo o di mercato ma parte di un sistema culturale sostenibile che coinvolge attivamente artisti, pubblico e istituzioni.
-L' idea di un'arte ecologica si fonda sulla necessità di creare circuiti virtuosi che favoriscano l'accessibilità, la condivisione e la durata delle opere nel tempo.
-Attraverso questa triplice articolazione la mostra intende sottolineare l'importanza di un ciclo completo per l'arte contemporanea: dalla produzione alla diffusione, fino alla conservazione e valorizzazione.
-Gli ambienti di Palazzo Zerbi accolgono e mettono in dialogo questi tre elementi, creando un percorso che evidenzia la complementarietà tra il lavoro degli artisti, la loro visibilità pubblica e la necessità di un impegno collezionistico, per garantire la permanenza delle opere nel tempo.
-La mostra si articola in tre sezioni interconnesse presentando artisti di Reggio Calabria, il progetto di "poster 3500 cm2" e una selezione di opere dalla collezione di Cataldo Colella.
-La sezione dedicata ad una selezione di artisti legati a Reggio Calabria rappresenta la vitalità della ricerca artistica nel territorio, con l'intenzione di valorizzare il loro contributo alla scena contemporanea. Un’altra sezione esplora il ruolo della diffusione nell'arte contemporanea attraverso 3500 cm2, un progetto internazionale che utilizza il formato del poster per promuovere il lavoro degli artisti in uno spazio accessibile e democratico. Questa parte della mostra evidenzia l'importanza della divulgazione artistica e la possibilità di portare l'arte al di fuori delle istituzioni tradizionali.
-Una terza sezione, infine, presenta una selezione di opere dalla collezione di Cataldo Colella, offrendo una prospettiva sul collezionismo come strumento di conservazione e valorizzazione dell'arte contemporanea. La collezione rappresenta un archivio di esperienze artistiche, dimostrando il valore della raccolta privata nella costruzione della memoria culturale.
-Pertanto il progetto per Villa Zerbi si inserisce a pieno titolo in una riflessione più ampia sull'ecologia dell'arte contemporanea, intesa non solo come sostenibilità ambientale ma anche, come un ecosistema culturale, in cui la produzione, la diffusione e la conservazione dell'arte si influenzano reciprocamente.
-
-        </div>
-
-	     <div class="image-container">
-            <a href="fabrizio-cotognini.html">
-                <img src="fabrizio-cotognini.png" alt="Fabrizio Cotognini">
-                <span>Fabrizio Cotognini</span>
-            </a>
-            <a href="alfredo-pirri.html">
-                <img src="alfredo-pirri.png" alt="Alfredo Pirri">
-                <span>Alfredo Pirri</span>
-            </a>
-        </div>
-        
-        <div class="read-more" onclick="toggleText('text-section-1')">Leggi di più</div>
-    </div>
-
-   <div class="content-item">
-        <div class="description">A-Head Project e 3500cm 2 portano la potenza dell’Arte
-Contemporanea nei luoghi della Salute Mentale <p><i>un progetto di accessibilità e inclusione</i></p>  <p>Roma 2025 </p>
-		<p>#109 - #119</p>
-       <p> Alfredo Aceto, Gisella Chaudry, Rä di Martino, Camilla Gurgone, Lauren Hauge, Edson Luli,  Maurizio Nannucci, Veit
-Stratman, Agnès Thurnauer,  Andreas Zampella.</p></div>
-        
-  <div id="text-section-1" class="text-section">
-
-Portare l’arte contemporanea al di fuori dei musei e renderla accessibile a tutti, anche nei contesti di
-cura della mente per promuovere accessibilità e inclusione: è la nuova iniziativa di A-Head Project
-di Angelo Azzurro Onlus in collaborazione con il progetto “3500cm 2 ” a cura di Lorenzo Benedetti
-con il dottor Francesco Cro e la Presidente dott.ssa Stefania Calapai.
-3500cm 2 sono i centimetri quadrati messi a disposizione di un artista per realizzare un poster di
-50×70cm, la cui missione è diffondere il linguaggio dell’arte contemporanea a un pubblico più
-ampio ed eterogeneo, creando un museo diffuso per abbattere le barriere dello stigma della malattia
-mentale. Nasce dalla volontà di ripensare la fruizione dell’arte contemporanea al di fuori dei
-tradizionali spazi espositivi creando nuove connessioni tra le opere e chi le vive.
-E’ una nuova sfida per la sinergica cooperazione tra arte e psichiatria: infatti negli anni A-Head
-Project di Angelo Azzurro Onlus ha combinato l’arte contemporanea con la psichiatria per la lotta
-allo stigma della malattia mentale. Il progetto 3500cm 2 vuole diffondere il linguaggio dell’arte
-contemporanea a un pubblico più ampio ed eterogeneo portandolo fuori dai classici luoghi di
-fruizione come i musei.
-Si tratta di un progetto innovativo che trasforma ospedali e centri di salute mentale in spazi più
-accoglienti e stimolanti attraverso la presenza di opere d’arte contemporanea: è questo l’obiettivo di
-3500 cm 2 curato da Lorenzo Benedetti in collaborazione con A-Head Project e la Presidente la Dott.
-Stefania Calapai e il Dott. Francesco Cro.
-Il progetto 3500 cm 2 supportato da A-Head di Angelo Azzurro Onlus partirà a Maggio e interverrà
-in diverse strutture del Lazio, con un focus specifico su ambienti dedicati alla psichiatria e prevede
-due modalità di intervento complementari:
-• Un nucleo permanente di opere: 30 poster saranno collocate stabilmente all’interno delle strutture
-psichiatriche, contribuendo a migliorare la qualità degli spazi e offrendo ai pazienti e al personale
-sanitario un contatto quotidiano con l’arte.
-• Distribuzione gratuita di poster per ogni sede, permettendo a pazienti, familiari, visitatori e
-operatori sanitari di portare con sé un opera d’arte e avvicinarsi a nuovi linguaggi visivi.
-Le opere saranno installate in diversi centri di salute mentale del Lazio, strutture Residenziali e
-Semiresidenziali sia Pubbliche che Convenzionate.
-Attraverso 3500 cm 2 , l’arte non è solo elemento decorativo, ma diventa strumento di connessione,
-stimolo culturale e miglioramento degli ambienti. L’intervento mira a coinvolgere attivamente
-pazienti, personale sanitario e visitatori in un’esperienza artistica inclusiva; offrire nuovi stimoli
-visivi e culturali, contribuendo al benessere psicologico; valorizzare il ruolo sociale dell’arte
-contemporanea dimostrando la sua capacità di generare impatti positivi anche in contesti non
-convenzionali.
-
-3500 cm 2 rappresenta un modello innovativo di accessibilità artistica, un progetto che avvicina
-l’arte al pubblico e trasforma gli spazi della cura in luoghi di incontro e ispirazione.
-        </div>
-        
-        <div class="read-more" onclick="toggleText('text-section-1')">Leggi di più</div>
-    </div>
-	
-    <div class="content-item">
-        <div class="description">Paolo Icaro <p><i>Trattoria ideale</i></p>  <p>Fondazione VOLUME!</p><p>Roma 2025 </p><p>#106 </p></div>
-        
-        <div class="image-container">
-            <a href="paolo-icaro.html">
-                <img src="Paolo-Icaro.jpg" alt="Paolo Icaro">
-                <span>Paolo Icaro</span>
-            </a>
-        </div>
-        
-        <div id="text-section-1" class="text-section">
-           <p>Fondazione VOLUME! Via di San Francesco di Sales 86/88, Roma</p>
-Il 9 marzo 2025 dalle 12:00 alle 20:00 la Fondazione VOLUME! presenta Trattoria ideale, un lavoro di Paolo Icaro (Torino, 1936), a cura di Lorenzo Benedetti. L’artista, che ha con la Fondazione una collaborazione consolidata, ha pensato in questa occasione di trasformare gli ambienti di VOLUME! in un luogo di condivisione e relazione.
-Trattoria ideale vuole, infatti, ricreare all’interno degli spazi di via San Francesco di Sales un ambiente conviviale ispirato all'accoglienza delle tipiche osterie di Trastevere. VOLUME! viene ripensato come un luogo di scambio, dove parole, immagini e suoni si intrecciano per stimolare i sensi e il dialogo.
-Icaro espande il concetto di nutrimento oltre il cibo, proponendo l'arte come alimento essenziale per la crescita individuale e collettiva. Invita i visitatori a "mangiare con gli occhi", trasformando la lettura e l'osservazione in un'esperienza di nutrizione intellettuale e sensoriale.
-Trattoria ideale diventa un luogo di scambio, fondendo dimensione estetica e relazionale in un dialogo continuo tra corpo, spazio e pensiero. Superando i confini della mostra tradizionale, evolve in un'esperienza partecipativa e multisensoriale, dove il visitatore è invitato a nutrirsi di arte, parole e idee, rendendo la fruizione artistica una vera e propria esperienza vitale.
-Con questo intervento Paolo Icaro azzera la distanza tra l’opera e il visitatore, invitandolo a toccare, modificare e portare dentro di sé l’esperienza artistica. In questo spazio conviviale, si mangia guardando e vedendo, si legge divorando con gli occhi e ci si sazia utilizzando la mente. L’azione culmina, infine, in un momento trascendente: oltrepassato un filtro trasparente, il visitatore si trova immerso nell’immensità della luce dove voci sussurrano parole intrecciate ai suoni evocativi della musica di Alessandro Petrolati.
-Un’esperienza sensoriale e intellettuale che supera i confini tradizionali dell’esposizione artistica.
-	    
-<p>Per l’occasione Paolo Icaro ha realizzato il nuovo progetto 3500 cm2 #106 “Trattoria ideale”: www.3500cm2.org</p>
-   
-Biografia:
-Paolo Icaro (Torino, 1936) è uno dei protagonisti delle ricerche artistiche degli anni Sessanta. Ha iniziato la sua carriera studiando scultura nello studio di Umberto Mastroianni. Dopo una prima mostra personale a Roma nel 1962, si avvicina all’esperienza dell’Arte Povera, sperimentando, sin dagli esordi, il divenire dell’azione scultorea in relazione alla forma e allo spazio, utilizzando materiali elementari e duttili come cemento, argilla, carta, legno e gesso. Fra il 1968 e il 1969 partecipa alle principali rassegne dell’avanguardia artistica internazionale che sanciscono l’affermazione di tendenze come l’arte povera, l’arte concettuale e la process art. Realizza infatti azioni al Teatro delle mostre, Galleria La Tartaruga, Roma (1968); a Arte povera più azioni povere, Amalfi (1968); è invitato a Op Losse Schroeven. Situaties en cryptostructuren, Stedelijk Museum, Amsterdam (1969); e a When Attitudes Become Form, curata da Harald Szeemann presso la Kunsthalle di Berna (1969). Nel 1971 si trasferisce nuovamente negli Stati Uniti (vi aveva già soggiornato tra il ’66 e il ’68), nel Connecticut, dove rimarrà per tutto il decennio. Tornato in Italia all’inizio degli anni Ottanta, espone nei più importanti musei e gallerie europee e statunitensi, continuando ad esplorare materiali come il gesso e lavorando attorno ai concetti di corpo e di spazio.
-Vive e lavora a Tavullia, in provincia di Pesaro.
-        </div>
-        
-        <div class="read-more" onclick="toggleText('text-section-1')">Leggi di più</div>
-    </div>
-
-    <!-- Secondo articolo -->
-    <div class="content-item">
-        <div class="description">Consolato d’Italia a Parigi e CONTEMPORALIS <p>XX Giornata del Contemporaneo</p> <p>Parigi 2024</p><p>#104 #105 </p> - </div>
-        
-        <div class="image-container">
-            <a href="diego-cibelli.html">
-                <img src="diego-cibelli.jpg" alt="Diego Cibelli">
-                <span>Diego Cibelli</span>
-            </a>
-            <a href="marinella-senatore.html">
-                <img src="marinella-senatore.jpg" alt="Marinella Senatore">
-                <span>Marinella Senatore</span>
-            </a>
-        </div>
-        
-        <div id="text-section-2" class="text-section">
-            <p>CONTEMPORALIS partecipa alla Giornata del Contemporaneo, la giornata italiana dedicata all’arte contemporanea</p>
-		In occasione della ventesima edizione della GDC, CONTEMPORALIS presenta 3500 cm², un progetto che quest’anno festeggia il suo ventesimo anniversario. 3500 cm² è un progetto di diffusione di opere d’arte contemporanea curato da Lorenzo Benedetti. 3500 cm² sono i centimetri quadrati messi a disposizione di un artista per realizzare un poster di 50×70cm, la cui missione è diffondere il linguaggio dell’arte contemporanea a un pubblico più ampio ed eterogeneo di quello dell’arte contemporanea.
-
-Martedì 15 ottobre, CONTEMPORALIS ha inoltre organizzato una conferenza sull’arte contemporanea organizzata da presso il Consolato d’Italia a Parigi, moderata da Maddalena Labricciosa, giornalista RAI, esperta d’arte – TG1, con la partecipazione di Lorenzo Benedetti, condirettore della Fondazione Ratti Art-Lab e ideatore e curatore del progetto 3500cm², Marinella Senatore, artista e Diego Cibelli, artista in diretta streaming da Napoli. Per l’occasione sono stati distribuiti gratuitamente i manifesti degli artisti italiani Marinella Senatore e Diego Cibelli.        </div>
-
-        </div>
-        
-        <div class="read-more" onclick="toggleText('text-section-2')">Leggi di più</div>
-    </div>
-
-    <!-- Terzo articolo -->
-    <div class="content-item">
-        <div class="description">Expodemic <p>EXPODEMIC</p>
-<p>Festival delle Accademie e degli Istituti di Cultura stranieri</p> <p>Roma 2024</p> <p>#86 - #103 </p>- </div>
-        
-        <div class="image-container">
-            <a href="matt-mullican.html">
-                <img src="matt-mullican.jpg" alt="Matt Mullican">
-                <span>Matt Mullican</span>
-            </a>
-            <a href="giulio-paolini.html">
-                <img src="giulio-paolini.jpg" alt="Giulio Paolini">
-                <span>Giulio Paolini</span>
-            </a>
-            <a href="nil-yalter.html">
-                <img src="nil-yalter.jpg" alt="Nil Yalter">
-                <span>Nil Yalter</span>
-            </a>
-		
-               </a>
-               <a href="cristina-lucas.html">
-                <img src="cristina-lucas.jpg" alt="Cristina Lucas">
-                <span>Cristina Lucas</span>
-            </a>
-            
-     <a href="carla-accardi.html">
-        <img src="carla-accardi.jpg" alt="Carla Accardi">
-        <span>Carla Accardi</span>
-    </a>
-
-		  <a href="john-armleder.html">
-        <img src="john-armleder.jpg" alt="John Armleder">
-        <span>John Armleder</span>
-	</a>
-		
-	<a href="elisabetta-benassi-1.html">
-        <img src="elisabetta-benassi-1.jpg" alt="Elisabetta Benassi">
-        <span>Elisabetta Benassi</span>
-    </a>
-    <a href="attila-csorgo.html">
-        <img src="attila-csorgo.jpg" alt="Attila Csörgő">
-        <span>Attila Csörgő</span>
-    </a>
-    <a href="simon-dybbroe-moller.html">
-        <img src="simon-dybbroe-moller.jpg" alt="Simon Dybbroe Møller">
-        <span>Simon Dybbroe Møller</span>
-    </a>
-    <a href="robert-kusmirowski.html">
-        <img src="robert-kusmirowski.jpg" alt="Robert Kusmirowski">
-        <span>Robert Kusmirowski</span>
-    </a>
- 
-    <a href="jochen-lempert.html">
-        <img src="jochen-lempert.jpg" alt="Jochen Lempert">
-        <span>Jochen Lempert</span>
-    </a>
-    <a href="domenico-mangano-marieke-van-rooy.html">
-        <img src="mangano-van-rooy.jpg" alt="Domenico Mangano & Marieke van Rooy">
-        <span>Domenico Mangano & Marieke van Rooy</span>
-    </a>
-  
-    <a href="ciprian-muresan.html">
-        <img src="ciprian-muresan.jpg" alt="Ciprian Mureşan">
-        <span>Ciprian Mureşan</span>
-    </a>
-    <a href="tura-oliveira.html">
-        <img src="tura-oliveira.jpg" alt="Tura Oliveira">
-        <span>Tura Oliveira</span>
-    </a>
-   
-    <a href="fernando-sanchez-castillo.html">
-        <img src="fernando-sanchez-castillo.jpg" alt="Fernando Sánchez Castillo">
-        <span>Fernando Sánchez Castillo</span>
-    </a>
-    <a href="hans-schabus.html">
-        <img src="hans-schabus.jpg" alt="Hans Schabus">
-        <span>Hans Schabus</span>
-    </a>
-    <a href="sarina-scheidegger.html">
-        <img src="sarina-scheidegger.jpg" alt="Sarina Scheidegger">
-        <span>Sarina Scheidegger</span>
-    </a>
-  
-    <a href="nicole-wermers.html">
-        <img src="nicole-wermers.jpg" alt="Nicole Wermers">
-        <span>Nicole Wermers</span>
-    </a>
-   
-    <a href="vladimir-radunsky.html">
-        <img src="vladimir-radunsky.jpg" alt="Vladimir Radunsky">
-        <span>Vladimir Radunsky</span>
-    </a>
-        </div>
-        
-        <div id="text-section-3" class="text-section">
-          <strong>Curated by Lorenzo Benedetti in collaboration with Francesca Campana</strong><br>
-
-		 <strong>Palazzo Esposizioni Roma - 07.05 - 25.08.2024</strong><br><br>
- 
-
+</details>
+</article>
+<article class="news-item">
+<header class="news-heading">
+<p class="news-date">2025</p>
+<h2>A-Head Project e 3500 cm² portano la potenza dell’Arte Contemporanea nei luoghi della Salute Mentale</h2>
+<p class="news-subtitle">un progetto di accessibilità e inclusione</p>
+<p class="news-artists">Alfredo Aceto, Gisella Chaudry, Rä di Martino, Camilla Gurgone, Lauren Hauge, Edson Luli, Maurizio Nannucci, Veit Stratman, Agnès Thurnauer, Andreas Zampella</p>
+<p class="news-posters">Poster #109 – #119</p>
+<p class="news-city">Roma</p>
+</header>
+<details>
+<summary><span class="read-more">Leggi di più</span><span class="read-less">Leggi di meno</span></summary>
+<div class="news-text">
+<p>Portare l’arte contemporanea al di fuori dei musei e renderla accessibile a tutti, anche nei contesti di cura della mente per promuovere accessibilità e inclusione: è la nuova iniziativa di A-Head Project di Angelo Azzurro Onlus in collaborazione con il progetto “3500 cm² ” a cura di Lorenzo Benedetti con il dottor Francesco Cro e la Presidente dott.ssa Stefania Calapai. 3500 cm² sono i centimetri quadrati messi a disposizione di un artista per realizzare un poster di 50×70cm, la cui missione è diffondere il linguaggio dell’arte contemporanea a un pubblico più ampio ed eterogeneo, creando un museo diffuso per abbattere le barriere dello stigma della malattia mentale. Nasce dalla volontà di ripensare la fruizione dell’arte contemporanea al di fuori dei tradizionali spazi espositivi creando nuove connessioni tra le opere e chi le vive. E’ una nuova sfida per la sinergica cooperazione tra arte e psichiatria: infatti negli anni A-Head Project di Angelo Azzurro Onlus ha combinato l’arte contemporanea con la psichiatria per la lotta allo stigma della malattia mentale. Il progetto 3500 cm² vuole diffondere il linguaggio dell’arte contemporanea a un pubblico più ampio ed eterogeneo portandolo fuori dai classici luoghi di fruizione come i musei. Si tratta di un progetto innovativo che trasforma ospedali e centri di salute mentale in spazi più accoglienti e stimolanti attraverso la presenza di opere d’arte contemporanea: è questo l’obiettivo di 3500 cm² curato da Lorenzo Benedetti in collaborazione con A-Head Project e la Presidente la Dott. Stefania Calapai e il Dott. Francesco Cro. Il progetto 3500 cm² supportato da A-Head di Angelo Azzurro Onlus partirà a Maggio e interverrà in diverse strutture del Lazio, con un focus specifico su ambienti dedicati alla psichiatria e prevede due modalità di intervento complementari: • Un nucleo permanente di opere: 30 poster saranno collocate stabilmente all’interno delle strutture psichiatriche, contribuendo a migliorare la qualità degli spazi e offrendo ai pazienti e al personale sanitario un contatto quotidiano con l’arte. • Distribuzione gratuita di poster per ogni sede, permettendo a pazienti, familiari, visitatori e operatori sanitari di portare con sé un opera d’arte e avvicinarsi a nuovi linguaggi visivi. Le opere saranno installate in diversi centri di salute mentale del Lazio, strutture Residenziali e Semiresidenziali sia Pubbliche che Convenzionate. Attraverso 3500 cm² , l’arte non è solo elemento decorativo, ma diventa strumento di connessione, stimolo culturale e miglioramento degli ambienti. L’intervento mira a coinvolgere attivamente pazienti, personale sanitario e visitatori in un’esperienza artistica inclusiva; offrire nuovi stimoli visivi e culturali, contribuendo al benessere psicologico; valorizzare il ruolo sociale dell’arte contemporanea dimostrando la sua capacità di generare impatti positivi anche in contesti non convenzionali.</p>
+<p>3500 cm² rappresenta un modello innovativo di accessibilità artistica, un progetto che avvicina l’arte al pubblico e trasforma gli spazi della cura in luoghi di incontro e ispirazione.</p>
+</div>
+</details>
+</article>
+<article class="news-item">
+<header class="news-heading">
+<p class="news-date">2025</p>
+<h2><em>Trattoria ideale</em></h2>
+<p class="news-artists">Paolo Icaro</p>
+<p class="news-posters">Poster #106</p>
+<p class="news-place">Fondazione VOLUME!</p>
+<p class="news-city">Roma</p>
+</header>
+<div class="image-container">
+<a href="paolo-icaro.html"><img src="Paolo-Icaro.jpg" alt="Paolo Icaro" loading="lazy" decoding="async"><span>Paolo Icaro</span></a>
+</div>
+<details>
+<summary><span class="read-more">Leggi di più</span><span class="read-less">Leggi di meno</span></summary>
+<div class="news-text">
+<p>Fondazione VOLUME! Via di San Francesco di Sales 86/88, Roma</p>
+<p>Il 9 marzo 2025 dalle 12:00 alle 20:00 la Fondazione VOLUME! presenta Trattoria ideale, un lavoro di Paolo Icaro (Torino, 1936), a cura di Lorenzo Benedetti. L’artista, che ha con la Fondazione una collaborazione consolidata, ha pensato in questa occasione di trasformare gli ambienti di VOLUME! in un luogo di condivisione e relazione. Trattoria ideale vuole, infatti, ricreare all’interno degli spazi di via San Francesco di Sales un ambiente conviviale ispirato all&#x27;accoglienza delle tipiche osterie di Trastevere. VOLUME! viene ripensato come un luogo di scambio, dove parole, immagini e suoni si intrecciano per stimolare i sensi e il dialogo. Icaro espande il concetto di nutrimento oltre il cibo, proponendo l&#x27;arte come alimento essenziale per la crescita individuale e collettiva. Invita i visitatori a &quot;mangiare con gli occhi&quot;, trasformando la lettura e l&#x27;osservazione in un&#x27;esperienza di nutrizione intellettuale e sensoriale. Trattoria ideale diventa un luogo di scambio, fondendo dimensione estetica e relazionale in un dialogo continuo tra corpo, spazio e pensiero. Superando i confini della mostra tradizionale, evolve in un&#x27;esperienza partecipativa e multisensoriale, dove il visitatore è invitato a nutrirsi di arte, parole e idee, rendendo la fruizione artistica una vera e propria esperienza vitale. Con questo intervento Paolo Icaro azzera la distanza tra l’opera e il visitatore, invitandolo a toccare, modificare e portare dentro di sé l’esperienza artistica. In questo spazio conviviale, si mangia guardando e vedendo, si legge divorando con gli occhi e ci si sazia utilizzando la mente. L’azione culmina, infine, in un momento trascendente: oltrepassato un filtro trasparente, il visitatore si trova immerso nell’immensità della luce dove voci sussurrano parole intrecciate ai suoni evocativi della musica di Alessandro Petrolati. Un’esperienza sensoriale e intellettuale che supera i confini tradizionali dell’esposizione artistica.</p>
+<p>Per l’occasione Paolo Icaro ha realizzato il nuovo progetto 3500 cm² #106 “Trattoria ideale”: www.3500cm2.org</p>
+<p>Biografia: Paolo Icaro (Torino, 1936) è uno dei protagonisti delle ricerche artistiche degli anni Sessanta. Ha iniziato la sua carriera studiando scultura nello studio di Umberto Mastroianni. Dopo una prima mostra personale a Roma nel 1962, si avvicina all’esperienza dell’Arte Povera, sperimentando, sin dagli esordi, il divenire dell’azione scultorea in relazione alla forma e allo spazio, utilizzando materiali elementari e duttili come cemento, argilla, carta, legno e gesso. Fra il 1968 e il 1969 partecipa alle principali rassegne dell’avanguardia artistica internazionale che sanciscono l’affermazione di tendenze come l’arte povera, l’arte concettuale e la process art. Realizza infatti azioni al Teatro delle mostre, Galleria La Tartaruga, Roma (1968); a Arte povera più azioni povere, Amalfi (1968); è invitato a Op Losse Schroeven. Situaties en cryptostructuren, Stedelijk Museum, Amsterdam (1969); e a When Attitudes Become Form, curata da Harald Szeemann presso la Kunsthalle di Berna (1969). Nel 1971 si trasferisce nuovamente negli Stati Uniti (vi aveva già soggiornato tra il ’66 e il ’68), nel Connecticut, dove rimarrà per tutto il decennio. Tornato in Italia all’inizio degli anni Ottanta, espone nei più importanti musei e gallerie europee e statunitensi, continuando ad esplorare materiali come il gesso e lavorando attorno ai concetti di corpo e di spazio. Vive e lavora a Tavullia, in provincia di Pesaro.</p>
+</div>
+</details>
+</article>
+<article class="news-item">
+<header class="news-heading">
+<p class="news-date">2024</p>
+<h2>XX Giornata del Contemporaneo</h2>
+<p class="news-posters">Poster #104 #105</p>
+<p class="news-place">Consolato d’Italia a Parigi e CONTEMPORALIS</p>
+<p class="news-city">Parigi</p>
+</header>
+<div class="image-container">
+<a href="diego-cibelli.html"><img src="diego-cibelli.jpg" alt="Diego Cibelli" loading="lazy" decoding="async"><span>Diego Cibelli</span></a>
+<a href="marinella-senatore.html"><img src="marinella-senatore.jpg" alt="Marinella Senatore" loading="lazy" decoding="async"><span>Marinella Senatore</span></a>
+</div>
+<details>
+<summary><span class="read-more">Leggi di più</span><span class="read-less">Leggi di meno</span></summary>
+<div class="news-text">
+<p>CONTEMPORALIS partecipa alla Giornata del Contemporaneo, la giornata italiana dedicata all’arte contemporanea</p>
+<p>In occasione della ventesima edizione della GDC, CONTEMPORALIS presenta 3500 cm², un progetto che quest’anno festeggia il suo ventesimo anniversario. 3500 cm² è un progetto di diffusione di opere d’arte contemporanea curato da Lorenzo Benedetti. 3500 cm² sono i centimetri quadrati messi a disposizione di un artista per realizzare un poster di 50×70cm, la cui missione è diffondere il linguaggio dell’arte contemporanea a un pubblico più ampio ed eterogeneo di quello dell’arte contemporanea.</p>
+<p>Martedì 15 ottobre, CONTEMPORALIS ha inoltre organizzato una conferenza sull’arte contemporanea organizzata da presso il Consolato d’Italia a Parigi, moderata da Maddalena Labricciosa, giornalista RAI, esperta d’arte – TG1, con la partecipazione di Lorenzo Benedetti, condirettore della Fondazione Ratti Art-Lab e ideatore e curatore del progetto 3500 cm², Marinella Senatore, artista e Diego Cibelli, artista in diretta streaming da Napoli. Per l’occasione sono stati distribuiti gratuitamente i manifesti degli artisti italiani Marinella Senatore e Diego Cibelli.</p>
+</div>
+</details>
+</article>
+<article class="news-item">
+<header class="news-heading">
+<p class="news-date">2024</p>
+<h2>EXPODEMIC</h2>
+<p class="news-subtitle">Festival delle Accademie e degli Istituti di Cultura stranieri</p>
+<p class="news-posters">Poster #86 – #103</p>
+<p class="news-city">Roma</p>
+</header>
+<div class="image-container">
+<a href="matt-mullican.html"><img src="matt-mullican.jpg" alt="Matt Mullican" loading="lazy" decoding="async"><span>Matt Mullican</span></a>
+<a href="giulio-paolini.html"><img src="giulio-paolini.jpg" alt="Giulio Paolini" loading="lazy" decoding="async"><span>Giulio Paolini</span></a>
+<a href="nil-yalter.html"><img src="nil-yalter.jpg" alt="Nil Yalter" loading="lazy" decoding="async"><span>Nil Yalter</span></a>
+<a href="cristina-lucas.html"><img src="cristina-lucas.jpg" alt="Cristina Lucas" loading="lazy" decoding="async"><span>Cristina Lucas</span></a>
+<a href="carla-accardi.html"><img src="carla-accardi.jpg" alt="Carla Accardi" loading="lazy" decoding="async"><span>Carla Accardi</span></a>
+<a href="john-armleder.html"><img src="john-armleder.jpg" alt="John Armleder" loading="lazy" decoding="async"><span>John Armleder</span></a>
+<a href="elisabetta-benassi-1.html"><img src="elisabetta-benassi-1.jpg" alt="Elisabetta Benassi" loading="lazy" decoding="async"><span>Elisabetta Benassi</span></a>
+<a href="attila-csorgo.html"><img src="attila-csorgo.jpg" alt="Attila Csörgő" loading="lazy" decoding="async"><span>Attila Csörgő</span></a>
+<a href="simon-dybbroe-moller.html"><img src="simon-dybbroe-moller.jpg" alt="Simon Dybbroe Møller" loading="lazy" decoding="async"><span>Simon Dybbroe Møller</span></a>
+<a href="robert-kusmirowski.html"><img src="robert-kusmirowski.jpg" alt="Robert Kusmirowski" loading="lazy" decoding="async"><span>Robert Kusmirowski</span></a>
+<a href="jochen-lempert.html"><img src="jochen-lempert.jpg" alt="Jochen Lempert" loading="lazy" decoding="async"><span>Jochen Lempert</span></a>
+<a href="domenico-mangano-marieke-van-rooy.html"><img src="mangano-van-rooy.jpg" alt="Domenico Mangano &amp; Marieke van Rooy" loading="lazy" decoding="async"><span>Domenico Mangano &amp; Marieke van Rooy</span></a>
+<a href="ciprian-muresan.html"><img src="ciprian-muresan.jpg" alt="Ciprian Mureşan" loading="lazy" decoding="async"><span>Ciprian Mureşan</span></a>
+<a href="tura-oliveira.html"><img src="tura-oliveira.jpg" alt="Tura Oliveira" loading="lazy" decoding="async"><span>Tura Oliveira</span></a>
+<a href="fernando-sanchez-castillo.html"><img src="fernando-sanchez-castillo.jpg" alt="Fernando Sánchez Castillo" loading="lazy" decoding="async"><span>Fernando Sánchez Castillo</span></a>
+<a href="hans-schabus.html"><img src="hans-schabus.jpg" alt="Hans Schabus" loading="lazy" decoding="async"><span>Hans Schabus</span></a>
+<a href="sarina-scheidegger.html"><img src="sarina-scheidegger.jpg" alt="Sarina Scheidegger" loading="lazy" decoding="async"><span>Sarina Scheidegger</span></a>
+<a href="nicole-wermers.html"><img src="nicole-wermers.jpg" alt="Nicole Wermers" loading="lazy" decoding="async"><span>Nicole Wermers</span></a>
+<a href="vladimir-radunsky.html"><img src="vladimir-radunsky.jpg" alt="Vladimir Radunsky" loading="lazy" decoding="async"><span>Vladimir Radunsky</span></a>
+</div>
+<details>
+<summary><span class="read-more">Leggi di più</span><span class="read-less">Leggi di meno</span></summary>
+<div class="news-text">
+<p>Curated by Lorenzo Benedetti in collaboration with Francesca Campana</p>
+<p>Palazzo Esposizioni Roma - 07.05 - 25.08.2024</p>
 <p>Mostra promossa dall’Assessorato alla Cultura di Roma Capitale e Azienda Speciale Palaexpo</p>
-
-<p>Artisti 3500 cm²: John Armleder, Elisabetta Benassi, Attila Csörgő, Simon Dybbroe Møller, Robert Kusmirowski, Cristina Lucas, Jochen Lempert, Domenico Mangano & Marieke van Rooy, Matt Mullican, Ciprian Mureşan, Tura Oliveira, Giulio Paolini, Fernando Sánchez Castillo, Hans Schabus, Sarina Scheidegger, Nil Yalter, Nicole Wermers, sono inoltre riproposti due poster realizzati con opere di Carla Accardi e Vladimir Radunsky.</p>
- 
-
-<p>Organizzata da Azienda Speciale Palaexpo con la collaborazione di 
-Accademia di Belle Arti di Roma, Accademia di Danimarca, Académie de France à Rome – Villa Médicis, Accademia Nazionale di San Luca, Accademia di Romania in Roma, Accademia Tedesca Roma Villa Massimo, Accademia d'Ungheria in Roma, Accademia dei Virtuosi al Pantheon, American Academy in Rome, British School at Rome, Circolo Scandinavo, Complesso monumentale di San Salvatore in Lauro, Forum Austriaco di Cultura, Institutum Romanum Finlandiae, Istituto Culturale Coreano, Istituto Giapponese di Cultura, Istituto Polacco di Roma, Istituto Svizzero, Museo Casa di Goethe, Reale Istituto Neerlandese di Roma, Real Academia de España en Roma.</p>
-  
-<p>Artisti mostra Expodemic: Kamrooz Aram, Ane Rodriguez Armendariz, Séverine Ballon, Jacopo Belloni, Alix Boillot, Susanne Brorson, Fatma Bucak, Pedro Luis Cembranos, Zachary Fabri, Hamedine Kane, Kapwani Kiwanga, Bjørn Melhus, Marko Nikodijevic, Tura Oliveira, Estefania Puerta Grisales, Chloé Quenum, Marie Robert, Sarina Scheidegger. </p>
-
-Expodemic è la seconda edizione del Festival delle Accademie e degli Istituti di Cultura stranieri a Roma, che a partire dal Palazzo Esposizioni Roma si diffonde nel tessuto della città.
-La mostra racconta lo stretto legame tra la nascita e lo sviluppo delle esposizioni e la storia delle accademie, sia attraverso il coinvolgimento di artisti stranieri attualmente residenti sia con documenti storici.
-Roma non solo ospita il più alto numero di centri culturali internazionali, le cui vicende si intrecciano e si sviluppano fin dal 1666 con la fondazione dell’Accademia di Francia, ma è anche il luogo in cui sono state inventate le esposizioni moderne. Per oltre 40 anni, tra il 1680 e 1720, il pittore, segretario dell’Accademia di San Luca e reggente della Congregazione dei Virtuosi al Pantheon, Giuseppe Ghezzi, organizza nel Complesso monumentale di San Salvatore in Lauro una serie di mostre di importanti opere presenti nelle collezioni delle famiglie aristocratiche romane, dando così avvio al concetto di esposizione moderna. Grazie alla capacità di capire il proprio periodo storico, Ghezzi, con questa serie di esposizioni, rende pubblica l’arte, proponendo un’idea moderna e democratica della cultura e agendo così come primo curatore della storia.
-
-<p>Expodemic, a partire dalla mostra a Palazzo Esposizioni, si diffonde nella città con una serie di poster realizzati appositamente per l’occasione e in distribuzione gratuita nelle varie sedi dei partner culturali. Un percorso che illustra l’importanza del rapporto rizomatico tra il Palazzo Esposizioni e le Accademie e Istituti di Cultura stranieri a Roma, mettendone in evidenza la ricchezza e la diversità, nonché l’assoluta attualità di questo arcipelago culturale.
-La mostra è arricchita anche da un programma pubblico di incontri, performance e proiezioni ospitato a Palazzo Esposizioni e dalle numerose mostre ed eventi organizzati nelle Accademie e Istituti di Cultura.</p>
-
-3500 cm²
-Progetto di poster d’artista
-3500 cm² sono i centimetri quadrati a disposizione di un artista per realizzare un manifesto 50x70 cm, a cui è affidato il compito di diffondere il linguaggio dell’arte contemporanea a un pubblico più vasto e più eterogeneo di quello che abitualmente visita le mostre. I poster sono distribuiti gratuitamente, in diverse centinaia di copie, a tutti i visitatori di Expodemic, il Festival delle Accademie e degli Istituti di Cultura stranieri, che ha la mostra a Palazzo Esposizioni ma si diffonde attraverso la fitta rete di Accademie e Istituti a Roma.
-3500 cm² è una mostra senza confini spaziali e temporali che si sviluppa nel tessuto urbano in un modo inedito e con l’intento di costruire una piattaforma culturale che amplifica le possibilità comunicative dell’arte in una forma alternativa di interazione tra artista, istituzione e pubblico. Il percorso si sviluppa su due coordinate: l’unicità (l’opera originale creata dall’artista che aderisce al progetto) e la ripetizione (la moltiplicazione dell’opera per tutte le persone che visitano il luogo). 3500 cm2 dialoga con un pubblico vasto conservando un’alta qualità artistica e creando costantemente nuovi “visitatori/collezionisti” sensibili al linguaggio dell’arte.
-        </div>
-        
-        <div class="read-more" onclick="toggleText('text-section-3')">Leggi di più</div>
-    </div>
-
-    <!-- Quarto articolo -->
-    <div class="content-item">
-        <div class="description">ROMA 2016 - Villa Ada</div>
-        
-        <div class="image-container">
-            <a href="francesco-arena.html">
-                <img src="francesco-arena.jpg" alt="Francesco Arena">
-                <span>Francesco Arena</span>
-            </a>
-            <a href="marc-nagtzaam.html">
-                <img src="marc-nagtzaam.jpg" alt="Marc Nagtzaam">
-                <span>Marc Nagtzaam</span>
-            </a>
-        </div>
-        
-        <div id="text-section-4" class="text-section">
-            <p>Progetto ospitato da Villa Ada Roma incontra il mondo è 3500 cm², progetto a cura di Fondazione VOLUME!...</p><p>#81-#85 </p>
-        </div>
-        
-        <div class="read-more" onclick="toggleText('text-section-4')">Leggi di più</div>
-    </div>
-
-    <!-- Quinto articolo -->
-    <div class="content-item">
-        <div class="description">Middelburg 2009-2013 - SMBK De Vleeshal<p>#77 - #80 </p></div>
-        
-        <div class="image-container">
-            <a href="beier-lund.html">
-                <img src="beier-lund.jpg" alt="Nina Beier & Marie Lund">
-                <span>Nina Beier & Marie Lund</span>
-            </a>
-            <a href="kelly-schacht.html">
-                <img src="kelly-schacht.jpg" alt="Kelly Schacht">
-                <span>Kelly Schacht</span>
-
-				    <a href="katinka-bock.html">
-                <img src="katinka-bock.jpg" alt="Katinka Bock">
-                <span>Katinka Bock</span>
-            </a>
-        </div>
-        
-        <div id="text-section-5" class="text-section">
-<p>In occasione di alcune mostre realizzate tra il 2009 e il 2013 sono stati realizzate delle edizioni di 3500 cm² che spesso si integravano direttamente all'interno della mostra.  </p>
-        </div>
-        
-        <div class="read-more" onclick="toggleText('text-section-5')">+ info</div>
-    </div>
-
-  <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            document.querySelectorAll(".read-more").forEach(button => {
-                const textSection = button.previousElementSibling;
-                button.addEventListener("click", () => {
-                    const isVisible = textSection.style.display === "block";
-                    textSection.style.display = isVisible ? "none" : "block";
-                    button.textContent = isVisible ? "Leggi di più" : "Leggi di meno";
-                });
-            });
-        });
-    </script>
-
-   
+<p>Artisti 3500 cm²: John Armleder, Elisabetta Benassi, Attila Csörgő, Simon Dybbroe Møller, Robert Kusmirowski, Cristina Lucas, Jochen Lempert, Domenico Mangano &amp; Marieke van Rooy, Matt Mullican, Ciprian Mureşan, Tura Oliveira, Giulio Paolini, Fernando Sánchez Castillo, Hans Schabus, Sarina Scheidegger, Nil Yalter, Nicole Wermers, sono inoltre riproposti due poster realizzati con opere di Carla Accardi e Vladimir Radunsky.</p>
+<p>Organizzata da Azienda Speciale Palaexpo con la collaborazione di Accademia di Belle Arti di Roma, Accademia di Danimarca, Académie de France à Rome – Villa Médicis, Accademia Nazionale di San Luca, Accademia di Romania in Roma, Accademia Tedesca Roma Villa Massimo, Accademia d&#x27;Ungheria in Roma, Accademia dei Virtuosi al Pantheon, American Academy in Rome, British School at Rome, Circolo Scandinavo, Complesso monumentale di San Salvatore in Lauro, Forum Austriaco di Cultura, Institutum Romanum Finlandiae, Istituto Culturale Coreano, Istituto Giapponese di Cultura, Istituto Polacco di Roma, Istituto Svizzero, Museo Casa di Goethe, Reale Istituto Neerlandese di Roma, Real Academia de España en Roma.</p>
+<p>Artisti mostra Expodemic: Kamrooz Aram, Ane Rodriguez Armendariz, Séverine Ballon, Jacopo Belloni, Alix Boillot, Susanne Brorson, Fatma Bucak, Pedro Luis Cembranos, Zachary Fabri, Hamedine Kane, Kapwani Kiwanga, Bjørn Melhus, Marko Nikodijevic, Tura Oliveira, Estefania Puerta Grisales, Chloé Quenum, Marie Robert, Sarina Scheidegger.</p>
+<p>Expodemic è la seconda edizione del Festival delle Accademie e degli Istituti di Cultura stranieri a Roma, che a partire dal Palazzo Esposizioni Roma si diffonde nel tessuto della città. La mostra racconta lo stretto legame tra la nascita e lo sviluppo delle esposizioni e la storia delle accademie, sia attraverso il coinvolgimento di artisti stranieri attualmente residenti sia con documenti storici. Roma non solo ospita il più alto numero di centri culturali internazionali, le cui vicende si intrecciano e si sviluppano fin dal 1666 con la fondazione dell’Accademia di Francia, ma è anche il luogo in cui sono state inventate le esposizioni moderne. Per oltre 40 anni, tra il 1680 e 1720, il pittore, segretario dell’Accademia di San Luca e reggente della Congregazione dei Virtuosi al Pantheon, Giuseppe Ghezzi, organizza nel Complesso monumentale di San Salvatore in Lauro una serie di mostre di importanti opere presenti nelle collezioni delle famiglie aristocratiche romane, dando così avvio al concetto di esposizione moderna. Grazie alla capacità di capire il proprio periodo storico, Ghezzi, con questa serie di esposizioni, rende pubblica l’arte, proponendo un’idea moderna e democratica della cultura e agendo così come primo curatore della storia.</p>
+<p>Expodemic, a partire dalla mostra a Palazzo Esposizioni, si diffonde nella città con una serie di poster realizzati appositamente per l’occasione e in distribuzione gratuita nelle varie sedi dei partner culturali. Un percorso che illustra l’importanza del rapporto rizomatico tra il Palazzo Esposizioni e le Accademie e Istituti di Cultura stranieri a Roma, mettendone in evidenza la ricchezza e la diversità, nonché l’assoluta attualità di questo arcipelago culturale. La mostra è arricchita anche da un programma pubblico di incontri, performance e proiezioni ospitato a Palazzo Esposizioni e dalle numerose mostre ed eventi organizzati nelle Accademie e Istituti di Cultura.</p>
+<p>3500 cm² Progetto di poster d’artista 3500 cm² sono i centimetri quadrati a disposizione di un artista per realizzare un manifesto 50x70 cm, a cui è affidato il compito di diffondere il linguaggio dell’arte contemporanea a un pubblico più vasto e più eterogeneo di quello che abitualmente visita le mostre. I poster sono distribuiti gratuitamente, in diverse centinaia di copie, a tutti i visitatori di Expodemic, il Festival delle Accademie e degli Istituti di Cultura stranieri, che ha la mostra a Palazzo Esposizioni ma si diffonde attraverso la fitta rete di Accademie e Istituti a Roma. 3500 cm² è una mostra senza confini spaziali e temporali che si sviluppa nel tessuto urbano in un modo inedito e con l’intento di costruire una piattaforma culturale che amplifica le possibilità comunicative dell’arte in una forma alternativa di interazione tra artista, istituzione e pubblico. Il percorso si sviluppa su due coordinate: l’unicità (l’opera originale creata dall’artista che aderisce al progetto) e la ripetizione (la moltiplicazione dell’opera per tutte le persone che visitano il luogo). 3500 cm² dialoga con un pubblico vasto conservando un’alta qualità artistica e creando costantemente nuovi “visitatori/collezionisti” sensibili al linguaggio dell’arte.</p>
+</div>
+</details>
+</article>
+<article class="news-item">
+<header class="news-heading">
+<p class="news-date">2016</p>
+<h2>Villa Ada</h2>
+<p class="news-city">Roma</p>
+</header>
+<div class="image-container">
+<a href="francesco-arena.html"><img src="francesco-arena.jpg" alt="Francesco Arena" loading="lazy" decoding="async"><span>Francesco Arena</span></a>
+<a href="marc-nagtzaam.html"><img src="marc-nagtzaam.jpg" alt="Marc Nagtzaam" loading="lazy" decoding="async"><span>Marc Nagtzaam</span></a>
+</div>
+<details>
+<summary><span class="read-more">Leggi di più</span><span class="read-less">Leggi di meno</span></summary>
+<div class="news-text">
+<p>Progetto ospitato da Villa Ada Roma incontra il mondo è 3500 cm², progetto a cura di Fondazione VOLUME!...</p>
+<p>#81-#85</p>
+</div>
+</details>
+</article>
+<article class="news-item">
+<header class="news-heading">
+<p class="news-date">2009–2013</p>
+<h2>SMBK De Vleeshal</h2>
+<p class="news-posters">Poster #77 – #80</p>
+<p class="news-city">Middelburg</p>
+</header>
+<div class="image-container">
+<a href="beier-lund.html"><img src="beier-lund.jpg" alt="Nina Beier &amp; Marie Lund" loading="lazy" decoding="async"><span>Nina Beier &amp; Marie Lund</span></a>
+<a href="kelly-schacht.html"><img src="kelly-schacht.jpg" alt="Kelly Schacht" loading="lazy" decoding="async"><span>Kelly Schacht</span></a>
+<a href="katinka-bock.html"><img src="katinka-bock.jpg" alt="Katinka Bock" loading="lazy" decoding="async"><span>Katinka Bock</span></a>
+</div>
+<details>
+<summary><span class="read-more">Leggi di più</span><span class="read-less">Leggi di meno</span></summary>
+<div class="news-text">
+<p>In occasione di alcune mostre realizzate tra il 2009 e il 2013 sono stati realizzate delle edizioni di 3500 cm² che spesso si integravano direttamente all&#x27;interno della mostra.</p>
+</div>
+</details>
+</article>
+</main>
+<script>
+// Keep the content below the fixed header at every width and font size.
+const header = document.querySelector('.header');
+function updateHeaderHeight() {
+  document.documentElement.style.setProperty('--header-height', `${header.getBoundingClientRect().height}px`);
+}
+updateHeaderHeight();
+window.addEventListener('resize', updateHeaderHeight);
+if ('ResizeObserver' in window) new ResizeObserver(updateHeaderHeight).observe(header);
+if (document.fonts) document.fonts.ready.then(updateHeaderHeight);
+</script>
 </body>
 </html>
