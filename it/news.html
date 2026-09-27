@@ -29,6 +29,7 @@ h2 { font-size: clamp(1.35rem, 2.4vw, 2rem); line-height: 1.4; margin: 18px 0 12
 .news-place, .news-posters { color: #333; }
 .image-container { display: flex; flex-wrap: wrap; align-items: flex-start; gap: 30px; margin: 30px 0 24px; }
 .image-container a { width: 280px; max-width: 100%; display: block; text-decoration: none; }
+.image-container a { width: var(--poster-width, 280px); max-width: 100%; flex: 0 0 auto; display: block; text-decoration: none; }
 .image-container img { display: block; width: 100%; height: auto; object-fit: contain; border: 1px solid #b5b5b5; }
 .image-container span { display: block; margin-top: 10px; font-size: 1rem; line-height: 1.5; }
 details { margin-top: 24px; }
@@ -39,6 +40,7 @@ details[open] .read-less { display: inline; }
 .news-text p { margin: 0 0 1.2em; white-space: pre-line; }
 @media (max-width: 1000px) { :root { --header-height: 150px; } .header { flex-direction: column; align-items: flex-start; gap: 14px; padding: 16px 20px; } .page-title { font-size: 1.25rem; } .menu { justify-content: flex-start; gap: 10px 18px; } .menu a { font-size: .9rem; } }
 @media (max-width: 600px) { main { padding: 0 20px; } .news-item { padding: 30px 0 40px; } .image-container { gap: 24px; } .image-container a { width: 100%; max-width: 300px; } .news-subtitle { font-size: 1rem; } .news-text { font-size: .95rem; } }
+@media (max-width: 600px) { main { padding: 0 20px; } .news-item { padding: 30px 0 40px; } .image-container { gap: 24px; }  .news-subtitle { font-size: 1rem; } .news-text { font-size: .95rem; } }
 @media (prefers-reduced-motion: reduce) { body { animation: none; } }
 @media print { body { padding: 0; background: #fff; animation: none; } .header { position: static; } .menu, summary { display: none; } details::details-content { content-visibility: visible; } details > .news-text { display: block !important; } }
 </style>
@@ -154,6 +156,7 @@ details[open] .read-less { display: inline; }
 <article class="news-item">
 <header class="news-heading">
 <p class="news-date">2025</p>
+<h2>ECOSISTEMI DELL&#x27;ARTE: CREARE, CONDIVIDERE, CUSTODIRE</h2>
 <h2>Ecosistemi Dell&#x27;arte: creare, condividere, custodire</h2>
 <p class="news-artists">Fabrizio Cotognini e Alfredo Pirri</p>
 <p class="news-posters">Poster #107 e #108</p>
@@ -326,6 +329,28 @@ updateHeaderHeight();
 window.addEventListener('resize', updateHeaderHeight);
 if ('ResizeObserver' in window) new ResizeObserver(updateHeaderHeight).observe(header);
 if (document.fonts) document.fonts.ready.then(updateHeaderHeight);
+// Equal visible area, calculated from each image's original proportions.
+const posters = [...document.querySelectorAll('.image-container img')];
+function sizePosters() {
+  const loaded = posters.filter(image => image.naturalWidth && image.naturalHeight);
+  if (!loaded.length) return;
+  const widestRatio = Math.max(1.4, ...loaded.map(image => image.naturalWidth / image.naturalHeight));
+  const availableWidths = posters.map(image => image.closest('.image-container').clientWidth).filter(width => width > 0);
+  const available = Math.min(...availableWidths, window.innerWidth <= 600 ? 300 : Infinity);
+  const area = Math.min(280 * 392, available * available / widestRatio);
+  loaded.forEach(image => {
+    const ratio = image.naturalWidth / image.naturalHeight;
+    const width = Math.sqrt(area * ratio);
+    image.closest('a').style.setProperty('--poster-width', `${width}px`);
+  });
+}
+posters.forEach(image => image.addEventListener('load', sizePosters));
+sizePosters();
+window.addEventListener('resize', sizePosters);
+if ('ResizeObserver' in window) {
+  const posterObserver = new ResizeObserver(sizePosters);
+  document.querySelectorAll('.image-container').forEach(gallery => posterObserver.observe(gallery));
+}
 </script>
 </body>
 </html>
