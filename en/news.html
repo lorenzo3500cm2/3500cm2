@@ -1,734 +1,282 @@
 <!DOCTYPE html>
-<html lang="it">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>News</title>
-	    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1ZDKD18HZM"></script>
-    <script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>News | 3500 cm²</title>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&amp;display=swap" rel="stylesheet">
+<style>
+:root { --header-height: 76px; }
+* { box-sizing: border-box; }
+body { margin: 0; padding-top: var(--header-height); font-family: 'Libre Baskerville', Georgia, serif; color: #000; background: linear-gradient(120deg, #fff7f2, #f5f8ff, #f7fff8, #fff8fc, #fffdf3); background-size: 400% 400%; animation: pastelBackground 28s ease infinite; }
+@keyframes pastelBackground { 0%, 100% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } }
+a { color: inherit; } a:hover { color: blue; }
+a:focus-visible, summary:focus-visible { outline: 2px solid blue; outline-offset: 5px; }
+.header { position: fixed; inset: 0 0 auto; z-index: 3000; display: flex; justify-content: space-between; align-items: center; gap: 24px; padding: 18px 30px; background: #fff; border-bottom: 1px solid #ddd; }
+.page-title { margin: 0; font-size: 1.5rem; font-weight: 700; line-height: 1.5; }
+.page-title a { text-decoration: none; }
+.menu { display: flex; flex-wrap: wrap; justify-content: flex-end; align-items: center; gap: 10px 28px; }
+.menu a { font-size: 1rem; white-space: nowrap; text-decoration: none; }
+.menu a:hover, .menu a[aria-current] { text-decoration: underline; text-underline-offset: 4px; }
+main { max-width: 1540px; margin: auto; padding: 0 30px; }
+.news-item { padding: 40px 0 50px; border-bottom: 1px solid #c9c9c9; }
+.news-heading { max-width: 1000px; }
+.news-heading p { margin: 0 0 12px; line-height: 1.65; }
+.news-date { font-size: .95rem; }
+h2 { font-size: clamp(1.35rem, 2.4vw, 2rem); line-height: 1.4; margin: 18px 0 12px; overflow-wrap: anywhere; }
+.news-subtitle { font-size: 1.15rem; }
+.news-artists { font-weight: 700; }
+.news-place, .news-posters { color: #333; }
+.image-container { display: flex; flex-wrap: wrap; align-items: flex-start; gap: 30px; margin: 30px 0 24px; }
+.image-container a { width: var(--poster-width, 280px); max-width: 100%; flex: 0 0 auto; display: block; text-decoration: none; }
+.image-container img { display: block; width: 100%; height: auto; object-fit: contain; border: 1px solid #b5b5b5; }
+.image-container span { display: block; margin-top: 10px; font-size: 1rem; line-height: 1.5; }
+details { margin-top: 24px; }
+summary { width: fit-content; cursor: pointer; text-decoration: underline; text-underline-offset: 4px; line-height: 1.6; }
+.read-less, details[open] .read-more { display: none; }
+details[open] .read-less { display: inline; }
+.news-text { max-width: 78ch; line-height: 1.8; overflow-wrap: anywhere; margin-top: 24px; }
+.news-text p { margin: 0 0 1.2em; white-space: pre-line; }
+@media (max-width: 1000px) { :root { --header-height: 150px; } .header { flex-direction: column; align-items: flex-start; gap: 14px; padding: 16px 20px; } .page-title { font-size: 1.25rem; } .menu { justify-content: flex-start; gap: 10px 18px; } .menu a { font-size: .9rem; } }
+@media (max-width: 600px) { main { padding: 0 20px; } .news-item { padding: 30px 0 40px; } .image-container { gap: 24px; }  .news-subtitle { font-size: 1rem; } .news-text { font-size: .95rem; } }
+@media (prefers-reduced-motion: reduce) { body { animation: none; } }
+@media print { body { padding: 0; background: #fff; animation: none; } .header { position: static; } .menu, summary { display: none; } details::details-content { content-visibility: visible; } details > .news-text { display: block !important; } }
+</style>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-1ZDKD18HZM"></script>
+<script>
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
         gtag('config', 'G-1ZDKD18HZM');
     </script>
-<style>
-    @import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&display=swap');
-
-    body {
-        font-family: 'Libre Baskerville', serif;
-        margin: 0;
-        padding: 0;
-        background-color: #fff;
-        color: #000;
-        padding-top: 78px;
-    }
-
- .header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    box-sizing: border-box;
-    background-color: #fff;
-    color: #000;
-    border-bottom: 1px solid #ddd;
-    z-index: 1000;
-}
-
-.back-link {
-    font-size: 1.5rem;
-    font-weight: bold;
-    text-decoration: none;
-    color: #000;
-    white-space: nowrap;
-}
-
-.back-link:hover {
-    color: blue;
-}
-
-    .menu-icon {
-        display: none;
-    }
-
-    .menu {
-        display: flex;
-        gap: 22px;
-        justify-content: flex-end;
-        align-items: center;
-        padding: 0;
-        margin: 0;
-    }
-
-  .menu a {
-    display: inline-block;
-    padding: 0;
-    text-decoration: none;
-    color: #000;
-    font-size: 1.25rem;
-    white-space: nowrap;
-}
-
-.menu a:hover {
-    text-decoration: underline;
-    color: blue;
-}
-
-  .content {
-    max-width: 1400px;
-    margin: 0 auto;
-    padding: 40px 50px;
-    box-sizing: border-box;
-}
-
-.news-item {
-    margin-bottom: 90px;
-}
-
-.news-header {
-    margin-bottom: 30px;
-}
-
-.news-title {
-    font-size: 2rem;
-    line-height: 1.2;
-    margin: 0 0 12px 0;
-    font-weight: 700;
-}
-
-.news-subtitle {
-    font-size: 1.25rem;
-    line-height: 1.4;
-    margin: 0 0 25px 0;
-    font-weight: 400;
-}
-
-.news-meta {
-    font-size: 1rem;
-    line-height: 1.5;
-    margin-bottom: 30px;
-}
-
-.news-meta p {
-    margin: 4px 0;
-}
-
-.section-title {
-    font-size: 1.4rem;
-    font-weight: 700;
-    margin: 35px 0 15px 0;
-}
-
-.text-section {
-    margin: 20px 0 50px 0;
-    font-size: 1rem;
-    line-height: 1.6;
-    column-count: 2;
-    column-gap: 40px;
-}
-
-.text-section p {
-    margin-top: 0;
-    margin-bottom: 18px;
-}
-
-.image-container {
-    display: flex;
-    gap: 20px;
-    justify-content: flex-start;
-    margin: 30px 0 40px 0;
-    flex-wrap: wrap;
-}
-
-@media (max-width: 768px) {
-    .content {
-        padding: 30px 22px;
-    }
-
-    .news-title {
-        font-size: 1.5rem;
-    }
-
-    .news-subtitle {
-        font-size: 1.05rem;
-    }
-
-    .text-section {
-        column-count: 1;
-    }
-}
-
-    .image-container {
-        display: flex;
-        gap: 20px;
-        justify-content: flex-start;
-        margin: 20px 0;
-        flex-wrap: wrap;
-    }
-
-    .image-container img {
-        width: 100%;
-        max-width: 300px;
-        height: auto;
-        border: 1px solid #ddd;
-        border-radius: 5px;
-    }
-
-    .image-container a {
-        text-align: center;
-        text-decoration: none;
-        color: #000;
-    }
-
-    .image-container span {
-        display: block;
-        margin-top: 10px;
-        font-size: 1rem;
-    }
-
-    .text-section {
-        margin: 20px 0;
-        font-size: 1rem;
-        line-height: 1.6;
-        column-count: 2;
-        column-gap: 20px;
-    }
-
-    @media (max-width: 768px) {
-        body {
-            padding-top: 115px;
-        }
-
-        .header {
-            align-items: flex-start;
-            gap: 15px;
-        }
-
-        .back-link {
-            font-size: 1.3rem;
-        }
-
-        .menu {
-            flex-wrap: wrap;
-            gap: 10px 14px;
-            justify-content: flex-end;
-        }
-
-        .menu a {
-            font-size: 0.85rem;
-        }
-
-        .text-section {
-            column-count: 1;
-        }
-    }
-</style>
-	 <script src="analytics.js"></script>
+<script src="analytics.js"></script>
 </head>
+
 <body>
-  <div class="header">
-    <a href="pagina.html" class="back-link">News</a>
-
-    <nav class="menu">
-        <a href="pagina.html">artists</a>
-        <a href="3500cm2.html">3500cm²</a>
-        <a href="locations.html">venues</a>
-        <a href="contact.html">contact</a>
-        <a href="../it/news.html">IT</a>
-    </nav>
-</div>
-
-
-</div>
-<div class="content">
-	<div class="content-item">
-  <div class="description">
-    <p>Adelaide Cioni, Oliver Laric, Jonathan Monk, Laura Paoletti, Nedko Solakov</p>
-
-    <p>Posters #112 and #116</p>
-
-    <p>Expositio Mundi<br>
-    - The exhibition as medium</p>
-
-    <p>the Civic Museums of Palazzo Buonaccorsi, the Sferisterio, the Mozzi Borgetti Library, the University of Macerata, the Academy of Fine Arts</p>
-
-    <p>10 July 2026 - 10 January 2027</p>
-
-    <p>Macerata</p>
-  </div>
-</div>
-
-<div class="image-container">
-    <a href="adelaide-cioni.html">
-        <img src="../img/adelaide-cioni.jpg" alt="Adelaide Cioni">
-        <span>Adelaide Cioni</span>
-    </a>
-
-    <a href="oliver-laric.html">
-        <img src="../img/oliver-laric_.jpg" alt="Oliver Laric">
-        <span>Oliver Laric</span>
-    </a>
-
-    <a href="jonathan-monk.html">
-        <img src="../img/jonathan-monk.jpg" alt="Jonathan Monk">
-        <span>Jonathan Monk</span>
-    </a>
-
-    <a href="laura-paoletti.html">
-        <img src="../img/laura-paoletti.jpg" alt="Laura Paoletti">
-        <span>Laura Paoletti</span>
-    </a>
-
-    <a href="nedko-solakov.html">
-        <img src="../img/nedko-solakov.jpg" alt="Nedko Solakov">
-        <span>Nedko Solakov</span>
-    </a>
-</div>
-
-<div class="text-section two-columns">
-
-<p>
-These posters accompany and expand the exhibition itinerary, becoming an integral part of the exhibition’s dispositif. They are not simply derivative images or communication materials, but works conceived to circulate, to be distributed free of charge, and to reach the public in a more open, mobile and democratic dimension.
-</p>
-
-<p>
-Within <em>Expositio Mundi</em>, the exhibition is understood as a cultural instrument capable of activating relationships between works, spaces, institutions and citizens. In this sense, the poster project contributes to extending the exhibition beyond the exhibition rooms, spreading throughout the city and through the key places involved in the project: the Civic Museums of Palazzo Buonaccorsi, the Sferisterio, the Mozzi Borgetti Library, the University of Macerata, the Academy of Fine Arts and the other partner venues.
-</p>
-
-<p>
-The presence of <em>3500 cm²</em> also enters into dialogue with the work of Felix Gonzalez-Torres, whose practice often questioned the traditional idea of the artwork as a stable and unique object, opening instead to the possibility of distribution, multiplication and public participation. From this perspective, the poster becomes a medium through which the work can move beyond the perimeter of the exhibition and turn into a shared form of experience.
-</p>
-
-<p>
-This new series of posters therefore confirms one of the central points of <em>Expositio Mundi</em>: the exhibition as medium, as public space and as a system for the dissemination of cultural values. Through accessible images, distributed free of charge and present in different points of the city, <em>3500 cm²</em> contributes to the construction of a distributed exhibition, in which contemporary art is not only displayed, but put into circulation.
-</p>
-
-</div>
-
-<div class="read-more">Read more</div>
-
-
-<section class="news-item">
-
-    <div class="news-header">
-        <h1 class="news-title">Posters for Peace - 3500 cm²</h1>
-        <h2 class="news-subtitle">Art as an innovative tool for understanding migration</h2>
-
-        <div class="news-meta">
-            <p>Città della pace</p>
-            <p>Tuesday, 26 May 2026</p>
-            <p>Polo bibliotecario di Potenza</p>
-            <p>Potenza</p>
-        </div>
-    </div>
-
-
-
-<div class="image-container">
-    <a href="claire-fontaine.html">
-        <img src="../img/claire-fontaine.jpg" alt="Claire Fontaine">
-        <span>Claire Fontaine</span>
-    </a>
-
-    <a href="giovanni-giaretta.html">
-        <img src="../img/giovanni-giaretta.jpeg" alt="Giovanni Giaretta">
-        <span>Giovanni Giaretta</span>
-    </a>
-</div>
-
-<div class="text-section two-columns">
-
-<p>
-At both European and Italian level, migration policies are focused on a security-based approach which, by treating migration as a matter of public order rather than as a phenomenon connected to economic and social dynamics, is aimed at countering it even before seeking to understand it. As a result, the significant demographic and economic opportunities offered by migration are pushed into the background, or even denied altogether.
+<header class="header"><h1 class="page-title"><a href="news.html">News</a></h1><nav class="menu" aria-label="Main navigation">
+<a href="news.html" aria-current="page">news</a>
+<a href="3500cm2.html">3500 cm²</a>
+<a href="pagina.html">artists</a>
+<a href="locations.html">venues</a>
+<a href="../it/mostre.html" hreflang="it" title="Page in Italian">exhibitions</a>
+<a href="../it/partner.html" hreflang="it" title="Page in Italian">partners</a>
+<a href="contact.html">contact</a>
+<a href="../it/news.html" hreflang="it" lang="it">IT</a>
+</nav></header><main>
+<article class="news-item"><header class="news-heading">
+<p class="news-date">10 July 2026 – 10 January 2027</p><h2>Expositio Mundi</h2>
+<p class="news-subtitle">The exhibition as medium</p>
+<p class="news-artists">Adelaide Cioni, Oliver Laric, Jonathan Monk, Laura Paoletti, Nedko Solakov</p>
+<p class="news-posters">Posters #112 and #116</p>
+<p class="news-place">The Civic Museums of Palazzo Buonaccorsi, the Sferisterio, the Mozzi Borgetti Library, the University of Macerata, the Academy of Fine Arts</p>
+<p class="news-city">Macerata</p>
+</header><div class="image-container">
+<a href="adelaide-cioni.html"><img src="../img/adelaide-cioni.jpg" alt="Adelaide Cioni" loading="lazy" decoding="async"><span>Adelaide Cioni</span></a>
+<a href="oliver-laric.html"><img src="../img/oliver-laric_.jpg" alt="Oliver Laric" loading="lazy" decoding="async"><span>Oliver Laric</span></a>
+<a href="jonathan-monk.html"><img src="../img/jonathan-monk.jpg" alt="Jonathan Monk" loading="lazy" decoding="async"><span>Jonathan Monk</span></a>
+<a href="laura-paoletti.html"><img src="../img/laura-paoletti.jpg" alt="Laura Paoletti" loading="lazy" decoding="async"><span>Laura Paoletti</span></a>
+<a href="nedko-solakov.html"><img src="../img/nedko-solakov.jpg" alt="Nedko Solakov" loading="lazy" decoding="async"><span>Nedko Solakov</span></a>
+</div><details><summary><span class="read-more">Read more</span><span class="read-less">Read less</span></summary><div class="news-text"><p>These posters accompany and expand the exhibition itinerary, becoming an integral part of the exhibition’s dispositif. They are not simply derivative images or communication materials, but works conceived to circulate, to be distributed free of charge, and to reach the public in a more open, mobile and democratic dimension.</p>
+<p>Within <em>Expositio Mundi</em>, the exhibition is understood as a cultural instrument capable of activating relationships between works, spaces, institutions and citizens. In this sense, the poster project contributes to extending the exhibition beyond the exhibition rooms, spreading throughout the city and through the key places involved in the project: the Civic Museums of Palazzo Buonaccorsi, the Sferisterio, the Mozzi Borgetti Library, the University of Macerata, the Academy of Fine Arts and the other partner venues.</p>
+<p>The presence of <em>3500 cm²</em> also enters into dialogue with the work of Felix Gonzalez-Torres, whose practice often questioned the traditional idea of the artwork as a stable and unique object, opening instead to the possibility of distribution, multiplication and public participation. From this perspective, the poster becomes a medium through which the work can move beyond the perimeter of the exhibition and turn into a shared form of experience.</p>
+<p>This new series of posters therefore confirms one of the central points of <em>Expositio Mundi</em>: the exhibition as medium, as public space and as a system for the dissemination of cultural values. Through accessible images, distributed free of charge and present in different points of the city, <em>3500 cm²</em> contributes to the construction of a distributed exhibition, in which contemporary art is not only displayed, but put into circulation.</p></div></details></article>
+<article class="news-item"><header class="news-heading">
+<p class="news-date">26 May 2026</p><h2>Posters for Peace – 3500 cm²</h2>
+<p class="news-subtitle">Art as an innovative tool for understanding migration</p>
+<p class="news-artists">Claire Fontaine, Giovanni Giaretta</p>
+<p class="news-posters">Posters #110 and #111</p>
+<p class="news-place">Città della Pace · Polo bibliotecario di Potenza</p>
+<p class="news-city">Potenza</p>
+</header><div class="image-container">
+<a href="claire-fontaine.html"><img src="../img/claire-fontaine.jpg" alt="Claire Fontaine" loading="lazy" decoding="async"><span>Claire Fontaine</span></a>
+<a href="giovanni-giaretta.html"><img src="../img/giovanni-giaretta.jpeg" alt="Giovanni Giaretta" loading="lazy" decoding="async"><span>Giovanni Giaretta</span></a>
+</div><details><summary><span class="read-more">Read more</span><span class="read-less">Read less</span></summary><div class="news-text"><p>At both European and Italian level, migration policies are focused on a security-based approach which, by treating migration as a matter of public order rather than as a phenomenon connected to economic and social dynamics, is aimed at countering it even before seeking to understand it. As a result, the significant demographic and economic opportunities offered by migration are pushed into the background, or even denied altogether.
 The need to find new and more effective tools to narrate and explain migration can therefore no longer be considered merely a cultural or humanitarian issue. Rather, it appears as a crucial question for a prosperous and peaceful future for the European continent.
 Recognising this need, over the past ten years Fondazione Città della Pace has sought to disseminate, both in schools and through public initiatives, data collected and processed in official studies and reports by ISTAT, Eurostat, the UN agencies UNHCR and IOM, as well as by the IMF, the OECD, Italian and international universities, and independent and authoritative non-governmental organisations.
 However, from the very beginning of the campaign it became clear that simply presenting and highlighting factual data was not enough, and that a more effective interpretative key was needed in order to bring young people closer to an understanding of the migration phenomenon.
 How can we move beyond the dominant narrative, based instead on a supposed “emergency” caused by an unlikely “invasion”, repeated almost obsessively across communication channels and political debate?
 Contemporary art has proved to be an effective tool for achieving this objective.
-Public art in particular makes it possible to develop a new way of narrating the deeper causes of migration: climate change, growing inequalities, and human rights. Over the years, we have carried out a number of experiments involving artists, refugees hosted within SAI programmes, and members of the host communities in artistic initiatives. These have created small social incubators capable of bringing participants into dialogue with the context of reception, while providing tools for building constructive exchange within contemporary society, in order to understand and make explicit the causes of migration.
-</p>
-
-<h3 class="section-title">The project</h3>
-
-<p>
-As part of the integration activities of the SAI project of the Province of Potenza, the project 3500 cm², conceived and developed by curator and art critic Lorenzo Benedetti, is proposed. This project was created to move art outside its conventional contexts and make it available in a direct, accessible and shared form.
+Public art in particular makes it possible to develop a new way of narrating the deeper causes of migration: climate change, growing inequalities, and human rights. Over the years, we have carried out a number of experiments involving artists, refugees hosted within SAI programmes, and members of the host communities in artistic initiatives. These have created small social incubators capable of bringing participants into dialogue with the context of reception, while providing tools for building constructive exchange within contemporary society, in order to understand and make explicit the causes of migration.</p>
+<h3>The project</h3>
+<p>As part of the integration activities of the SAI project of the Province of Potenza, the project 3500 cm², conceived and developed by curator and art critic Lorenzo Benedetti, is proposed. This project was created to move art outside its conventional contexts and make it available in a direct, accessible and shared form.
 The project involves the production of two new posters by contemporary artists, specifically Giovanni Giaretta and the duo Claire Fontaine, conceived as tools for cultural dissemination and public access to contemporary art, as well as to the themes of peace and sustainability. Rather than a traditional exhibition, the initiative takes the form of a public presentation of two new editions that the public will be able to collect free of charge, taking an artwork with them and allowing it to enter the spaces of everyday life.
 In this case, the free distribution of posters produced by artists on the theme of peace takes on a particular meaning, as it is part of the awareness-raising activities of the SAI reception project of the Province of Potenza and of the initiatives promoted by Città della Pace, an organisation working on issues of reception, rights, inclusion and collective responsibility. The Foundation links the idea of peace to concrete practices of respect for human rights, the overcoming of inequalities, and the construction of more open and supportive communities.
 The presence of Giovanni Giaretta and Claire Fontaine allows this intervention to be articulated through two very different yet equally incisive artistic practices. Giaretta, an artist and filmmaker born in Padua in 1983 and based in Amsterdam, develops a practice centred above all on moving images, weaving together images, texts and sounds in works that introduce suspended, estranging and visionary elements into reality. Claire Fontaine, a feminist conceptual artist founded in Paris in 2004, develops a practice that addresses themes of language, power, alienation and the possibility of emancipation, redefining the artwork as a critical and political space.
-Taken together, the two new posters do not illustrate peace in a rhetorical or celebratory way, but rather question its complexity, entrusting the image with the possibility of opening up a space for reflection and awareness.
-</p>
-
-<h3 class="section-title">Public presentation of the project</h3>
-
-<p>
-Public presentation of the project<br>
-In Potenza, the 3500 cm² project thus takes the form of a simple and radical gesture: placing two artists’ works into circulation free of charge, so that art can leave the library, reach new contexts and continue to act within social space as a shared experience, a visual memory and an opportunity for thought.
+Taken together, the two new posters do not illustrate peace in a rhetorical or celebratory way, but rather question its complexity, entrusting the image with the possibility of opening up a space for reflection and awareness.</p>
+<h3>Public presentation of the project</h3>
+<p>In Potenza, the 3500 cm² project thus takes the form of a simple and radical gesture: placing two artists’ works into circulation free of charge, so that art can leave the library, reach new contexts and continue to act within social space as a shared experience, a visual memory and an opportunity for thought.
 The choice of the Biblioteca Nazionale di Potenza as the venue for the presentation of the project, scheduled for 26 May 2026, further reinforces this dimension. As a place dedicated to knowledge, education and public consultation, the library becomes here a space in which art is not merely presented, but put into circulation. The poster, an essential and democratic format, is thus confirmed as a device capable of expanding the audience for art and transforming a simple gesture — taking an image, carrying it away, displaying it, preserving it — into a form of cultural participation.
 The posters produced specifically for this occasion, within the framework of the SAI project of the Province of Potenza managed by Arci Basilicata, will be presented during a public meeting by Lorenzo Benedetti, an art critic and curator with extensive international experience.
 Lorenzo Benedetti will then be in conversation with Professor Anna Lisa Tota, Deputy Rector of Roma Tre University, who coordinated a highly interesting project entitled Tamigrart, which concluded in February 2026 with the conference “Cartographies of Hope: Art, Memories and Resilience in Migratory Processes”, and in which Fondazione Città della Pace also collaborated.
-Professor Tota will present the results of the Tamigrart project, which explored the relationships between art, traumatic events and resilience, with particular attention to two different types of diasporic memories: a) individual, collective and public memories of forced migration across the Mediterranean; and b) individual, collective and public memories of migrants fleeing the war in Ukraine. The main idea of the Tamigrart project was to study the relationships between artistic representations and political articulation, with the aim of adding new dimensions, particularly with regard to the question of achieving historical truth and reconciliation.
-</p>
-
-<h3 class="section-title">The artists and speakers</h3>
-
-<h3 class="section-title">Claire Fontaine</h3>
-
-<p>
-Claire Fontaine is a feminist conceptual artist founded in Paris in 2004. From the outset, the project defined itself as a collective and impersonal practice, adopting the name of a well-known brand of school notebooks in order to critically question the relationships between subjectivity, production, language and power. Claire Fontaine’s work addresses themes such as alienation, political crisis, the condition of the contemporary individual, forms of systemic violence and the possibility of emancipation, through the use of texts, neon works, sculptures, installations, videos and appropriations. Her research is based on the idea that the artwork can function as a critical device capable of calling into question the symbolic and social codes that regulate everyday life. Over the years, Claire Fontaine has established itself as one of the most recognisable presences in international contemporary art, developing a practice that brings together theoretical radicality, formal clarity and political tension.
-</p>
-
-<h3 class="section-title">Giovanni Giaretta</h3>
-	<p>
-Born in Padua in 1983, Giovanni Giaretta lives and works in Amsterdam. His practice develops primarily through film, video, installation and writing, and emerges from a research process that connects images, texts and sounds. His works often move along the boundary between the observation of reality and imaginative displacement, introducing visionary, estranging or suspended elements that transform apparently ordinary situations into perceptual experiences charged with ambiguity and attention.
-After studying Design and Production of Visual Arts at IUAV University in Venice, he took part in residency and training programmes in Venice, Paris, Amsterdam and New Orleans. Since 2019, he has also been teaching in the Moving Image and Fine Art departments at the AKI Academy of Art & Design in Enschede. His works and films have been presented in international institutions, festivals and exhibition spaces, confirming a practice in which the language of moving images becomes a tool for listening, narration and the displacement of the visible.
-</p>
-
-<p>
-<h3 class="section-title">Lorenzo Benedetti</h3>
-Lorenzo Benedetti (1972, Rome) is a curator and art historian, currently curator at Kunstmuseum St. Gallen. He studied Art History at Sapienza University of Rome from 1991 to 1995 and took part in the Curatorial Training Programme at De Appel, Amsterdam, in 1999. He is currently a visiting professor at the Rijksakademie in Amsterdam. He writes a column for Cura.magazine entitled “Ritratti nello spazio espositivo”. From 2008 to 2014 he directed De Vleeshal Art Centre in Middelburg, the Netherlands. In 2013 he curated the Dutch Pavilion at the Venice Biennale. In 2005 he founded the Sound Art Museum in Rome. He was director of Volume! in Rome and curator at Marta Herford Museum in Herford, Germany. He has been guest curator at the Kunsthalle Mulhouse, France, and taught at the Jan van Eyck Academy in Maastricht.
-</p>
-
-<p>
-<h3 class="section-title">Anna Lisa Tota</h3>
-Anna Lisa Tota is Full Professor of Sociology of Cultural and Communication Processes at the Department of Philosophy, Communication and Performing Arts of Roma Tre University. Since 2022 she has served as Deputy Rector of the University, with responsibility for coordinating Third Mission activities.
+Professor Tota will present the results of the Tamigrart project, which explored the relationships between art, traumatic events and resilience, with particular attention to two different types of diasporic memories: a) individual, collective and public memories of forced migration across the Mediterranean; and b) individual, collective and public memories of migrants fleeing the war in Ukraine. The main idea of the Tamigrart project was to study the relationships between artistic representations and political articulation, with the aim of adding new dimensions, particularly with regard to the question of achieving historical truth and reconciliation.</p>
+<h3>The artists and speakers</h3>
+<h3>Claire Fontaine</h3>
+<p>Claire Fontaine is a feminist conceptual artist founded in Paris in 2004. From the outset, the project defined itself as a collective and impersonal practice, adopting the name of a well-known brand of school notebooks in order to critically question the relationships between subjectivity, production, language and power. Claire Fontaine’s work addresses themes such as alienation, political crisis, the condition of the contemporary individual, forms of systemic violence and the possibility of emancipation, through the use of texts, neon works, sculptures, installations, videos and appropriations. Her research is based on the idea that the artwork can function as a critical device capable of calling into question the symbolic and social codes that regulate everyday life. Over the years, Claire Fontaine has established itself as one of the most recognisable presences in international contemporary art, developing a practice that brings together theoretical radicality, formal clarity and political tension.</p>
+<h3>Giovanni Giaretta</h3>
+<p>Born in Padua in 1983, Giovanni Giaretta lives and works in Amsterdam. His practice develops primarily through film, video, installation and writing, and emerges from a research process that connects images, texts and sounds. His works often move along the boundary between the observation of reality and imaginative displacement, introducing visionary, estranging or suspended elements that transform apparently ordinary situations into perceptual experiences charged with ambiguity and attention.
+After studying Design and Production of Visual Arts at IUAV University in Venice, he took part in residency and training programmes in Venice, Paris, Amsterdam and New Orleans. Since 2019, he has also been teaching in the Moving Image and Fine Art departments at the AKI Academy of Art &amp; Design in Enschede. His works and films have been presented in international institutions, festivals and exhibition spaces, confirming a practice in which the language of moving images becomes a tool for listening, narration and the displacement of the visible.</p>
+<h3>Lorenzo Benedetti</h3>
+<p>Lorenzo Benedetti (1972, Rome) is a curator and art historian, currently curator at Kunstmuseum St. Gallen. He studied Art History at Sapienza University of Rome from 1991 to 1995 and took part in the Curatorial Training Programme at De Appel, Amsterdam, in 1999. He is currently a visiting professor at the Rijksakademie in Amsterdam. He writes a column for Cura.magazine entitled “Ritratti nello spazio espositivo”. From 2008 to 2014 he directed De Vleeshal Art Centre in Middelburg, the Netherlands. In 2013 he curated the Dutch Pavilion at the Venice Biennale. In 2005 he founded the Sound Art Museum in Rome. He was director of Volume! in Rome and curator at Marta Herford Museum in Herford, Germany. He has been guest curator at the Kunsthalle Mulhouse, France, and taught at the Jan van Eyck Academy in Maastricht.</p>
+<h3>Anna Lisa Tota</h3>
+<p>Anna Lisa Tota is Full Professor of Sociology of Cultural and Communication Processes at the Department of Philosophy, Communication and Performing Arts of Roma Tre University. Since 2022 she has served as Deputy Rector of the University, with responsibility for coordinating Third Mission activities.
 Her teaching includes Sociology of Communication, Sociology of Music, Artistic Communication and Visual Communication. She has been Gastprofessor at the University of St. Gallen, School of Economics, Law and Social Sciences, St. Gallen, Switzerland.
 Since 30 May 2025, she has also held responsibility for Gender Policies. She is also President of the Board of Directors of the “Oscar, Bice e Giulio Cesare Castello” Foundation of Roma Tre University.
-She is a member of the Academic Senate of Roma Tre University and serves on the Budget and Regulations Committee.
-</p>
-</section>
-
-</section>
-
-<section class="news-item">
-
-    <div class="news-header">
-        <h1 class="news-title">RÄ DI MARTINO — Kant Can’t</h1>
-        <h2 class="news-subtitle">A-Head Project</h2>
-
-        <div class="news-meta">
-            <p>Art Meets Care: A-Head Project and 3500cm² inaugurate the first permanent collection in Mental Health Centers</p>
-            <p>Saturday, October 18, 2025 – 11:00 a.m.</p>
-            <p>Mental Health Center of Vetralla, DSM Viterbo, District C</p>
-            <p>Vetralla, VT</p>
-        </div>
-    </div>
-    <strong>#109</strong><br><br>
-<p>A-Head Project</p>
-
-<p>Art Meets Care: A-Head Project and 3500cm² inaugurate the first permanent collection in Mental Health Centers</p>
-
+She is a member of the Academic Senate of Roma Tre University and serves on the Budget and Regulations Committee.</p>
+<p>RÄ DI MARTINO — Kant Can’t
+        A-Head Project</p>
+<p>Art Meets Care: A-Head Project and 3500 cm² inaugurate the first permanent collection in Mental Health Centers</p>
 <p>Saturday, October 18, 2025 – 11:00 a.m.</p>
-
-<p>Mental Health Center of Vetralla (DSM Viterbo, District C)</p>
-
-<p>Vetralla (VT), October 18, 2025</p></strong></div>
-    <div class="text-section">
-        <strong>A project of accessibility and inclusion</strong><br>
-        <strong>On Saturday, October 18 at 11:00 a.m., the first intervention of the 3500cm² project will be inaugurated at the
+<p>Mental Health Center of Vetralla, DSM Viterbo, District C</p>
+<p>Vetralla, VT</p></div></details></article>
+<article class="news-item"><header class="news-heading">
+<p class="news-date">Saturday, 18 October 2025 – 11:00 a.m.</p><h2><em>Kant Can’t</em></h2>
+<p class="news-subtitle">Art Meets Care: A-Head Project and 3500 cm² inaugurate the first permanent collection in Mental Health Centers</p>
+<p class="news-artists">Rä di Martino</p>
+<p class="news-posters">Poster #109</p>
+<p class="news-place">A-Head Project · Mental Health Center of Vetralla (DSM Viterbo, District C)</p>
+<p class="news-city">Vetralla (VT)</p>
+</header><div class="image-container">
+<a href="ra-di-martino-2.html"><img src="ra-di-martino-2.png" alt="Rä di Martino" loading="lazy" decoding="async"><span>Rä di Martino</span></a>
+</div><details><summary><span class="read-more">Read more</span><span class="read-less">Read less</span></summary><div class="news-text"><p><strong>A project of accessibility and inclusion</strong></p>
+<p><strong>On Saturday, October 18 at 11:00 a.m., the first intervention of the 3500 cm² project will be inaugurated at the
 			Centro di Salute Mentale of Vetralla (DSM Viterbo, District C). The project is curated by Lorenzo Benedetti in collaboration with A-Head Project by Angelo Azzurro Onlus,
-			with the support of President Dr. Stefania Calapai and Dr. Francesco Cro, head of the center.Rome 2025</strong><br><br>
-    
+			with the support of President Dr. Stefania Calapai and Dr. Francesco Cro, head of the center. Rome 2025</strong></p>
+<p>Bringing contemporary art outside museum walls and making it accessible to everyone, even within mental health care settings, to promote accessibility and inclusion: this is the new initiative by A-Head Project of Angelo Azzurro Onlus, in collaboration with the project 3500 cm², curated by Lorenzo Benedetti with Dr. Francesco Cro and President Dr. Stefania Calapai.
 
-
-
-		</div>
-	<div class="image-container">
-    <a href="ra-di-martino-2.html">
-        <img src="ra-di-martino-2.png" alt="Rä di Martino">
-        <span>Rä di Martino</span>
-    </a>
-</div>
-
-Bringing contemporary art outside museum walls and making it accessible to everyone, even within mental health care settings, to promote accessibility and inclusion: this is the new initiative by A-Head Project of Angelo Azzurro Onlus, in collaboration with the project 3500 cm², curated by Lorenzo Benedetti with Dr. Francesco Cro and President Dr. Stefania Calapai.
-
-3500 cm² represents the square centimeters offered to each artist to create a 50×70 cm poster, with the mission of spreading the language of contemporary art to a wider and more diverse audience, creating a widespread museum to break down the stigma surrounding mental illness.
-
-<p>This initiative stems from the desire to rethink the experience of contemporary art beyond traditional exhibition spaces, fostering new connections between artworks and those who encounter them. It marks a new challenge in the synergistic collaboration between art and psychiatry: over the years, A-Head Project by Angelo Azzurro Onlus has combined contemporary art with psychiatry in the fight against the stigma of mental illness.
-</p>
-<p>The 3500 cm² project aims to expand the reach of contemporary art by taking it beyond conventional venues such as museums. This innovative initiative transforms hospitals and mental health centers into more welcoming and stimulating environments through the presence of contemporary artworks.
-</p>
-<p>Curated by Lorenzo Benedetti in collaboration with A-Head Project, President Dr. Stefania Calapai, and Dr. Francesco Cro, the project will launch in May, supported by A-Head of Angelo Azzurro Onlus, and will involve various facilities across the Lazio region, with a specific focus on psychiatric settings.
-</p>
-
-	    <p>The project includes two complementary approaches:
+3500 cm² represents the square centimeters offered to each artist to create a 50×70 cm poster, with the mission of spreading the language of contemporary art to a wider and more diverse audience, creating a widespread museum to break down the stigma surrounding mental illness.</p>
+<p>This initiative stems from the desire to rethink the experience of contemporary art beyond traditional exhibition spaces, fostering new connections between artworks and those who encounter them. It marks a new challenge in the synergistic collaboration between art and psychiatry: over the years, A-Head Project by Angelo Azzurro Onlus has combined contemporary art with psychiatry in the fight against the stigma of mental illness.</p>
+<p>The 3500 cm² project aims to expand the reach of contemporary art by taking it beyond conventional venues such as museums. This innovative initiative transforms hospitals and mental health centers into more welcoming and stimulating environments through the presence of contemporary artworks.</p>
+<p>Curated by Lorenzo Benedetti in collaboration with A-Head Project, President Dr. Stefania Calapai, and Dr. Francesco Cro, the project will launch in May, supported by A-Head of Angelo Azzurro Onlus, and will involve various facilities across the Lazio region, with a specific focus on psychiatric settings.</p>
+<p>The project includes two complementary approaches:
 	•	A permanent core of artworks: 30 posters will be permanently installed within psychiatric facilities, enhancing the quality of the spaces and offering patients and healthcare staff daily contact with art.
-	•	Free distribution of posters at each location, allowing patients, families, visitors, and healthcare workers to take home an artwork and engage with new visual languages.
-</p>
-<p>The artworks will be installed in various mental health centers across Lazio, including residential and semi-residential facilities, both public and affiliated.
-</p>
+	•	Free distribution of posters at each location, allowing patients, families, visitors, and healthcare workers to take home an artwork and engage with new visual languages.</p>
+<p>The artworks will be installed in various mental health centers across Lazio, including residential and semi-residential facilities, both public and affiliated.</p>
 <p>Through 3500 cm², art becomes more than decoration—it serves as a tool for connection, cultural stimulation, and environmental improvement. The initiative seeks to:
 	•	Actively engage patients, healthcare staff, and visitors in an inclusive artistic experience;
 	•	Provide new visual and cultural stimuli, contributing to psychological well-being;
-	•	Highlight the social role of contemporary art, demonstrating its ability to generate positive impacts even in non-conventional contexts.
-</p>
-<p>3500 cm² represents an innovative model of artistic accessibility—a project that brings art closer to the public and transforms care environments into spaces of encounter and inspiration.
-</p>
-    </div>
-	
-	    
-    <div class="description"><strong>ROME 2025</strong></div>
-    <div class="text-section">
-        <strong>3500 cm²</strong><br>
-        <strong>Paolo Icaro</strong><br><br>
-        <strong>Trattoria ideale</strong><br><br>
-        <strong>Fondazione VOLUME!</strong><br><br>
-	    
-
-ROME 2025
-3500 cm²
-Paolo Icaro ￼
-
-Trattoria Ideale
-
-Fondazione VOLUME!
-
-<p>Fondazione VOLUME! Via di San Francesco di Sales 86/88, Rome</p>
-
-On March 9, 2025, from 12:00 PM to 8:00 PM, Fondazione VOLUME! presents Trattoria Ideale, a work by Paolo Icaro (Turin, 1936), curated by Lorenzo Benedetti. In this project, Icaro transforms the spaces of VOLUME! into a place of sharing and interaction. Trattoria Ideale recreates within the venue a convivial atmosphere inspired by the welcoming nature of traditional Trastevere taverns. VOLUME! is reimagined as a space for exchange, where words, images, and sounds intertwine to stimulate the senses and foster dialogue. Icaro extends the concept of nourishment beyond food, proposing art as an essential sustenance for individual and collective growth. Visitors are invited to “feast with their eyes,” turning reading and observation into an experience of intellectual and sensory nourishment. Trattoria Ideale becomes a hub of exchange, merging aesthetic and relational dimensions in a continuous dialogue between body, space, and thought. Surpassing the boundaries of traditional exhibitions, it evolves into a participatory and multisensory experience, inviting visitors to immerse themselves in art, words, and ideas, making artistic engagement a vital experience. Through this intervention, Paolo Icaro eliminates the distance between artwork and visitor, encouraging tactile interaction, modification, and internalization of the artistic experience. In this convivial setting, one consumes by observing, reads by devouring with the eyes, and satiates the mind. The experience culminates in a transcendent moment: upon passing through a transparent threshold, visitors find themselves immersed in an expanse of light where voices whisper words intertwined with evocative sounds composed by Alessandro Petrolati. This sensory and intellectual journey transcends traditional art exhibition boundaries. ￼
-
+	•	Highlight the social role of contemporary art, demonstrating its ability to generate positive impacts even in non-conventional contexts.</p>
+<p>3500 cm² represents an innovative model of artistic accessibility—a project that brings art closer to the public and transforms care environments into spaces of encounter and inspiration.</p></div></details></article>
+<article class="news-item"><header class="news-heading">
+<p class="news-date">2025</p><h2><em>Trattoria ideale</em></h2>
+<p class="news-artists">Paolo Icaro</p>
+<p class="news-posters">Poster #106</p>
+<p class="news-place">Fondazione VOLUME!</p>
+<p class="news-city">Rome</p>
+</header><div class="image-container">
+<a href="paolo-icaro.html"><img src="Paolo-Icaro.jpg" alt="Paolo Icaro" loading="lazy" decoding="async"><span>Paolo Icaro</span></a>
+</div><details><summary><span class="read-more">Read more</span><span class="read-less">Read less</span></summary><div class="news-text"><p>Fondazione VOLUME! Via di San Francesco di Sales 86/88, Rome</p>
+<p>On March 9, 2025, from 12:00 PM to 8:00 PM, Fondazione VOLUME! presents Trattoria Ideale, a work by Paolo Icaro (Turin, 1936), curated by Lorenzo Benedetti. In this project, Icaro transforms the spaces of VOLUME! into a place of sharing and interaction. Trattoria Ideale recreates within the venue a convivial atmosphere inspired by the welcoming nature of traditional Trastevere taverns. VOLUME! is reimagined as a space for exchange, where words, images, and sounds intertwine to stimulate the senses and foster dialogue. Icaro extends the concept of nourishment beyond food, proposing art as an essential sustenance for individual and collective growth. Visitors are invited to “feast with their eyes,” turning reading and observation into an experience of intellectual and sensory nourishment. Trattoria Ideale becomes a hub of exchange, merging aesthetic and relational dimensions in a continuous dialogue between body, space, and thought. Surpassing the boundaries of traditional exhibitions, it evolves into a participatory and multisensory experience, inviting visitors to immerse themselves in art, words, and ideas, making artistic engagement a vital experience. Through this intervention, Paolo Icaro eliminates the distance between artwork and visitor, encouraging tactile interaction, modification, and internalization of the artistic experience. In this convivial setting, one consumes by observing, reads by devouring with the eyes, and satiates the mind. The experience culminates in a transcendent moment: upon passing through a transparent threshold, visitors find themselves immersed in an expanse of light where voices whisper words intertwined with evocative sounds composed by Alessandro Petrolati. This sensory and intellectual journey transcends traditional art exhibition boundaries.</p>
 <p>For this occasion, Paolo Icaro has created a new project, 3500 cm² #106 “Trattoria Ideale”: www.3500cm2.org.</p>
-
-Biography: Paolo Icaro (born in Turin, 1936) is a prominent figure in the artistic explorations of the 1960s. He began his career studying sculpture in Umberto Mastroianni’s studio. After his first solo exhibition in Rome in 1962, he became associated with the Arte Povera movement, experimenting from the outset with the evolution of sculptural action in relation to form and space, utilizing elemental and malleable materials such as cement, clay, paper, wood, and plaster. Between 1968 and 1969, he participated in major international avant-garde exhibitions that marked the rise of movements like Arte Povera, Conceptual Art, and Process Art. He conducted performances at Teatro delle mostre, Galleria La Tartaruga, Rome (1968); took part in Arte Povera più azioni povere, Amalfi (1968); and was invited to Op Losse Schroeven. Situaties en cryptostructuren at the Stedelijk Museum, Amsterdam (1969), and When Attitudes Become Form, curated by Harald Szeemann at the Kunsthalle in Bern (1969). In 1971, he relocated to Connecticut, USA, where he resided throughout the decade. Returning to Italy in the early 1980s, he exhibited in major museums and galleries across Europe and the United States, continuing to explore materials like plaster and focusing on concepts of body and space. He currently lives and works in Tavullia, in the province of Pesaro. ￼ ￼ ￼
-
-</div>
-	<div class="image-container">
-    <a href="paolo-icaro.html">
-        <img src="Paolo-Icaro.jpg" alt="Paolo Icaro">
-        <span>Paolo Icaro</span>
-    </a>
-</div>
-	
-    
-        <!-- Sezione Parigi -->
-        <div class="description"> <strong>Paris 2024</strong><br></div>
-        <div class="text-section">
-            <strong>3500 cm²</strong><br>
-            <strong>XX Giornata del Contemporaneo</strong><br><br>
-		<strong>Consolato d’Italia a Parigi</strong><br><br>
-		<strong>Contemporalis</strong><br><br>
-            CONTEMPORALIS participates in the Giornata del Contemporaneo, the Italian day dedicated to contemporary art.<br><br>
-            On the occasion of the 20th edition of GDC, CONTEMPORALIS presents 3500 cm², a project that this year celebrates its 20th anniversary. 3500 cm² is a contemporary art dissemination initiative curated by Lorenzo Benedetti. <strong>3500 cm²</strong> refers to the square centimeters available to an artist to create a 50×70cm poster, with the mission of bringing the language of contemporary art to a broader and more diverse audience than that typically engaged with contemporary art.<br><br>
-            On Tuesday, October 15, CONTEMPORALIS also organized a conference on contemporary art at the Italian Consulate in Paris, moderated by Maddalena Labricciosa, RAI journalist and art expert – TG1. The event featured Lorenzo Benedetti, co-director of the Ratti Foundation Art-Lab and creator and curator of the <strong>3500 cm²</strong> project, artist Marinella Senatore, and artist Diego Cibelli, who joined via live streaming from Naples. On this occasion, posters by Italian artists Marinella Senatore and Diego Cibelli were distributed free of charge.
-        </div>
-        <div class="image-container">
-            <a href="diego-cibelli.html">
-                <img src="diego-cibelli.jpg" alt="Diego Cibelli">
-                <span>Diego Cibelli</span>
-            </a>
-            <a href="marinella-senatore.html">
-                <img src="marinella-senatore.jpg" alt="Marinella Senatore">
-                <span>Marinella Senatore</span>
-            </a>
-        </div>
-
-        <!-- Sezione Roma -->
-        <div class="description"> <strong>Rome 2024</strong><br></div>
-         <div class="text-section">
-            <strong>3500 cm2</strong><br>
-            <strong>EXPODEMIC - Festival of Foreign Academies and Cultural Institutes</strong><br><br>
-
-		 <strong>Palazzo Esposizioni Roma - 07.05 - 25.08.2024</strong><br><br>
-           
-<strong>Curated by Lorenzo Benedetti in collaboration with Francesca Campana</strong><br>
- 
-<p>Artists 3500 cm²: John Armleder, Elisabetta Benassi, Attila Csörgő, Simon Dybbroe Møller, Robert Kusmirowski, Cristina Lucas, Jochen Lempert, Domenico Mangano & Marieke van Rooy, Matt Mullican, Ciprian Mureşan, Tura Oliveira, Giulio Paolini, Fernando Sánchez Castillo, Hans Schabus, Sarina Scheidegger, Nil Yalter, Nicole Wermers, sono inoltre riproposti due poster realizzati con opere di Carla Accardi e Vladimir Radunsky.</p>
-
-<p>Exhibition promoted by Rome the Capital City's Cultural Affairs Department and the Azienda Speciale Palaexpo</p>
- 
-
-<p>Organised by the Azienda Speciale Palaexpo in conjunction with Accademia di Belle Arti di Roma, Accademia di Danimarca, Académie de France à Rome – Villa Médicis, Accademia Nazionale di San Luca, Accademia di Romania in Roma, Accademia Tedesca Roma Villa Massimo, Accademia d'Ungheria in Roma, Accademia dei Virtuosi al Pantheon, American Academy in Rome, British School at Rome, Circolo Scandinavo, Complesso monumentale di San Salvatore in Lauro, Forum Austriaco di Cultura, Institutum Romanum Finlandiae, Istituto Culturale Coreano, Istituto Giapponese di Cultura, Istituto Polacco di Roma, Istituto Svizzero, Museo Casa di Goethe, Royal Netherlands Institute in Rome, Real Academia de España en Roma.</p>
-  
-<p>Artists exhibition Expodemic: Kamrooz Aram, Ane Rodriguez Armendariz, Séverine Ballon, Jacopo Belloni, Alix Boillot, Susanne Brorson, Fatma Bucak, Pedro Luis Cembranos, Zachary Fabri, Hamedine Kane, Kapwani Kiwanga, Bjørn Melhus, Marko Nikodijevic, Tura Oliveira, Estefania Puerta Grisales, Chloé Quenum, Marie Robert, Sarina Scheidegger. </p>
-
-Expodemic is the second edition of the Festival of Foreign Academies and Cultural Institutes in Rome designed to spread out from the Palazzo Esposizioni Roma into the fabric of the city.
+<p>Biography: Paolo Icaro (born in Turin, 1936) is a prominent figure in the artistic explorations of the 1960s. He began his career studying sculpture in Umberto Mastroianni’s studio. After his first solo exhibition in Rome in 1962, he became associated with the Arte Povera movement, experimenting from the outset with the evolution of sculptural action in relation to form and space, utilizing elemental and malleable materials such as cement, clay, paper, wood, and plaster. Between 1968 and 1969, he participated in major international avant-garde exhibitions that marked the rise of movements like Arte Povera, Conceptual Art, and Process Art. He conducted performances at Teatro delle mostre, Galleria La Tartaruga, Rome (1968); took part in Arte Povera più azioni povere, Amalfi (1968); and was invited to Op Losse Schroeven. Situaties en cryptostructuren at the Stedelijk Museum, Amsterdam (1969), and When Attitudes Become Form, curated by Harald Szeemann at the Kunsthalle in Bern (1969). In 1971, he relocated to Connecticut, USA, where he resided throughout the decade. Returning to Italy in the early 1980s, he exhibited in major museums and galleries across Europe and the United States, continuing to explore materials like plaster and focusing on concepts of body and space. He currently lives and works in Tavullia, in the province of Pesaro.</p></div></details></article>
+<article class="news-item"><header class="news-heading">
+<p class="news-date">2024</p><h2>XX Giornata del Contemporaneo</h2>
+<p class="news-posters">Posters #104 #105</p>
+<p class="news-place">Consolato d’Italia a Parigi · CONTEMPORALIS</p>
+<p class="news-city">Paris</p>
+</header><div class="image-container">
+<a href="diego-cibelli.html"><img src="diego-cibelli.jpg" alt="Diego Cibelli" loading="lazy" decoding="async"><span>Diego Cibelli</span></a>
+<a href="marinella-senatore.html"><img src="marinella-senatore.jpg" alt="Marinella Senatore" loading="lazy" decoding="async"><span>Marinella Senatore</span></a>
+</div><details><summary><span class="read-more">Read more</span><span class="read-less">Read less</span></summary><div class="news-text"><p>CONTEMPORALIS participates in the Giornata del Contemporaneo, the Italian day dedicated to contemporary art.</p>
+<p>On the occasion of the 20th edition of GDC, CONTEMPORALIS presents 3500 cm², a project that this year celebrates its 20th anniversary. 3500 cm² is a contemporary art dissemination initiative curated by Lorenzo Benedetti. <strong>3500 cm²</strong> refers to the square centimeters available to an artist to create a 50×70cm poster, with the mission of bringing the language of contemporary art to a broader and more diverse audience than that typically engaged with contemporary art.</p>
+<p>On Tuesday, October 15, CONTEMPORALIS also organized a conference on contemporary art at the Italian Consulate in Paris, moderated by Maddalena Labricciosa, RAI journalist and art expert – TG1. The event featured Lorenzo Benedetti, co-director of the Ratti Foundation Art-Lab and creator and curator of the <strong>3500 cm²</strong> project, artist Marinella Senatore, and artist Diego Cibelli, who joined via live streaming from Naples. On this occasion, posters by Italian artists Marinella Senatore and Diego Cibelli were distributed free of charge.</p></div></details></article>
+<article class="news-item"><header class="news-heading">
+<p class="news-date">2024</p><h2>EXPODEMIC</h2>
+<p class="news-subtitle">Festival of Foreign Academies and Cultural Institutes</p>
+<p class="news-posters">Posters #86 – #103</p>
+<p class="news-place">Palazzo Esposizioni Roma</p>
+<p class="news-city">Rome</p>
+</header><div class="image-container">
+<a href="matt-mullican.html"><img src="matt-mullican.jpg" alt="Matt Mullican" loading="lazy" decoding="async"><span>Matt Mullican</span></a>
+<a href="giulio-paolini.html"><img src="giulio-paolini.jpg" alt="Giulio Paolini" loading="lazy" decoding="async"><span>Giulio Paolini</span></a>
+<a href="nil-yalter.html"><img src="nil-yalter.jpg" alt="Nil Yalter" loading="lazy" decoding="async"><span>Nil Yalter</span></a>
+<a href="cristina-lucas.html"><img src="cristina-lucas.jpg" alt="Cristina Lucas" loading="lazy" decoding="async"><span>Cristina Lucas</span></a>
+<a href="carla-accardi.html"><img src="carla-accardi.jpg" alt="Carla Accardi" loading="lazy" decoding="async"><span>Carla Accardi</span></a>
+<a href="john-armleder.html"><img src="john-armleder.jpg" alt="John Armleder" loading="lazy" decoding="async"><span>John Armleder</span></a>
+<a href="elisabetta-benassi-1.html"><img src="elisabetta-benassi-1.jpg" alt="Elisabetta Benassi" loading="lazy" decoding="async"><span>Elisabetta Benassi</span></a>
+<a href="attila-csorgo.html"><img src="attila-csorgo.jpg" alt="Attila Csörgő" loading="lazy" decoding="async"><span>Attila Csörgő</span></a>
+<a href="simon-dybbroe-moller.html"><img src="simon-dybbroe-moller.jpg" alt="Simon Dybbroe Møller" loading="lazy" decoding="async"><span>Simon Dybbroe Møller</span></a>
+<a href="robert-kusmirowski.html"><img src="robert-kusmirowski.jpg" alt="Robert Kusmirowski" loading="lazy" decoding="async"><span>Robert Kusmirowski</span></a>
+<a href="jochen-lempert.html"><img src="jochen-lempert.jpg" alt="Jochen Lempert" loading="lazy" decoding="async"><span>Jochen Lempert</span></a>
+<a href="domenico-mangano-marieke-van-rooy.html"><img src="mangano-van-rooy.jpg" alt="Domenico Mangano &amp; Marieke van Rooy" loading="lazy" decoding="async"><span>Domenico Mangano &amp; Marieke van Rooy</span></a>
+<a href="ciprian-muresan.html"><img src="ciprian-muresan.jpg" alt="Ciprian Mureşan" loading="lazy" decoding="async"><span>Ciprian Mureşan</span></a>
+<a href="tura-oliveira.html"><img src="tura-oliveira.jpg" alt="Tura Oliveira" loading="lazy" decoding="async"><span>Tura Oliveira</span></a>
+<a href="fernando-sanchez-castillo.html"><img src="fernando-sanchez-castillo.jpg" alt="Fernando Sánchez Castillo" loading="lazy" decoding="async"><span>Fernando Sánchez Castillo</span></a>
+<a href="hans-schabus.html"><img src="hans-schabus.jpg" alt="Hans Schabus" loading="lazy" decoding="async"><span>Hans Schabus</span></a>
+<a href="sarina-scheidegger.html"><img src="sarina-scheidegger.jpg" alt="Sarina Scheidegger" loading="lazy" decoding="async"><span>Sarina Scheidegger</span></a>
+<a href="nicole-wermers.html"><img src="nicole-wermers.jpg" alt="Nicole Wermers" loading="lazy" decoding="async"><span>Nicole Wermers</span></a>
+<a href="vladimir-radunsky.html"><img src="vladimir-radunsky.jpg" alt="Vladimir Radunsky" loading="lazy" decoding="async"><span>Vladimir Radunsky</span></a>
+</div><details><summary><span class="read-more">Read more</span><span class="read-less">Read less</span></summary><div class="news-text"><p><strong>Palazzo Esposizioni Roma - 07.05 - 25.08.2024</strong></p>
+<p><strong>Curated by Lorenzo Benedetti in collaboration with Francesca Campana</strong></p>
+<p>Artists 3500 cm²: John Armleder, Elisabetta Benassi, Attila Csörgő, Simon Dybbroe Møller, Robert Kusmirowski, Cristina Lucas, Jochen Lempert, Domenico Mangano &amp; Marieke van Rooy, Matt Mullican, Ciprian Mureşan, Tura Oliveira, Giulio Paolini, Fernando Sánchez Castillo, Hans Schabus, Sarina Scheidegger, Nil Yalter, Nicole Wermers, Two posters featuring works by Carla Accardi and Vladimir Radunsky are also presented again.</p>
+<p>Exhibition promoted by Rome the Capital City&#x27;s Cultural Affairs Department and the Azienda Speciale Palaexpo</p>
+<p>Organised by the Azienda Speciale Palaexpo in conjunction with Accademia di Belle Arti di Roma, Accademia di Danimarca, Académie de France à Rome – Villa Médicis, Accademia Nazionale di San Luca, Accademia di Romania in Roma, Accademia Tedesca Roma Villa Massimo, Accademia d&#x27;Ungheria in Roma, Accademia dei Virtuosi al Pantheon, American Academy in Rome, British School at Rome, Circolo Scandinavo, Complesso monumentale di San Salvatore in Lauro, Forum Austriaco di Cultura, Institutum Romanum Finlandiae, Istituto Culturale Coreano, Istituto Giapponese di Cultura, Istituto Polacco di Roma, Istituto Svizzero, Museo Casa di Goethe, Royal Netherlands Institute in Rome, Real Academia de España en Roma.</p>
+<p>Artists in the Expodemic exhibition: Kamrooz Aram, Ane Rodriguez Armendariz, Séverine Ballon, Jacopo Belloni, Alix Boillot, Susanne Brorson, Fatma Bucak, Pedro Luis Cembranos, Zachary Fabri, Hamedine Kane, Kapwani Kiwanga, Bjørn Melhus, Marko Nikodijevic, Tura Oliveira, Estefania Puerta Grisales, Chloé Quenum, Marie Robert, Sarina Scheidegger.</p>
+<p>Expodemic is the second edition of the Festival of Foreign Academies and Cultural Institutes in Rome designed to spread out from the Palazzo Esposizioni Roma into the fabric of the city.
 The exhibition recounts the close bond between the founding and development of exhibitions and the history of the academies, both through the involvement of foreign artists currently resident in the city and through historical documents.
-Rome not only hosts the largest number of international cultural centres whose intertwined stories date back to 1666 with the founding of the Académie de France, it is also the city in which the modern concept of the exhibition was first developed. For over forty years, from 1680 to 1720, Giuseppe Ghezzi, a painter, the Secretary of the Accademia di San Luca and the regent of the Congregation of the Virtuous at the Pantheon, organised a series of important exhibitions in the monumental complex of San Salvatore in Lauro, showcasing artworks from the collections of Rome’s aristocratic families and thus forging the concept of the modern exhibition. Thanks to his ability to understand his own period in history, Ghezzi made art public through his series of exhibitions, developing a modern and democratic notion of culture and, in effect, playing the role of history’s first modern curator.
+Rome not only hosts the largest number of international cultural centres whose intertwined stories date back to 1666 with the founding of the Académie de France, it is also the city in which the modern concept of the exhibition was first developed. For over forty years, from 1680 to 1720, Giuseppe Ghezzi, a painter, the Secretary of the Accademia di San Luca and the regent of the Congregation of the Virtuous at the Pantheon, organised a series of important exhibitions in the monumental complex of San Salvatore in Lauro, showcasing artworks from the collections of Rome’s aristocratic families and thus forging the concept of the modern exhibition. Thanks to his ability to understand his own period in history, Ghezzi made art public through his series of exhibitions, developing a modern and democratic notion of culture and, in effect, playing the role of history’s first modern curator.</p>
+<p>Expodemic sets out from the Palazzo Esposizioni exhibition to spread throughout the city with a series of posters specially produced for the occasion and distributed free of charge in its cultural partners’ various venues. The exhibition aims to illustrate the importance of the deep-rooted bond between the Palazzo delle Esposizioni and Rome’s Foreign Academies and Cultural Institutions, highlighting that cultural archipelago’s richness and diversity as well as its ongoing role, so crucial and relevant to our own time.
+The exhibition also includes a public programme of encounters, performances and screenings hosted at Palazzo Esposizioni in addition to numerous exhibitions and events organised in the Academies and Cultural Institutes themselves.</p></div></details></article>
+<article class="news-item"><header class="news-heading">
+<p class="news-date">2016</p><h2>Villa Ada</h2>
+<p class="news-subtitle">Roma incontra il mondo</p>
+<p class="news-artists">Francesco Arena, Marc Nagtzaam, Batia Suter, Mandla Reuter</p>
+<p class="news-place">Fondazione VOLUME!</p>
+<p class="news-city">Rome</p>
+</header><div class="image-container">
+<a href="francesco-arena.html"><img src="francesco-arena.jpg" alt="Francesco Arena" loading="lazy" decoding="async"><span>Francesco Arena</span></a>
+<a href="marc-nagtzaam.html"><img src="marc-nagtzaam.jpg" alt="Marc Nagtzaam" loading="lazy" decoding="async"><span>Marc Nagtzaam</span></a>
+<a href="batia-suter.html"><img src="batia-suter.jpg" alt="Batia Suter" loading="lazy" decoding="async"><span>Batia Suter</span></a>
+<a href="mandla-reuter.html"><img src="mandla-reuter.jpg" alt="Mandla Reuter" loading="lazy" decoding="async"><span>Mandla Reuter</span></a>
+</div><details><summary><span class="read-more">Read more</span><span class="read-less">Read less</span></summary><div class="news-text"><p>Artists 3500 cm²: Francesco Arena, Marc Nagtzaam, Batia Suter, Mandla Reuter.</p>
+<p>The project hosted by Villa Ada Rome meets the world is 3500 cm², a project curated by Fondazione VOLUME! x Crosswise, born in 2004 from an idea by Lorenzo Benedetti. 3500 cm² are the square centimetres available to an artist to create a 50 x 70 poster, but it is also the art that lives in an urban place, that goes out of its spaces to reach a heterogeneous and larger public than the one that usually visits museums and galleries: an exhibition without spatial and temporal boundaries that develops over time and spreads without control, an unprecedented way of building a cultural platform that amplifies the communicative possibilities of art, a possible form of interaction between artist and public.</p></div></details></article>
+<article class="news-item"><header class="news-heading">
+<p class="news-date">2009–2013</p><h2>De Vleeshal en de Kabinetten van de Vleeshal</h2>
+<p class="news-artists">Nina Beier &amp; Marie Lund, Katinka Bock, Benoit Maire, Kelly Schacht</p>
+<p class="news-city">Middelburg</p>
+</header><div class="image-container">
+<a href="beier-lund.html"><img src="beier-lund.jpg" alt="Nina Beier &amp; Marie Lund" loading="lazy" decoding="async"><span>Nina Beier &amp; Marie Lund</span></a>
+<a href="kelly-schacht.html"><img src="kelly-schacht.jpg" alt="Kelly Schacht" loading="lazy" decoding="async"><span>Kelly Schacht</span></a>
+</div><details><summary><span class="read-more">Read more</span><span class="read-less">Read less</span></summary><div class="news-text"><p>Artists 3500 cm²: Nina Beier &amp; Marie Lund, Katinka Bock, Benoit Maire, Kelly Schacht.</p>
+<p>See also: 
+    <a href="https://vleeshal.nl/archive/the-object-lessons" target="_blank" rel="noopener noreferrer">The Object Lessons</a>, 
+    <a href="https://vleeshal.nl/en/archive/the-sound-of-distance" target="_blank" rel="noopener noreferrer">The Sound of Distance</a>, 
+    <a href="https://vleeshal.nl/nl/archief/persoon/benoit-maire" target="_blank" rel="noopener noreferrer">Benoit Maire</a>, 
+    <a href="https://vleeshal.nl/archive/person/kelly-schacht" target="_blank" rel="noopener noreferrer">Kelly Schacht</a></p>
+<p>For several exhibitions between 2009 and 2013, editions of 3500 cm² were produced, which were often integrated directly into the exhibition.</p></div></details></article>
+</main>
+<script>
+// Keep the content below the fixed header at every width and font size.
+const header = document.querySelector('.header');
+function updateHeaderHeight() {
+  document.documentElement.style.setProperty('--header-height', `${header.getBoundingClientRect().height}px`);
+}
+updateHeaderHeight();
+window.addEventListener('resize', updateHeaderHeight);
+if ('ResizeObserver' in window) new ResizeObserver(updateHeaderHeight).observe(header);
+if (document.fonts) document.fonts.ready.then(updateHeaderHeight);
 
-<p>	 
-Expodemic sets out from the Palazzo Esposizioni exhibition to spread throughout the city with a series of posters specially produced for the occasion and distributed free of charge in its cultural partners’ various venues. The exhibition aims to illustrate the importance of the deep-rooted bond between the Palazzo delle Esposizioni and Rome’s Foreign Academies and Cultural Institutions, highlighting that cultural archipelago’s richness and diversity as well as its ongoing role, so crucial and relevant to our own time.
-The exhibition also includes a public programme of encounters, performances and screenings hosted at Palazzo Esposizioni in addition to numerous exhibitions and events organised in the Academies and Cultural Institutes themselves.</p>	
-
-        </div>
-        <div class="image-container">
-             <a href="matt-mullican.html">
-        <img src="matt-mullican.jpg" alt="Matt Mullican">
-        <span>Matt Mullican</span>
-    </a>
-
-    <a href="giulio-paolini.html">
-        <img src="giulio-paolini.jpg" alt="Giulio Paolini">
-        <span>Giulio Paolini</span>
-    </a>
-
-    <a href="nil-yalter.html">
-        <img src="nil-yalter.jpg" alt="Nil Yalter">
-        <span>Nil Yalter</span>
-    </a>
-
-    <a href="cristina-lucas.html">
-        <img src="cristina-lucas.jpg" alt="Cristina Lucas">
-        <span>Cristina Lucas</span>
-    </a>
-
-    <a href="carla-accardi.html">
-        <img src="carla-accardi.jpg" alt="Carla Accardi">
-        <span>Carla Accardi</span>
-    </a>
-
-    <a href="john-armleder.html">
-        <img src="john-armleder.jpg" alt="John Armleder">
-        <span>John Armleder</span>
-    </a>
-
-    <a href="elisabetta-benassi-1.html">
-        <img src="elisabetta-benassi-1.jpg" alt="Elisabetta Benassi">
-        <span>Elisabetta Benassi</span>
-    </a>
-
-    <a href="attila-csorgo.html">
-        <img src="attila-csorgo.jpg" alt="Attila Csörgő">
-        <span>Attila Csörgő</span>
-    </a>
-
-    <a href="simon-dybbroe-moller.html">
-        <img src="simon-dybbroe-moller.jpg" alt="Simon Dybbroe Møller">
-        <span>Simon Dybbroe Møller</span>
-    </a>
-
-    <a href="robert-kusmirowski.html">
-        <img src="robert-kusmirowski.jpg" alt="Robert Kusmirowski">
-        <span>Robert Kusmirowski</span>
-    </a>
-
-    <a href="jochen-lempert.html">
-        <img src="jochen-lempert.jpg" alt="Jochen Lempert">
-        <span>Jochen Lempert</span>
-    </a>
-
-    <a href="domenico-mangano-marieke-van-rooy.html">
-        <img src="mangano-van-rooy.jpg" alt="Domenico Mangano & Marieke van Rooy">
-        <span>Domenico Mangano & Marieke van Rooy</span>
-    </a>
-
-    <a href="ciprian-muresan.html">
-        <img src="ciprian-muresan.jpg" alt="Ciprian Mureşan">
-        <span>Ciprian Mureşan</span>
-    </a>
-
-    <a href="tura-oliveira.html">
-        <img src="tura-oliveira.jpg" alt="Tura Oliveira">
-        <span>Tura Oliveira</span>
-    </a>
-
-    <a href="fernando-sanchez-castillo.html">
-        <img src="fernando-sanchez-castillo.jpg" alt="Fernando Sánchez Castillo">
-        <span>Fernando Sánchez Castillo</span>
-    </a>
-
-    <a href="hans-schabus.html">
-        <img src="hans-schabus.jpg" alt="Hans Schabus">
-        <span>Hans Schabus</span>
-    </a>
-
-    <a href="sarina-scheidegger.html">
-        <img src="sarina-scheidegger.jpg" alt="Sarina Scheidegger">
-        <span>Sarina Scheidegger</span>
-    </a>
-
-    <a href="nicole-wermers.html">
-        <img src="nicole-wermers.jpg" alt="Nicole Wermers">
-        <span>Nicole Wermers</span>
-    </a>
-
-    <a href="vladimir-radunsky.html">
-        <img src="vladimir-radunsky.jpg" alt="Vladimir Radunsky">
-        <span>Vladimir Radunsky</span>
-    </a>
-
-   </div>
-	    
-	    <!-- Sezione Roma incotra il mondo -->
-
-	
-        <div class="description"><strong>Roma 2016</strong><br></div>
-         <div class="text-section">
-            <strong>3500 cm²</strong><br>
-            <strong>Roma incontra il mondo - Villa Ada - Fondazione Volume! - Roma</strong><br><br>
-        
-
-		 <strong>Villa Ada Roma 2016</strong><br><br>
- 
-
-
-<p>Artists 3500 cm²: Francesco Arena, Marc Nachtzaam, Batia Suter, Mandla Reuter.</p>
- 
-
-<p>The project hosted by Villa Ada Rome meets the world is 3500 cm², a project curated by Fondazione VOLUME! x Crosswise, born in 2004 from an idea by Lorenzo Benedetti. 3500 cm² are the square centimetres available to an artist to create a 50 x 70 poster, but it is also the art that lives in an urban place, that goes out of its spaces to reach a heterogeneous and larger public than the one that usually visits museums and galleries: an exhibition without spatial and temporal boundaries that develops over time and spreads without control, an unprecedented way of building a cultural platform that amplifies the communicative possibilities of art, a possible form of interaction between artist and public. </p>
-  
-    </div>
-        <div class="image-container">
-            <a href="francesco-arena.html">
-                <img src="francesco-arena.jpg" alt="Francesco Arena">
-                <span>Francesco Arena</span>
-            </a>
-            <a href="marc-nagtzaam.html">
-                <img src="marc-nagtzaam.jpg" alt="Marc Nagtzaam">
-                <span>Marc Nagtzaam</span>
-            </a>
-               <a href="batia-suter.html">
-                <img src="batia-suter.jpg" alt="Batia Suter">
-                <span>Batia Suter</span>
-            </a>
-
-               
-               <a href="mandla-reuter.html">
-                <img src="mandla-reuter.jpg" alt="Mandla Reuters">
-                <span>Mandla Reuter</span>
-            </a>
-
-	</div>
-              <!-- Sezione de vleeshal Middelburg -->
-
-	
-        <div class="description"><strong>Middelburg 2009-2013</strong><br></div>
-         <div class="text-section">
-            <strong>3500 cm²</strong><br>
-            <strong>De Vleeshal en de Kabinetten van de Vleeshal</strong><br><br>
-        
-
-		 
-
-<p>Artisti 3500 cm²: Nina Beier & Marie Lund, Katinka Bock, Benoit Maire, Kelly Schacht.</p>
-
-<p>Vedi anche: 
-    <a href="https://vleeshal.nl/archive/the-object-lessons" target="_blank">The Object Lessons</a>, 
-    <a href="https://vleeshal.nl/en/archive/the-sound-of-distance" target="_blank">The Sound of Distance</a>, 
-    <a href="https://vleeshal.nl/nl/archief/persoon/benoit-maire" target="_blank">Benoit Maire</a>, 
-    <a href="https://vleeshal.nl/archive/person/kelly-schacht" target="_blank">Kelly Schacht</a>
-</p>
-
-<p>For several of exhibitions between 2009 and 2013, editions of 3500 cm² were produced, which were often integrated directly into the exhibition.   </p>
-  
-    </div>
-        <div class="image-container">
-            <a href="beier-lund.html">
-                <img src="beier-lund.jpg" alt="Nina Beier & Marie Lund">
-                <span>Nina Beier & Marie Lund</span>
-        
-            </a>
-               <a href="kelly-schacht.html">
-                <img src="kelly-schacht.jpg" alt="Kelly Schacht">
-                <span>Kelly Schacht</span>
-            </a>
-
-	</div>
-	
-</div>
-
- 
+// Equal visible area, calculated from each image's original proportions.
+const posters = [...document.querySelectorAll('.image-container img')];
+function sizePosters() {
+  const loaded = posters.filter(image => image.naturalWidth && image.naturalHeight);
+  if (!loaded.length) return;
+  const widestRatio = Math.max(1.4, ...loaded.map(image => image.naturalWidth / image.naturalHeight));
+  const availableWidths = posters.map(image => image.closest('.image-container').clientWidth).filter(width => width > 0);
+  const available = Math.min(...availableWidths, window.innerWidth <= 600 ? 300 : Infinity);
+  const area = Math.min(280 * 392, available * available / widestRatio);
+  loaded.forEach(image => {
+    const ratio = image.naturalWidth / image.naturalHeight;
+    const width = Math.sqrt(area * ratio);
+    image.closest('a').style.setProperty('--poster-width', `${width}px`);
+  });
+}
+posters.forEach(image => image.addEventListener('load', sizePosters));
+sizePosters();
+window.addEventListener('resize', sizePosters);
+if ('ResizeObserver' in window) {
+  const posterObserver = new ResizeObserver(sizePosters);
+  document.querySelectorAll('.image-container').forEach(gallery => posterObserver.observe(gallery));
+}
+</script>
 </body>
 </html>
