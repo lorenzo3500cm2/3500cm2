@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gisella Chaudry | 3500 cm²</title>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&amp;display=swap" rel="stylesheet">
+<style>
+* { box-sizing: border-box; }
+html { background: #000; color: #fff; }
+body { margin: 0; font-family: 'Libre Baskerville', Georgia, serif; }
+/* The header and caption reserve their own space; the image uses what remains. */
+.page { height: 100vh; height: 100dvh; display: grid; grid-template-rows: auto minmax(0, 1fr); }
+.header { position: sticky; top: 0; z-index: 20; display: flex; justify-content: space-between; align-items: center; gap: 20px; padding: 18px 30px; background: #000; border-bottom: 1px solid #444; }
+a { color: #fff; }
+.back-link { font-size: 1.5rem; font-weight: 700; text-decoration: none; white-space: nowrap; }
+.menu { display: flex; flex-wrap: wrap; justify-content: flex-end; align-items: center; gap: 10px 28px; }
+.menu a { font-size: 1rem; text-decoration: none; white-space: nowrap; }
+a:hover { color: #a9c6ff; text-decoration: underline; }
+a:focus-visible { outline: 2px solid #a9c6ff; outline-offset: 5px; }
+main { min-height: 0; }
+figure { height: 100%; margin: 0; display: grid; grid-template-rows: minmax(0, 1fr) auto; }
+.artwork { min-height: 0; position: relative; padding: 16px 60px; display: flex; justify-content: center; align-items: center; touch-action: pan-y pinch-zoom; }
+.poster { display: block; width: 100%; height: 100%; max-width: 500px; min-height: 0; object-fit: contain; }
+.description { margin: 0; padding: 12px 30px 20px; padding-bottom: max(20px, env(safe-area-inset-bottom)); font-size: 1rem; line-height: 1.5; }
+.prev-artist, .next-artist { position: absolute; top: 50%; transform: translateY(-50%); display: grid; place-items: center; width: 44px; height: 44px; color: #aaa; font-size: 2rem; text-decoration: none; }
+.prev-artist { left: 8px; } .next-artist { right: 8px; }
+@media (max-width: 1000px) {
+ .header { flex-direction: column; align-items: flex-start; gap: 14px; padding: 16px 20px; }
+ .back-link { font-size: 1.25rem; }
+ .menu { justify-content: flex-start; gap: 10px 18px; }
+ .menu a { font-size: .9rem; }
+ .description { padding-left: 20px; padding-right: 20px; font-size: .9rem; }
+ .artwork { padding: 12px 48px; }
+ .prev-artist { left: 0; } .next-artist { right: 0; }
+}
+@media (max-height: 450px) and (orientation: landscape) {
+ .header { flex-direction: row; align-items: center; padding: 8px 16px; gap: 16px; }
+ .menu { gap: 6px 14px; }
+ .description { padding-top: 6px; padding-bottom: 8px; }
+ .artwork { padding-top: 8px; padding-bottom: 8px; }
+}
+</style>
+<script src="analytics.js" defer></script>
+</head>
+<body>
+<div class="page">
+<header class="header">
+<a href="pagina.html" class="back-link">#117 Gisella Chaudry</a>
+<nav class="menu" aria-label="Main navigation">
+<a href="news.html">news</a>
+<a href="3500cm2.html">3500 cm²</a>
+<a href="pagina.html">artists</a>
+<a href="locations.html">venues</a>
+<a href="../it/mostre.html" hreflang="it" title="Page in Italian">exhibitions</a>
+<a href="../it/partner.html" hreflang="it" title="Page in Italian">partners</a>
+<a href="contact.html">contact</a>
+<a href="../it/gisella-chaudry.html" lang="it" hreflang="it">IT</a>
+</nav>
+</header>
+<main>
+<figure>
+<div class="artwork">
+<img src="../img/gisella-chaudry.webp" width="1286" height="1800" alt="Gisella Chaudry, poster #117" class="poster" draggable="false">
+<a href="pedro-cabrita-reis.html" class="prev-artist" aria-label="Previous artist: Pedro Cabrita Reis">&#8592;</a>
+<a href="paolo-chiasera.html" class="next-artist" aria-label="Next artist: Paolo Chiasera">&#8594;</a>
+</div>
+<figcaption class="description">#117 Gisella Chaudry, <em>Struttura in tre atti</em>, 2025–2026<br>3500 cm² · A-HEAD Project · Gnosis Cooperativa Sociale Onlus, Marino (Rome)</figcaption>
+</figure>
+</main>
+</div>
+<script>
+const artwork = document.querySelector('.artwork');
+let swipeStart = null;
+artwork.addEventListener('touchstart', event => {
+ if (event.touches.length !== 1 || event.target.closest('a')) { swipeStart = null; return; }
+ const touch = event.touches[0];
+ swipeStart = { x: touch.clientX, y: touch.clientY };
+}, { passive: true });
+artwork.addEventListener('touchmove', event => {
+ if (event.touches.length !== 1) swipeStart = null;
+}, { passive: true });
+artwork.addEventListener('touchcancel', () => { swipeStart = null; }, { passive: true });
+artwork.addEventListener('touchend', event => {
+ if (!swipeStart) return;
+ const touch = event.changedTouches[0];
+ const dx = touch.clientX - swipeStart.x;
+ const dy = touch.clientY - swipeStart.y;
+ swipeStart = null;
+ if (Math.abs(dx) < 70 || Math.abs(dx) < Math.abs(dy) * 1.5) return;
+ window.location.href = dx > 0 ? 'pedro-cabrita-reis.html' : 'paolo-chiasera.html';
+}, { passive: true });
+</script>
+</body>
+</html>
