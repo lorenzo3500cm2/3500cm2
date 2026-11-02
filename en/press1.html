@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Press | 3500 cm²</title>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&amp;display=swap" rel="stylesheet">
+<style>
+* { box-sizing: border-box; }
+:root { --header-height: 100px; }
+body { margin: 0; padding-top: var(--header-height); background: #fff; color: #000; font-family: 'Libre Baskerville', Georgia, serif; }
+a { color: inherit; } a:hover { color: blue; }
+a:focus-visible { outline: 2px solid blue; outline-offset: 5px; }
+.header { position: fixed; inset: 0 0 auto; z-index: 100; display: flex; align-items: center; justify-content: space-between; gap: 24px; padding: 18px 30px; background: #fff; border-bottom: 1px solid #ddd; }
+h1 { margin: 0; font-size: 1.5rem; line-height: 1.5; }
+h1 a { text-decoration: none; }
+.menu { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 10px 24px; }
+.menu a { font-size: 1rem; white-space: nowrap; text-decoration: none; }
+.menu a:hover, .menu a[aria-current] { text-decoration: underline; text-underline-offset: 4px; }
+main { max-width: 1200px; margin: 0 auto; padding: 40px 30px 80px; }
+.intro { margin: 0 0 32px; line-height: 1.7; color: #444; }
+.press-item { padding: 30px 0 40px; border-top: 1px solid #ddd; border-bottom: 1px solid #ddd; }
+.meta { margin: 0 0 18px; font-size: .9rem; line-height: 1.7; }
+h2 { max-width: 950px; margin: 0 0 16px; font-size: clamp(1.35rem, 2.5vw, 2rem); line-height: 1.45; }
+h2 a { text-decoration: none; }
+h2 a:hover { text-decoration: underline; }
+.author, .description { line-height: 1.7; margin: 0 0 16px; }
+.description { max-width: 75ch; }
+.read-article { display: inline-block; margin-top: 8px; line-height: 1.6; text-underline-offset: 4px; }
+@media(max-width: 1100px) { :root { --header-height: 170px; } .header { flex-direction: column; align-items: flex-start; padding: 16px 20px; gap: 14px; } h1 { font-size: 1.25rem; } .menu { justify-content: flex-start; gap: 10px 18px; } .menu a { font-size: .9rem; } main { padding: 30px 20px 60px; } }
+@media print { body { padding-top: 0; } .header { position: static; } .menu { display: none; } }
+</style>
+</head>
+<body>
+<header class="header"><h1><a href="press.html">Press</a></h1>
+<nav class="menu" aria-label="Main navigation"><a href="news.html">news</a>
+<a href="3500cm2.html">3500 cm²</a>
+<a href="pagina.html">artists</a>
+<a href="locations.html">venues</a>
+<a href="../it/mostre.html" hreflang="it">exhibitions</a>
+<a href="../it/partner.html" hreflang="it">partners</a>
+<a href="press.html" aria-current="page">press</a>
+<a href="contact.html">contact</a>
+<a href="../it/stampa.html" hreflang="it">IT</a></nav>
+</header>
+<main>
+<p class="intro">Articles and features about 3500 cm².</p>
+<article class="press-item">
+<p class="meta"><time datetime="2026-10-23">23 October 2026</time> · <strong>Il Giornale del Lazio</strong></p>
+<h2 lang="it"><a href="https://ilgiornaledellazio.it/a-head-project-e-3500-cm%C2%B2-larte-contemporanea-entra-negli-spazi-della-cura-di-gnosis-a-marino/" target="_blank" rel="noopener noreferrer" hreflang="it">A-HEAD Project e 3500 cm²: l’arte contemporanea entra negli spazi della cura di Gnosis a Marino</a></h2>
+<p class="author">By Alessio Morganti</p>
+<p class="description">3500 cm² and A-HEAD Project at Gnosis in Marino: the permanent collection and poster #117 by Gisella Chaudry, <em>Struttura in tre atti</em>.</p>
+<a class="read-article" href="https://ilgiornaledellazio.it/a-head-project-e-3500-cm%C2%B2-larte-contemporanea-entra-negli-spazi-della-cura-di-gnosis-a-marino/" target="_blank" rel="noopener noreferrer" hreflang="it">Read the article (in Italian) ↗</a>
+</article>
+</main>
+<script>
+const header = document.querySelector('.header');
+function updateHeaderHeight() {
+ document.documentElement.style.setProperty('--header-height', `${header.getBoundingClientRect().height}px`);
+}
+updateHeaderHeight();
+window.addEventListener('resize', updateHeaderHeight);
+if ('ResizeObserver' in window) new ResizeObserver(updateHeaderHeight).observe(header);
+if (document.fonts) document.fonts.ready.then(updateHeaderHeight);
+</script>
+</body>
+</html>
