@@ -1,478 +1,103 @@
-
 <!DOCTYPE html>
-<html lang="it">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Press — 3500 cm²</title>
-
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet">
-
-    <style>
-        * {
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Libre Baskerville', serif;
-            margin: 0;
-            padding: 0;
-            background-color: #fff;
-            color: #000;
-            position: relative;
-        }
-
-        .header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px;
-            border-bottom: 1px solid #ddd;
-        }
-
-        .back-link {
-            font-size: 1.5rem;
-            font-weight: bold;
-            text-decoration: none;
-            color: #333;
-        }
-
-        .back-link:hover {
-            color: blue;
-        }
-
-        .menu-icon {
-            display: flex;
-            flex-direction: column;
-            justify-content: space-around;
-            width: 25px;
-            height: 15px;
-            cursor: pointer;
-        }
-
-        .menu-icon div {
-            background-color: #000;
-            height: 2px;
-            width: 100%;
-            border-radius: 1px;
-        }
-
-        .menu {
-            display: none;
-            position: absolute;
-            top: 60px;
-            right: 20px;
-            z-index: 1000;
-            min-width: 130px;
-            padding: 8px 14px;
-            background-color: #fff;
-            border: 1px solid #ddd;
-        }
-
-        .menu a {
-            display: block;
-            padding: 10px 0;
-            text-decoration: none;
-            color: #000;
-            font-size: 1rem;
-        }
-
-        .menu a:hover {
-            color: blue;
-            text-decoration: underline;
-        }
-
-        .content {
-            width: 100%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 50px 20px 90px;
-        }
-
-        .intro {
-            max-width: 820px;
-            margin-bottom: 70px;
-        }
-
-        .intro h1 {
-            margin: 0 0 25px;
-            font-size: clamp(2.3rem, 6vw, 5rem);
-            font-weight: 400;
-            line-height: 1;
-        }
-
-        .intro p {
-            margin: 0;
-            color: #333;
-            font-size: 1rem;
-            line-height: 1.7;
-        }
-
-        .archive-year {
-            margin-top: 65px;
-        }
-
-        .year-title {
-            margin: 0;
-            padding-bottom: 14px;
-            border-bottom: 1px solid #000;
-            font-size: 2rem;
-            font-weight: 400;
-        }
-
-        .press-article {
-            display: grid;
-            grid-template-columns: 180px minmax(0, 1fr) 90px;
-            gap: 30px;
-            padding: 28px 0 32px;
-            border-bottom: 1px solid #ddd;
-        }
-
-        .press-meta {
-            color: #333;
-            font-size: 0.85rem;
-            line-height: 1.55;
-        }
-
-        .press-meta p {
-            margin: 0 0 6px;
-        }
-
-        .press-meta .publication {
-            color: #000;
-            font-weight: bold;
-        }
-
-        .press-text h2 {
-            margin: 0 0 12px;
-            font-size: 1.6rem;
-            font-weight: 400;
-            line-height: 1.25;
-        }
-
-        .press-text h2 a {
-            color: #000;
-            text-decoration: none;
-        }
-
-        .press-text h2 a:hover {
-            color: blue;
-            text-decoration: underline;
-        }
-
-        .press-text .author {
-            margin: 0 0 15px;
-            color: #666;
-            font-size: 0.85rem;
-        }
-
-        .press-text .description {
-            margin: 0;
-            color: #333;
-            font-size: 0.95rem;
-            line-height: 1.65;
-        }
-
-        .read-link {
-            justify-self: end;
-            color: #000;
-            font-size: 0.85rem;
-            text-decoration: none;
-        }
-
-        .read-link:hover {
-            color: blue;
-            text-decoration: underline;
-        }
-
-        .read-link::after {
-            content: ' ↗';
-        }
-
-        .page-note {
-            margin-top: 70px;
-            padding-top: 20px;
-            border-top: 1px solid #000;
-            color: #666;
-            font-size: 0.8rem;
-            line-height: 1.6;
-        }
-
-        @media (max-width: 700px) {
-            .content {
-                padding-top: 35px;
-            }
-
-            .intro {
-                margin-bottom: 50px;
-            }
-
-            .archive-year {
-                margin-top: 50px;
-            }
-
-            .press-article {
-                grid-template-columns: 1fr;
-                gap: 16px;
-            }
-
-            .press-meta {
-                display: flex;
-                flex-wrap: wrap;
-                gap: 3px 14px;
-            }
-
-            .press-meta p {
-                margin: 0;
-            }
-
-            .read-link {
-                justify-self: start;
-            }
-        }
-    </style>
-
-    <script src="analytics.js"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Press | 3500 cm²</title>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&amp;display=swap" rel="stylesheet">
+<style>
+* { box-sizing: border-box; }
+:root { --header-height: 100px; }
+body { margin: 0; padding-top: var(--header-height); background: #fff; color: #000; font-family: 'Libre Baskerville', Georgia, serif; }
+a { color: inherit; } a:hover { color: blue; }
+a:focus-visible { outline: 2px solid blue; outline-offset: 5px; }
+.header { position: fixed; inset: 0 0 auto; z-index: 100; display: flex; align-items: center; justify-content: space-between; gap: 24px; padding: 18px 30px; background: #fff; border-bottom: 1px solid #ddd; }
+h1 { margin: 0; font-size: 1.5rem; line-height: 1.5; }
+h1 a { text-decoration: none; }
+.menu { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 10px 24px; }
+.menu a { font-size: 1rem; white-space: nowrap; text-decoration: none; }
+.menu a:hover, .menu a[aria-current] { text-decoration: underline; text-underline-offset: 4px; }
+main { max-width: 1200px; margin: 0 auto; padding: 40px 30px 80px; }
+.intro { margin: 0 0 32px; line-height: 1.7; color: #444; }
+.press-item + .press-item { border-top: 0; }
+.press-item { padding: 30px 0 40px; border-top: 1px solid #ddd; border-bottom: 1px solid #ddd; }
+.meta { margin: 0 0 18px; font-size: .9rem; line-height: 1.7; }
+h2 { max-width: 950px; margin: 0 0 16px; font-size: clamp(1.35rem, 2.5vw, 2rem); line-height: 1.45; }
+h2 a { text-decoration: none; }
+h2 a:hover { text-decoration: underline; }
+.author, .description { line-height: 1.7; margin: 0 0 16px; }
+.description { max-width: 75ch; }
+.read-article { display: inline-block; margin-top: 8px; line-height: 1.6; text-underline-offset: 4px; }
+@media(max-width: 1100px) { :root { --header-height: 170px; } .header { flex-direction: column; align-items: flex-start; padding: 16px 20px; gap: 14px; } h1 { font-size: 1.25rem; } .menu { justify-content: flex-start; gap: 10px 18px; } .menu a { font-size: .9rem; } main { padding: 30px 20px 60px; } }
+@media print { body { padding-top: 0; } .header { position: static; } .menu { display: none; } }
+</style>
+<script src="analytics.js" defer></script>
 </head>
-
 <body>
-    <div class="header">
-        <a href="pagina.html" class="back-link">Press</a>
-
-        <div
-            class="menu-icon"
-            onclick="toggleMenu()"
-            role="button"
-            tabindex="0"
-            aria-label="Apri o chiudi il menu"
-        >
-            <div></div>
-            <div></div>
-            <div></div>
-        </div>
-    </div>
-
-    <!-- Menu nascosto -->
-    <div class="menu" id="menu">
-        <a href="pagina.html">Artisti</a>
-        <a href="3500cm2.html">3500cm²</a>
-        <a href="locations.html">venues</a>
-        <a href="contacts.html">Contatti</a>
-    </div>
-
-    <main class="content">
-        <div class="intro">
-            <h1>Press</h1>
-
-          <p>
-    A selection of articles, reviews and conversations dedicated to
-    <em>3500 cm²</em>, the project that since 2004 has brought
-    contemporary art beyond exhibition spaces through the poster format.
-</p>
-</div>
-        </div>
-
-   <!-- ARTICLES FROM 2026 -->
-
-        <section class="archive-year">
-            <h2 class="year-title">2026</h2>
-
-            <article class="press-article">
-                <div class="press-meta">
-                    <p class="publication">Exibart</p>
-                    <p>16 luglio 2026</p>
-                    <p>Online</p>
-                </div>
-
-                <div class="press-text">
-                    <h2>
-                        <a href="#">
-                            Che cos’è una mostra? A Macerata, Expositio Mundi indaga il significato dell’esposizione
-                        </a>
-                    </h2>
-
-                    <p class="author">di Nome Cognome</p>
-
-                    <p class="description">
-                      A Macerata, Expositio Mundi indaga che cosa sia una mostra, ripercorrendo 350 anni dell’atto di esporre: documenti storici, installazioni e interventi site specific tra Palazzo Buonaccorsi, Sferisterio e Biblioteca Mozzi Borgetti
-                    </p>
-                </div>
-
-                <a href="#" class="read-link">https://www.exibart.com/mostre/che-cose-una-mostra-a-macerata-expositio-mundi-indaga-il-significato-mostra/</a>
-            </article>
-
-            <article class="press-article">
-                <div class="press-meta">
-                    <p class="publication">Il Foglio</p>
-                    <p>15 giugno 2026</p>
-                    <p>Online</p>
-                </div>
-
-                <div class="press-text">
-                    <h2>
-                        <a href="#">
-                            L’arte che si prende: il progetto 3500 cm²
-                        </a>
-                    </h2>
-
-                    <p class="author">di Nome Cognome</p>
-
-                    <p class="description">
-                        Un progetto editoriale ed espositivo in cui il
-                        manifesto d’artista diventa un’opera accessibile,
-                        gratuita e capace di circolare oltre i confini
-                        tradizionali del museo.
-                    </p>
-                </div>
-
-                <a href="#" class="read-link">Leggi</a>
-            </article>
-
-            <article class="press-article">
-                <div class="press-meta">
-                    <p class="publication">La Lettura</p>
-                    <p>12 luglio 2026</p>
-                    <p>artivolo</p>
-                </div>
-
-                <div class="press-text">
-                    <h2>
-                        <a href="#">
-                            «Idea! Una mostra!» 350 anni d'arte pubblica
-                        </a>
-                    </h2>
-
-                    <p class="author">di SIMONA
-BUSCAGLIA</p>
-
-                    <p class="description">
-                       Macerata la dialogare le opere contemporanee con le intuizioni di Giuseppe Ghezzi, il pittore che a Roma, già nel 1676. cominciò a pensare a come rendere visibili a tutti le collezioni dei nobili. Ne nasce una riflessione sugli spazi democratici
-
-                    </p>
-                </div>
-
-                <a href="#" class="read-link">Leggi</a>
-            </article>
-        </section>
-
-        <!-- ARTICOLI DEL 2025 -->
-
-        <section class="archive-year">
-            <h2 class="year-title">2025</h2>
-
-            <article class="press-article">
-                <div class="press-meta">
-                    <p class="publication">Nome quotidiano</p>
-                    <p>18 ottobre 2025</p>
-                    <p>Edizione stampa</p>
-                </div>
-
-                <div class="press-text">
-                    <h2>
-                        <a href="#">
-                            Quando l’arte entra nei luoghi della cura
-                        </a>
-                    </h2>
-
-                    <p class="author">di Nome Cognome</p>
-
-                    <p class="description">
-                        Il racconto del primo nucleo permanente di poster nei
-                        centri di salute mentale: opere in dialogo con pazienti,
-                        operatori e visitatori per rendere gli spazi più aperti
-                        e accoglienti.
-                    </p>
-                </div>
-
-                <a href="#" class="read-link">Leggi</a>
-            </article>
-        </section>
-
-        <!-- ARTICOLI DEL 2024 -->
-
-        <section class="archive-year">
-            <h2 class="year-title">2024</h2>
-
-            <article class="press-article">
-                <div class="press-meta">
-                    <p class="publication">Nome magazine</p>
-                    <p>15 ottobre 2024</p>
-                    <p>Approfondimento</p>
-                </div>
-
-                <div class="press-text">
-                    <h2>
-                        <a href="#">
-                            3500 cm²: vent’anni di arte in circolazione
-                        </a>
-                    </h2>
-
-                    <p class="author">di Nome Cognome</p>
-
-                    <p class="description">
-                        A vent’anni dalla nascita, il progetto continua a
-                        costruire una collezione diffusa: ogni edizione affida
-                        a un artista uno spazio preciso, 50 × 70 centimetri,
-                        da condividere liberamente.
-                    </p>
-                </div>
-
-                <a href="#" class="read-link">Leggi</a>
-            </article>
-
-            <article class="press-article">
-                <div class="press-meta">
-                    <p class="publication">Nome testata</p>
-                    <p>7 maggio 2024</p>
-                    <p>Recensione</p>
-                </div>
-
-                <div class="press-text">
-                    <h2>
-                        <a href="#">
-                            Il poster come spazio espositivo
-                        </a>
-                    </h2>
-
-                    <p class="author">di Nome Cognome</p>
-
-                    <p class="description">
-                        Tra immagine, testo e distribuzione, il formato
-                        tipografico si trasforma in un dispositivo espositivo
-                        mobile, capace di attraversare la città e diventare
-                        parte della vita quotidiana.
-                    </p>
-                </div>
-
-                <a href="#" class="read-link">Leggi</a>
-            </article>
-        </section>
-
-        <div class="page-note">
-            I contenuti di questa versione sono dimostrativi. Sostituisci
-            titoli, testate, date, descrizioni e collegamenti con i materiali
-            definitivi.
-        </div>
-    </main>
-
-    <script>
-        function toggleMenu() {
-            const menu = document.getElementById('menu');
-
-            menu.style.display =
-                menu.style.display === 'block' ? 'none' : 'block';
-        }
-
-        document
-            .querySelector('.menu-icon')
-            .addEventListener('keydown', function (event) {
-                if (event.key === 'Enter' || event.key === ' ') {
-                    event.preventDefault();
-                    toggleMenu();
-                }
-            });
-    </script>
+<header class="header"><h1><a href="press.html">Press</a></h1>
+<nav class="menu" aria-label="Main navigation"><a href="news.html">news</a>
+<a href="3500cm2.html">3500 cm²</a>
+<a href="pagina.html">artists</a>
+<a href="locations.html">venues</a>
+<a href="../it/mostre.html" hreflang="it">exhibitions</a>
+<a href="../it/partner.html" hreflang="it">partners</a>
+<a href="press.html" aria-current="page">press</a>
+<a href="contact.html">contact</a>
+<a href="../it/stampa.html" hreflang="it">IT</a></nav>
+</header>
+<main>
+<p class="intro">Articles and features about 3500 cm².</p>
+<p class="intro">Articles and features about 3500 cm². Article titles are retained in their original language.</p>
+<article class="press-item">
+<p class="meta"><time datetime="2026-10-23">23 October 2026</time> · <strong>Il Giornale del Lazio</strong></p>
+<h2 lang="it"><a href="https://ilgiornaledellazio.it/a-head-project-e-3500-cm%C2%B2-larte-contemporanea-entra-negli-spazi-della-cura-di-gnosis-a-marino/" target="_blank" rel="noopener noreferrer" hreflang="it">A-HEAD Project e 3500 cm²: l’arte contemporanea entra negli spazi della cura di Gnosis a Marino</a></h2>
+<p class="author">By Alessio Morganti</p>
+<p class="description">3500 cm² and A-HEAD Project at Gnosis in Marino: the permanent collection and poster #117 by Gisella Chaudry, <em>Struttura in tre atti</em>.</p>
+<a class="read-article" href="https://ilgiornaledellazio.it/a-head-project-e-3500-cm%C2%B2-larte-contemporanea-entra-negli-spazi-della-cura-di-gnosis-a-marino/" target="_blank" rel="noopener noreferrer" hreflang="it">Read the article (in Italian) ↗</a>
+</article>
+<article class="press-item">
+<p class="meta"><time datetime="2026-07-16">16 July 2026</time> · <strong>Exibart</strong></p>
+<h2 lang="it"><a href="https://www.exibart.com/mostre/che-cose-una-mostra-a-macerata-expositio-mundi-indaga-il-significato-mostra/" target="_blank" rel="noopener noreferrer" hreflang="it">Che cos’è una mostra? A Macerata, Expositio Mundi indaga il significato dell’esposizione</a></h2>
+<p class="author">By Editorial staff</p>
+<p class="description">A feature on Expositio Mundi in Macerata and the history of exhibitions as public spaces, including a discussion of 3500 cm².</p>
+<a class="read-article" href="https://www.exibart.com/mostre/che-cose-una-mostra-a-macerata-expositio-mundi-indaga-il-significato-mostra/" target="_blank" rel="noopener noreferrer" hreflang="it">Read the article (in Italian) ↗</a>
+</article>
+<article class="press-item">
+<p class="meta"><time datetime="2026-07-12">12 July 2026</time> · <strong>La Lettura</strong></p>
+<h2 lang="it">«Idea! Una mostra!» 350 anni d’arte pubblica</h2>
+<p class="author">By Simona Buscaglia</p>
+<p class="description">In Macerata, contemporary works enter into dialogue with Giuseppe Ghezzi’s ideas, exploring public access to collections and democratic spaces for art.</p>
+</article>
+<article class="press-item">
+<p class="meta"><time datetime="2026-06-15">15 June 2026</time> · <strong>Il Foglio</strong></p>
+<h2 lang="it">L’arte che si prende: il progetto 3500 cm²</h2>
+<p class="description">An editorial and exhibition project in which the artist’s poster becomes an accessible, freely distributed work that can circulate beyond the traditional boundaries of the museum.</p>
+</article>
+<article class="press-item">
+<p class="meta"><time datetime="2025-10-18">18 October 2025</time></p>
+<h2 lang="it">Quando l’arte entra nei luoghi della cura</h2>
+<p class="description">An account of the first permanent collection of posters in mental health centres: works that engage patients, staff and visitors, helping make these spaces more open and welcoming.</p>
+</article>
+<article class="press-item">
+<p class="meta"><time datetime="2024-10-15">15 October 2024</time></p>
+<h2 lang="it">3500 cm²: vent’anni di arte in circolazione</h2>
+<p class="description">Twenty years after its inception, the project continues to build a dispersed collection: each edition gives an artist a 50 × 70 cm space to share freely.</p>
+</article>
+<article class="press-item">
+<p class="meta"><time datetime="2024-05-07">7 May 2024</time></p>
+<h2 lang="it">Il poster come spazio espositivo</h2>
+<p class="description">Through images, text and distribution, the printed poster becomes a mobile exhibition space that can travel through the city and become part of everyday life.</p>
+</article>
+</main>
+<script>
+const header = document.querySelector('.header');
+function updateHeaderHeight() {
+ document.documentElement.style.setProperty('--header-height', `${header.getBoundingClientRect().height}px`);
+}
+updateHeaderHeight();
+window.addEventListener('resize', updateHeaderHeight);
+if ('ResizeObserver' in window) new ResizeObserver(updateHeaderHeight).observe(header);
+if (document.fonts) document.fonts.ready.then(updateHeaderHeight);
+</script>
 </body>
 </html>
-```
