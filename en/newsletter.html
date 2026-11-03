@@ -1,127 +1,291 @@
 <!DOCTYPE html>
-<html lang="it">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Newsletter</title>
-    <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400&display=swap" rel="stylesheet">
-    <style>
-        /* Stili generali */
-        body {
-            font-family: 'Libre Baskerville', serif;
-            margin: 0;
-            padding: 0;
-            background-color: #fff;
-            color: #000;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Newsletter | 3500 cm²</title>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&amp;display=swap" rel="stylesheet">
+<style>
+/* Brevo defaults remain below the site's own styles in the cascade. */
+@import url("https://sibforms.com/forms/end-form/build/sib-styles.css") layer(brevo);
 
-        /* Contenitore principale della newsletter */
-        .newsletter-section {
-            background-color: #f5f5f5; /* Sfondo grigio chiaro */
-            padding: 50px 20px;
-            text-align: center;
-        }
+:root { --header-height: 76px; }
+* { box-sizing: border-box; }
+body { margin: 0; padding-top: var(--header-height); font-family: 'Libre Baskerville', Georgia, serif; color: #000; background: linear-gradient(120deg, #fff7f2, #f5f8ff, #f7fff8, #fff8fc, #fffdf3); background-size: 400% 400%; animation: pastelBackground 28s ease infinite; }
+@keyframes pastelBackground { 0%, 100% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } }
+a { color: inherit; } a:hover { color: blue; }
+a:focus-visible, summary:focus-visible { outline: 2px solid blue; outline-offset: 5px; }
+.header { position: fixed; inset: 0 0 auto; z-index: 3000; display: flex; justify-content: space-between; align-items: center; gap: 24px; padding: 18px 30px; background: #fff; border-bottom: 1px solid #ddd; }
+.page-title { margin: 0; font-size: 1.5rem; font-weight: 700; line-height: 1.5; }
+.page-title a { text-decoration: none; }
+.menu { display: flex; flex-wrap: wrap; justify-content: flex-end; align-items: center; gap: 10px 28px; }
+.menu a { font-size: 1rem; white-space: nowrap; text-decoration: none; }
+.menu a:hover, .menu a[aria-current] { text-decoration: underline; text-underline-offset: 4px; }
+main { max-width: 1540px; margin: auto; padding: 0 30px; }
+.news-item { padding: 40px 0 50px; border-bottom: 1px solid #c9c9c9; }
+.news-heading { max-width: 1000px; }
+.news-heading p { margin: 0 0 12px; line-height: 1.65; }
+.news-date { font-size: .95rem; }
+h2 { font-size: clamp(1.35rem, 2.4vw, 2rem); line-height: 1.4; margin: 18px 0 12px; overflow-wrap: anywhere; }
+.news-subtitle { font-size: 1.15rem; }
+.news-artists { font-weight: 700; }
+.news-place, .news-posters { color: #333; }
+.image-container { display: flex; flex-wrap: wrap; align-items: flex-start; gap: 30px; margin: 30px 0 24px; }
+.image-container a { width: var(--poster-width, 280px); max-width: 100%; flex: 0 0 auto; display: block; text-decoration: none; }
+.image-container img { display: block; width: 100%; height: auto; object-fit: contain; border: 1px solid #b5b5b5; }
+.image-container span { display: block; margin-top: 10px; font-size: 1rem; line-height: 1.5; }
+details { margin-top: 24px; }
+summary { width: fit-content; cursor: pointer; text-decoration: underline; text-underline-offset: 4px; line-height: 1.6; }
+.read-less, details[open] .read-more { display: none; }
+details[open] .read-less { display: inline; }
+.news-text { max-width: 78ch; line-height: 1.8; overflow-wrap: anywhere; margin-top: 24px; }
+.news-text p { margin: 0 0 1.2em; white-space: pre-line; }
+@media (max-width: 1000px) { :root { --header-height: 150px; } .header { flex-direction: column; align-items: flex-start; gap: 14px; padding: 16px 20px; } .page-title { font-size: 1.25rem; } .menu { justify-content: flex-start; gap: 10px 18px; } .menu a { font-size: .9rem; } }
+@media (max-width: 600px) { main { padding: 0 20px; } .news-item { padding: 30px 0 40px; } .image-container { gap: 24px; }  .news-subtitle { font-size: 1rem; } .news-text { font-size: .95rem; } }
+@media (prefers-reduced-motion: reduce) { body { animation: none; } }
+@media print { body { padding: 0; background: #fff; animation: none; } .header { position: static; } .menu, summary { display: none; } details::details-content { content-visibility: visible; } details > .news-text { display: block !important; } }
 
-        /* Titolo della newsletter */
-        .newsletter-section h2 {
-            font-size: 2rem;
-            color: #333;
-            margin-bottom: 10px;
-        }
+.newsletter-section { max-width: 720px; padding: 40px 0 60px; }
+#newsletter .sib-form, #newsletter #sib-container { background: #fff; text-align: left; padding: 24px; margin: 0; width: 100%; max-width: 100%; border: 0; border-radius: 0; }
+#newsletter .sib-form { padding: 0; }
+#newsletter, #newsletter input, #newsletter button, #newsletter label, #newsletter p { font-family: 'Libre Baskerville', Georgia, serif; }
+#newsletter .sib-form-block { padding: 0; color: #000; text-align: left; }
+#newsletter .sib-form-block p { line-height: 1.8; }
+#newsletter .sib-input { margin: 24px 0; }
+#newsletter .entry__label { display: block; font-weight: 700; font-size: 1rem; margin-bottom: 12px; }
+#newsletter .entry__field { background: #fff; border: 1px solid #000; border-radius: 0; }
+#newsletter input.input { color: #000; background: #fff; font-size: 1rem; padding: 14px; width: 100%; min-width: 0; }
+#newsletter input::placeholder { color: #666; }
+#newsletter .entry__specification { display: block; font-size: .8rem; line-height: 1.6; color: #444; margin-top: 10px; }
+#newsletter button { color: #fff; background: #000; border: 1px solid #000; border-radius: 0; padding: 14px 22px; font-size: 1rem; cursor: pointer; }
+#newsletter button:hover { background: #333; }
+#newsletter :is(input, button):focus-visible { outline: 2px solid blue; outline-offset: 4px; }
+#newsletter .sib-form-message-panel { font-family: inherit; max-width: 100%; }
+#newsletter .sib-notification__icon { width: 20px; height: 20px; flex-shrink: 0; }
+#newsletter .input--hidden { display: none !important; }
+@media (max-width:600px) { #newsletter #sib-container { padding: 20px 16px; } }
 
-        /* Descrizione sotto il titolo */
-        .newsletter-section p {
-            font-size: 1.2rem;
-            color: #666;
-            margin-bottom: 30px;
-        }
-
-        /* Contenitore del form */
-        .newsletter-form {
-            max-width: 500px;
-            margin: 0 auto;
-            padding: 20px;
-            background: white;
-            border-radius: 8px;
-            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-        }
-
-        /* Campi di input */
-        .newsletter-form input[type="text"],
-        .newsletter-form input[type="email"] {
-            width: 100%;
-            padding: 12px;
-            margin-bottom: 15px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            font-size: 1rem;
-            box-sizing: border-box;
-        }
-
-        /* Checkbox per privacy */
-        .checkbox-container {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 20px;
-            font-size: 0.9rem;
-            color: #333;
-        }
-
-        .checkbox-container input[type="checkbox"] {
-            margin-right: 10px;
-        }
-
-        /* Pulsante di invio */
-        .newsletter-form button {
-            width: 100%;
-            background-color: #333;
-            color: #fff;
-            padding: 12px;
-            border: none;
-            border-radius: 5px;
-            font-size: 1rem;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
-
-        .newsletter-form button:hover {
-            background-color: #555;
-        }
-
-        /* Stile per i campi obbligatori */
-        .required {
-            color: red;
-        }
-
-        /* Responsive */
-        @media (max-width: 600px) {
-            .newsletter-form {
-                width: 90%;
-            }
-        }
-    </style>
+:where(#newsletter .sib-form-message-panel) { display: none; }
+#newsletter .sib-form-message-panel--active { display: block; }
+#newsletter #error-message { color:#661d1d; background:#ffeded; border:1px solid #ff4949; }
+#newsletter #success-message { color:#085229; background:#e7faf0; border:1px solid #13ce66; }
+</style>
 </head>
 <body>
+<header class="header">
+<h1 class="page-title"><a href="newsletter.html">Newsletter</a></h1>
+<nav class="menu" aria-label="Main navigation">
+<a href="news.html">news</a>
+<a href="3500cm2.html">3500 cm²</a>
+<a href="pagina.html">artists</a>
+<a href="locations.html">venues</a>
+<a href="../it/mostre.html" hreflang="it" title="Page in Italian">exhibitions</a>
+<a href="../it/partner.html" hreflang="it" title="Page in Italian">partners</a>
+<a href="contact.html">contact</a>
+<a href="newsletter.html" aria-current="page">Newsletter</a>
 
-    <section class="newsletter-section">
-        <h2>Iscriviti alla nostra Newsletter</h2>
-        <p>Rimani aggiornato sulle ultime novità e sugli eventi speciali.</p>
 
-        <div class="newsletter-form">
-            <form action="#" method="POST">
-                <input type="text" name="nome" placeholder="Nome" required>
-                <input type="email" name="email" placeholder="Email" required>
+<a href="../it/newsletter.html" lang="it" hreflang="it">IT</a>
+</nav>
+</header>
+<main><section id="newsletter" class="newsletter-section" aria-labelledby="newsletter-titolo">
+<!-- Add the site owner's privacy notice before publication. No privacy URL has been supplied. -->
+<div class="sib-form">
+  <div id="sib-form-container" class="sib-form-container">
+    <div id="error-message" role="alert" class="sib-form-message-panel">
+      <div class="sib-form-message-panel__text sib-form-message-panel__text--center">
+        <svg aria-hidden="true" focusable="false" viewBox="0 0 512 512" class="sib-icon sib-notification__icon">
+          <path d="M256 40c118.621 0 216 96.075 216 216 0 119.291-96.61 216-216 216-119.244 0-216-96.562-216-216 0-119.203 96.602-216 216-216m0-32C119.043 8 8 119.083 8 256c0 136.997 111.043 248 248 248s248-111.003 248-248C504 119.083 392.957 8 256 8zm-11.49 120h22.979c6.823 0 12.274 5.682 11.99 12.5l-7 168c-.268 6.428-5.556 11.5-11.99 11.5h-8.979c-6.433 0-11.722-5.073-11.99-11.5l-7-168c-.283-6.818 5.167-12.5 11.99-12.5zM256 340c-15.464 0-28 12.536-28 28s12.536 28 28 28 28-12.536 28-28-12.536-28-28-28z" />
+        </svg>
+        <span class="sib-form-message-panel__inner-text">
 
-                <div class="checkbox-container">
-                    <input type="checkbox" id="privacy" required>
-                    <label for="privacy">Accetto l'informativa sulla privacy <span class="required">*</span></label>
+
+                Something went wrong. Please try again in a moment.
+              
+            
+          </span>
+      </div>
+    </div>
+    <div></div>
+    <div id="success-message" role="status" aria-live="polite" class="sib-form-message-panel">
+      <div class="sib-form-message-panel__text sib-form-message-panel__text--center">
+        <svg aria-hidden="true" focusable="false" viewBox="0 0 512 512" class="sib-icon sib-notification__icon">
+          <path d="M256 8C119.033 8 8 119.033 8 256s111.033 248 248 248 248-111.033 248-248S392.967 8 256 8zm0 464c-118.664 0-216-96.055-216-216 0-118.663 96.055-216 216-216 118.664 0 216 96.055 216 216 0 118.663-96.055 216-216 216zm141.63-274.961L217.15 376.071c-4.705 4.667-12.303 4.637-16.97-.068l-85.878-86.572c-4.667-4.705-4.637-12.303.068-16.97l8.52-8.451c4.705-4.667 12.303-4.637 16.97.068l68.976 69.533 163.441-162.13c4.705-4.667 12.303-4.637 16.97.068l8.451 8.52c4.668 4.705 4.637 12.303-.068 16.97z" />
+        </svg>
+        <span class="sib-form-message-panel__inner-text">
+
+
+                Thank you! Check your inbox and click the link to confirm your subscription to the 3500 cm² newsletter.
+             
+            
+          </span>
+      </div>
+    </div>
+    <div></div>
+    <div id="sib-container" class="sib-container--large sib-container--vertical">
+      <form id="sib-form" method="POST" action="https://605a6fe0.sibforms.com/serve/MUIFAMOzinh8LeDjSDk5z-dIQPLTA_wnNyOXnt7VamT4E5_CaBPnQWJe_y17oszXKtpxW2_sgTGTIqBqZVyIVo13i623fAszB9ni4FhIouKdBlmm-z8dGx2YmFp-PILIkmLM1j9VDWvO_tcKkxF8kZnGyxGq3R8xR71P4lzOSvB2DjCVv8R9WU7y8bn1E4tZlyFgB3A-DuTVbsGlAA==" data-type="subscription">
+
+
+        <div>
+
+
+          <div class="sib-form-block">
+            <h2 id="newsletter-titolo">3500 cm² — Newsletter</h2>
+          </div>
+
+
+
+        </div>
+
+
+
+        <div>
+
+
+          <div class="sib-form-block">
+            <div class="sib-text-form-block">
+              <p>Receive updates on new posters, exhibitions and projects by 3500 cm².</p>
+            </div>
+          </div>
+
+
+
+        </div>
+
+
+
+        <div>
+
+
+
+          <div class="sib-input sib-form-block">
+            <div class="form__entry entry_block">
+              <div class="form__label-row ">
+
+
+                <label class="entry__label" for="EMAIL" data-required="*">Enter your email address to subscribe</label>
+
+
+
+
+                <div class="entry__field">
+
+                  <input class="input " type="email" id="EMAIL" name="EMAIL" autocomplete="email" value="" placeholder="EMAIL" data-required="true" required />
+
                 </div>
 
-                <button type="submit">Iscriviti</button>
-            </form>
+              </div>
+
+              <label class="entry__error entry__error--primary">
+              </label>
+
+
+
+              <label class="entry__specification">
+                Enter your email address, e.g. abc@xyz.com
+              </label>
+
+            </div>
+          </div>
+
+
+
+
         </div>
-    </section>
+
+
+
+        <div>
+
+
+          <div class="sib-form-block">
+            <button class="sib-form-block__button sib-form-block__button-with-loader" form="sib-form" type="submit">
+              <svg aria-hidden="true" focusable="false" class="icon clickable__icon progress-indicator__icon sib-hide-loader-icon" viewBox="0 0 512 512">
+                <path d="M460.116 373.846l-20.823-12.022c-5.541-3.199-7.54-10.159-4.663-15.874 30.137-59.886 28.343-131.652-5.386-189.946-33.641-58.394-94.896-95.833-161.827-99.676C261.028 55.961 256 50.751 256 44.352V20.309c0-6.904 5.808-12.337 12.703-11.982 83.556 4.306 160.163 50.864 202.11 123.677 42.063 72.696 44.079 162.316 6.031 236.832-3.14 6.148-10.75 8.461-16.728 5.01z" />
+              </svg>
+              SUBSCRIBE
+            </button>
+
+
+          </div>
+
+
+
+        </div>
+
+
+
+        <input type="text" name="email_address_check" value="" class="input--hidden" tabindex="-1" aria-hidden="true" autocomplete="off">
+
+
+        <input type="hidden" name="locale" value="en">
+
+
+      </form>
+    </div>
+  </div>
+</div>
+</section></main>
+<script>
+// Keep the content below the fixed header at every width and font size.
+const header = document.querySelector('.header');
+function updateHeaderHeight() {
+  document.documentElement.style.setProperty('--header-height', `${header.getBoundingClientRect().height}px`);
+}
+updateHeaderHeight();
+window.addEventListener('resize', updateHeaderHeight);
+if ('ResizeObserver' in window) new ResizeObserver(updateHeaderHeight).observe(header);
+if (document.fonts) document.fonts.ready.then(updateHeaderHeight);
+</script>
+<script>
+  window.REQUIRED_CODE_ERROR_MESSAGE = 'Choose a country code';
+  window.LOCALE = 'en';
+
+
+
+
+  window.EMAIL_INVALID_MESSAGE = window.SMS_INVALID_MESSAGE = "Please check your email address.";
+
+
+
+
+
+  window.REQUIRED_ERROR_MESSAGE = "Please enter your email address. ";
+
+  window.GENERIC_INVALID_MESSAGE = "Please check your email address.";
+
+
+  window.INVALID_NUMBER = "Please check your email address.";
+
+
+
+
+  window.INVALID_DATE = "Please enter a valid date";
+
+
+
+  window.REQUIRED_MULTISELECT_MESSAGE = 'Select at least one option';
+
+
+  window.translation = {
+    common: {
+      selectedList: '{quantity} list selected',
+      selectedLists: '{quantity} lists selected',
+      selectedOption: '{quantity} selected',
+      selectedOptions: '{quantity} selected',
+    }
+  };
+
+  var AUTOHIDE = Boolean(0);
+</script>
+
+
+
+<script defer src="https://sibforms.com/forms/end-form/build/main.js"></script>
+
+
+
+
 
 </body>
 </html>
