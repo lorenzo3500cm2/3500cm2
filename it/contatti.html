@@ -145,6 +145,19 @@
             left: 20px;
         }
     }
+
+    .header { gap: 24px; }
+    .menu { flex-wrap: wrap; gap: 12px 24px; }
+    .floating-instagram { position: static; margin: 34px 20px 50px; animation: none; }
+    .newsletter-invito { margin-top: 36px; max-width: 600px; border-top: 1px solid #ddd; padding-top: 24px; }
+    .newsletter-invito h1 { font-size: 1.35rem; line-height: 1.5; margin: 0 0 16px; }
+    .newsletter-invito p { font-size: 1rem; font-weight: 400; line-height: 1.8; }
+    .newsletter-invito a { text-decoration: underline; text-underline-offset: 4px; }
+    a:focus-visible { outline: 2px solid blue; outline-offset: 4px; }
+    @media screen and (max-width: 1100px) {
+        .header { flex-direction: column; align-items: flex-start; gap: 14px; }
+        .menu { justify-content: flex-start; }
+    }
 </style>
     <script src="analytics.js"></script>
 </head>
@@ -162,6 +175,7 @@
         <a href="luoghi.html">luoghi</a>
         <a href="mostre.html">mostre</a>
         <a href="partner.html">partner</a>
+        <a href="newsletter.html">Newsletter</a>
         <a href="../en/contact.html">EN</a>
     </nav>
 </div>
@@ -178,7 +192,23 @@
     <p>
         <a href="https://www.facebook.com/3500cm2/" target="_blank" rel="noopener noreferrer">Facebook</a>
     </p>
+
+    <section class="newsletter-invito" aria-labelledby="newsletter-titolo">
+        <h1 id="newsletter-titolo">La newsletter di 3500 cm²</h1>
+        <p>Ricevi aggiornamenti sui nuovi poster, le mostre e i progetti di 3500 cm².</p>
+        <p><a href="newsletter.html">Iscriviti alla newsletter</a></p>
+    </section>
 </div>
 
+<script>
+const header = document.querySelector('.header');
+function updateHeaderHeight() {
+    document.body.style.paddingTop = `${header.getBoundingClientRect().height}px`;
+}
+updateHeaderHeight();
+window.addEventListener('resize', updateHeaderHeight);
+if ('ResizeObserver' in window) new ResizeObserver(updateHeaderHeight).observe(header);
+if (document.fonts) document.fonts.ready.then(updateHeaderHeight);
+</script>
 </body>
 </html>
