@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="it">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contatti</title>
+    <title>Contacts | 3500 cm²</title>
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-1ZDKD18HZM"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
@@ -147,6 +147,16 @@
             font-size: 1.1rem;
         }
     }
+
+.header { gap:24px; }
+.menu { flex-wrap:wrap; gap:12px 24px; }
+.floating-instagram { position:static; margin:34px 20px 50px; animation:none; }
+.newsletter-invitation { max-width:600px; margin-top:36px; padding-top:24px; border-top:1px solid #ddd; }
+.newsletter-invitation h2 { font-size:1.35rem; line-height:1.5; }
+.newsletter-invitation p { font-size:1rem; font-weight:400; line-height:1.8; }
+.newsletter-invitation a { text-decoration:underline; text-underline-offset:4px; }
+a:focus-visible { outline:2px solid blue; outline-offset:4px; }
+@media(max-width:1100px) { .header { flex-direction:column; align-items:flex-start; gap:14px; } .menu { justify-content:flex-start; } }
 </style>
     <script src="analytics.js"></script>
 </head>
@@ -162,6 +172,7 @@
         <a href="pagina.html">artists</a>
         <a href="locations.html">venues</a>
         <a href="3500cm2.html">3500cm²</a>
+        <a href="newsletter.html">Newsletter</a>
         <a href="../it/contatti.html">IT</a>
     </nav>
 </div>
@@ -176,7 +187,21 @@
     <p>
         <a href="https://www.facebook.com/3500cm2/" target="_blank" rel="noopener noreferrer">Facebook</a>
     </p>
+<section class="newsletter-invitation" aria-labelledby="newsletter-invitation">
+<h2 id="newsletter-invitation">The 3500 cm² newsletter</h2>
+<p style="max-width:65ch;line-height:1.8">Receive updates on new posters, exhibitions and projects by 3500 cm².</p>
+<p><a href="newsletter.html">Subscribe to the newsletter</a></p>
+</section>
 </div>
 
+<script>
+const header = document.querySelector('.header');
+function updateHeaderHeight() { document.body.style.paddingTop = `${header.getBoundingClientRect().height}px`; }
+updateHeaderHeight();
+window.addEventListener('resize', updateHeaderHeight);
+if ('ResizeObserver' in window) new ResizeObserver(updateHeaderHeight).observe(header);
+if (document.fonts) document.fonts.ready.then(updateHeaderHeight);
+</script>
 </body>
 </html>
+
