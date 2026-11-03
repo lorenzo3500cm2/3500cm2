@@ -1,97 +1,285 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Newsletter</title>
-    <link rel="stylesheet" href="css/stile.css">
-    <style>
-        body {
-            font-family: 'Libre Baskerville', serif;
-            margin: 0;
-            padding: 20px;
-            background-color: #ffffff;
-            color: #000;
-            text-align: center;
-        }
-        .header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px;
-            border-bottom: 1px solid #ddd;
-        }
-        .back-link {
-            font-size: 1.5rem;
-            font-weight: bold;
-            text-decoration: none;
-            color: #000;
-        }
-        .newsletter-container {
-            max-width: 600px;
-            margin: 50px auto;
-            padding: 20px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            background: #f9f9f9;
-        }
-        .newsletter-container h2 {
-            font-size: 2rem;
-            margin-bottom: 10px;
-        }
-        .newsletter-container p {
-            font-size: 1.2rem;
-            margin-bottom: 20px;
-        }
-        .newsletter-container input[type="email"] {
-            width: 100%;
-            padding: 10px;
-            margin-bottom: 10px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            font-size: 1rem;
-        }
-        .newsletter-container button {
-            width: 100%;
-            padding: 10px;
-            background-color: #000;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            font-size: 1rem;
-            cursor: pointer;
-        }
-        .newsletter-container button:hover {
-            background-color: #333;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Newsletter | 3500 cm²</title>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&amp;display=swap" rel="stylesheet">
+<style>
+/* Brevo defaults remain below the site's own styles in the cascade. */
+@import url("https://sibforms.com/forms/end-form/build/sib-styles.css") layer(brevo);
+
+:root { --header-height: 76px; }
+* { box-sizing: border-box; }
+body { margin: 0; padding-top: var(--header-height); font-family: 'Libre Baskerville', Georgia, serif; color: #000; background: linear-gradient(120deg, #fff7f2, #f5f8ff, #f7fff8, #fff8fc, #fffdf3); background-size: 400% 400%; animation: pastelBackground 28s ease infinite; }
+@keyframes pastelBackground { 0%, 100% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } }
+a { color: inherit; } a:hover { color: blue; }
+a:focus-visible, summary:focus-visible { outline: 2px solid blue; outline-offset: 5px; }
+.header { position: fixed; inset: 0 0 auto; z-index: 3000; display: flex; justify-content: space-between; align-items: center; gap: 24px; padding: 18px 30px; background: #fff; border-bottom: 1px solid #ddd; }
+.page-title { margin: 0; font-size: 1.5rem; font-weight: 700; line-height: 1.5; }
+.page-title a { text-decoration: none; }
+.menu { display: flex; flex-wrap: wrap; justify-content: flex-end; align-items: center; gap: 10px 28px; }
+.menu a { font-size: 1rem; white-space: nowrap; text-decoration: none; }
+.menu a:hover, .menu a[aria-current] { text-decoration: underline; text-underline-offset: 4px; }
+main { max-width: 1540px; margin: auto; padding: 0 30px; }
+.news-item { padding: 40px 0 50px; border-bottom: 1px solid #c9c9c9; }
+.news-heading { max-width: 1000px; }
+.news-heading p { margin: 0 0 12px; line-height: 1.65; }
+.news-date { font-size: .95rem; }
+h2 { font-size: clamp(1.35rem, 2.4vw, 2rem); line-height: 1.4; margin: 18px 0 12px; overflow-wrap: anywhere; }
+.news-subtitle { font-size: 1.15rem; }
+.news-artists { font-weight: 700; }
+.news-place, .news-posters { color: #333; }
+.image-container { display: flex; flex-wrap: wrap; align-items: flex-start; gap: 30px; margin: 30px 0 24px; }
+.image-container a { width: var(--poster-width, 280px); max-width: 100%; flex: 0 0 auto; display: block; text-decoration: none; }
+.image-container img { display: block; width: 100%; height: auto; object-fit: contain; border: 1px solid #b5b5b5; }
+.image-container span { display: block; margin-top: 10px; font-size: 1rem; line-height: 1.5; }
+details { margin-top: 24px; }
+summary { width: fit-content; cursor: pointer; text-decoration: underline; text-underline-offset: 4px; line-height: 1.6; }
+.read-less, details[open] .read-more { display: none; }
+details[open] .read-less { display: inline; }
+.news-text { max-width: 78ch; line-height: 1.8; overflow-wrap: anywhere; margin-top: 24px; }
+.news-text p { margin: 0 0 1.2em; white-space: pre-line; }
+@media (max-width: 1000px) { :root { --header-height: 150px; } .header { flex-direction: column; align-items: flex-start; gap: 14px; padding: 16px 20px; } .page-title { font-size: 1.25rem; } .menu { justify-content: flex-start; gap: 10px 18px; } .menu a { font-size: .9rem; } }
+@media (max-width: 600px) { main { padding: 0 20px; } .news-item { padding: 30px 0 40px; } .image-container { gap: 24px; }  .news-subtitle { font-size: 1rem; } .news-text { font-size: .95rem; } }
+@media (prefers-reduced-motion: reduce) { body { animation: none; } }
+@media print { body { padding: 0; background: #fff; animation: none; } .header { position: static; } .menu, summary { display: none; } details::details-content { content-visibility: visible; } details > .news-text { display: block !important; } }
+
+.newsletter-section { max-width: 720px; padding: 40px 0 60px; }
+#newsletter .sib-form, #newsletter #sib-container { background: #fff; text-align: left; padding: 24px; margin: 0; width: 100%; max-width: 100%; border: 0; border-radius: 0; }
+#newsletter .sib-form { padding: 0; }
+#newsletter, #newsletter input, #newsletter button, #newsletter label, #newsletter p { font-family: 'Libre Baskerville', Georgia, serif; }
+#newsletter .sib-form-block { padding: 0; color: #000; text-align: left; }
+#newsletter .sib-form-block p { line-height: 1.8; }
+#newsletter .sib-input { margin: 24px 0; }
+#newsletter .entry__label { display: block; font-weight: 700; font-size: 1rem; margin-bottom: 12px; }
+#newsletter .entry__field { background: #fff; border: 1px solid #000; border-radius: 0; }
+#newsletter input.input { color: #000; background: #fff; font-size: 1rem; padding: 14px; width: 100%; min-width: 0; }
+#newsletter input::placeholder { color: #666; }
+#newsletter .entry__specification { display: block; font-size: .8rem; line-height: 1.6; color: #444; margin-top: 10px; }
+#newsletter button { color: #fff; background: #000; border: 1px solid #000; border-radius: 0; padding: 14px 22px; font-size: 1rem; cursor: pointer; }
+#newsletter button:hover { background: #333; }
+#newsletter :is(input, button):focus-visible { outline: 2px solid blue; outline-offset: 4px; }
+#newsletter .sib-form-message-panel { font-family: inherit; max-width: 100%; }
+#newsletter .sib-notification__icon { width: 20px; height: 20px; flex-shrink: 0; }
+#newsletter .input--hidden { display: none !important; }
+@media (max-width:600px) { #newsletter #sib-container { padding: 20px 16px; } }
+</style>
 </head>
 <body>
-    <div class="header">
-        <a href="index.html" class="back-link">Newsletter</a>
+<header class="header">
+<h1 class="page-title"><a href="newsletter.html">Newsletter</a></h1>
+<nav class="menu" aria-label="Navigazione principale">
+<a href="news.html">news</a>
+<a href="3500cm2.html">3500 cm²</a>
+<a href="pagina.html">artisti</a>
+<a href="luoghi.html">luoghi</a>
+<a href="mostre.html">mostre</a>
+<a href="partner.html">partner</a>
+<a href="contatti.html">contatti</a>
+<a href="newsletter.html" aria-current="page">Newsletter</a>
+
+
+</nav>
+</header>
+<main><section id="newsletter" class="newsletter-section" aria-labelledby="newsletter-titolo">
+<!-- Prima della pubblicazione: aggiungere l'informativa privacy del titolare e aggiornare in Brevo gli eventuali campi di consenso; non è stato inventato un URL privacy. -->
+<div class="sib-form">
+  <div id="sib-form-container" class="sib-form-container">
+    <div id="error-message" role="alert" class="sib-form-message-panel">
+      <div class="sib-form-message-panel__text sib-form-message-panel__text--center">
+        <svg aria-hidden="true" focusable="false" viewBox="0 0 512 512" class="sib-icon sib-notification__icon">
+          <path d="M256 40c118.621 0 216 96.075 216 216 0 119.291-96.61 216-216 216-119.244 0-216-96.562-216-216 0-119.203 96.602-216 216-216m0-32C119.043 8 8 119.083 8 256c0 136.997 111.043 248 248 248s248-111.003 248-248C504 119.083 392.957 8 256 8zm-11.49 120h22.979c6.823 0 12.274 5.682 11.99 12.5l-7 168c-.268 6.428-5.556 11.5-11.99 11.5h-8.979c-6.433 0-11.722-5.073-11.99-11.5l-7-168c-.283-6.818 5.167-12.5 11.99-12.5zM256 340c-15.464 0-28 12.536-28 28s12.536 28 28 28 28-12.536 28-28-12.536-28-28-28z" />
+        </svg>
+        <span class="sib-form-message-panel__inner-text">
+
+
+                Si è verificato un errore. Riprova tra qualche istante.
+              
+            
+          </span>
+      </div>
     </div>
+    <div></div>
+    <div id="success-message" role="status" aria-live="polite" class="sib-form-message-panel">
+      <div class="sib-form-message-panel__text sib-form-message-panel__text--center">
+        <svg aria-hidden="true" focusable="false" viewBox="0 0 512 512" class="sib-icon sib-notification__icon">
+          <path d="M256 8C119.033 8 8 119.033 8 256s111.033 248 248 248 248-111.033 248-248S392.967 8 256 8zm0 464c-118.664 0-216-96.055-216-216 0-118.663 96.055-216 216-216 118.664 0 216 96.055 216 216 0 118.663-96.055 216-216 216zm141.63-274.961L217.15 376.071c-4.705 4.667-12.303 4.637-16.97-.068l-85.878-86.572c-4.667-4.705-4.637-12.303.068-16.97l8.52-8.451c4.705-4.667 12.303-4.637 16.97.068l68.976 69.533 163.441-162.13c4.705-4.667 12.303-4.637 16.97.068l8.451 8.52c4.668 4.705 4.637 12.303-.068 16.97z" />
+        </svg>
+        <span class="sib-form-message-panel__inner-text">
 
-    <div class="newsletter-container">
-        <h2>Iscriviti alla nostra Newsletter</h2>
-        <p>Ricevi aggiornamenti su progetti, mostre e iniziative di 3500 cm².</p>
-        <form action="newsletter-signup.php" method="POST">
-            <input type="email" name="email" placeholder="Inserisci la tua email" required>
-            <button type="submit">Iscriviti</button>
-        </form>
+
+                Grazie! Controlla la tua email e clicca sul link per confermare l&#39;iscrizione alla newsletter di 3500 cm².
+             
+            
+          </span>
+      </div>
     </div>
+    <div></div>
+    <div id="sib-container" class="sib-container--large sib-container--vertical">
+      <form id="sib-form" method="POST" action="https://605a6fe0.sibforms.com/serve/MUIFABWuC41AMoxhzziba0CJGtytDUu3A6zbpsFGqoRZjIIqej9Z2mPgWDxRB_gc4m0PqOzkii27fBJtvMIX-IB8NG9NLcOM6mRWfbcLMkZAq4H9LhYv4mdgp1U-meRZB15sXxiwFwruJqa90BSzsxd6vsi5yDwE4MQaIAAAU7clQL11rCMXtNkJIdYJ33hHQywTH-vuaEGm0Kw8uw==" data-type="subscription">
 
 
-<body>
+        <div>
 
-    <h1>Iscriviti alla Newsletter</h1>
-    <p>Ricevi aggiornamenti sui nuovi poster e sulle iniziative di 3500 cm² direttamente nella tua casella di posta.</p>
 
-    <!-- Form di iscrizione Substack -->
-    <iframe src="https://3500cm2.substack.com/embed" width="480" height="320" 
-            style="border:1px solid #EEE; background:white;" 
-            frameborder="0" scrolling="no"></iframe>
+          <div class="sib-form-block">
+            <h2 id="newsletter-titolo">3500 cm² — Newsletter</h2>
+          </div>
 
-</body>
-</html>
+
+
+        </div>
+
+
+
+        <div>
+
+
+          <div class="sib-form-block">
+            <div class="sib-text-form-block">
+              <p>Ricevi aggiornamenti sui nuovi poster, le mostre e i progetti di 3500 cm².</p>
+            </div>
+          </div>
+
+
+
+        </div>
+
+
+
+        <div>
+
+
+
+          <div class="sib-input sib-form-block">
+            <div class="form__entry entry_block">
+              <div class="form__label-row ">
+
+
+                <label class="entry__label" for="EMAIL" data-required="*">Inserisci il tuo indirizzo email per iscriverti</label>
+
+
+
+
+                <div class="entry__field">
+
+                  <input class="input " type="email" id="EMAIL" name="EMAIL" autocomplete="email" value="" placeholder="EMAIL" data-required="true" required />
+
+                </div>
+
+              </div>
+
+              <label class="entry__error entry__error--primary">
+              </label>
+
+
+
+              <label class="entry__specification">
+                Indica il tuo indirizzo email per iscriverti. Es. abc@xyz.com
+              </label>
+
+            </div>
+          </div>
+
+
+
+
+        </div>
+
+
+
+        <div>
+
+
+          <div class="sib-form-block">
+            <button class="sib-form-block__button sib-form-block__button-with-loader" form="sib-form" type="submit">
+              <svg aria-hidden="true" focusable="false" class="icon clickable__icon progress-indicator__icon sib-hide-loader-icon" viewBox="0 0 512 512">
+                <path d="M460.116 373.846l-20.823-12.022c-5.541-3.199-7.54-10.159-4.663-15.874 30.137-59.886 28.343-131.652-5.386-189.946-33.641-58.394-94.896-95.833-161.827-99.676C261.028 55.961 256 50.751 256 44.352V20.309c0-6.904 5.808-12.337 12.703-11.982 83.556 4.306 160.163 50.864 202.11 123.677 42.063 72.696 44.079 162.316 6.031 236.832-3.14 6.148-10.75 8.461-16.728 5.01z" />
+              </svg>
+              ISCRIVITI
+            </button>
+
+
+          </div>
+
+
+
+        </div>
+
+
+
+        <input type="text" name="email_address_check" value="" class="input--hidden" tabindex="-1" aria-hidden="true" autocomplete="off">
+
+
+        <input type="hidden" name="locale" value="it">
+
+
+      </form>
+    </div>
+  </div>
+</div>
+</section></main>
+<script>
+// Keep the content below the fixed header at every width and font size.
+const header = document.querySelector('.header');
+function updateHeaderHeight() {
+  document.documentElement.style.setProperty('--header-height', `${header.getBoundingClientRect().height}px`);
+}
+updateHeaderHeight();
+window.addEventListener('resize', updateHeaderHeight);
+if ('ResizeObserver' in window) new ResizeObserver(updateHeaderHeight).observe(header);
+if (document.fonts) document.fonts.ready.then(updateHeaderHeight);
+</script>
+<script>
+  window.REQUIRED_CODE_ERROR_MESSAGE = 'Scegli un prefisso paese';
+  window.LOCALE = 'it';
+
+
+
+
+  window.EMAIL_INVALID_MESSAGE = window.SMS_INVALID_MESSAGE = "Controlla l&#39;indirizzo email inserito.";
+
+
+
+
+
+  window.REQUIRED_ERROR_MESSAGE = "Inserisci il tuo indirizzo email. ";
+
+  window.GENERIC_INVALID_MESSAGE = "Controlla l&#39;indirizzo email inserito.";
+
+
+  window.INVALID_NUMBER = "Controlla l&#39;indirizzo email inserito.";
+
+
+
+
+  window.INVALID_DATE = "Inserisci una data valida";
+
+
+
+  window.REQUIRED_MULTISELECT_MESSAGE = 'Seleziona almeno 1 opzione';
+
+
+  window.translation = {
+    common: {
+      selectedList: '{quantity} lista selezionata',
+      selectedLists: '{quantity} liste selezionate',
+      selectedOption: '{quantity} selezionato',
+      selectedOptions: '{quantity} selezionati',
+    }
+  };
+
+  var AUTOHIDE = Boolean(0);
+</script>
+
+
+
+<script defer src="https://sibforms.com/forms/end-form/build/main.js"></script>
+
+
+
+
+
 </body>
 </html>
